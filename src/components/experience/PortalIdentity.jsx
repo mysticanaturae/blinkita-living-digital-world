@@ -1,6 +1,5 @@
 export default function PortalIdentity({
     purpose,
-    atmosphere,
     experience,
 }) {
     return (
@@ -11,11 +10,23 @@ export default function PortalIdentity({
             </p>
 
             <p>
-                Atmosphere: {atmosphere}
+    Atmosphere: {experience.atmosphere}
+</p>
+
+            <p>
+                Identity: {experience.identity}
             </p>
 
             <p>
-                Experience: {experience}
+                Message: {experience.message}
+            </p>
+
+            <p>
+                Interaction: {experience.interaction}
+            </p>
+
+            <p>
+                Transition: {experience.transition}
             </p>
 
         </section>

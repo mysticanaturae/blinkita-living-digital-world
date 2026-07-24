@@ -1,28 +1,25 @@
 export const PortalSchema = {
+
     id: "",
-    type: "portal",
 
     title: "",
+
     subtitle: "",
 
-    path: "",
-    order: 0,
+    purpose: "",
 
-    identity: {
+    experience: {
 
-        symbol: "",
-
-        element: "",
-
-        purpose: "",
+        identity: "",
 
         atmosphere: "",
 
-        experience: "",
+        message: "",
 
-        invitation: "",
+        interaction: "",
 
-        transformation: "",
+        transition: ""
 
-    },
+    }
+
 };

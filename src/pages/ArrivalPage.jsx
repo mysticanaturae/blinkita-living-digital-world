@@ -22,11 +22,10 @@ console.log(
             subtitle={portal.subtitle}
         >
 
-            <PortalIdentity
-                purpose={portal.purpose}
-                atmosphere={portal.atmosphere}
-                experience={portal.experience}
-            />
+           <PortalIdentity
+    purpose={portal.purpose}
+    experience={portal.experience}
+/>
 
             <p>
                 Your journey begins here.
