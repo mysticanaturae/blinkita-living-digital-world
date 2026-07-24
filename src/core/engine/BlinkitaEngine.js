@@ -11,6 +11,7 @@ Version 1.0
 ==========================================
 */
 
+import { JourneyEngine } from "./JourneyEngine";
 
 export const BlinkitaEngine = {
 
@@ -30,6 +31,13 @@ export const BlinkitaEngine = {
         "Evolution"
     ],
 
-    status: "awakening"
+    status: "awakening",
+
+
+    getJourney() {
+
+    return JourneyEngine.getJourney();
+
+}
 
 };

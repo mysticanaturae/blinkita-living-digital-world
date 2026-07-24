@@ -11,10 +11,10 @@ export default function ArrivalPage() {
 
     const validation = validatePortal(portal);
 
-console.log(
-    "Portal validation:",
-    validation
-);
+    console.log(
+        "Portal validation:",
+        validation
+    );
 
     return (
         <PortalShell
@@ -22,10 +22,10 @@ console.log(
             subtitle={portal.subtitle}
         >
 
-           <PortalIdentity
-    purpose={portal.purpose}
-    experience={portal.experience}
-/>
+            <PortalIdentity
+                purpose={portal.purpose}
+                experience={portal.experience}
+            />
 
             <p>
                 Your journey begins here.
