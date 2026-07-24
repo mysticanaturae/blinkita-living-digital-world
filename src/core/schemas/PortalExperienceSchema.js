@@ -1,7 +1,7 @@
 export const PortalExperienceSchema = {
 
     identity: "",
-    
+
     atmosphere: "",
 
     message: "",
