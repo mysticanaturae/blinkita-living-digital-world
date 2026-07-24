@@ -1,5 +1,14 @@
+import PortalLayout from "../layouts/PortalLayout";
+
 export default function ArrivalPage() {
     return (
-        <h1>Arrival</h1>
+        <PortalLayout
+            title="Arrival"
+            subtitle="Welcome to the Living Digital World™"
+        >
+            <p>
+                Your journey begins here.
+            </p>
+        </PortalLayout>
     );
 }
