@@ -1,15 +1,13 @@
 import PortalShell from "../layouts/PortalShell";
 import PortalIdentity from "../components/experience/PortalIdentity";
 
-import { portals } from "../core/data/portals";
+import { getPortal } from "../core/registry/PortalRegistry";
 import { validatePortal } from "../core/utils/validatePortal";
 
 
 export default function ArrivalPage() {
 
-    const portal = portals.find(
-        item => item.id === "arrival"
-    );
+    const portal = getPortal("arrival");
 
     const validation = validatePortal(portal);
 
