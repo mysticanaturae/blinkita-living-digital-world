@@ -16,6 +16,7 @@ export default function ArrivalPage() {
         validation
     );
 
+
     return (
         <PortalShell
             title={portal.title}
