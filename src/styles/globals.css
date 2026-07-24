@@ -71,3 +71,33 @@ body {
     justify-content: center;
 
 }
+
+.portal-navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: var(--space-sm);
+
+    flex-wrap: wrap;
+
+    margin-bottom: var(--space-lg);
+
+}
+
+
+.portal-navigation a {
+
+    color: var(--color-text-soft);
+
+    text-decoration: none;
+
+}
+
+
+.portal-navigation a:hover {
+
+    color: var(--color-secondary);
+
+}
