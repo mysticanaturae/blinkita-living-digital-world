@@ -1,13 +1,23 @@
 export const portals = [
 
     {
-        id: "arrival",
-        type: "portal",
-        title: "Arrival",
-        subtitle: "Welcome to the Living Digital World™",
-        path: "/",
-        order: 1,
-    },
+    id: "arrival",
+    type: "portal",
+
+    title: "Arrival",
+
+    subtitle: "Welcome to the Living Digital World™",
+
+    path: "/",
+
+    order: 1,
+
+    purpose: "Enter the living world.",
+
+    atmosphere: "awakening",
+
+    experience: "gateway",
+},
 
     {
         id: "invitation",
