@@ -1,5 +1,5 @@
 import { TransitionEngine } from "../../core/transitions/TransitionEngine";
-import { PortalRoutes } from "../../core/routes/PortalRoutes";
+import { getPortal } from "../../core/registry/PortalRegistry";
 
 
 export default function PortalGateway({
@@ -12,9 +12,7 @@ export default function PortalGateway({
     );
 
 
-    const nextPortal = PortalRoutes.find(
-        portal => portal.id === nextPortalId
-    );
+    const nextPortal = getPortal(nextPortalId);
 
 
     if (!nextPortal) {
@@ -30,9 +28,10 @@ export default function PortalGateway({
             </p>
 
 
-            <a href={nextPortal.path}>
+            <a href={`/portal/${nextPortal.id}`}>
                 Begin your journey
             </a>
+
 
         </section>
     );

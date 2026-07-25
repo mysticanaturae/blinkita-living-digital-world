@@ -72,22 +72,92 @@ export const portals = [
 },
 
     {
-        id: "possibility",
-        type: "portal",
-        title: "Possibility",
-        subtitle: "Where imagination becomes creation.",
-        path: "/possibility",
-        order: 3,
+    id: "possibility",
+
+    type: "portal",
+
+    title: "Possibility",
+
+    subtitle:
+        "Where imagination becomes creation.",
+
+
+    purpose:
+        "The place where ideas begin to take form.",
+
+
+    experience: {
+
+        identity:
+            "The Field of Possibility",
+
+
+        atmosphere:
+            "Expansion",
+
+
+        message:
+            "Every creation begins as a possibility.",
+
+
+        interaction:
+            "Explore what can become.",
+
+
+        transition:
+            "the-call"
+
     },
 
+
+    path: "/possibility",
+
+    order: 3,
+},
+
     {
-        id: "the-call",
-        type: "portal",
-        title: "The Call",
-        subtitle: "The moment when the journey begins.",
-        path: "/the-call",
-        order: 4,
+    id: "the-call",
+
+    type: "portal",
+
+    title: "The Call",
+
+    subtitle:
+        "The moment when the journey begins.",
+
+
+    purpose:
+        "The awakening moment where intention becomes movement.",
+
+
+    experience: {
+
+        identity:
+            "The Inner Call",
+
+
+        atmosphere:
+            "Awakening",
+
+
+        message:
+            "Every journey begins when something within you responds.",
+
+
+        interaction:
+            "Listen to the call.",
+
+
+        transition:
+            "world-seed"
+
     },
+
+
+    path: "/the-call",
+
+    order: 4,
+},
 
     {
         id: "world-seed",
