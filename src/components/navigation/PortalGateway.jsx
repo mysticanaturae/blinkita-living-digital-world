@@ -8,12 +8,13 @@ PORTAL GATEWAY™
 The transition point
 between Living Worlds™
 
-Version 1.1
+Version 1.3
 ==========================================
 */
 
 
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 import { TransitionEngine } from "../../core/transitions/TransitionEngine";
 import { PortalRoutes } from "../../core/routes/PortalRoutes";
@@ -21,10 +22,11 @@ import { PortalRoutes } from "../../core/routes/PortalRoutes";
 import { enterWorldPortal } from "../../core/state/WorldState";
 
 
-
 export default function PortalGateway({
 
     currentPortalId,
+
+    exposeAction,
 
 }) {
 
@@ -48,37 +50,70 @@ export default function PortalGateway({
 
 
 
+    function enterNextPortal() {
+
+
+    if (!nextPortal) {
+
+        console.warn(
+            "No next portal available."
+        );
+
+        return;
+
+    }
+
+
+    const updatedWorld =
+        enterWorldPortal(
+            nextPortal.id
+        );
+
+
+    console.log(
+        "World State Updated:",
+        updatedWorld
+    );
+
+
+    navigate(
+        nextPortal.path
+    );
+
+}
+
+console.log(
+    "GATEWAY DEBUG",
+    {
+        currentPortalId,
+        nextPortalId,
+        nextPortal
+    }
+);
+
+   useEffect(() => {
+
+    if (
+        exposeAction &&
+        nextPortal
+    ) {
+
+        exposeAction(() => enterNextPortal);
+
+    }
+
+}, [
+    exposeAction,
+    currentPortalId,
+    nextPortalId
+]);
+
+
     if (!nextPortal) {
 
         return null;
 
     }
-
-
-
-    function enterNextPortal() {
-
-
-        const updatedWorld =
-            enterWorldPortal(
-                nextPortal.id
-            );
-
-
-        console.log(
-            "World State Updated:",
-            updatedWorld
-        );
-
-
-
-        navigate(
-            nextPortal.path
-        );
-
-
-    }
-
 
 
 
@@ -94,7 +129,11 @@ export default function PortalGateway({
 
 
             <button
-                onClick={enterNextPortal}
+
+                onClick={
+                    enterNextPortal
+                }
+
             >
 
                 Begin your journey

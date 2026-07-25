@@ -1,29 +1,53 @@
+import { useState } from "react";
+
 import PortalIdentity from "../experience/PortalIdentity";
-import PortalExperience from "../experience/PortalExperience";
+import ExperienceEngine from "../experience/ExperienceEngine";
 import PortalGateway from "../navigation/PortalGateway";
 import JourneyProgress from "../journey/JourneyProgress";
 
 
 export default function PortalTemplate({
+
     portal,
+
 }) {
 
+
+    const [gatewayAction, setGatewayAction] = useState(null);
+
+
+
     return (
+
         <section className="portal-template">
 
 
             <PortalIdentity
+
                 purpose={portal.purpose}
+
                 experience={portal.experience}
+
             />
 
 
 
-            <PortalExperience
-                identity={portal.experience.identity}
-                atmosphere={portal.experience.atmosphere}
-                message={portal.experience.message}
-                interaction={portal.experience.interaction}
+            <ExperienceEngine
+
+                experience={
+                    portal.experience
+                }
+
+                onActivate={() => {
+
+                    if (gatewayAction) {
+
+                        gatewayAction();
+
+                    }
+
+                }}
+
             />
 
 
@@ -33,10 +57,20 @@ export default function PortalTemplate({
 
 
             <PortalGateway
-                currentPortalId={portal.id}
+
+                currentPortalId={
+                    portal.id
+                }
+
+                exposeAction={
+                    setGatewayAction
+                }
+
             />
 
 
         </section>
+
     );
+
 }

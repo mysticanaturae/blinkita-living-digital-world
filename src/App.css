@@ -102,3 +102,70 @@ button {
 .world-seed {
   gap: 1.2rem;
 }
+
+.experience-engine {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 1.8rem;
+
+  margin-top: 3rem;
+
+  margin-bottom: 3rem;
+
+}
+
+
+.portal-atmosphere {
+
+  opacity: 0.8;
+
+}
+
+
+.portal-whisper {
+
+  font-style: italic;
+
+  opacity: 0.9;
+
+}
+
+
+.portal-identity {
+
+  margin-top: 1rem;
+
+}
+
+
+.portal-message {
+
+  margin-top: 1rem;
+
+}
+
+
+.portal-ritual {
+
+  margin-top: 1rem;
+
+}
+
+
+.portal-interaction {
+
+  margin-top: 2rem;
+
+}
+
+
+.portal-gateway {
+
+  margin-top: 5rem;
+
+}
