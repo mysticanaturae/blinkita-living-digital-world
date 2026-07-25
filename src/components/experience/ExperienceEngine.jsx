@@ -8,7 +8,7 @@ EXPERIENCE ENGINE™
 The living experience layer
 of every portal
 
-Version 1.0
+Version 1.1
 ==========================================
 */
 
@@ -36,7 +36,6 @@ export default function ExperienceEngine({
         "Experience Sequence:",
         ExperienceSequence
     );
-
 
 
     return (
