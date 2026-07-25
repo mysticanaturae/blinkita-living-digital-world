@@ -7,7 +7,7 @@ JOURNEY PROGRESS™
 
 The visible evolution layer
 
-Version 1.0
+Version 1.1
 ==========================================
 */
 
@@ -45,6 +45,7 @@ export default function JourneyProgress() {
             </h3>
 
 
+
             <p>
                 Current Portal:
                 {" "}
@@ -54,9 +55,19 @@ export default function JourneyProgress() {
 
 
             <p>
-                Portals discovered:
+                Portals Discovered:
                 {" "}
                 {state.visitedPortals.length}
+                {" / "}
+                9
+            </p>
+
+
+
+            <p>
+                Portals Completed:
+                {" "}
+                {state.completedPortals.length}
                 {" / "}
                 9
             </p>
@@ -76,6 +87,7 @@ export default function JourneyProgress() {
                 {" "}
                 {state.status}
             </p>
+
 
 
         </section>

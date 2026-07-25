@@ -8,7 +8,7 @@ PORTAL STATE ENGINE™
 The memory layer
 of a Living World™
 
-Version 1.0
+Version 1.1
 ==========================================
 */
 
@@ -37,6 +37,7 @@ export const PortalStateEngine = {
     },
 
 
+
     enterPortal(
         state,
         portalId
@@ -51,18 +52,27 @@ export const PortalStateEngine = {
 
 
             visitedPortals:
+
                 state.visitedPortals.includes(portalId)
 
-                ? state.visitedPortals
+                ?
 
-                : [
+                state.visitedPortals
+
+                :
+
+                [
+
                     ...state.visitedPortals,
+
                     portalId
+
                 ]
 
         };
 
     },
+
 
 
     completePortal(
@@ -71,24 +81,54 @@ export const PortalStateEngine = {
     ) {
 
 
+        const completedPortals =
+
+            state.completedPortals.includes(portalId)
+
+            ?
+
+            state.completedPortals
+
+            :
+
+            [
+
+                ...state.completedPortals,
+
+                portalId
+
+            ];
+
+
+
         return {
+
 
             ...state,
 
 
-            completedPortals:
-                state.completedPortals.includes(portalId)
+            completedPortals,
 
-                ? state.completedPortals
 
-                : [
-                    ...state.completedPortals,
-                    portalId
-                ]
+            progress:
+
+                Math.round(
+
+                    (
+
+                        completedPortals.length /
+
+                        9
+
+                    ) * 100
+
+                )
+
 
         };
 
     },
+
 
 
     getProgress(
@@ -98,10 +138,15 @@ export const PortalStateEngine = {
 
 
         return Math.round(
+
             (
-                state.visitedPortals.length /
+
+                state.completedPortals.length /
+
                 totalPortals
+
             ) * 100
+
         );
 
     }

@@ -19,7 +19,10 @@ import { useEffect } from "react";
 import { TransitionEngine } from "../../core/transitions/TransitionEngine";
 import { PortalRoutes } from "../../core/routes/PortalRoutes";
 
-import { enterWorldPortal } from "../../core/state/WorldState";
+import { 
+    enterWorldPortal,
+    completeWorldPortal
+} from "../../core/state/WorldState";
 
 
 export default function PortalGateway({
@@ -52,6 +55,9 @@ export default function PortalGateway({
 
     function enterNextPortal() {
 
+        completeWorldPortal(
+    currentPortalId
+);
 
     if (!nextPortal) {
 

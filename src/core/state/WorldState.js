@@ -8,7 +8,7 @@ WORLD STATE™
 The memory layer
 of a Living World™
 
-Version 1.1
+Version 1.2
 ==========================================
 */
 
@@ -49,12 +49,15 @@ let worldState = {
 
 
 
+
 export function getWorldState() {
 
 
     return worldState;
 
 }
+
+
 
 
 
@@ -77,6 +80,73 @@ export function updateWorldState(
     return worldState;
 
 }
+
+
+
+
+
+
+
+export function completeWorldPortal(
+    portalId
+) {
+
+
+    const alreadyCompleted =
+        worldState.completedPortals.includes(
+            portalId
+        );
+
+
+
+    if (alreadyCompleted) {
+
+        return worldState;
+
+    }
+
+
+
+    const completedPortals = [
+
+        ...worldState.completedPortals,
+
+        portalId
+
+    ];
+
+
+
+    const progress =
+        Math.round(
+            (
+                completedPortals.length / 9
+            ) * 100
+        );
+
+
+
+    worldState = {
+
+
+        ...worldState,
+
+
+        completedPortals,
+
+
+        progress
+
+
+    };
+
+
+
+    return worldState;
+
+}
+
+
 
 
 
@@ -106,19 +176,27 @@ export function enterWorldPortal(
 
         visitedPortals:
 
+
             alreadyVisited
+
 
             ?
 
+
             worldState.visitedPortals
+
 
             :
 
+
             [
+
 
                 ...worldState.visitedPortals,
 
+
                 portalId
+
 
             ],
 
@@ -126,11 +204,15 @@ export function enterWorldPortal(
 
         creator:
 
+
             VisitorProfile.discoverPortal(
+
 
                 worldState.creator,
 
+
                 portalId
+
 
             )
 
