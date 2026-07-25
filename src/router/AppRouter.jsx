@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { portalRoutes } from "../core/routes/PortalRoutes";
+import { PortalRoutes } from "../core/routes/PortalRoutes";
 
 
 export default function AppRouter() {
@@ -10,7 +10,7 @@ export default function AppRouter() {
 
             <Routes>
 
-                {portalRoutes.map((route) => {
+                {PortalRoutes.map((route) => {
 
                     const PageComponent = route.component;
 

@@ -1,5 +1,6 @@
 import PortalShell from "../layouts/PortalShell";
 import PortalIdentity from "../components/experience/PortalIdentity";
+import PortalGateway from "../components/navigation/PortalGateway";
 
 import { getPortal } from "../core/registry/PortalRegistry";
 import { validatePortal } from "../core/utils/validatePortal";
@@ -29,6 +30,12 @@ export default function ArrivalPage() {
                 purpose={portal.purpose}
                 experience={portal.experience}
             />
+
+
+            <PortalGateway
+                currentPortalId={portal.id}
+            />
+
 
             <p>
                 Your journey begins here.

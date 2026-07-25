@@ -9,7 +9,7 @@ import ExperiencePage from "../../pages/ExperiencePage";
 import LivingWorldPage from "../../pages/LivingWorldPage";
 
 
-export const portalRoutes = [
+export const PortalRoutes = [
 
     {
         id: "arrival",
