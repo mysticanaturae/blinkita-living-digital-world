@@ -5,32 +5,140 @@ LIVING DIGITAL WORLD™
 
 WORLD STATE™
 
-The living memory container
+The memory layer
+of a Living World™
 
-Version 1.0
+Version 1.1
 ==========================================
 */
 
 
-import { PortalStateEngine } from "./PortalStateEngine";
-
-
-export let worldState =
-    PortalStateEngine.createState();
+import { VisitorProfile } from "../profile/VisitorProfile";
 
 
 
-export function updateWorldState(
-    newState
-) {
+let worldState = {
 
-    worldState = newState;
+
+    currentPortal: "arrival",
+
+
+    visitedPortals: [
+
+        "arrival"
+
+    ],
+
+
+    completedPortals: [],
+
+
+    progress: 0,
+
+
+    status: "awakening",
+
+
+
+    creator: VisitorProfile.createProfile()
+
+
+};
+
+
+
+
+
+export function getWorldState() {
+
+
+    return worldState;
 
 }
 
 
 
-export function getWorldState() {
+
+
+export function updateWorldState(
+    updates
+) {
+
+
+    worldState = {
+
+        ...worldState,
+
+        ...updates
+
+    };
+
+
+    return worldState;
+
+}
+
+
+
+
+
+export function enterWorldPortal(
+    portalId
+) {
+
+
+    const alreadyVisited =
+        worldState.visitedPortals.includes(
+            portalId
+        );
+
+
+
+    worldState = {
+
+
+        ...worldState,
+
+
+        currentPortal: portalId,
+
+
+
+        visitedPortals:
+
+            alreadyVisited
+
+            ?
+
+            worldState.visitedPortals
+
+            :
+
+            [
+
+                ...worldState.visitedPortals,
+
+                portalId
+
+            ],
+
+
+
+        creator:
+
+            VisitorProfile.discoverPortal(
+
+                worldState.creator,
+
+                portalId
+
+            )
+
+
+
+    };
+
+
 
     return worldState;
 
