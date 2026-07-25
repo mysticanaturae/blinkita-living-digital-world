@@ -169,3 +169,20 @@ button {
   margin-top: 5rem;
 
 }
+
+.portal-completion {
+    margin-top: 40px;
+    padding: 30px;
+}
+
+
+.portal-completion strong {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+
+.portal-completion button {
+    margin-top: 20px;
+}

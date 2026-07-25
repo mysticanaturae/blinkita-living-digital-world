@@ -14,7 +14,7 @@ Version 1.2
 
 
 import { VisitorProfile } from "../profile/VisitorProfile";
-
+import { WorldLifecycle } from "../world/WorldLifecycle";
 
 
 let worldState = {
@@ -36,7 +36,7 @@ let worldState = {
     progress: 0,
 
 
-    status: "awakening",
+    status: "seed",
 
 
 
@@ -148,80 +148,96 @@ export function completeWorldPortal(
 
 
 
-
-
-
-
 export function enterWorldPortal(
     portalId
-) {
+) 
+
+{
 
 
-    const alreadyVisited =
-        worldState.visitedPortals.includes(
+   const alreadyVisited =
+    worldState.visitedPortals.includes(
+        portalId
+    );
+
+
+let nextStatus =
+    worldState.status;
+
+
+if (portalId === "world-seed") {
+
+    nextStatus =
+        WorldLifecycle.stages.GROWING.id;
+
+}
+
+
+if (portalId === "living-world") {
+
+    nextStatus =
+        WorldLifecycle.stages.LIVING.id;
+
+}
+
+
+
+worldState = {
+
+
+    ...worldState,
+
+
+    currentPortal: portalId,
+
+
+    status: nextStatus,
+
+
+    visitedPortals:
+
+
+        alreadyVisited
+
+
+        ?
+
+
+        worldState.visitedPortals
+
+
+        :
+
+
+        [
+
+
+            ...worldState.visitedPortals,
+
+
             portalId
-        );
+
+
+        ],
 
 
 
-    worldState = {
+       creator:
 
+        VisitorProfile.discoverPortal(
 
-        ...worldState,
+            worldState.creator,
 
+            portalId
 
-        currentPortal: portalId,
-
-
-
-        visitedPortals:
-
-
-            alreadyVisited
-
-
-            ?
-
-
-            worldState.visitedPortals
-
-
-            :
-
-
-            [
-
-
-                ...worldState.visitedPortals,
-
-
-                portalId
-
-
-            ],
-
-
-
-        creator:
-
-
-            VisitorProfile.discoverPortal(
-
-
-                worldState.creator,
-
-
-                portalId
-
-
-            )
+        )
 
 
 
     };
 
 
-
     return worldState;
+
 
 }

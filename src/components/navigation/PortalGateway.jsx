@@ -8,10 +8,9 @@ PORTAL GATEWAY™
 The transition point
 between Living Worlds™
 
-Version 1.3
+Version 1.4
 ==========================================
 */
-
 
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -19,7 +18,7 @@ import { useEffect } from "react";
 import { TransitionEngine } from "../../core/transitions/TransitionEngine";
 import { PortalRoutes } from "../../core/routes/PortalRoutes";
 
-import { 
+import {
     enterWorldPortal,
     completeWorldPortal
 } from "../../core/state/WorldState";
@@ -33,17 +32,12 @@ export default function PortalGateway({
 
 }) {
 
-
     const navigate = useNavigate();
-
-
 
     const nextPortalId =
         TransitionEngine.getNextPortal(
             currentPortalId
         );
-
-
 
     const nextPortal =
         PortalRoutes.find(
@@ -51,104 +45,57 @@ export default function PortalGateway({
                 portal.id === nextPortalId
         );
 
-
-
     function enterNextPortal() {
 
         completeWorldPortal(
-    currentPortalId
-);
-
-    if (!nextPortal) {
-
-        console.warn(
-            "No next portal available."
+            currentPortalId
         );
 
-        return;
+        if (!nextPortal) {
 
-    }
+            console.warn(
+                "No next portal available."
+            );
 
+            return;
 
-    const updatedWorld =
-        enterWorldPortal(
-            nextPortal.id
+        }
+
+        const updatedWorld =
+            enterWorldPortal(
+                nextPortal.id
+            );
+
+        console.log(
+            "World State Updated:",
+            updatedWorld
         );
 
+        navigate(
+            nextPortal.path
+        );
 
-    console.log(
-        "World State Updated:",
-        updatedWorld
-    );
+    }
 
+    useEffect(() => {
 
-    navigate(
-        nextPortal.path
-    );
+        if (
+            exposeAction &&
+            nextPortal
+        ) {
 
-}
+            exposeAction(() => enterNextPortal);
 
-console.log(
-    "GATEWAY DEBUG",
-    {
-        currentPortalId,
-        nextPortalId,
+        }
+
+    }, [
+        exposeAction,
         nextPortal
-    }
-);
+    ]);
 
-   useEffect(() => {
+    // Gateway ostane aktiven,
+    // vendar nima več svojega gumba.
 
-    if (
-        exposeAction &&
-        nextPortal
-    ) {
-
-        exposeAction(() => enterNextPortal);
-
-    }
-
-}, [
-    exposeAction,
-    currentPortalId,
-    nextPortalId
-]);
-
-
-    if (!nextPortal) {
-
-        return null;
-
-    }
-
-
-
-    return (
-
-        <section className="portal-gateway">
-
-
-            <p>
-                Your next portal awaits.
-            </p>
-
-
-
-            <button
-
-                onClick={
-                    enterNextPortal
-                }
-
-            >
-
-                Begin your journey
-
-            </button>
-
-
-        </section>
-
-    );
+    return null;
 
 }

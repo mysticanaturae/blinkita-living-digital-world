@@ -5,22 +5,17 @@ import ExperienceEngine from "../experience/ExperienceEngine";
 import PortalGateway from "../navigation/PortalGateway";
 import JourneyProgress from "../journey/JourneyProgress";
 
-
 export default function PortalTemplate({
 
     portal,
 
 }) {
 
-
     const [gatewayAction, setGatewayAction] = useState(null);
-
-
 
     return (
 
         <section className="portal-template">
-
 
             <PortalIdentity
 
@@ -29,8 +24,6 @@ export default function PortalTemplate({
                 experience={portal.experience}
 
             />
-
-
 
             <ExperienceEngine
 
@@ -50,11 +43,7 @@ export default function PortalTemplate({
 
             />
 
-
-
             <JourneyProgress />
-
-
 
             <PortalGateway
 
@@ -67,7 +56,6 @@ export default function PortalTemplate({
                 }
 
             />
-
 
         </section>
 

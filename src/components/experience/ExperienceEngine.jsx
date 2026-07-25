@@ -12,7 +12,6 @@ Version 1.1
 ==========================================
 */
 
-
 import PortalAtmosphere from "./PortalAtmosphere";
 import PortalWhisper from "./PortalWhisper";
 import PortalIdentity from "./PortalIdentity";
@@ -20,12 +19,7 @@ import PortalMessage from "./PortalMessage";
 import PortalRitual from "./PortalRitual";
 import PortalInteraction from "./PortalInteraction";
 
-import { ExperienceSequence } from "./ExperienceSequence";
-
-
 export default function ExperienceEngine({
-
-    portalId,
 
     experience,
 
@@ -33,17 +27,15 @@ export default function ExperienceEngine({
 
 }) {
 
+    if (!experience) {
 
-    console.log(
-        "Experience Sequence:",
-        ExperienceSequence
-    );
+        return null;
 
+    }
 
     return (
 
         <section className="experience-engine">
-
 
             <PortalAtmosphere
 
@@ -53,7 +45,13 @@ export default function ExperienceEngine({
 
             />
 
+            <PortalWhisper
 
+                whisper={
+                    experience.whisper
+                }
+
+            />
 
             <PortalIdentity
 
@@ -63,18 +61,6 @@ export default function ExperienceEngine({
 
             />
 
-
-
-            <PortalWhisper
-
-                whisper={
-                    experience.whisper
-                }
-
-            />
-
-
-
             <PortalMessage
 
                 message={
@@ -83,8 +69,6 @@ export default function ExperienceEngine({
 
             />
 
-
-
             <PortalRitual
 
                 ritual={
@@ -92,8 +76,6 @@ export default function ExperienceEngine({
                 }
 
             />
-
-
 
             <PortalInteraction
 
@@ -106,7 +88,6 @@ export default function ExperienceEngine({
                 }
 
             />
-
 
         </section>
 
