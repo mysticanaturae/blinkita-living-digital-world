@@ -2,6 +2,7 @@
 ==========================================
 BLINKITA METHOD™
 LIVING DIGITAL WORLD™
+
 CORE ENGINE
 
 The first digital foundation
@@ -14,18 +15,28 @@ Version 1.0
 
 import { JourneyEngine } from "./JourneyEngine";
 import { TransitionEngine } from "../transitions/TransitionEngine";
+import { PortalStateEngine } from "../state/PortalStateEngine";
+
 
 
 export const BlinkitaEngine = {
 
-    name: "BLINKITA METHOD™ Living Digital World™",
 
-    version: "1.0",
+    name:
+        "BLINKITA METHOD™ Living Digital World™",
 
-    philosophy: "Create Living Worlds™",
+
+    version:
+        "1.0",
+
+
+    philosophy:
+        "Create Living Worlds™",
+
 
 
     layers: [
+
         "Foundation",
         "Thinking",
         "Design",
@@ -33,11 +44,22 @@ export const BlinkitaEngine = {
         "Execution",
         "Ecosystem",
         "Evolution"
+
     ],
 
 
-    status: "awakening",
 
+    status:
+        "awakening",
+
+
+
+
+    /*
+    ==========================================
+    JOURNEY SYSTEM
+    ==========================================
+    */
 
 
     getJourney() {
@@ -47,9 +69,39 @@ export const BlinkitaEngine = {
     },
 
 
+
+
+
+    /*
+    ==========================================
+    TRANSITION SYSTEM
+    ==========================================
+    */
+
+
     getNextPortal(currentPortalId) {
 
-        return TransitionEngine.getNextPortal(currentPortalId);
+        return TransitionEngine.getNextPortal(
+            currentPortalId
+        );
+
+    },
+
+
+
+
+
+
+    /*
+    ==========================================
+    WORLD STATE SYSTEM
+    ==========================================
+    */
+
+
+    createState() {
+
+        return PortalStateEngine.createState();
 
     }
 

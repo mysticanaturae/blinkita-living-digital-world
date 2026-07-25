@@ -35,6 +35,10 @@ export default function DynamicPortalPage() {
         portal.id
     );
 
+console.log(
+    "Portal data:",
+    portal
+);
 
     console.log(
         "Portal validation:",
