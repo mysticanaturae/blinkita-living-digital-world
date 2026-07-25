@@ -1,5 +1,5 @@
+import PortalPage from "./PortalPage";
+
 export default function ExperiencePage() {
-    return (
-        <h1>Experience</h1>
-    );
+    return <PortalPage portalId="experience" />;
 }

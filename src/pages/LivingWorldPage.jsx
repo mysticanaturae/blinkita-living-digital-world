@@ -1,5 +1,5 @@
+import PortalPage from "./PortalPage";
+
 export default function LivingWorldPage() {
-    return (
-        <h1>Living World</h1>
-    );
+    return <PortalPage portalId="living-world" />;
 }

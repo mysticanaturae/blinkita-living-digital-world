@@ -1,5 +1,5 @@
+import PortalPage from "./PortalPage";
+
 export default function InvitationPage() {
-    return (
-        <h1>Invitation</h1>
-    );
+    return <PortalPage portalId="invitation" />;
 }

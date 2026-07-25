@@ -1,5 +1,5 @@
+import PortalPage from "./PortalPage";
+
 export default function TheCallPage() {
-    return (
-        <h1>The Call</h1>
-    );
+    return <PortalPage portalId="the-call" />;
 }

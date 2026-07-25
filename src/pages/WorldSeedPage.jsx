@@ -1,5 +1,5 @@
+import PortalPage from "./PortalPage";
+
 export default function WorldSeedPage() {
-    return (
-        <h1>World Seed</h1>
-    );
+    return <PortalPage portalId="world-seed" />;
 }

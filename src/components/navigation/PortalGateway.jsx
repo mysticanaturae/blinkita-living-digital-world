@@ -1,29 +1,43 @@
+/*
+==========================================
+BLINKITA METHOD™
+LIVING DIGITAL WORLD™
+
+PORTAL GATEWAY™
+
+The transition point
+between Living Worlds™
+
+Version 1.1
+==========================================
+*/
+
+
 import { useNavigate } from "react-router-dom";
 
 import { TransitionEngine } from "../../core/transitions/TransitionEngine";
 import { PortalRoutes } from "../../core/routes/PortalRoutes";
 
-import {
-    getWorldState,
-    updateWorldState
-} from "../../core/state/WorldState";
-
-import { PortalStateEngine } from "../../core/state/PortalStateEngine";
+import { enterWorldPortal } from "../../core/state/WorldState";
 
 
 
 export default function PortalGateway({
+
     currentPortalId,
+
 }) {
 
 
     const navigate = useNavigate();
 
 
+
     const nextPortalId =
         TransitionEngine.getNextPortal(
             currentPortalId
         );
+
 
 
     const nextPortal =
@@ -45,37 +59,26 @@ export default function PortalGateway({
     function enterNextPortal() {
 
 
-        const state =
-            getWorldState();
-
-
-
-        const newState =
-            PortalStateEngine.enterPortal(
-                state,
+        const updatedWorld =
+            enterWorldPortal(
                 nextPortal.id
             );
 
 
-
-        updateWorldState(
-            newState
-        );
-
-
-
         console.log(
             "World State Updated:",
-            newState
+            updatedWorld
         );
 
 
 
         navigate(
-            `/portal/${nextPortal.id}`
+            nextPortal.path
         );
 
+
     }
+
 
 
 
@@ -89,10 +92,13 @@ export default function PortalGateway({
             </p>
 
 
+
             <button
                 onClick={enterNextPortal}
             >
+
                 Begin your journey
+
             </button>
 
 
