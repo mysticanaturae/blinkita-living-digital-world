@@ -29,13 +29,47 @@ export const portals = [
 },
 
     {
-        id: "invitation",
-        type: "portal",
-        title: "Invitation",
-        subtitle: "The first whisper of a new possibility.",
-        path: "/invitation",
-        order: 2,
+    id: "invitation",
+
+    type: "portal",
+
+    title: "Invitation",
+
+    subtitle: "The first whisper of a new possibility.",
+
+
+    purpose:
+        "The first invitation into creation.",
+
+
+    experience: {
+
+        identity:
+            "The First Whisper",
+
+
+        atmosphere:
+            "Opening possibility",
+
+
+        message:
+            "A new world begins with a single invitation.",
+
+
+        interaction:
+            "Accept the invitation",
+
+
+        transition:
+            "possibility"
+
     },
+
+
+    path: "/invitation",
+
+    order: 2,
+},
 
     {
         id: "possibility",

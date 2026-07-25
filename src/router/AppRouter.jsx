@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { PortalRoutes } from "../core/routes/PortalRoutes";
+import DynamicPortalPage from "../pages/DynamicPortalPage";
 
 
 export default function AppRouter() {
@@ -10,9 +11,11 @@ export default function AppRouter() {
 
             <Routes>
 
+
                 {PortalRoutes.map((route) => {
 
                     const PageComponent = route.component;
+
 
                     return (
                         <Route
@@ -23,6 +26,14 @@ export default function AppRouter() {
                     );
 
                 })}
+
+
+
+                <Route
+                    path="/portal/:portalId"
+                    element={<DynamicPortalPage />}
+                />
+
 
             </Routes>
 
