@@ -9,7 +9,9 @@ export default function ArrivalPage() {
 
     const portal = getPortal("arrival");
 
+
     const validation = validatePortal(portal);
+
 
     console.log(
         "Portal validation:",

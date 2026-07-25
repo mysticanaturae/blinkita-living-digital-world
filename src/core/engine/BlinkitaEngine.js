@@ -11,7 +11,10 @@ Version 1.0
 ==========================================
 */
 
+
 import { JourneyEngine } from "./JourneyEngine";
+import { TransitionEngine } from "../transitions/TransitionEngine";
+
 
 export const BlinkitaEngine = {
 
@@ -20,6 +23,7 @@ export const BlinkitaEngine = {
     version: "1.0",
 
     philosophy: "Create Living Worlds™",
+
 
     layers: [
         "Foundation",
@@ -31,13 +35,23 @@ export const BlinkitaEngine = {
         "Evolution"
     ],
 
+
     status: "awakening",
+
 
 
     getJourney() {
 
-    return JourneyEngine.getJourney();
+        return JourneyEngine.getJourney();
 
-}
+    },
+
+
+    getNextPortal(currentPortalId) {
+
+        return TransitionEngine.getNextPortal(currentPortalId);
+
+    }
+
 
 };
