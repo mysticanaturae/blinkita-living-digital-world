@@ -25,6 +25,8 @@ import { ExperienceSequence } from "./ExperienceSequence";
 
 export default function ExperienceEngine({
 
+    portalId,
+
     experience,
 
     onActivate,

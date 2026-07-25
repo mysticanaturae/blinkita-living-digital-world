@@ -1,30 +1,56 @@
-export const portalInteractions = {
+/*
+==========================================
+BLINKITA METHOD™
+LIVING DIGITAL WORLD™
 
-arrival:
-    "Begin your journey",
+PORTAL INTERACTION™
 
-invitation:
-    "Accept the invitation",
+The Living Choice Layer™
 
-possibility:
-    "Explore what can become",
+Version 1.1
+==========================================
+*/
 
-"the-call":
-    "Listen to the call",
 
-"world-seed":
-    "Plant the seed",
+import { portalInteractions } from "../../core/data/PortalInteractions";
 
-vision:
-    "Reveal your vision",
 
-essence:
-    "Discover the core",
+export default function PortalInteraction({
 
-experience:
-    "Enter the experience",
+    portalId,
 
-"living-world":
-    "Continue creating"
+    onActivate,
 
-};
+}) {
+
+
+    const interaction =
+        portalInteractions[portalId];
+
+
+    if (!interaction) return null;
+
+
+
+    return (
+
+        <section className="portal-interaction">
+
+
+            <button
+
+                onClick={onActivate}
+
+            >
+
+                {interaction}
+
+
+            </button>
+
+
+        </section>
+
+    );
+
+}

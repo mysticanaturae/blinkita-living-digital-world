@@ -34,9 +34,13 @@ export default function PortalTemplate({
 
             <ExperienceEngine
 
-                experience={
-                    portal.experience
-                }
+    portalId={
+        portal.id
+    }
+
+    experience={
+        portal.experience
+    }
 
                 onActivate={() => {
 
