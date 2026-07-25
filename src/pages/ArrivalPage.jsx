@@ -1,7 +1,5 @@
 import PortalShell from "../layouts/PortalShell";
-import PortalIdentity from "../components/experience/PortalIdentity";
-import PortalExperience from "../components/experience/PortalExperience";
-import PortalGateway from "../components/navigation/PortalGateway";
+import PortalTemplate from "../components/portal/PortalTemplate";
 
 import { getPortal } from "../core/registry/PortalRegistry";
 import { validatePortal } from "../core/utils/validatePortal";
@@ -27,24 +25,9 @@ export default function ArrivalPage() {
             subtitle={portal.subtitle}
         >
 
-            <PortalIdentity
-                purpose={portal.purpose}
-                experience={portal.experience}
+            <PortalTemplate
+                portal={portal}
             />
-
-
-            <PortalExperience
-                identity={portal.experience.identity}
-                atmosphere={portal.experience.atmosphere}
-                message={portal.experience.message}
-                interaction={portal.experience.interaction}
-            />
-
-
-            <PortalGateway
-                currentPortalId={portal.id}
-            />
-
 
         </PortalShell>
     );
