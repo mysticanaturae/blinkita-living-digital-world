@@ -15,7 +15,7 @@ let worldArchive = [];
 
 
 
-export const WorldArchive = {
+export const WorldRecord = {
 
 
     createWorldRecord(worldState) {

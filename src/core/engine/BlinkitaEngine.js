@@ -13,7 +13,7 @@ Version 1.0
 */
 
 
-import { JourneyEngine } from "./JourneyEngine";
+import { PortalSequenceEngine } from "./PortalSequenceEngine";
 import { TransitionEngine } from "../transitions/TransitionEngine";
 import { PortalStateEngine } from "../state/PortalStateEngine";
 
@@ -64,7 +64,7 @@ export const BlinkitaEngine = {
 
     getJourney() {
 
-        return JourneyEngine.getJourney();
+        return PortalSequenceEngine.getJourney();
 
     },
 

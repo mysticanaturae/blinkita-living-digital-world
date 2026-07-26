@@ -1,7 +1,7 @@
 import { portals } from "../data/portals";
 
 
-export const JourneyEngine = {
+export const PortalSequenceEngine = {
 
 
     getJourney() {
