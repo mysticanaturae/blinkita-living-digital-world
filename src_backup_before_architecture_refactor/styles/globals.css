@@ -1,0 +1,103 @@
+@import "./colors.css";
+@import "./typography.css";
+@import "./spacing.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background: var(--color-background);
+
+    color: var(--color-text);
+
+    font-family: var(--font-family);
+
+}
+
+.portal-layout {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: var(--space-md);
+
+}
+
+
+.portal-header {
+
+    margin-bottom: var(--space-md);
+
+}
+
+
+.portal-header h1 {
+
+    font-size: var(--font-title-size);
+
+}
+
+
+.portal-header p {
+
+    font-size: var(--font-subtitle-size);
+
+    color: var(--color-text-soft);
+
+}
+
+
+.portal-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.portal-navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: var(--space-sm);
+
+    flex-wrap: wrap;
+
+    margin-bottom: var(--space-lg);
+
+}
+
+
+.portal-navigation a {
+
+    color: var(--color-text-soft);
+
+    text-decoration: none;
+
+}
+
+
+.portal-navigation a:hover {
+
+    color: var(--color-secondary);
+
+}

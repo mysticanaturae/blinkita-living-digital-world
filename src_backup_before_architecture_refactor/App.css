@@ -1,0 +1,188 @@
+body {
+
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #050816;
+
+  color: white;
+
+}
+
+main {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  padding: 40px;
+
+}
+
+h1 {
+
+  font-size: 3rem;
+
+  margin-bottom: .5rem;
+
+}
+
+h2 {
+
+  font-weight: 300;
+
+  margin-bottom: 2rem;
+
+}
+
+p {
+
+  font-size: 1.1rem;
+
+  max-width: 700px;
+
+}
+
+button {
+
+  margin-top: 2rem;
+
+  padding: 14px 30px;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  border-radius: 10px;
+
+  border: none;
+
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0.5rem 0;
+}
+
+button {
+  margin-top: 3rem;
+  padding: 14px 32px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 12px;
+  border: none;
+}
+
+.landing {
+  gap: 0.3rem;
+}
+
+.world-seed {
+  gap: 1.2rem;
+}
+
+.experience-engine {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 1.8rem;
+
+  margin-top: 3rem;
+
+  margin-bottom: 3rem;
+
+}
+
+
+.portal-atmosphere {
+
+  opacity: 0.8;
+
+}
+
+
+.portal-whisper {
+
+  font-style: italic;
+
+  opacity: 0.9;
+
+}
+
+
+.portal-identity {
+
+  margin-top: 1rem;
+
+}
+
+
+.portal-message {
+
+  margin-top: 1rem;
+
+}
+
+
+.portal-ritual {
+
+  margin-top: 1rem;
+
+}
+
+
+.portal-interaction {
+
+  margin-top: 2rem;
+
+}
+
+
+.portal-gateway {
+
+  margin-top: 5rem;
+
+}
+
+.portal-completion {
+    margin-top: 40px;
+    padding: 30px;
+}
+
+
+.portal-completion strong {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+
+.portal-completion button {
+    margin-top: 20px;
+}

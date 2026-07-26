@@ -1,0 +1,17 @@
+:root {
+
+    --font-family:
+
+        Inter,
+
+        system-ui,
+
+        sans-serif;
+
+    --font-title-size: 3rem;
+
+    --font-subtitle-size: 1.2rem;
+
+    --font-body-size: 1rem;
+
+}
