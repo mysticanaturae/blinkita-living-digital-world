@@ -1,59 +1,71 @@
 /*
 ==========================================
+
 BLINKITA METHOD™
 
-WORLD ARCHIVE™
+WORLD RECORD SYSTEM™
 
-The memory of created Living Worlds™
+The memory record
+of a Living World™
 
-Version 1.0
+Version 1.1
+
 ==========================================
 */
 
 
-let worldArchive = [];
+let worldRecords = [];
 
 
 
 export const WorldRecord = {
 
 
-    createWorldRecord(worldState) {
+    createWorldRecord(worldState = {}) {
 
 
         const world = {
 
 
             id:
+
                 Date.now(),
 
 
+
             createdAt:
+
                 new Date().toISOString(),
 
 
+
             birthPortal:
-                worldState.currentPortal,
+
+                worldState.currentPortal || null,
+
 
 
             visitedPortals:
-                [
-                    ...worldState.visitedPortals
-                ],
+
+                worldState.visitedPortals || [],
+
 
 
             completedPortals:
-                [
-                    ...worldState.completedPortals
-                ],
+
+                worldState.completedPortals || [],
+
 
 
             progress:
-                worldState.progress,
+
+                worldState.progress || 0,
+
 
 
             status:
-                worldState.status
+
+                worldState.status || "seed"
 
 
 
@@ -61,7 +73,7 @@ export const WorldRecord = {
 
 
 
-        worldArchive.push(world);
+        worldRecords.push(world);
 
 
 
@@ -72,29 +84,31 @@ export const WorldRecord = {
 
 
 
+
     getWorlds() {
 
 
-        return worldArchive;
+        return worldRecords;
 
 
     },
 
 
 
+
     getWorld(id) {
 
 
-        return worldArchive.find(
+        return worldRecords.find(
 
             world =>
+
                 world.id === id
 
         );
 
 
     }
-
 
 
 };
