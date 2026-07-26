@@ -8,7 +8,7 @@ LIVING WORLD CORE™
 The living organism
 of a Living World™
 
-Version 1.1
+Version 1.2
 
 ==========================================
 */
@@ -34,9 +34,17 @@ import { WorldCreationEngine }
 from "./creation/WorldCreationEngine";
 
 
+import { WorldEvolutionEngine }
+
+from "./evolution/WorldEvolutionEngine";
+
+
+
+
 
 
 export function createLivingWorld(seed = {}) {
+
 
 
 
@@ -52,6 +60,9 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
+
+
     const lifecycle =
 
         WorldLifecycle.getStage(
@@ -59,6 +70,8 @@ export function createLivingWorld(seed = {}) {
             "SEED"
 
         );
+
+
 
 
 
@@ -107,8 +120,6 @@ export function createLivingWorld(seed = {}) {
 
 
 
-
-
     const identity =
 
         createWorldIdentity({
@@ -136,10 +147,9 @@ export function createLivingWorld(seed = {}) {
 
 
 
+    const world = {
 
 
-
-    return {
 
 
         id:
@@ -148,7 +158,11 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
+
         identity,
+
+
 
 
 
@@ -158,7 +172,11 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
+
         lifecycle,
+
+
 
 
 
@@ -168,7 +186,14 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
+
+
+
         memory: [],
+
+
+
 
 
 
@@ -185,6 +210,8 @@ export function createLivingWorld(seed = {}) {
                 []
 
         },
+
+
 
 
 
@@ -212,11 +239,19 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
+
         relationships: [],
 
 
 
+
+
+
         events: [],
+
+
+
 
 
 
@@ -232,6 +267,9 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
+
+
         status:
 
             "alive"
@@ -239,6 +277,51 @@ export function createLivingWorld(seed = {}) {
 
 
     };
+
+
+
+
+
+
+
+
+
+    /*
+    ======================================
+
+    WORLD EVOLUTION FUNCTION™
+
+    A Living World™ can evolve itself
+
+    ======================================
+    */
+
+
+
+    world.evolve = function(){
+
+
+
+        return WorldEvolutionEngine.evolve(
+
+            world
+
+        );
+
+
+
+    };
+
+
+
+
+
+
+
+
+
+    return world;
+
 
 
 }
