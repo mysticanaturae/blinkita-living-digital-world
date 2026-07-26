@@ -29,10 +29,26 @@ import { WorldRecord }
 from "../core/world/WorldRecord";
 
 
+import { WorldCreationEngine }
+
+from "./creation/WorldCreationEngine";
+
 
 
 
 export function createLivingWorld(seed = {}) {
+
+
+
+    const createdSeed =
+
+        WorldCreationEngine.createSeed(
+
+            seed
+
+        );
+
+
 
 
 
@@ -43,6 +59,8 @@ export function createLivingWorld(seed = {}) {
             "SEED"
 
         );
+
+
 
 
 
@@ -88,12 +106,17 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
+
+
     const identity =
 
         createWorldIdentity({
 
 
-            seed,
+            seed:
+
+                createdSeed,
 
 
             lifecycle,
@@ -104,6 +127,9 @@ export function createLivingWorld(seed = {}) {
 
 
         });
+
+
+
 
 
 
@@ -126,7 +152,9 @@ export function createLivingWorld(seed = {}) {
 
 
 
-        seed,
+        seed:
+
+            createdSeed,
 
 
 
@@ -162,6 +190,8 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
+
         evolution: {
 
 
@@ -180,6 +210,8 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
+
         relationships: [],
 
 
@@ -190,9 +222,11 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
         createdAt:
 
             new Date().toISOString(),
+
 
 
 
