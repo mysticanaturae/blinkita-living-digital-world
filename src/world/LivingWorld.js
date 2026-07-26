@@ -8,7 +8,7 @@ LIVING WORLD CORE™
 The living organism
 of a Living World™
 
-Version 1.0
+Version 1.1
 
 ==========================================
 */
@@ -27,6 +27,7 @@ from "../core/world/WorldLifecycle";
 import { WorldRecord }
 
 from "../core/world/WorldRecord";
+
 
 
 
@@ -57,11 +58,9 @@ export function createLivingWorld(seed = {}) {
                 null,
 
 
-
             visitedPortals:
 
                 [],
-
 
 
             completedPortals:
@@ -69,11 +68,9 @@ export function createLivingWorld(seed = {}) {
                 [],
 
 
-
             progress:
 
                 0,
-
 
 
             status:
@@ -83,6 +80,7 @@ export function createLivingWorld(seed = {}) {
 
 
         });
+
 
 
 
@@ -114,6 +112,7 @@ export function createLivingWorld(seed = {}) {
 
 
 
+
     return {
 
 
@@ -136,6 +135,66 @@ export function createLivingWorld(seed = {}) {
 
 
         record,
+
+
+
+
+
+        memory: [],
+
+
+
+        journey: {
+
+
+            stage:
+
+                "beginning",
+
+
+            milestones:
+
+                []
+
+        },
+
+
+
+
+
+        evolution: {
+
+
+            stage:
+
+                "seed",
+
+
+            history:
+
+                []
+
+        },
+
+
+
+
+
+        relationships: [],
+
+
+
+        events: [],
+
+
+
+
+
+        createdAt:
+
+            new Date().toISOString(),
+
+
 
 
 
