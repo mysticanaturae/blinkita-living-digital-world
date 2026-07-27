@@ -1,5 +1,6 @@
 /*
 ==========================================
+
 BLINKITA METHOD™
 
 EVOLUTION RULES™
@@ -7,7 +8,8 @@ EVOLUTION RULES™
 The transformation language
 of a Living World™
 
-Version 1.0
+Version 1.2
+
 ==========================================
 */
 
@@ -23,12 +25,77 @@ from "../core/events/EventTypes";
 
 
 
+
+function addMilestone(message, state) {
+
+
+    if (!state.evolution) {
+
+        state.evolution = {};
+
+    }
+
+
+    if (!state.evolution.milestones) {
+
+        state.evolution.milestones = [];
+
+    }
+
+
+
+    const exists = state.evolution.milestones.some(
+
+        milestone => milestone.message === message
+
+    );
+
+
+
+    if (!exists) {
+
+
+        state.evolution.milestones.push({
+
+            message,
+
+            timestamp: new Date().toISOString()
+
+        });
+
+
+    }
+
+
+    return state;
+
+
+}
+
+
+
+
+
+
+export {
+
+    addMilestone
+
+};
+
+
+
+
+
+
+
 export const EvolutionRules = {
 
 
 
-    [EventTypes.PORTAL_COMPLETED]:
 
+
+    [EventTypes.WORLD_CREATED]:
 
     {
 
@@ -37,31 +104,27 @@ export const EvolutionRules = {
 
         {
 
-
             type:
 
                 "stage_change",
 
 
-
             from:
 
-                "awakening",
-
+                "seed",
 
 
             to:
 
-                "growing",
-
+                "awakening",
 
 
             message:
 
-                "Your world has started growing."
+                "A new Living World awakens into possibility."
+
 
         }
-
 
 
     },
@@ -74,6 +137,40 @@ export const EvolutionRules = {
 
     [EventTypes.PORTAL_ENTERED]:
 
+    {
+
+
+        transformation:
+
+        {
+
+            type:
+
+                "experience_gain",
+
+
+            amount:
+
+                1,
+
+
+            message:
+
+                "Every portal experience expands awareness."
+
+
+        }
+
+
+    },
+
+
+
+
+
+
+
+    [EventTypes.PORTAL_COMPLETED]:
 
     {
 
@@ -82,24 +179,112 @@ export const EvolutionRules = {
 
         {
 
-
             type:
 
-                "experience_gain",
+                "stage_change",
 
 
+            from:
 
-            amount:
+                "awakening",
 
-                1
 
+            to:
+
+                "creation",
+
+
+            message:
+
+                "The creator begins shaping the Living World."
 
 
         }
 
 
+    },
+
+
+
+
+
+
+
+    [EventTypes.WORLD_EVOLVED]:
+
+    {
+
+
+        transformation:
+
+        {
+
+            type:
+
+                "stage_change",
+
+
+            from:
+
+                "creation",
+
+
+            to:
+
+                "connection",
+
+
+            message:
+
+                "The world evolves through conscious relationships."
+
+
+        }
+
+
+    },
+
+
+
+
+
+
+
+    [EventTypes.RELATIONSHIP_CREATED]:
+
+    {
+
+
+        transformation:
+
+        {
+
+            type:
+
+                "stage_change",
+
+
+            from:
+
+                "connection",
+
+
+            to:
+
+                "civilization",
+
+
+            message:
+
+                "Connections become the foundation of a living civilization."
+
+
+        }
+
 
     }
+
+
 
 
 

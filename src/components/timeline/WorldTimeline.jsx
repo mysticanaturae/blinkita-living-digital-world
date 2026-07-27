@@ -1,5 +1,6 @@
 /*
 ==========================================
+
 BLINKITA METHOD™
 BLINKITA OS™
 
@@ -7,16 +8,27 @@ WORLD TIMELINE™
 
 The story of evolution
 
-Version 1.0
+Connected with:
+- World Timeline™
+- World Memory™
+- Living UI System™
+
+Version 2.0
+
 ==========================================
 */
 
 
 import { WorldTimeline }
+
 from "../../core/timeline/WorldTimeline";
 
 
-export default function WorldTimelineView() {
+
+
+
+export default function WorldTimelineView(){
+
 
 
     const timeline =
@@ -25,18 +37,33 @@ export default function WorldTimelineView() {
 
 
 
+
+
+
+
     return (
 
-        <section className="world-timeline">
 
 
-            <header>
+        <section className="living-page world-timeline">
+
+
+
+
+
+
+            <header className="living-header">
+
+
 
                 <h1>
 
-                    World Timeline™
+                    🌎 World Timeline™
 
                 </h1>
+
+
+
 
 
                 <p>
@@ -46,7 +73,15 @@ export default function WorldTimelineView() {
 
                 </p>
 
+
+
             </header>
+
+
+
+
+
+
 
 
 
@@ -55,81 +90,157 @@ export default function WorldTimelineView() {
                 timeline.length === 0 ?
 
 
+
                 (
 
-                    <p>
 
-                        Your world story
-                        has not begun yet.
+                    <section className="living-card">
 
-                    </p>
+
+                        <p>
+
+                            Your world story
+                            has not begun yet.
+
+                        </p>
+
+
+                    </section>
+
+
 
                 )
+
 
 
                 :
 
 
-                timeline.map(
-
-                    event => (
 
 
-                        <article
-
-                            key={
-                                event.id
-                            }
-
-                            className="timeline-event"
-
-                        >
+                <div className="living-grid">
 
 
-                            <h3>
 
-                                {
-                                    event.title
-                                }
-
-                            </h3>
+                    {
 
 
-                            <p>
-
-                                {
-                                    event.description
-                                }
-
-                            </p>
+                        timeline.map(
 
 
-                            <small>
-
-                                {
-                                    new Date(
-                                        event.timestamp
-                                    )
-                                    .toLocaleString()
-
-                                }
-
-                            </small>
+                            event => (
 
 
-                        </article>
+
+                                <article
 
 
-                    )
+                                    key={
+                                        event.id
+                                    }
 
-                )
+
+
+                                    className="living-card timeline-event"
+
+
+
+                                >
+
+
+
+
+
+                                    <h3>
+
+
+                                        {
+
+                                            event.title
+
+                                        }
+
+
+                                    </h3>
+
+
+
+
+
+
+
+                                    <p>
+
+
+                                        {
+
+                                            event.description
+
+                                        }
+
+
+                                    </p>
+
+
+
+
+
+
+
+
+                                    <small>
+
+
+                                        {
+
+                                            new Date(
+
+                                                event.timestamp
+
+                                            )
+
+                                            .toLocaleString()
+
+
+                                        }
+
+
+                                    </small>
+
+
+
+
+
+
+                                </article>
+
+
+
+                            )
+
+
+                        )
+
+
+                    }
+
+
+
+                </div>
+
 
 
             }
 
 
+
+
+
+
         </section>
 
+
     );
+
 
 }

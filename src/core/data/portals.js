@@ -60,7 +60,7 @@ export const portals = [
         interaction:
             "Begin your journey",
 
-        transition:
+        next:
             "invitation"
 
     },

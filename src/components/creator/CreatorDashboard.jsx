@@ -1,5 +1,6 @@
 /*
 ==========================================
+
 BLINKITA METHOD™
 BLINKITA OS™
 
@@ -13,7 +14,11 @@ Connected with:
 - World State™
 - Evolution System™
 
-Version 2.1
+Version 3.0
+
+Connected with:
+- Living UI System™
+
 ==========================================
 */
 
@@ -28,6 +33,18 @@ from "../../core/creator/CreatorState";
 
 
 
+import {
+
+    getWorldState
+
+}
+
+from "../../core/state/WorldState";
+
+
+
+
+
 
 
 export default function CreatorDashboard(){
@@ -37,6 +54,17 @@ export default function CreatorDashboard(){
     const creatorState =
 
         getCreatorState()
+
+        ||
+
+        {};
+
+
+
+
+    const worldState =
+
+        getWorldState()
 
         ||
 
@@ -65,11 +93,11 @@ export default function CreatorDashboard(){
 
             evolution: {
 
-                level: 1,
+                level:1,
 
-                experience: 0,
+                experience:0,
 
-                stage: "Beginning"
+                stage:"Beginning"
 
             }
 
@@ -103,246 +131,430 @@ export default function CreatorDashboard(){
 
 
 
+    const worldEvolution =
 
+        worldState.evolution
 
-    return (
+        ||
 
+        {};
 
-        <section className="creator-dashboard">
 
 
 
-            <header>
+    const worldGovernance =
 
+        worldState.governance
 
-                <h1>
+        ||
 
-                    Welcome Creator™
+        {};
 
-                </h1>
 
 
-                <p>
 
-                    Your evolution space inside
-                    the Living World™
+    const worldDecision =
 
-                </p>
+        worldState.decision
 
+        ||
 
-            </header>
+        {};
 
 
 
 
+    const worldAction =
 
+        worldState.action
 
-            <section className="creator-identity">
+        ||
 
+        {};
 
-                <h2>
 
-                    Creator Identity
 
-                </h2>
 
 
 
-                <p>
 
-                    Name:
 
-                    {" "}
+return (
 
-                    {creator.identity?.name}
 
 
-                </p>
+<section className="living-page creator-dashboard">
 
 
 
-                <p>
 
-                    Archetype:
 
-                    {" "}
 
-                    {creator.identity?.archetype}
+<header className="living-header">
 
 
-                </p>
+<h1>
 
+🌱 Welcome Creator™
 
-            </section>
+</h1>
 
 
 
+<p>
 
+Your evolution space inside
+the Living World™
 
+</p>
 
 
-            <section className="creator-evolution">
+</header>
 
 
-                <h2>
 
-                    Evolution
 
-                </h2>
 
 
 
-                <p>
 
-                    Level:
 
-                    {" "}
+<div className="living-grid">
 
-                    {evolution?.level || 1}
 
-                </p>
 
 
 
-                <p>
 
-                    Experience:
 
-                    {" "}
+<section className="living-card">
 
-                    {evolution?.experience || 0}
 
-                    {" "}
+<h2>
 
-                    XP
+Creator Identity
 
-                </p>
+</h2>
 
 
 
-                <p>
+<p>
 
-                    Stage:
+Name:
 
-                    {" "}
+{" "}
 
-                    {evolution?.stage || "Beginning"}
+{creator.identity?.name}
 
-                </p>
+</p>
 
 
-            </section>
 
 
+<p>
 
+Archetype:
 
+{" "}
 
+{creator.identity?.archetype}
 
+</p>
 
-            <section className="creator-worlds">
 
 
-                <h2>
+</section>
 
-                    My Living Worlds™
 
-                </h2>
 
 
 
-                {
 
-                    worlds.length > 0
 
-                    ?
 
-                    worlds.map(
 
-                        world => (
+<section className="living-card">
 
-                            <article
 
-                                key={world.id}
+<h2>
 
-                            >
+Evolution
 
-                                <h3>
+</h2>
 
-                                    {world.id}
 
-                                </h3>
 
+<p>
 
-                                <p>
+Level:
 
-                                    Status:
+{" "}
 
-                                    {" "}
+{evolution?.level || 1}
 
-                                    {world.status}
+</p>
 
-                                </p>
 
 
-                            </article>
+<p>
 
-                        )
+Experience:
 
-                    )
+{" "}
 
+{evolution?.experience || 0}
 
-                    :
+XP
 
+</p>
 
-                    <p>
 
-                        Your first Living World™
-                        is waiting.
 
-                    </p>
+<p>
 
+Stage:
 
-                }
+{" "}
 
+{evolution?.stage || "Beginning"}
 
-            </section>
+</p>
 
 
+</section>
 
 
 
 
 
-            <section className="creator-achievements">
 
 
-                <h2>
+<section className="living-card">
 
-                    Achievements
 
-                </h2>
+<h2>
 
+Living World™ Status
 
+</h2>
 
-                <p>
 
-                    Your evolution milestones
-                    will appear here.
 
-                </p>
+<p>
 
+Current Portal:
 
-            </section>
+{" "}
 
+{worldState.currentPortal}
 
+</p>
 
 
 
 
-        </section>
+<p>
 
+Evolution:
 
-    );
+{" "}
+
+{worldEvolution.stage}
+
+</p>
+
+
+
+<p>
+
+Decisions:
+
+{" "}
+
+{worldDecision.choices?.length || 0}
+
+</p>
+
+
+
+
+<p>
+
+Governance:
+
+{" "}
+
+{worldGovernance.decisions || 0}
+
+evaluations
+
+</p>
+
+
+
+
+<p>
+
+Actions:
+
+{" "}
+
+{worldAction.executed || 0}
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<section className="living-card living-section">
+
+
+<h2>
+
+My Living Worlds™
+
+</h2>
+
+
+
+<div className="living-grid">
+
+
+
+{
+
+
+worlds.length > 0
+
+
+?
+
+
+worlds.map(
+
+
+world => (
+
+
+<article
+
+key={world.id}
+
+className="living-card"
+
+
+>
+
+
+<h3>
+
+🌎 {world.id}
+
+</h3>
+
+
+
+<p>
+
+Status:
+
+{" "}
+
+{world.status}
+
+</p>
+
+
+
+</article>
+
+
+)
+
+
+)
+
+
+
+:
+
+
+<p>
+
+Your first Living World™
+is waiting.
+
+</p>
+
+
+}
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section className="living-card living-section">
+
+
+<h2>
+
+Achievements
+
+</h2>
+
+
+
+<p>
+
+Your evolution milestones
+will appear here.
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+</section>
+
+
+
+);
+
 
 
 }

@@ -1,0 +1,884 @@
+/*
+==========================================
+
+BLINKITA METHOD™
+
+LIVING UI SYSTEM™
+
+BLINKITA OS™
+
+Version 2.0
+
+Universal visual language
+of Living Digital Worlds™
+
+==========================================
+*/
+
+
+/*
+==========================================
+GLOBAL PAGE
+==========================================
+*/
+
+
+.living-page {
+
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:40px;
+
+    box-sizing:border-box;
+
+
+    background:
+
+
+        radial-gradient(
+            circle at top,
+            rgba(139,92,246,0.35),
+            transparent 45%
+        ),
+
+
+        linear-gradient(
+            180deg,
+            #10172a,
+            #050816
+        );
+
+
+    color:
+        var(--color-text);
+
+
+}
+
+
+
+
+/*
+==========================================
+HEADER
+==========================================
+*/
+
+
+.living-header {
+
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+.living-header h1 {
+
+
+    font-size:42px;
+
+
+    color:
+        var(--color-text);
+
+
+}
+
+
+
+.living-header p {
+
+
+    color:
+        var(--color-text-soft);
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+
+
+/*
+==========================================
+GRID
+==========================================
+*/
+
+
+.living-grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+        repeat(
+
+            auto-fit,
+
+            minmax(
+
+                260px,
+
+                1fr
+
+            )
+
+        );
+
+
+    gap:24px;
+
+
+}
+
+
+
+
+
+
+/*
+==========================================
+GLASS CARDS™
+
+==========================================
+*/
+
+
+.living-card {
+
+
+    background:
+
+
+        rgba(
+
+            16,
+
+            23,
+
+            42,
+
+            0.65
+
+        );
+
+
+
+    border:
+
+
+        1px solid
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            0.25
+
+        );
+
+
+
+
+    border-radius:
+
+
+        24px;
+
+
+
+    padding:
+
+
+        28px;
+
+
+
+    backdrop-filter:
+
+
+        blur(18px);
+
+
+
+    -webkit-backdrop-filter:
+
+
+        blur(18px);
+
+
+
+
+    box-shadow:
+
+
+        0 20px 60px
+
+        rgba(
+
+            0,
+
+            0,
+
+            0,
+
+            .45
+
+        );
+
+
+
+    transition:
+
+
+        .35s ease;
+
+
+}
+
+
+
+
+.living-card:hover {
+
+
+    transform:
+
+
+        translateY(-8px);
+
+
+
+    box-shadow:
+
+
+        0 30px 80px
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            .25
+
+        );
+
+
+}
+
+
+
+
+
+
+
+.living-card h2,
+
+.living-card h3 {
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.living-card p {
+
+
+    color:
+
+        var(--color-text-soft);
+
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+
+
+/*
+==========================================
+ACTIVE EVOLUTION STAGE™
+
+==========================================
+*/
+
+
+.active-stage {
+
+
+    border:
+
+
+        1px solid
+
+        var(--color-secondary);
+
+
+
+    box-shadow:
+
+
+        0 0 40px
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            .45
+
+        );
+
+
+
+    background:
+
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            .12
+
+        );
+
+
+
+}
+
+
+
+
+
+
+
+/*
+==========================================
+BUTTONS
+==========================================
+*/
+
+
+.living-button {
+
+
+    border:none;
+
+
+    border-radius:999px;
+
+
+    padding:14px 32px;
+
+
+
+    background:
+
+
+        linear-gradient(
+
+            135deg,
+
+            var(--color-primary),
+
+            var(--color-secondary)
+
+        );
+
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+
+}
+
+
+
+
+
+
+.living-button:hover {
+
+
+    transform:
+
+        translateY(-3px);
+
+
+}
+
+/*
+==========================================
+WORLD LIFECYCLE SPACING™
+==========================================
+*/
+
+
+.lifecycle-path {
+
+    margin-bottom:60px;
+
+}
+
+
+
+.world-current-state {
+
+
+    margin-top:20px;
+
+
+}
+
+/*
+==========================================
+DASHBOARD SECTION SPACING™
+==========================================
+*/
+
+
+.creator-dashboard > .living-card,
+.world-lifecycle-dashboard > .living-card,
+.world-resume > .living-card {
+
+
+    margin-top:40px;
+
+
+}
+
+
+
+.creator-dashboard .living-grid + .living-card {
+
+
+    margin-top:60px;
+
+
+}
+
+
+
+.world-current-state {
+
+
+    margin-top:60px;
+
+
+}
+
+
+
+.creator-achievements {
+
+
+    margin-top:40px;
+
+
+}
+
+/*
+==========================================
+LIVING SECTIONS™
+Universal spacing system
+==========================================
+*/
+
+
+.living-section {
+
+
+    margin-top:40px;
+
+
+}
+
+
+
+.living-section:first-child {
+
+
+    margin-top:0;
+
+
+}
+
+/*
+==========================================
+LIVING SECTION SPACING™
+==========================================
+*/
+
+
+.living-page > section {
+
+    margin-bottom:40px;
+
+}
+
+
+
+.living-page > .living-card {
+
+    margin-bottom:24px;
+
+}
+
+
+
+.living-page section:last-child {
+
+    margin-bottom:0;
+
+}
+
+.creator-dashboard,
+.world-builder-home,
+.world-timeline,
+.world-resume {
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:40px;
+
+    box-sizing:border-box;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(139,92,246,0.35),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            180deg,
+            #10172a,
+            #050816
+        );
+
+    color:var(--color-text);
+
+}
+
+/*
+==========================================
+BUILDER SECTIONS SPACING™
+==========================================
+*/
+
+
+.builder-section {
+
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+.builder-section:last-child {
+
+
+    margin-bottom:0;
+
+
+}
+
+
+
+
+.world-builder-home {
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+}
+
+/*
+==========================================
+PORTAL EXPERIENCE LAYOUT™
+==========================================
+*/
+
+
+.portal-grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+        1fr;
+
+
+
+    gap:40px;
+
+
+}
+
+
+
+.portal-main-card {
+
+
+    min-height:400px;
+
+
+}
+
+
+
+.portal-progress-card {
+
+
+    min-height:120px;
+
+
+}
+
+
+
+.portal-template .living-header {
+
+
+    margin-bottom:50px;
+
+
+}
+
+/*
+==========================================
+LIVING PORTAL EXPERIENCE™
+==========================================
+*/
+
+
+.living-portal-experience {
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+    width:100%;
+
+
+}
+
+
+
+.portal-identity-window,
+.portal-atmosphere-window,
+.portal-whisper-window,
+.portal-message-window,
+.portal-ritual-window {
+
+
+    background:
+
+        rgba(
+
+            16,
+
+            23,
+
+            42,
+
+            0.65
+
+        );
+
+
+    border:
+
+        1px solid
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            0.25
+
+        );
+
+
+    border-radius:24px;
+
+
+    padding:28px;
+
+
+    backdrop-filter:
+
+        blur(18px);
+
+
+    -webkit-backdrop-filter:
+
+        blur(18px);
+
+
+
+    box-shadow:
+
+
+        0 20px 60px
+
+        rgba(
+
+            0,
+
+            0,
+
+            0,
+
+            .45
+
+        );
+
+
+}
+
+
+
+.portal-identity-window h2,
+.portal-atmosphere-window h3,
+.portal-whisper-window h3,
+.portal-message-window h3,
+.portal-ritual-window h3 {
+
+
+    color:white;
+
+
+}
+
+
+
+.portal-atmosphere-window p,
+.portal-whisper-window p,
+.portal-message-window p,
+.portal-ritual-window p {
+
+
+    color:
+
+        var(--color-text-soft);
+
+
+    line-height:1.7;
+
+
+}
+
+
+
+.journey-button {
+
+
+    margin-top:20px;
+
+
+    border:none;
+
+
+    border-radius:999px;
+
+
+    padding:16px 40px;
+
+
+    background:
+
+
+        linear-gradient(
+
+            135deg,
+
+            var(--color-primary),
+
+            var(--color-secondary)
+
+        );
+
+
+    color:white;
+
+
+    font-size:16px;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+.journey-button:hover {
+
+
+    transform:
+
+        translateY(-3px);
+
+
+}

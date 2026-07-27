@@ -60,40 +60,37 @@ export function emit(
 
 ){
 
+    console.log(
+        "📡 EVENT EMITTED:",
+        eventType,
+        event
+    );
 
 
     const eventListeners =
-
         listeners[eventType];
-
-
 
 
     if(!eventListeners){
 
+        console.log(
+            "⚠️ No listeners for:",
+            eventType
+        );
 
         return;
 
-
     }
-
-
-
 
 
     eventListeners.forEach(
 
         callback => {
 
-
             callback(event);
-
 
         }
 
-
     );
-
-
 
 }

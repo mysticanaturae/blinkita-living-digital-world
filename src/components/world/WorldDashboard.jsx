@@ -1,31 +1,48 @@
 /*
 ==========================================
 BLINKITA METHOD™
+
 BLINKITA OS™
 
 WORLD DASHBOARD™
 
-My Living Worlds™
+Living World Control Center™
 
-Version 1.0
+Version 2.0
 ==========================================
 */
 
 
-export default function WorldDashboard({
+import {
 
-    worlds,
+    getWorldState
 
-    onOpenWorld,
+}
 
-    onCreateWorld
+from "../../core/state/WorldState";
 
-}) {
+
+
+
+
+export default function WorldDashboard(){
+
+
+
+    const world =
+
+        getWorldState();
+
+
+
+
 
 
     return (
 
+
         <section className="world-dashboard">
+
 
 
             <header>
@@ -33,15 +50,16 @@ export default function WorldDashboard({
 
                 <h1>
 
-                    My Living Worlds™
+                    🌎 My Living World™
 
                 </h1>
 
 
+
                 <p>
 
-                    Every world you create
-                    continues to evolve.
+                    Every Living World™ remembers,
+                    evolves and responds.
 
                 </p>
 
@@ -52,146 +70,253 @@ export default function WorldDashboard({
 
 
 
-            <button
 
-                onClick={onCreateWorld}
+            <section className="world-card">
 
-            >
 
-                ✨ Create New World™
 
-            </button>
+                <h2>
 
+                    🌱 Current World
 
+                </h2>
 
 
 
-            <section className="world-list">
+                <p>
 
+                    Status:
 
-                {
+                    {" "}
 
-                    worlds && worlds.length > 0
+                    {world.status}
 
+                </p>
 
-                    ?
 
 
-                    worlds.map(
 
-                        world => (
 
+                <p>
 
-                            <article
+                    Current Portal:
 
-                                key={
-                                    world.id
-                                }
+                    {" "}
 
-                                className="world-card"
+                    {world.currentPortal}
 
-                            >
+                </p>
 
 
-                                <h2>
 
-                                    🌍
 
-                                    {
 
-                                        world.name
 
-                                        ||
+                <p>
 
-                                        "Unnamed World"
+                    Progress:
 
-                                    }
+                    {" "}
 
-                                </h2>
+                    {world.progress}
 
+                    %
 
+                </p>
 
-                                <p>
 
-                                    Status:
 
-                                    {" "}
-
-                                    {
-
-                                        world.status
-
-                                    }
-
-                                </p>
-
-
-
-
-                                <p>
-
-                                    Progress:
-
-                                    {" "}
-
-                                    {
-
-                                        world.progress
-
-                                    }
-
-                                    %
-
-                                </p>
-
-
-
-
-
-                                <button
-
-                                    onClick={() =>
-                                        onOpenWorld(
-                                            world.id
-                                        )
-                                    }
-
-                                >
-
-                                    Enter World™
-
-                                </button>
-
-
-
-                            </article>
-
-
-                        )
-
-                    )
-
-
-                    :
-
-
-                    <p>
-
-                        Your first Living World™
-                        is waiting.
-
-                    </p>
-
-
-                }
 
 
             </section>
 
 
 
+
+
+
+
+
+
+            <section className="world-card">
+
+
+                <h2>
+
+                    🧠 Intelligence
+
+                </h2>
+
+
+
+                <p>
+
+                    Level:
+
+                    {" "}
+
+                    {
+
+                    world.intelligence?.level || 0
+
+                    }
+
+
+                </p>
+
+
+
+                <p>
+
+                    Insights:
+
+                    {" "}
+
+                    {
+
+                    world.intelligence?.insights?.length || 0
+
+                    }
+
+
+                </p>
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <section className="world-card">
+
+
+                <h2>
+
+                    🧭 Journey
+
+                </h2>
+
+
+
+                <p>
+
+                    Stage:
+
+                    {" "}
+
+                    {
+
+                    world.journey?.stage
+
+                    }
+
+                </p>
+
+
+
+                <p>
+
+                    Milestones:
+
+                    {" "}
+
+                    {
+
+                    world.journey?.milestones?.length || 0
+
+                    }
+
+                </p>
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <section className="world-card">
+
+
+                <h2>
+
+                    ⚖️ Governance
+
+                </h2>
+
+
+
+                <p>
+
+                    Decisions:
+
+                    {" "}
+
+                    {
+
+                    world.governance?.decisions || 0
+
+                    }
+
+                </p>
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <section className="world-card">
+
+
+                <h2>
+
+                    🌱 Memory
+
+                </h2>
+
+
+
+                <p>
+
+                    Memories:
+
+                    {" "}
+
+                    {
+
+                    world.memory?.events?.length || 0
+
+                    }
+
+                </p>
+
+
+            </section>
+
+
+
+
+
         </section>
 
+
     );
+
 
 }

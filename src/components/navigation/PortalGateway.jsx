@@ -5,34 +5,43 @@ LIVING DIGITAL WORLD™
 
 PORTAL GATEWAY™
 
-The transition point
-between Living Worlds™
+Stable transition layer
 
 Connected with:
+- Journey System™
 - Event System™
 - Memory System™
-- Evolution System™
-- Journey System™
-- Living Event Architecture™
+- World State™
 
-Version 2.2
+Version 3.1
 ==========================================
 */
 
 
-import { useNavigate } 
+import {
+    useNavigate
+}
 from "react-router-dom";
 
-import { useEffect } 
+
+import {
+    useEffect,
+    useRef
+}
 from "react";
 
 
 
-import { TransitionEngine } 
+import {
+    TransitionEngine
+}
 from "../../core/transitions/TransitionEngine";
 
 
-import { PortalRoutes } 
+
+import {
+    PortalRoutes
+}
 from "../../core/routes/PortalRoutes";
 
 
@@ -44,32 +53,24 @@ import {
     completeWorldPortal
 
 }
-
 from "../../core/state/WorldState";
 
 
-
-
-// Living World nervous system
 
 import {
 
     emit
 
 }
-
 from "../../core/events/EventBus";
 
 
-
-// Living Event Architecture™
 
 import {
 
     createEvent
 
 }
-
 from "../../core/events/EventFactory";
 
 
@@ -79,9 +80,16 @@ import {
     EventTypes
 
 }
-
 from "../../core/events/EventTypes";
 
+
+
+import {
+
+    getAuthState
+
+}
+from "../../core/auth/AuthState";
 
 
 
@@ -100,6 +108,11 @@ export default function PortalGateway({
 
 
     const navigate = useNavigate();
+
+
+    const transitioning = useRef(false);
+
+
 
 
 
@@ -123,6 +136,7 @@ export default function PortalGateway({
 
 
 
+
     const nextPortal =
 
         PortalRoutes.find(
@@ -140,19 +154,100 @@ export default function PortalGateway({
 
 
 
-
     /*
     ======================================
     ENTER NEXT PORTAL™
 
-    Portal transition becomes
-    a Living World Event™
+    ONLY AFTER BUTTON CLICK
 
     ======================================
     */
 
 
-    function enterNextPortal() {
+    function enterNextPortal(){
+
+
+        console.log(
+
+            "🌱 Gateway activated:",
+
+            currentPortalId
+
+        );
+
+
+
+        if(transitioning.current){
+
+            console.log(
+                "Transition already running."
+            );
+
+            return;
+
+        }
+
+
+
+        transitioning.current = true;
+
+
+
+
+
+        if(!nextPortal){
+
+
+            console.warn(
+
+                "No next portal available."
+
+            );
+
+
+            transitioning.current = false;
+
+
+            return;
+
+        }
+
+
+
+
+
+
+
+
+        /*
+        ----------------------------------
+        OPTIONAL IDENTITY CHECK
+        ----------------------------------
+
+        Arrival remains open.
+        Identity can be created anytime.
+
+        ----------------------------------
+        */
+
+
+        const auth = getAuthState();
+
+
+
+        console.log(
+
+            "Identity state:",
+
+            auth
+
+        );
+
+
+
+
+
+
 
 
 
@@ -176,18 +271,10 @@ export default function PortalGateway({
 
 
 
+        emit(
 
-        /*
-        ----------------------------------
-        PORTAL COMPLETED EVENT™
+            EventTypes.PORTAL_COMPLETED,
 
-        The world remembers completion.
-
-        ----------------------------------
-        */
-
-
-        const completionEvent =
 
             createEvent({
 
@@ -201,7 +288,7 @@ export default function PortalGateway({
                     "PortalGateway",
 
 
-                payload: {
+                payload:{
 
 
                     portalId:
@@ -216,48 +303,11 @@ export default function PortalGateway({
 
                 }
 
-            });
 
-
-
-
-        emit(
-
-            completionEvent.type,
-
-            completionEvent
+            })
 
         );
 
-
-
-
-
-
-
-
-
-        /*
-        ----------------------------------
-        CHECK NEXT PORTAL
-        ----------------------------------
-        */
-
-
-        if (!nextPortal) {
-
-
-            console.warn(
-
-                "No next portal available."
-
-            );
-
-
-            return;
-
-
-        }
 
 
 
@@ -270,9 +320,6 @@ export default function PortalGateway({
         /*
         ----------------------------------
         ENTER NEXT PORTAL
-
-        World transforms here.
-
         ----------------------------------
         */
 
@@ -292,23 +339,10 @@ export default function PortalGateway({
 
 
 
+        emit(
 
-        /*
-        ----------------------------------
-        PORTAL ENTERED EVENT™
+            EventTypes.PORTAL_ENTERED,
 
-        Activates:
-
-        - Memory™
-        - Evolution™
-        - Journey™
-        - Future Systems™
-
-        ----------------------------------
-        */
-
-
-        const entryEvent =
 
             createEvent({
 
@@ -322,8 +356,7 @@ export default function PortalGateway({
                     "PortalGateway",
 
 
-
-                payload: {
+                payload:{
 
 
                     portalId:
@@ -344,23 +377,9 @@ export default function PortalGateway({
                 }
 
 
-            });
-
-
-
-
-
-
-
-
-        emit(
-
-            entryEvent.type,
-
-            entryEvent
+            })
 
         );
-
 
 
 
@@ -371,22 +390,15 @@ export default function PortalGateway({
 
         console.log(
 
-            "🌱 Living Event Created:",
+            "🌎 Portal transition:",
 
-            entryEvent
+            currentPortalId,
 
-        );
+            "→",
 
-
-
-        console.log(
-
-            "🌎 Living World Updated:",
-
-            updatedWorld
+            nextPortal.id
 
         );
-
 
 
 
@@ -400,6 +412,17 @@ export default function PortalGateway({
         NAVIGATION
         ----------------------------------
         */
+
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"auto"
+
+        });
+
+
 
 
         navigate(
@@ -422,24 +445,26 @@ export default function PortalGateway({
 
     /*
     ======================================
-    EXPOSE ACTION™
+    CONNECT BUTTON ACTION
 
-    PortalTemplate™ controls interaction
+    Does NOT execute automatically.
+
+    Only stores callback.
 
     ======================================
     */
 
 
-    useEffect(() => {
+    useEffect(()=>{
 
 
-    if (
+    console.log(
+        "🟢 Gateway mounted:",
+        currentPortalId
+    );
 
-        !exposeAction ||
 
-        !nextPortal
-
-    ) {
+    if(!exposeAction){
 
         return;
 
@@ -449,18 +474,25 @@ export default function PortalGateway({
 
     exposeAction(
 
-        () => enterNextPortal
+        () => {
+
+            console.log(
+                "✨ USER CLICK SHOULD START THIS:",
+                currentPortalId
+            );
+
+
+            enterNextPortal();
+
+        }
 
     );
 
 
-
-}, [
-
+},[
     exposeAction,
-
+    currentPortalId,
     nextPortalId
-
 ]);
 
 
@@ -475,10 +507,7 @@ export default function PortalGateway({
     ======================================
     GATEWAY
 
-    No visual output.
-
-    The intelligence bridge
-    between portals.
+    Invisible intelligence bridge
 
     ======================================
     */

@@ -6,7 +6,7 @@ MEMORY LISTENER™
 
 Automatic world memory response
 
-Version 1.0
+Version 1.1
 ==========================================
 */
 
@@ -31,7 +31,13 @@ from "./WorldMemory";
 
 
 
-import { EventTypes } from "../events/EventTypes";
+import {
+
+    EventTypes
+
+}
+
+from "../events/EventTypes";
 
 
 
@@ -39,48 +45,187 @@ import { EventTypes } from "../events/EventTypes";
 
 
 
-subscribe(
-
-    EventTypes.PORTAL_ENTERED,
 
 
-    (event)=>{
+function handlePortalEntered(
+
+    event
+
+){
 
 
-        WorldMemory.rememberPortalVisit(
 
-            event.payload.portalId
-
-        );
+    WorldMemory.rememberPortalVisit(
 
 
-    }
+        event.payload.portalId
 
 
-);
+    );
 
 
 
 
 
+    console.log(
 
 
-subscribe(
-
-    EventTypes.PORTAL_COMPLETED,
+        "🧠 Memory: Portal Visit Recorded",
 
 
-    (event)=>{
+        event.payload.portalId
 
 
-        WorldMemory.rememberPortalCompletion(
-
-            event.payload.portalId
-
-        );
+    );
 
 
-    }
+
+}
 
 
-);
+
+
+
+
+
+
+
+function handlePortalCompleted(
+
+    event
+
+){
+
+
+
+    WorldMemory.rememberPortalCompletion(
+
+
+        event.payload.portalId
+
+
+    );
+
+
+
+
+
+    console.log(
+
+
+        "🧠 Memory: Portal Completion Recorded",
+
+
+        event.payload.portalId
+
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function handleWorldCreated(
+
+    event
+
+){
+
+
+
+    WorldMemory.rememberWorldCreation(
+
+
+        event.payload.world
+
+
+    );
+
+
+
+
+
+    console.log(
+
+
+        "🧠 Memory: World Creation Recorded"
+
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+export function initializeMemoryListener(){
+
+
+
+
+
+    subscribe(
+
+
+        EventTypes.PORTAL_ENTERED,
+
+
+        handlePortalEntered
+
+
+    );
+
+
+
+
+
+
+
+    subscribe(
+
+
+        EventTypes.PORTAL_COMPLETED,
+
+
+        handlePortalCompleted
+
+
+    );
+
+
+
+
+
+
+
+    subscribe(
+
+
+        EventTypes.WORLD_CREATED,
+
+
+        handleWorldCreated
+
+
+    );
+
+
+
+
+
+}

@@ -1,3 +1,20 @@
+/*
+==========================================
+
+BLINKITA METHOD™
+
+LIVING DIGITAL WORLD™
+
+PORTAL INTERACTION™
+
+User activation layer
+
+Version 1.2
+
+==========================================
+*/
+
+
 export default function PortalInteraction({
 
     interaction,
@@ -7,7 +24,25 @@ export default function PortalInteraction({
 }) {
 
 
-    if (!interaction) return null;
+
+    function handleClick(){
+
+
+        console.log(
+            "🟢 USER ACTIVATED PORTAL"
+        );
+
+
+        if(onActivate){
+
+            onActivate();
+
+        }
+
+
+    }
+
+
 
 
 
@@ -15,16 +50,24 @@ export default function PortalInteraction({
 
         <section className="portal-interaction">
 
+
             <button
-                onClick={onActivate}
+
+                type="button"
+
+                onClick={handleClick}
+
             >
 
                 {interaction}
 
+
             </button>
+
 
         </section>
 
     );
+
 
 }

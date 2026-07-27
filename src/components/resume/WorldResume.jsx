@@ -1,6 +1,8 @@
 /*
 ==========================================
+
 BLINKITA METHOD™
+
 BLINKITA OS™
 
 WORLD RESUME™
@@ -8,59 +10,92 @@ WORLD RESUME™
 The return portal
 for a Living World™
 
-Version 1.0
+Version 2.1
+
+Connected with:
+- World State™
+- World Memory™
+- Living UI System™
+
 ==========================================
 */
 
 
-export default function WorldResume({
+import {
 
-    world,
+    getWorldState
 
-    timeline,
+}
 
-    onContinue
-
-}) {
-
-
-    if (!world) {
-
-        return null;
-
-    }
+from "../../core/state/WorldState";
 
 
 
-    const lastEvent =
 
-        timeline && timeline.length > 0
+
+
+
+export default function WorldResume(){
+
+
+
+    const world =
+
+        getWorldState();
+
+
+
+
+
+
+    const lastMemory =
+
+
+        world.memory?.events?.length > 0
+
 
         ?
 
-        timeline[
-            timeline.length - 1
+
+        world.memory.events[
+
+            world.memory.events.length - 1
+
         ]
 
+
         :
+
 
         null;
 
 
 
+
+
+
+
     return (
 
-        <section className="world-resume">
 
 
-            <header>
+        <section className="living-page world-resume">
+
+
+
+
+
+
+            <header className="living-header">
+
 
 
                 <h1>
 
-                    Welcome Back, World Builder™
+                    🌎 Welcome Back, World Builder™
 
                 </h1>
+
 
 
                 <p>
@@ -71,107 +106,313 @@ export default function WorldResume({
                 </p>
 
 
+
             </header>
 
 
 
 
 
-            <section>
-
-
-                <h2>
-
-                    Current World
-
-                </h2>
-
-
-                <p>
-
-                    Status:
-
-                    {" "}
-
-                    {world.status}
-
-                </p>
 
 
 
-                <p>
 
-                    Progress:
-
-                    {" "}
-
-                    {world.progress}%
-
-                </p>
-
-
-            </section>
+            <div className="living-grid">
 
 
 
 
 
 
-            <section>
+
+                <section className="living-card">
 
 
-                <h2>
+                    <h2>
 
-                    Last Memory
+                        🌱 Current World
 
-                </h2>
+                    </h2>
 
-
-
-                {
-
-                    lastEvent
-
-
-                    ?
-
-
-                    <>
-
-                        <h3>
-
-                            {
-                                lastEvent.title
-                            }
-
-                        </h3>
-
-
-                        <p>
-
-                            {
-                                lastEvent.description
-                            }
-
-                        </p>
-
-                    </>
-
-
-                    :
 
 
                     <p>
 
-                        Your journey is just beginning.
+                        Status:
+
+                        {" "}
+
+                        {world.status}
 
                     </p>
 
 
-                }
+
+                    <p>
+
+                        Portal:
+
+                        {" "}
+
+                        {world.currentPortal}
+
+                    </p>
 
 
-            </section>
+
+                    <p>
+
+                        Progress:
+
+                        {" "}
+
+                        {world.progress}%
+
+                    </p>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <section className="living-card">
+
+
+                    <h2>
+
+                        🧭 Creator Journey
+
+                    </h2>
+
+
+
+                    <p>
+
+                        Stage:
+
+                        {" "}
+
+                        {world.journey?.stage}
+
+                    </p>
+
+
+
+                    <p>
+
+                        Milestones:
+
+                        {" "}
+
+                        {
+
+                            world.journey?.milestones?.length || 0
+
+                        }
+
+                    </p>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <section className="living-card">
+
+
+                    <h2>
+
+                        🧠 World Intelligence™
+
+                    </h2>
+
+
+
+                    <p>
+
+                        Awareness Level:
+
+                        {" "}
+
+                        {
+
+                            world.intelligence?.level || 0
+
+                        }
+
+                    </p>
+
+
+
+                    <p>
+
+                        Insights:
+
+                        {" "}
+
+                        {
+
+                            world.intelligence?.insights?.length || 0
+
+                        }
+
+                    </p>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <section className="living-card">
+
+
+                    <h2>
+
+                        ⚖️ Governance & Decisions™
+
+                    </h2>
+
+
+
+                    <p>
+
+                        Decisions:
+
+                        {" "}
+
+                        {
+
+                            world.governance?.decisions || 0
+
+                        }
+
+                    </p>
+
+
+
+                    <p>
+
+                        Choices:
+
+                        {" "}
+
+                        {
+
+                            world.decision?.choices?.length || 0
+
+                        }
+
+                    </p>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <section className="living-card">
+
+
+                    <h2>
+
+                        🧠 Last Memory
+
+                    </h2>
+
+
+
+
+
+                    {
+
+
+                        lastMemory
+
+
+                        ?
+
+
+                        <>
+
+
+                            <p>
+
+                                {
+
+                                    lastMemory.message
+
+                                }
+
+                            </p>
+
+
+
+                            <small>
+
+                                {
+
+                                    lastMemory.timestamp
+
+                                }
+
+                            </small>
+
+
+                        </>
+
+
+
+                        :
+
+
+
+                        <p>
+
+                            Your journey is just beginning.
+
+                        </p>
+
+
+
+                    }
+
+
+
+                </section>
+
+
+
+
+
+
+            </div>
+
+
+
+
 
 
 
@@ -179,17 +420,22 @@ export default function WorldResume({
 
             <button
 
-                onClick={onContinue}
+                className="living-button"
 
             >
 
-                Continue Creating™
+                ✨ Continue Creating™
 
             </button>
 
 
 
+
+
+
         </section>
+
+
 
     );
 

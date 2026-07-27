@@ -1,5 +1,6 @@
 /*
 ==========================================
+
 BLINKITA METHOD™
 
 WORLD STORAGE™
@@ -7,7 +8,8 @@ WORLD STORAGE™
 The persistence layer
 of a Living World™
 
-Version 1.0
+Version 1.1
+
 ==========================================
 */
 
@@ -18,27 +20,79 @@ const STORAGE_KEY =
 
 
 
+let lastSavedState = null;
+
+
+
+
+
 export const WorldStorage = {
+
 
 
 
     save(worldState) {
 
-console.log(
-        "💾 SAVING WORLD",
-        worldState
-    );
-    
-        localStorage.setItem(
 
-            STORAGE_KEY,
 
-            JSON.stringify(worldState)
+        const currentState =
+
+            JSON.stringify(worldState);
+
+
+
+
+
+
+        if(
+
+            currentState === lastSavedState
+
+        ){
+
+            return worldState;
+
+        }
+
+
+
+
+
+
+        console.log(
+
+            "💾 SAVING WORLD",
+
+            worldState
 
         );
 
 
+
+
+
+
+
+        localStorage.setItem(
+
+            STORAGE_KEY,
+
+            currentState
+
+        );
+
+
+
+
+
+        lastSavedState = currentState;
+
+
+
+
+
         return worldState;
+
 
 
     },
@@ -47,7 +101,10 @@ console.log(
 
 
 
+
+
     load() {
+
 
 
         const savedWorld =
@@ -60,11 +117,27 @@ console.log(
 
 
 
+
+
         if (!savedWorld) {
+
+
 
             return null;
 
+
+
         }
+
+
+
+
+
+
+        lastSavedState = savedWorld;
+
+
+
 
 
 
@@ -75,7 +148,10 @@ console.log(
         );
 
 
+
     },
+
+
 
 
 
@@ -84,11 +160,17 @@ console.log(
     clear() {
 
 
+
         localStorage.removeItem(
 
             STORAGE_KEY
 
         );
+
+
+
+        lastSavedState = null;
+
 
 
     }

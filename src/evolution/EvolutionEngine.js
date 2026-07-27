@@ -1,17 +1,27 @@
 /*
 ==========================================
+
 BLINKITA METHOD™
 
 EVOLUTION ENGINE™
 
 Transforms events into world evolution
 
-Version 1.0
+Version 1.2
+
 ==========================================
 */
 
 
-import { getWorldState, updateWorldState } from "../core/state/WorldState";
+import {
+
+    getWorldState,
+
+    updateWorldState
+
+}
+
+from "../core/state/WorldState";
 
 
 
@@ -22,6 +32,8 @@ import {
 }
 
 from "./EvolutionRules";
+
+
 
 
 
@@ -45,6 +57,8 @@ export function processEvolution(
 
 
 
+
+
     if(!rule){
 
 
@@ -52,6 +66,8 @@ export function processEvolution(
 
 
     }
+
+
 
 
 
@@ -69,15 +85,15 @@ export function processEvolution(
 
 
 
-    let updatedEvolution =
-
-        {
 
 
-            ...world.evolution
+    let updatedEvolution = {
 
 
-        };
+        ...world.evolution
+
+
+    };
 
 
 
@@ -89,13 +105,37 @@ export function processEvolution(
 
     if(
 
+
         rule.transformation.type
 
         ===
 
         "stage_change"
 
+
     ){
+
+
+
+
+
+        const milestoneExists =
+
+            (updatedEvolution.milestones || [])
+
+            .some(
+
+                milestone =>
+
+                    milestone.message ===
+
+                    rule.transformation.message
+
+            );
+
+
+
+
 
 
 
@@ -103,6 +143,7 @@ export function processEvolution(
 
 
             ...updatedEvolution,
+
 
 
             stage:
@@ -113,34 +154,60 @@ export function processEvolution(
 
             level:
 
-                updatedEvolution.level + 1,
+                milestoneExists
+
+                ?
+
+                updatedEvolution.level
+
+
+                :
+
+                (updatedEvolution.level || 0) + 1,
 
 
 
             milestones:
 
-            [
 
-                ...updatedEvolution.milestones,
+                milestoneExists
 
-
-                {
+                ?
 
 
-                    message:
-
-                    rule.transformation.message,
+                updatedEvolution.milestones
 
 
-                    timestamp:
 
-                    new Date().toISOString()
-
-
-                }
+                :
 
 
-            ]
+
+                [
+
+                    ...(updatedEvolution.milestones || []),
+
+
+
+                    {
+
+
+                        message:
+
+                            rule.transformation.message,
+
+
+
+                        timestamp:
+
+                            new Date().toISOString()
+
+
+                    }
+
+
+
+                ]
 
 
 
@@ -156,12 +223,144 @@ export function processEvolution(
 
 
 
+
+
+
+
+
+
+
+    const evolutionEvent = {
+
+
+        type:
+
+            "world_evolution",
+
+
+
+        source:
+
+            event.type,
+
+
+
+        stage:
+
+            updatedEvolution.stage,
+
+
+
+        message:
+
+            rule.transformation.message,
+
+
+
+        timestamp:
+
+            new Date().toISOString()
+
+
+
+    };
+
+
+
+
+
+
+
+
+
+    const eventExists =
+
+
+        (world.memory?.events || [])
+
+        .some(
+
+            existing =>
+
+                existing.type === "world_evolution"
+
+                &&
+
+                existing.source === event.type
+
+                &&
+
+                existing.message === rule.transformation.message
+
+        );
+
+
+
+
+
+
+
+
+
     return updateWorldState({
+
+
+
 
 
         evolution:
 
-            updatedEvolution
+            updatedEvolution,
+
+
+
+
+
+
+
+        memory:{
+
+
+
+            ...(world.memory || {}),
+
+
+
+            events:
+
+                eventExists
+
+
+                ?
+
+
+                world.memory.events
+
+
+
+                :
+
+
+
+                [
+
+                    ...(world.memory?.events || []),
+
+
+
+                    evolutionEvent
+
+
+
+                ]
+
+
+
+        }
+
+
+
+
 
 
 

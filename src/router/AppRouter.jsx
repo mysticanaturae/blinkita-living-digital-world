@@ -23,6 +23,10 @@ export default function AppRouter() {
             <Routes>
 
 
+                {/* =================================
+                    LIVING PORTAL JOURNEY™
+                    ================================= */}
+
                 {PortalRoutes.map((route) => {
 
                     const PageComponent = route.component;
@@ -46,6 +50,10 @@ export default function AppRouter() {
 
 
 
+
+                {/* =================================
+                    DYNAMIC PORTALS
+                    ================================= */}
 
                 <Route
 
@@ -76,7 +84,7 @@ export default function AppRouter() {
 
                 <Route
 
-                    path="/world"
+                    path="/world-dashboard"
 
                     element={<WorldDashboard />}
 

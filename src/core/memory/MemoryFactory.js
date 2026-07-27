@@ -1,14 +1,19 @@
 /*
 ==========================================
+
 BLINKITA METHOD™
 
 MEMORY FACTORY™
 
 Creates Living Memories™
 
-Version 1.0
+Version 2.0
+
 ==========================================
 */
+
+
+
 
 
 export function createMemory({
@@ -17,12 +22,18 @@ export function createMemory({
 
     message,
 
-    data = {}
+    data = {},
+
+    source = "living_world",
+
+    importance = 1
 
 }) {
 
 
+
     return {
+
 
 
         id:
@@ -31,7 +42,11 @@ export function createMemory({
 
 
 
+
+
         type,
+
+
 
 
 
@@ -39,7 +54,23 @@ export function createMemory({
 
 
 
+
+
         data,
+
+
+
+
+
+        source,
+
+
+
+
+
+        importance,
+
+
 
 
 
@@ -50,6 +81,7 @@ export function createMemory({
 
 
     };
+
 
 
 }

@@ -17,6 +17,9 @@ import { PortalSequenceEngine } from "./PortalSequenceEngine";
 import { TransitionEngine } from "../transitions/TransitionEngine";
 import { PortalStateEngine } from "../state/PortalStateEngine";
 
+import { LivingWorldRuntime }
+
+from "../runtime/LivingWorldRuntime";
 
 
 export const BlinkitaEngine = {
@@ -99,9 +102,77 @@ export const BlinkitaEngine = {
     */
 
 
-    createState() {
+        createState() {
 
         return PortalStateEngine.createState();
+
+    },
+
+
+
+
+
+
+    /*
+    ==========================================
+    LIVING WORLD RUNTIME™
+
+    The heartbeat interface
+    of a Living World™
+
+    ==========================================
+    */
+
+
+    enterPortal(
+
+        portalId
+
+    ) {
+
+
+        return LivingWorldRuntime.enterPortal(
+
+            portalId
+
+        );
+
+
+    },
+
+
+
+
+
+
+
+    completePortal(
+
+        portalId
+
+    ) {
+
+
+        return LivingWorldRuntime.completePortal(
+
+            portalId
+
+        );
+
+
+    },
+
+
+
+
+
+
+
+    getWorldState(){
+
+
+        return LivingWorldRuntime.getState();
+
 
     }
 

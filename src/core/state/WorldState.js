@@ -9,7 +9,7 @@ The living condition
 and memory foundation
 of a Living World™
 
-Version 2.1
+Version 3.0
 ==========================================
 */
 
@@ -30,9 +30,11 @@ from "../storage/WorldStorage";
 
 
 
+
 const savedWorld =
 
     WorldStorage.load();
+
 
 
 
@@ -78,14 +80,6 @@ savedWorld
 
 
 
-
-    /*
-    ======================================
-    PORTAL JOURNEY
-    ======================================
-    */
-
-
     currentPortal:
 
         "arrival",
@@ -110,36 +104,12 @@ savedWorld
 
 
 
-
-
-    /*
-    ======================================
-    WORLD PROGRESS
-    ======================================
-    */
-
-
     progress:
 
         0,
 
 
 
-
-
-
-
-
-    /*
-    ======================================
-    WORLD LIFECYCLE™
-
-    seed
-    growing
-    living
-
-    ======================================
-    */
 
 
     status:
@@ -150,31 +120,13 @@ savedWorld
 
 
 
-
-
-
-    /*
-    ======================================
-    EVOLUTION LAYER™
-
-    awakening
-    creation
-    connection
-    civilization
-
-    ======================================
-    */
-
-
     evolution:
 
     {
 
-
         stage:
 
             "awakening",
-
 
 
         level:
@@ -182,96 +134,47 @@ savedWorld
             1,
 
 
-
         milestones:
 
             []
-
 
     },
 
 
 
-
-
-
-
-
-
-    /*
-    ======================================
-    JOURNEY LAYER™
-
-    Creator path
-
-    ======================================
-    */
 
 
     journey:
 
     {
 
-
         stage:
 
             "arrival",
-
 
 
         milestones:
 
             []
 
-
     },
 
 
 
-
-
-
-
-
-
-    /*
-    ======================================
-    MEMORY LAYER™
-
-    History of meaning
-
-    ======================================
-    */
 
 
     memory:
 
     {
 
-
         events:
 
             []
-
 
     },
 
 
 
-
-
-
-
-
-
-    /*
-    ======================================
-    RELATIONSHIP LAYER™
-
-    Future collaboration system
-
-    ======================================
-    */
 
 
     relationships:
@@ -282,19 +185,84 @@ savedWorld
 
 
 
+    harmony:
+
+    {
+
+        level:
+
+            0,
 
 
+        connections:
+
+            0,
+
+
+        collaborations:
+
+            0,
+
+
+        resonance:
+
+            0,
+
+
+        history:
+
+            []
+
+    },
 
 
     /*
     ======================================
-    CREATION LAYER™
+    DISCOVERY LAYER™
 
-    Things created
-    inside the world
+    The intelligence of exploration
+    inside a Living World™
 
     ======================================
     */
+
+
+    discovery:
+
+    {
+
+
+        level:
+
+            0,
+
+
+        curiosity:
+
+            0,
+
+
+        knowledge:
+
+            0,
+
+
+        possibilities:
+
+            0,
+
+
+        creations:
+
+            0,
+
+
+        history:
+
+            []
+
+
+    },
 
 
     creations:
@@ -305,15 +273,6 @@ savedWorld
 
 
 
-
-
-    /*
-    ======================================
-    CREATOR IDENTITY
-    ======================================
-    */
-
-
     creator:
 
         VisitorProfile.createProfile(),
@@ -321,29 +280,166 @@ savedWorld
 
 
 
+/*
+======================================
+AUTHENTICITY LAYER™
+
+The identity essence
+of a Living World™
+
+======================================
+*/
+
+
+authenticity:
+
+{
+
+    level:
+
+        0,
+
+    history:
+
+        []
+
+},
 
 
 
-    /*
-    ======================================
-    ACTIVITY
-    ======================================
-    */
+/*
+======================================
+GOVERNANCE LAYER™
+
+The wisdom balance
+of a Living World™
+
+======================================
+*/
 
 
-    lastActive:
+governance:
+
+{
+
+    decisions:
+
+        0,
+
+    evaluations:
+
+        [],
+
+    history:
+
+        []
+
+},
+
+
+
+
+
+/*
+======================================
+INTELLIGENCE LAYER™
+
+The awareness state
+of a Living World™
+
+======================================
+*/
+
+
+intelligence:
+
+{
+
+    level:
+
+        0,
+
+    insights:
+
+        [],
+
+    history:
+
+        []
+
+},
+
+
+
+
+
+
+/*
+======================================
+DECISION LAYER™
+
+The choice intelligence
+of a Living World™
+
+======================================
+*/
+
+
+decision:
+
+{
+
+    choices:
+
+        [],
+
+    history:
+
+        []
+
+},
+
+
+
+
+
+
+/*
+======================================
+ACTION LAYER™
+
+The execution state
+of a Living World™
+
+======================================
+*/
+
+
+action:
+
+{
+
+    executed:
+
+        0,
+
+    history:
+
+        []
+
+},
+
+
+
+
+
+ lastActive:
 
         new Date().toISOString()
 
 
 
 };
-
-
-
-
-
-
 
 
 
@@ -403,11 +499,96 @@ worldState.relationships ||= [];
 
 worldState.creations ||= [];
 
+worldState.harmony ||= {
+
+    level:0,
+
+    connections:0,
+
+    collaborations:0,
+
+    resonance:0,
+
+    history:[]
+
+};
+
+
+worldState.discovery ||= {
+
+
+    level:0,
+
+
+    curiosity:0,
+
+
+    knowledge:0,
+
+
+    possibilities:0,
+
+
+    creations:0,
+
+
+    history:[]
+
+
+};
+
+
+worldState.intelligence ||= {
+
+    level:0,
+
+    insights:[],
+
+    history:[]
+
+};
 
 
 
+worldState.decision ||= {
+
+    choices:[],
+
+    history:[]
+
+};
 
 
+
+worldState.action ||= {
+
+    executed:0,
+
+    history:[]
+
+};
+
+
+
+worldState.authenticity ||= {
+
+    level:0,
+
+    history:[]
+
+};
+
+
+
+worldState.governance ||= {
+
+    decisions:0,
+
+    evaluations:[],
+
+    history:[]
+
+};
 
 
 
@@ -462,7 +643,6 @@ export function updateWorldState(
         lastActive:
 
             new Date().toISOString()
-
 
 
     };
@@ -541,7 +721,6 @@ export function addWorldMemory(
             new Date().toISOString()
 
 
-
     };
 
 
@@ -573,8 +752,6 @@ export function addWorldMemory(
 /*
 ==========================================
 ADD JOURNEY MILESTONE™
-
-Creator progression
 
 ==========================================
 */
@@ -617,7 +794,6 @@ export function addJourneyMilestone(
         lastActive:
 
             new Date().toISOString()
-
 
 
     };
@@ -675,6 +851,7 @@ export function completeWorldPortal(
 
 
 
+
     if(alreadyCompleted){
 
 
@@ -682,8 +859,6 @@ export function completeWorldPortal(
 
 
     }
-
-
 
 
 
@@ -704,8 +879,6 @@ export function completeWorldPortal(
 
 
 
-
-
     const progress =
 
 
@@ -716,7 +889,6 @@ export function completeWorldPortal(
 
                 completedPortals.length / 9
 
-
             )
 
             *
@@ -725,7 +897,6 @@ export function completeWorldPortal(
 
 
         );
-
 
 
 
@@ -781,8 +952,6 @@ export function completeWorldPortal(
 ==========================================
 ENTER WORLD PORTAL™
 
-Portal transition
-
 ==========================================
 */
 
@@ -792,21 +961,6 @@ export function enterWorldPortal(
     portalId
 
 ){
-
-
-
-    console.log(
-
-        "✅ enterWorldPortal()",
-
-
-        portalId
-
-    );
-
-
-
-
 
 
     const alreadyVisited =
@@ -822,14 +976,9 @@ export function enterWorldPortal(
 
 
 
-
-
     let nextStatus =
 
         worldState.status;
-
-
-
 
 
 
@@ -853,9 +1002,6 @@ export function enterWorldPortal(
 
 
 
-
-
-
     if(
 
         portalId === "living-world"
@@ -874,10 +1020,6 @@ export function enterWorldPortal(
 
 
 
-
-
-
-
     worldState = {
 
 
@@ -889,11 +1031,9 @@ export function enterWorldPortal(
             portalId,
 
 
-
         status:
 
             nextStatus,
-
 
 
         lastActive:
@@ -922,16 +1062,11 @@ export function enterWorldPortal(
 
                 [
 
-
                     ...worldState.visitedPortals,
-
 
                     portalId
 
-
                 ],
-
-
 
 
 
@@ -952,9 +1087,7 @@ export function enterWorldPortal(
             )
 
 
-
     };
-
 
 
 
@@ -965,7 +1098,6 @@ export function enterWorldPortal(
         worldState
 
     );
-
 
 
 

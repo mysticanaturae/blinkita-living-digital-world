@@ -39,8 +39,19 @@ import { WorldEvolutionEngine }
 from "./evolution/WorldEvolutionEngine";
 
 
+import { WorldTransformationEngine }
+
+from "./transformation/WorldTransformationEngine";
 
 
+import { LivingWorldEventAdapter }
+
+from "./events/LivingWorldEventAdapter";
+
+
+import { attachBirthMemory }
+
+from "./memory/WorldMemoryBirthAdapter";
 
 
 export function createLivingWorld(seed = {}) {
@@ -219,19 +230,30 @@ export function createLivingWorld(seed = {}) {
 
 
 
-        evolution: {
+                evolution: {
 
 
-            stage:
+    stage:
 
-                "seed",
+        WorldEvolutionEngine.EvolutionStages?.SEED || "seed",
 
 
-            history:
+    history:
 
-                []
+        [],
 
-        },
+
+    milestones:
+
+        [],
+
+
+    level:
+
+        0
+
+
+},
 
 
 
@@ -314,14 +336,70 @@ export function createLivingWorld(seed = {}) {
 
 
 
+/*
+======================================
+
+WORLD TRANSFORMATION FUNCTION™
+
+A Living World™ transforms
+through experiences
+
+======================================
+*/
+
+
+world.transform = function(
+
+    transformation
+
+){
+
+
+    return WorldTransformationEngine.transform(
+
+        world,
+
+        transformation
+
+    );
+
+
+};
 
 
 
 
 
+/*
+======================================
 
-    return world;
+WORLD BIRTH EVENT™
 
+The first heartbeat
+of a Living World™
+
+======================================
+*/
+
+
+const livingWorld =
+
+    attachBirthMemory(
+
+        world
+
+    );
+
+
+
+LivingWorldEventAdapter.worldCreated(
+
+    livingWorld
+
+);
+
+
+return livingWorld;
 
 
 }

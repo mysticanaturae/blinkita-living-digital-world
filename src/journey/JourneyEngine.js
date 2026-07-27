@@ -1,17 +1,29 @@
 /*
 ==========================================
+
 BLINKITA METHOD™
 
 JOURNEY ENGINE™
 
 The creator progression system
 
-Version 1.0
+Version 1.1
+
+Protected milestone system
+
 ==========================================
 */
 
 
-import { getWorldState, updateWorldState } from "../core/state/WorldState";
+import {
+
+    getWorldState,
+
+    updateWorldState
+
+}
+
+from "../core/state/WorldState";
 
 
 
@@ -22,6 +34,8 @@ import {
 }
 
 from "./JourneyRules";
+
+
 
 
 
@@ -50,6 +64,7 @@ export function processJourney(
 
 
 
+
     const world =
 
         getWorldState();
@@ -58,10 +73,30 @@ export function processJourney(
 
 
 
+    const milestoneExists =
+
+        (world.journey?.milestones || [])
+
+        .some(
+
+            milestone =>
+
+                milestone.message === rule.message
+
+        );
+
+
+
+
+
+
+
     const updatedJourney = {
 
 
+
         ...world.journey,
+
 
 
         stage:
@@ -70,31 +105,46 @@ export function processJourney(
 
 
 
+
         milestones:
 
-        [
-
-            ...(world.journey?.milestones || []),
 
 
-            {
-
-
-                message:
-
-                    rule.message,
-
-
-                timestamp:
-
-                    new Date().toISOString()
+            milestoneExists
 
 
 
-            }
+            ?
 
 
-        ]
+
+            world.journey.milestones
+
+
+
+            :
+
+
+
+            [
+
+                ...(world.journey?.milestones || []),
+
+
+                {
+
+                    message:
+
+                        rule.message,
+
+
+                    timestamp:
+
+                        new Date().toISOString()
+
+                }
+
+            ]
 
 
 
@@ -107,6 +157,7 @@ export function processJourney(
 
 
     return updateWorldState({
+
 
 
         journey:

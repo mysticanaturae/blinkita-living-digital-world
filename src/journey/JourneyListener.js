@@ -6,7 +6,7 @@ JOURNEY LISTENER™
 
 Automatic creator journey response
 
-Version 1.0
+Version 1.1
 ==========================================
 */
 
@@ -45,37 +45,17 @@ from "../core/events/EventTypes";
 
 
 
-subscribe(
-
-    EventTypes.PORTAL_ENTERED,
 
 
-    (event)=>{
+function handleJourney(
 
+    event
 
-        processJourney(
-
-            event
-
-        );
-
-
-    }
-
-
-);
+){
 
 
 
-
-
-subscribe(
-
-    EventTypes.PORTAL_COMPLETED,
-
-
-    (event)=>{
-
+    const journey =
 
         processJourney(
 
@@ -84,7 +64,75 @@ subscribe(
         );
 
 
-    }
 
 
-);
+
+    console.log(
+
+
+        "🌱 Creator Journey™",
+
+
+        journey
+
+
+    );
+
+
+
+
+
+    return journey;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+export function initializeJourneyListener(){
+
+
+
+
+
+    subscribe(
+
+
+        EventTypes.PORTAL_ENTERED,
+
+
+        handleJourney
+
+
+    );
+
+
+
+
+
+
+
+
+    subscribe(
+
+
+        EventTypes.PORTAL_COMPLETED,
+
+
+        handleJourney
+
+
+    );
+
+
+
+
+
+}

@@ -5,7 +5,7 @@ BLINKITA METHOD™
 
 WORLD EVOLUTION ENGINE™
 
-The growth intelligence
+The consciousness growth
 of a Living World™
 
 Version 1.0
@@ -14,9 +14,43 @@ Version 1.0
 */
 
 
-import { WorldLifecycle }
+export const EvolutionStages = {
 
-from "../../core/world/WorldLifecycle";
+
+    SEED:
+
+        "seed",
+
+
+    AWAKENING:
+
+        "awakening",
+
+
+    GROWING:
+
+        "growing",
+
+
+    LIVING:
+
+        "living",
+
+
+    THRIVING:
+
+        "thriving",
+
+
+    LEGACY:
+
+        "legacy"
+
+
+};
+
+
+
 
 
 
@@ -25,109 +59,15 @@ export const WorldEvolutionEngine = {
 
 
 
-    evolve(world) {
+    evolve(world, nextStage) {
 
 
 
-        const stages = [
+        if (!world) {
 
-            "SEED",
-
-            "GROWING",
-
-            "LIVING",
-
-            "THRIVING",
-
-            "LEGACY"
-
-        ];
-
-
-
-
-
-        const currentStage =
-
-            world.lifecycle?.id;
-
-
-
-
-
-        const currentIndex =
-
-            stages.findIndex(
-
-                stage =>
-
-                    WorldLifecycle.stages[stage].id === currentStage
-
-            );
-
-
-
-
-
-
-
-        const nextStage =
-
-            stages[currentIndex + 1];
-
-
-
-
-
-
-
-
-        if(!nextStage){
-
-
-            return {
-
-
-                ...world,
-
-
-                evolution: {
-
-
-                    ...world.evolution,
-
-
-                    stage:
-
-                        "legacy"
-
-
-
-                }
-
-
-            };
-
+            return null;
 
         }
-
-
-
-
-
-
-
-
-        const lifecycle =
-
-            WorldLifecycle.getStage(
-
-                nextStage
-
-            );
-
-
-
 
 
 
@@ -140,19 +80,12 @@ export const WorldEvolutionEngine = {
 
 
 
-            lifecycle,
-
-
-
             evolution: {
-
-
-                ...world.evolution,
 
 
                 stage:
 
-                    lifecycle.id,
+                    nextStage,
 
 
 
@@ -160,8 +93,8 @@ export const WorldEvolutionEngine = {
 
                 [
 
-
                     ...(world.evolution?.history || []),
+
 
 
                     {
@@ -169,12 +102,13 @@ export const WorldEvolutionEngine = {
 
                         from:
 
-                            currentStage,
+                            world.evolution?.stage || "seed",
+
 
 
                         to:
 
-                            lifecycle.id,
+                            nextStage,
 
 
 
@@ -188,18 +122,76 @@ export const WorldEvolutionEngine = {
 
                 ]
 
+            },
 
 
-            }
 
+            updatedAt:
 
+                new Date().toISOString()
 
 
         };
 
 
+    },
+
+
+
+
+
+
+
+    getNextStage(currentStage) {
+
+
+
+        const stages = [
+
+            EvolutionStages.SEED,
+
+            EvolutionStages.AWAKENING,
+
+            EvolutionStages.GROWING,
+
+            EvolutionStages.LIVING,
+
+            EvolutionStages.THRIVING,
+
+            EvolutionStages.LEGACY
+
+        ];
+
+
+
+        const index =
+
+            stages.indexOf(currentStage);
+
+
+
+
+        if (
+
+            index === -1 ||
+
+            index === stages.length - 1
+
+        ) {
+
+            return currentStage;
+
+        }
+
+
+
+        return stages[index + 1];
+
 
     }
+
+
+
 
 
 

@@ -4,14 +4,19 @@ BLINKITA METHOD™
 
 LIVING EVENT TYPES™
 
-The language of a Living World™
+The language
+of a Living World™
 
-Version 1.0
+Version 1.1
 ==========================================
 */
 
 
+
 export const EventTypes = {
+
+
+
 
 
     /*
@@ -22,11 +27,18 @@ export const EventTypes = {
 
 
     PORTAL_ENTERED:
+
         "portal_entered",
 
 
+
     PORTAL_COMPLETED:
+
         "portal_completed",
+
+
+
+
 
 
 
@@ -38,15 +50,24 @@ export const EventTypes = {
 
 
     WORLD_CREATED:
+
         "world_created",
 
 
+
     WORLD_UPDATED:
+
         "world_updated",
 
 
+
     WORLD_EVOLVED:
+
         "world_evolved",
+
+
+
+
 
 
 
@@ -58,15 +79,24 @@ export const EventTypes = {
 
 
     CREATOR_JOINED:
+
         "creator_joined",
 
 
+
     CREATOR_CREATED:
+
         "creator_created",
 
 
+
     CREATOR_TRANSFORMED:
+
         "creator_transformed",
+
+
+
+
 
 
 
@@ -78,11 +108,59 @@ export const EventTypes = {
 
 
     CONNECTION_CREATED:
+
         "connection_created",
 
 
+
+    RELATIONSHIP_CREATED:
+
+        "relationship_created",
+
+
+
     COLLABORATION_STARTED:
+
         "collaboration_started",
+
+
+
+
+
+
+
+    /*
+    ======================================
+    DISCOVERY EVENTS
+    ======================================
+    */
+
+
+    DISCOVERY_CREATED:
+
+        "discovery_created",
+
+
+
+    INSIGHT_FOUND:
+
+        "insight_found",
+
+
+
+    KNOWLEDGE_DISCOVERED:
+
+        "knowledge_discovered",
+
+
+
+    REVELATION_RECEIVED:
+
+        "revelation_received",
+
+
+
+
 
 
 
@@ -94,8 +172,39 @@ export const EventTypes = {
 
 
     MEMORY_CREATED:
+
         "memory_created",
 
+
+
+    /*
+    ======================================
+    DECISION EVENTS
+    ======================================
+    */
+
+
+    DECISION_CREATED:
+
+        "decision_created",
+
+
+    /*
+    ======================================
+    GOVERNANCE EVENTS
+    ======================================
+    */
+
+
+    GOVERNANCE_APPROVED:
+
+        "governance_approved",
+
+
+
+    GOVERNANCE_REVIEW_REQUIRED:
+
+        "governance_review_required",
 
 
     /*
@@ -106,11 +215,17 @@ export const EventTypes = {
 
 
     EVOLUTION_STARTED:
+
         "evolution_started",
 
 
+
     STAGE_CHANGED:
+
         "stage_changed"
+
+
+
 
 
 };

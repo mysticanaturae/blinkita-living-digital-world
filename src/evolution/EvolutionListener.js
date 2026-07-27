@@ -6,7 +6,7 @@ EVOLUTION LISTENER™
 
 Automatic evolution response
 
-Version 1.1
+Version 1.2
 
 Connected with:
 - EventBus™
@@ -52,13 +52,16 @@ from "../core/events/EventTypes";
 
 
 
-subscribe(
 
-    EventTypes.PORTAL_COMPLETED,
+function handleEvolution(
+
+    event
+
+){
 
 
-    (event)=>{
 
+    const evolution =
 
         processEvolution(
 
@@ -67,7 +70,57 @@ subscribe(
         );
 
 
-    }
 
 
-);
+
+    console.log(
+
+
+        "🌱 World Evolution™",
+
+
+        evolution
+
+
+    );
+
+
+
+
+
+    return evolution;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+export function initializeEvolutionListener(){
+
+
+
+
+
+    subscribe(
+
+
+        EventTypes.PORTAL_COMPLETED,
+
+
+        handleEvolution
+
+
+    );
+
+
+
+
+
+}

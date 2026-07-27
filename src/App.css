@@ -1,3 +1,5 @@
+@import "./styles/living-ui.css";
+
 body {
 
   margin: 0;
@@ -185,4 +187,108 @@ button {
 
 .portal-completion button {
     margin-top: 20px;
+}
+
+/*
+==========================================
+LIVING DASHBOARD STRUCTURE SPACING™
+Universal layout rhythm
+==========================================
+*/
+
+
+.living-page > .living-grid {
+
+    margin-bottom:60px;
+
+}
+
+
+
+
+.living-page > .living-card {
+
+    margin-bottom:40px;
+
+}
+
+
+
+
+.living-page > .living-card:last-child {
+
+    margin-bottom:0;
+
+}
+
+
+
+
+/*
+==========================================
+INNER DASHBOARD CARDS™
+==========================================
+*/
+
+
+.living-grid .living-card {
+
+    margin-bottom:0;
+
+}
+
+
+
+/*
+==========================================
+WORLD BUILDER™
+==========================================
+*/
+
+
+.world-builder-home .living-grid {
+
+    margin-bottom:60px;
+
+}
+
+
+.world-builder-home .living-card {
+
+    margin-bottom:40px;
+
+}
+
+/*
+==========================================
+LIVING GRID CARD ALIGNMENT™
+==========================================
+*/
+
+
+.living-grid {
+
+    align-items: stretch;
+
+}
+
+
+
+.living-grid .living-card {
+
+    height:100%;
+
+    min-height:220px;
+
+    display:flex;
+
+    flex-direction:column;
+
+
+}
+
+.portal-navigation {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
