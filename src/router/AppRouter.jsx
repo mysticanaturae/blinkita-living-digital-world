@@ -32,7 +32,7 @@ export default function AppRouter() {
     return (
 
 
-        <BrowserRouter basename="/blinkita-living-digital-world">
+        <BrowserRouter>
 
 
             <Routes>
