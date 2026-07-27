@@ -8,7 +8,7 @@ LIVING PORTAL EXPERIENCE™
 
 The living experience layer
 
-Version 1.0
+Version 1.1
 
 ==========================================
 */
@@ -25,6 +25,8 @@ export default function LivingPortalExperience({ portal }) {
 
     const [activated, setActivated] = useState(false);
 
+    const [awakeningMessage, setAwakeningMessage] = useState(null);
+
 
 
     if (!portal) {
@@ -36,36 +38,65 @@ export default function LivingPortalExperience({ portal }) {
 
 
 
+
     function handleJourney() {
 
 
         console.log(
+
             "🌱 Portal Interaction:",
-            portal.id
-        );
-
-
-
-        const state = BlinkitaEngine.completePortal(
 
             portal.id
 
         );
+
+
+
+
+        const state =
+
+            BlinkitaEngine.completePortal(
+
+                portal.id
+
+            );
+
 
 
 
         console.log(
 
             "🌎 Living World Updated:",
+
             state
 
         );
 
 
+
+
+
+        setAwakeningMessage(
+
+            {
+                title:
+                    "🌱 Portal Awakened",
+
+                text:
+                    "Your journey has begun. A new memory has entered your Living World™."
+
+            }
+
+        );
+
+
+
         setActivated(true);
 
 
+
     }
+
 
 
 
@@ -75,6 +106,8 @@ export default function LivingPortalExperience({ portal }) {
 
 
         <section className="living-portal-experience">
+
+
 
 
 
@@ -89,6 +122,8 @@ export default function LivingPortalExperience({ portal }) {
 
 
             </div>
+
+
 
 
 
@@ -118,6 +153,7 @@ export default function LivingPortalExperience({ portal }) {
 
 
 
+
             <div className="portal-whisper-window">
 
 
@@ -136,6 +172,7 @@ export default function LivingPortalExperience({ portal }) {
 
 
             </div>
+
 
 
 
@@ -191,6 +228,39 @@ export default function LivingPortalExperience({ portal }) {
 
 
 
+            {
+                awakeningMessage && (
+
+                    <div className="portal-message-window">
+
+
+                        <h3>
+
+                            {awakeningMessage.title}
+
+                        </h3>
+
+
+                        <p>
+
+                            {awakeningMessage.text}
+
+                        </p>
+
+
+                    </div>
+
+                )
+
+            }
+
+
+
+
+
+
+
+
             <button
 
                 className="journey-button"
@@ -201,16 +271,29 @@ export default function LivingPortalExperience({ portal }) {
 
             >
 
-                {activated
 
-                    ? "Journey Activated ✨"
+                {
 
-                    : portal.experience?.interaction || "Begin Your Journey™"
+                    activated
+
+                    ?
+
+                    "Journey Activated ✨"
+
+                    :
+
+                    portal.experience?.interaction
+
+                    ||
+
+                    "Begin Your Journey™"
 
                 }
 
 
+
             </button>
+
 
 
 
