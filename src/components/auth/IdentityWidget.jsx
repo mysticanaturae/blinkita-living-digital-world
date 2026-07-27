@@ -15,7 +15,7 @@ Connected with:
 - World Builder™
 - Dashboard System™
 
-Version 2.1
+Version 2.2
 
 ==========================================
 */
@@ -87,25 +87,11 @@ export default function IdentityWidget(){
 
 
 
+
     function openCreator(){
 
 
         navigate("/creator");
-
-
-    }
-
-
-
-
-
-
-
-
-    function openWorld(){
-
-
-        navigate("/world");
 
 
     }
@@ -160,6 +146,9 @@ export default function IdentityWidget(){
 
 
         <section className="identity-widget living-card">
+
+
+
 
 
 
@@ -227,6 +216,8 @@ export default function IdentityWidget(){
 
 
 
+
+
                             <button
 
                                 className="living-button"
@@ -236,26 +227,6 @@ export default function IdentityWidget(){
                             >
 
                                 🏛️ Creator Dashboard™
-
-                            </button>
-
-
-
-
-
-
-
-
-
-                            <button
-
-                                className="living-button"
-
-                                onClick={openWorld}
-
-                            >
-
-                                🌎 World Dashboard™
 
                             </button>
 
@@ -364,6 +335,5 @@ export default function IdentityWidget(){
 
 
     );
-
 
 }
