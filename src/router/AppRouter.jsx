@@ -4,8 +4,17 @@ import { PortalRoutes } from "../core/routes/PortalRoutes";
 import DynamicPortalPage from "../pages/DynamicPortalPage";
 
 
-// Dashboards
-import CreatorDashboard from "../components/creator/CreatorDashboard";
+// =================================
+// BLINKITA OS™ DASHBOARD
+// =================================
+
+import CreatorHouse from "../components/dashboard/CreatorHouse";
+
+
+// =================================
+// DASHBOARD MODULES
+// =================================
+
 import WorldDashboard from "../components/world/WorldDashboard";
 import WorldBuilderHome from "../components/builder/WorldBuilderHome";
 import WorldLifecycleDashboard from "../components/lifecycle/WorldLifecycleDashboard";
@@ -14,39 +23,57 @@ import WorldResume from "../components/resume/WorldResume";
 
 
 
+
+
 export default function AppRouter() {
+
 
     return (
 
+
         <BrowserRouter>
 
+
             <Routes>
+
 
 
                 {/* =================================
                     LIVING PORTAL JOURNEY™
                     ================================= */}
 
+
                 {PortalRoutes.map((route) => {
+
 
                     const PageComponent = route.component;
 
 
+
                     return (
+
 
                         <Route
 
+
                             key={route.id}
+
 
                             path={route.path}
 
+
                             element={<PageComponent />}
+
 
                         />
 
+
                     );
 
+
                 })}
+
+
 
 
 
@@ -55,80 +82,127 @@ export default function AppRouter() {
                     DYNAMIC PORTALS
                     ================================= */}
 
+
                 <Route
+
 
                     path="/portal/:portalId"
 
+
                     element={<DynamicPortalPage />}
 
+
                 />
+
+
 
 
 
 
 
                 {/* =================================
-                    CREATOR OS™
+                    BLINKITA OS™
+                    CREATOR HOUSE™
                     ================================= */}
 
 
                 <Route
 
+
                     path="/creator"
 
-                    element={<CreatorDashboard />}
+
+                    element={<CreatorHouse />}
+
 
                 />
 
 
 
+
+
+
+
+
+                {/* =================================
+                    SUPPORTING SPACES™
+                    ================================= */}
+
+
+
                 <Route
+
 
                     path="/world-dashboard"
 
+
                     element={<WorldDashboard />}
+
 
                 />
 
 
 
+
+
                 <Route
+
 
                     path="/builder"
 
+
                     element={<WorldBuilderHome />}
+
 
                 />
 
 
 
+
+
                 <Route
+
 
                     path="/lifecycle"
 
+
                     element={<WorldLifecycleDashboard />}
+
 
                 />
 
 
 
+
+
                 <Route
+
 
                     path="/timeline"
 
+
                     element={<WorldTimeline />}
 
+
                 />
+
+
 
 
 
                 <Route
 
+
                     path="/resume"
+
 
                     element={<WorldResume />}
 
+
                 />
+
+
+
 
 
             </Routes>
@@ -136,6 +210,8 @@ export default function AppRouter() {
 
         </BrowserRouter>
 
+
     );
+
 
 }

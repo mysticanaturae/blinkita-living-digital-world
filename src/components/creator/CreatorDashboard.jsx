@@ -13,8 +13,9 @@ Connected with:
 - Creator State™
 - World State™
 - Evolution System™
+- World Builder Evolution™
 
-Version 3.0
+Version 3.2
 
 Connected with:
 - Living UI System™
@@ -43,11 +44,26 @@ from "../../core/state/WorldState";
 
 
 
+import WorldBuilderEvolutionCard
+
+from "../evolution/WorldBuilderEvolutionCard";
+
+
+
+import WorldBuilderDomainCard
+
+from "../worldbuilder/WorldBuilderDomainCard";
+
+
+
+
 
 
 
 
 export default function CreatorDashboard(){
+
+
 
 
 
@@ -58,6 +74,7 @@ export default function CreatorDashboard(){
         ||
 
         {};
+
 
 
 
@@ -74,6 +91,9 @@ export default function CreatorDashboard(){
 
 
 
+
+
+
     const creator =
 
         creatorState.creator
@@ -84,9 +104,9 @@ export default function CreatorDashboard(){
 
             identity: {
 
-                name: "Anonymous Creator",
+                name:"Anonymous Creator",
 
-                archetype: "Explorer"
+                archetype:"Explorer"
 
             },
 
@@ -107,6 +127,8 @@ export default function CreatorDashboard(){
 
 
 
+
+
     const worlds =
 
         creatorState.worlds
@@ -114,6 +136,9 @@ export default function CreatorDashboard(){
         ||
 
         [];
+
+
+
 
 
 
@@ -131,6 +156,8 @@ export default function CreatorDashboard(){
 
 
 
+
+
     const worldEvolution =
 
         worldState.evolution
@@ -138,6 +165,7 @@ export default function CreatorDashboard(){
         ||
 
         {};
+
 
 
 
@@ -153,6 +181,7 @@ export default function CreatorDashboard(){
 
 
 
+
     const worldDecision =
 
         worldState.decision
@@ -160,6 +189,7 @@ export default function CreatorDashboard(){
         ||
 
         {};
+
 
 
 
@@ -278,7 +308,7 @@ Archetype:
 
 <h2>
 
-Evolution
+Creator Journey™
 
 </h2>
 
@@ -329,6 +359,16 @@ Stage:
 
 
 
+
+
+<WorldBuilderEvolutionCard />
+
+
+
+
+
+
+
 <section className="living-card">
 
 
@@ -346,7 +386,7 @@ Current Portal:
 
 {" "}
 
-{worldState.currentPortal}
+{worldState.currentPortal || "arrival"}
 
 </p>
 
@@ -359,7 +399,7 @@ Evolution:
 
 {" "}
 
-{worldEvolution.stage}
+{worldEvolution.stage || "seed"}
 
 </p>
 
@@ -411,7 +451,23 @@ Actions:
 
 
 
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<WorldBuilderDomainCard />
 
 
 
@@ -520,12 +576,16 @@ is waiting.
 
 
 
+
+
+
+
 <section className="living-card living-section">
 
 
 <h2>
 
-Achievements
+Achievements™
 
 </h2>
 
@@ -533,15 +593,14 @@ Achievements
 
 <p>
 
-Your evolution milestones
-will appear here.
+Your World Builder™
+milestones will appear here.
 
 </p>
 
 
 
 </section>
-
 
 
 

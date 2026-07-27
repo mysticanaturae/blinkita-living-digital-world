@@ -33,6 +33,14 @@ from "../../core/state/WorldState";
 
 
 
+import {
+
+    getTzolkinIdentity
+
+}
+
+from "../../core/tzolkin/TzolkinState";
+
 
 
 
@@ -45,7 +53,9 @@ export default function WorldResume(){
         getWorldState();
 
 
+    const tzolkin =
 
+        getTzolkinIdentity();
 
 
 
@@ -237,44 +247,90 @@ export default function WorldResume(){
 
                 <section className="living-card">
 
+    <h2>
 
-                    <h2>
+        🌀 Time Signature™
 
-                        🌀 Time Signature™
-
-                    </h2>
-
+    </h2>
 
 
-                    <p>
+    {
 
-                        Tzolk'in Identity:
+        tzolkin.calculated
 
-                    </p>
+        ?
 
+        <>
 
+            <p>
 
-                    <p>
+                <strong>
 
-                        Not calculated yet.
+                    KIN {tzolkin.kin}
 
-                    </p>
+                </strong>
 
-
-
-                    <button
-
-                        className="living-button"
-
-                    >
-
-                        Calculate My Time Code™
-
-                    </button>
+            </p>
 
 
+            <p>
 
-                </section>
+                {tzolkin.signature}
+
+            </p>
+
+
+            <small>
+
+                Calculated:
+
+                {" "}
+
+                {
+
+                    new Date(
+
+                        tzolkin.calculatedAt
+
+                    ).toLocaleDateString()
+
+                }
+
+            </small>
+
+        </>
+
+        :
+
+        <>
+
+            <p>
+
+                Tzolk'in Identity:
+
+            </p>
+
+            <p>
+
+                Not calculated yet.
+
+            </p>
+
+            <button
+
+                className="living-button"
+
+            >
+
+                Calculate My Time Code™
+
+            </button>
+
+        </>
+
+    }
+
+</section>
 
 
 
