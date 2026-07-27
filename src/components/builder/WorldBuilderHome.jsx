@@ -6,57 +6,31 @@ BLINKITA OS™
 
 WORLD BUILDER HOME™
 
-The home of a World Builder™
+
+The central operating space
+of a World Builder™
 
 Connected with:
-- Builder State™
-- World State™
-- Creator Evolution™
+- Creator Identity™
+- Living World™
+- BLINKITA Ecosystem™
+- Academy™
+- Studio™
+- Publishing™
+- AI™
 
-Connected with:
-- Living UI System™
-
-Version 3.0
+Version 2.0
 
 ==========================================
 */
 
 
+import { useState } from "react";
+
 import {
-
-    getBuilderState
-
+    getWorldState
 }
-
-from "../../core/builder/BuilderState";
-
-
-
-import CreatorIdentity
-
-from "./CreatorIdentity";
-
-
-
-import CreatorEvolution
-
-from "./CreatorEvolution";
-
-
-
-import BuilderWorlds
-
-from "./BuilderWorlds";
-
-
-
-import NextPossibility
-
-from "./NextPossibility";
-
-
-
-
+from "../../core/state/WorldState";
 
 
 
@@ -66,54 +40,107 @@ export default function WorldBuilderHome(){
 
 
 
-
-
-    const builder =
-
-        getBuilderState();
+    const [activeSpace, setActiveSpace] = useState("home");
 
 
 
+    const world =
+
+        getWorldState()
+
+        ||
+
+        {};
 
 
 
 
 
-    if(!builder){
+
+    const spaces = [
+
+
+        {
+            id:"creator",
+            title:"🌱 Creator Space™",
+            description:
+            "Your identity, evolution and creative journey."
+        },
+
+
+        {
+            id:"world",
+            title:"🌎 Living World™",
+            description:
+            "The worlds you create, nurture and evolve."
+        },
+
+
+        {
+            id:"creation",
+            title:"🌀 Creation Studio™",
+            description:
+            "Design new experiences and living systems."
+        },
+
+
+        {
+            id:"timeline",
+            title:"📖 World Timeline™",
+            description:
+            "The memory trail of your Living World™."
+        },
+
+
+        {
+            id:"academy",
+            title:"🎓 Academy™",
+            description:
+            "Learn the architecture of Living Digital Worlds™."
+        },
+
+
+        {
+            id:"studio",
+            title:"🎨 Studio™",
+            description:
+            "Create art, music, stories and experiences."
+        },
+
+
+        {
+            id:"publishing",
+            title:"📚 Publishing™",
+            description:
+            "Transform knowledge into living wisdom."
+        },
+
+
+        {
+            id:"ai",
+            title:"🤖 BLINKITA AI™",
+            description:
+            "Intelligence that supports creation."
+        }
 
 
 
-        return (
+    ];
 
 
 
-            <section className="living-page world-builder-home">
 
 
 
-                <section className="living-card">
 
 
-                    <p>
+    const selected =
 
-                        🌱 Initializing World Builder™
+        spaces.find(
 
-                    </p>
-
-
-                </section>
-
-
-
-            </section>
-
-
+            space => space.id === activeSpace
 
         );
-
-
-    }
-
 
 
 
@@ -127,9 +154,8 @@ export default function WorldBuilderHome(){
 
 
 
-
-
         <section className="living-page world-builder-home">
+
 
 
 
@@ -138,10 +164,10 @@ export default function WorldBuilderHome(){
             <header className="living-header">
 
 
-
                 <h1>
 
-                    🌎 World Builder™
+                    🌎 Welcome Back,
+                    World Builder™
 
                 </h1>
 
@@ -149,11 +175,9 @@ export default function WorldBuilderHome(){
 
                 <p>
 
-                    The home of conscious creation
-                    inside the Living World™
+                    Your Living Creation Space™
 
                 </p>
-
 
 
             </header>
@@ -166,21 +190,7 @@ export default function WorldBuilderHome(){
 
 
 
-            <div className="living-grid">
-
-
-
-                <section className="living-card">
-
-
-                    <CreatorIdentity
-
-                        builder={builder}
-
-                    />
-
-
-                </section>
+            <div className="world-builder-layout">
 
 
 
@@ -188,17 +198,338 @@ export default function WorldBuilderHome(){
 
 
 
-                <section className="living-card">
+                <aside className="world-builder-menu">
 
 
-                    <CreatorEvolution
 
-                        builder={builder}
-
-                    />
+                    <section className="living-card">
 
 
-                </section>
+                        <h2>
+
+                            BLINKITA ECOSYSTEM™
+
+                        </h2>
+
+
+
+
+                        {
+
+                            spaces.map(
+
+                                space => (
+
+
+                                    <button
+
+                                        key={space.id}
+
+                                        className="living-button"
+
+                                        onClick={
+
+                                            () => setActiveSpace(space.id)
+
+                                        }
+
+                                    >
+
+                                        {space.title}
+
+
+                                    </button>
+
+
+                                )
+
+                            )
+
+
+                        }
+
+
+
+                    </section>
+
+
+
+
+                </aside>
+
+
+
+
+
+
+
+
+
+                <main className="world-builder-content">
+
+
+
+
+
+                    {
+
+
+                    activeSpace === "home"
+
+
+                    ?
+
+
+                    (
+
+
+                        <section className="living-card">
+
+
+                            <h2>
+
+                                ✨ Your World Builder Home™
+
+                            </h2>
+
+
+
+                            <p>
+
+                                Welcome to the operating center
+                                of your Living World™.
+
+                            </p>
+
+
+
+                            <p>
+
+                                Choose a space from the left
+                                to begin your journey.
+
+                            </p>
+
+
+
+                        </section>
+
+
+                    )
+
+
+
+                    :
+
+
+
+                    (
+
+
+
+                        <section className="living-card">
+
+
+                            <h2>
+
+                                {selected.title}
+
+                            </h2>
+
+
+
+                            <p>
+
+                                {selected.description}
+
+                            </p>
+
+
+
+
+
+                            <hr />
+
+
+
+
+
+                            {
+
+                                activeSpace === "creator" &&
+
+                                <>
+
+                                    <h3>
+
+                                        Creator Identity™
+
+                                    </h3>
+
+
+                                    <p>
+
+                                        Your evolution as a
+                                        World Builder™ begins here.
+
+                                    </p>
+
+                                </>
+
+                            }
+
+
+
+
+
+                            {
+
+                                activeSpace === "world" &&
+
+                                <>
+
+                                    <h3>
+
+                                        Current Living World™
+
+                                    </h3>
+
+
+                                    <p>
+
+                                        Status:
+
+                                        {" "}
+
+                                        {world.status || "Growing"}
+
+                                    </p>
+
+
+                                    <p>
+
+                                        Portal:
+
+                                        {" "}
+
+                                        {world.currentPortal || "Arrival"}
+
+                                    </p>
+
+
+                                </>
+
+                            }
+
+
+
+
+
+
+                            {
+
+                                activeSpace === "academy" &&
+
+                                <>
+
+                                    <h3>
+
+                                        Academy™ Path
+
+                                    </h3>
+
+
+                                    <p>
+
+                                        Foundations → Frameworks →
+                                        Blueprints → Standards →
+                                        Playbooks → Case Studies
+
+                                    </p>
+
+                                </>
+
+                            }
+
+
+
+
+
+
+
+                            {
+
+                                activeSpace === "studio" &&
+
+                                <>
+
+                                    <h3>
+
+                                        Creative Laboratory™
+
+                                    </h3>
+
+
+                                    <p>
+
+                                        Where ideas become Living Experiences™.
+
+                                    </p>
+
+
+                                </>
+
+                            }
+
+
+
+
+
+
+                            {
+
+                                activeSpace === "ai" &&
+
+                                <>
+
+                                    <h3>
+
+                                        Living Intelligence™
+
+                                    </h3>
+
+
+                                    <p>
+
+                                        AI as a creative companion
+                                        inside your world.
+
+                                    </p>
+
+
+                                </>
+
+                            }
+
+
+
+
+
+                        </section>
+
+
+                    )
+
+
+                    }
+
+
+
+
+
+
+                </main>
+
 
 
 
@@ -211,51 +542,7 @@ export default function WorldBuilderHome(){
 
 
 
-
-
-
-            <section className="living-card">
-
-
-                <BuilderWorlds
-
-                    worlds={builder.worlds || []}
-
-                />
-
-
-            </section>
-
-
-
-
-
-
-
-
-
-            <section className="living-card">
-
-
-                <NextPossibility
-
-                    builder={builder}
-
-                />
-
-
-            </section>
-
-
-
-
-
-
-
-
         </section>
-
-
 
 
 

@@ -882,3 +882,70 @@ LIVING PORTAL EXPERIENCE™
 
 
 }
+
+/*
+==========================================
+WORLD BUILDER HOME LAYOUT™
+==========================================
+*/
+
+
+.world-builder-layout {
+
+    display:grid;
+
+    grid-template-columns:280px 1fr;
+
+    gap:40px;
+
+    align-items:start;
+
+}
+
+
+
+.world-builder-menu {
+
+    position:sticky;
+
+    top:40px;
+
+}
+
+
+
+.world-builder-menu .living-card {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+
+.world-builder-menu button {
+
+    width:100%;
+
+    text-align:left;
+
+}
+
+
+
+.world-builder-content {
+
+    min-height:600px;
+
+}
+
+
+
+.world-builder-content .living-card {
+
+    min-height:500px;
+
+}
