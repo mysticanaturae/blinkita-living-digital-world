@@ -15,7 +15,7 @@ Connected with:
 - World Builder™
 - Dashboard System™
 
-Version 2.0
+Version 2.1
 
 ==========================================
 */
@@ -24,6 +24,8 @@ Version 2.0
 import {
 
     getAuthState,
+
+    createIdentity,
 
     logout
 
@@ -84,6 +86,7 @@ export default function IdentityWidget(){
 
 
 
+
     function openCreator(){
 
 
@@ -98,10 +101,48 @@ export default function IdentityWidget(){
 
 
 
+
     function openWorld(){
 
 
         navigate("/world");
+
+
+    }
+
+
+
+
+
+
+
+
+
+    function handleCreateIdentity(){
+
+
+
+        createIdentity({
+
+
+            name:"New Creator",
+
+
+            title:"World Builder™",
+
+
+            archetype:"Explorer"
+
+
+
+        });
+
+
+
+
+
+        navigate("/creator");
+
 
 
     }
@@ -154,6 +195,7 @@ export default function IdentityWidget(){
                             </span>
 
 
+
                             <strong>
 
                                 {
@@ -183,6 +225,8 @@ export default function IdentityWidget(){
 
 
 
+
+
                             <button
 
                                 className="living-button"
@@ -194,6 +238,8 @@ export default function IdentityWidget(){
                                 🏛️ Creator Dashboard™
 
                             </button>
+
+
 
 
 
@@ -219,6 +265,8 @@ export default function IdentityWidget(){
 
 
 
+
+
                             <button
 
                                 className="living-button"
@@ -235,7 +283,11 @@ export default function IdentityWidget(){
 
 
 
+
+
                         </div>
+
+
 
 
 
@@ -272,28 +324,22 @@ export default function IdentityWidget(){
 
 
 
+
+
+
                         <button
 
                             className="living-button"
 
-                            onClick={() => {
-
-
-                                console.log(
-
-                                    "✨ Identity creation available"
-
-
-                                );
-
-
-                            }}
+                            onClick={handleCreateIdentity}
 
                         >
 
                             ✨ Create Identity™
 
                         </button>
+
+
 
 
 
@@ -307,6 +353,8 @@ export default function IdentityWidget(){
 
 
             }
+
+
 
 
 

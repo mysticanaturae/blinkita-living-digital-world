@@ -25,6 +25,7 @@ import WorldResume from "../components/resume/WorldResume";
 
 
 
+
 export default function AppRouter() {
 
 
@@ -35,6 +36,8 @@ export default function AppRouter() {
 
 
             <Routes>
+
+
 
 
 
@@ -78,6 +81,8 @@ export default function AppRouter() {
 
 
 
+
+
                 {/* =================================
                     DYNAMIC PORTALS
                     ================================= */}
@@ -93,6 +98,9 @@ export default function AppRouter() {
 
 
                 />
+
+
+
 
 
 
@@ -124,6 +132,8 @@ export default function AppRouter() {
 
 
 
+
+
                 {/* =================================
                     SUPPORTING SPACES™
                     ================================= */}
@@ -140,6 +150,21 @@ export default function AppRouter() {
 
 
                 />
+
+
+
+                <Route
+
+
+                    path="/world"
+
+
+                    element={<WorldDashboard />}
+
+
+                />
+
+
 
 
 
@@ -160,6 +185,8 @@ export default function AppRouter() {
 
 
 
+
+
                 <Route
 
 
@@ -170,6 +197,8 @@ export default function AppRouter() {
 
 
                 />
+
+
 
 
 
@@ -190,6 +219,8 @@ export default function AppRouter() {
 
 
 
+
+
                 <Route
 
 
@@ -200,6 +231,7 @@ export default function AppRouter() {
 
 
                 />
+
 
 
 
