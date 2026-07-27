@@ -10,12 +10,13 @@ WORLD RESUME™
 The return portal
 for a Living World™
 
-Version 2.1
+Version 3.0
 
 Connected with:
 - World State™
 - World Memory™
-- Living UI System™
+- World Timeline™
+- Living Time Layer™
 
 ==========================================
 */
@@ -73,6 +74,33 @@ export default function WorldResume(){
 
 
 
+    const memoryCount =
+
+        world.memory?.events?.length || 0;
+
+
+
+
+
+    const portalCount =
+
+        world.visitedPortals?.length || 0;
+
+
+
+
+
+
+    const timelineCount =
+
+        world.timeline?.length || 0;
+
+
+
+
+
+
+
 
 
     return (
@@ -80,6 +108,7 @@ export default function WorldResume(){
 
 
         <section className="living-page world-resume">
+
 
 
 
@@ -118,6 +147,193 @@ export default function WorldResume(){
 
 
             <div className="living-grid">
+
+
+
+
+
+
+
+                <section className="living-card">
+
+
+                    <h2>
+
+                        🌌 World Origin™
+
+                    </h2>
+
+
+
+                    <p>
+
+                        Created:
+
+                        {" "}
+
+                        {
+
+                            world.createdAt
+
+                            ?
+
+                            new Date(
+
+                                world.createdAt
+
+                            ).toLocaleString()
+
+                            :
+
+                            "Unknown"
+
+                        }
+
+                    </p>
+
+
+
+                    <p>
+
+                        World Seed:
+
+                        {" "}
+
+                        {
+
+                            world.id
+
+                        }
+
+                    </p>
+
+
+
+                    <p>
+
+                        Evolution:
+
+                        {" "}
+
+                        {
+
+                            world.status
+
+                        }
+
+                    </p>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <section className="living-card">
+
+
+                    <h2>
+
+                        🌀 Time Signature™
+
+                    </h2>
+
+
+
+                    <p>
+
+                        Tzolk'in Identity:
+
+                    </p>
+
+
+
+                    <p>
+
+                        Not calculated yet.
+
+                    </p>
+
+
+
+                    <button
+
+                        className="living-button"
+
+                    >
+
+                        Calculate My Time Code™
+
+                    </button>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <section className="living-card">
+
+
+                    <h2>
+
+                        📖 World Memory™
+
+                    </h2>
+
+
+
+                    <p>
+
+                        Memories:
+
+                        {" "}
+
+                        {memoryCount}
+
+                    </p>
+
+
+
+                    <p>
+
+                        Timeline Events:
+
+                        {" "}
+
+                        {timelineCount}
+
+                    </p>
+
+
+
+                    <p>
+
+                        Portals Visited:
+
+                        {" "}
+
+                        {portalCount}
+
+                    </p>
+
+
+
+                </section>
+
+
 
 
 
@@ -171,6 +387,7 @@ export default function WorldResume(){
                     </p>
 
 
+
                 </section>
 
 
@@ -217,6 +434,7 @@ export default function WorldResume(){
                         }
 
                     </p>
+
 
 
                 </section>
@@ -271,6 +489,7 @@ export default function WorldResume(){
                     </p>
 
 
+
                 </section>
 
 
@@ -323,6 +542,7 @@ export default function WorldResume(){
                     </p>
 
 
+
                 </section>
 
 
@@ -344,10 +564,7 @@ export default function WorldResume(){
 
 
 
-
-
                     {
-
 
                         lastMemory
 
@@ -396,7 +613,6 @@ export default function WorldResume(){
                         </p>
 
 
-
                     }
 
 
@@ -409,7 +625,6 @@ export default function WorldResume(){
 
 
             </div>
-
 
 
 

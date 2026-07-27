@@ -13,10 +13,13 @@ Connected with:
 - World Memory™
 - Living UI System™
 
-Version 2.0
+Version 2.1
 
 ==========================================
 */
+
+
+import { useEffect, useState } from "react";
 
 
 import { WorldTimeline }
@@ -27,13 +30,32 @@ from "../../core/timeline/WorldTimeline";
 
 
 
+
+
 export default function WorldTimelineView(){
 
 
 
-    const timeline =
+    const [timeline, setTimeline] = useState([]);
 
-        WorldTimeline.getTimeline();
+
+
+
+    useEffect(()=>{
+
+
+        const events =
+
+            WorldTimeline.getTimeline();
+
+
+
+        setTimeline(events);
+
+
+
+    },[]);
+
 
 
 
@@ -46,6 +68,7 @@ export default function WorldTimelineView(){
 
 
         <section className="living-page world-timeline">
+
 
 
 
@@ -87,6 +110,7 @@ export default function WorldTimelineView(){
 
             {
 
+
                 timeline.length === 0 ?
 
 
@@ -94,7 +118,9 @@ export default function WorldTimelineView(){
                 (
 
 
+
                     <section className="living-card">
+
 
 
                         <p>
@@ -103,6 +129,7 @@ export default function WorldTimelineView(){
                             has not begun yet.
 
                         </p>
+
 
 
                     </section>
@@ -114,6 +141,7 @@ export default function WorldTimelineView(){
 
 
                 :
+
 
 
 
@@ -135,14 +163,10 @@ export default function WorldTimelineView(){
                                 <article
 
 
-                                    key={
-                                        event.id
-                                    }
-
+                                    key={event.id}
 
 
                                     className="living-card timeline-event"
-
 
 
                                 >
@@ -153,13 +177,7 @@ export default function WorldTimelineView(){
 
                                     <h3>
 
-
-                                        {
-
-                                            event.title
-
-                                        }
-
+                                        {event.title}
 
                                     </h3>
 
@@ -167,17 +185,9 @@ export default function WorldTimelineView(){
 
 
 
-
-
                                     <p>
 
-
-                                        {
-
-                                            event.description
-
-                                        }
-
+                                        {event.description}
 
                                     </p>
 
@@ -186,10 +196,7 @@ export default function WorldTimelineView(){
 
 
 
-
-
                                     <small>
-
 
                                         {
 
@@ -203,7 +210,6 @@ export default function WorldTimelineView(){
 
 
                                         }
-
 
                                     </small>
 
@@ -231,6 +237,7 @@ export default function WorldTimelineView(){
 
 
             }
+
 
 
 
