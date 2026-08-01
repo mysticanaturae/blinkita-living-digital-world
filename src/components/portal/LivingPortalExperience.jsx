@@ -45,6 +45,11 @@ from "../../core/state/WorldState";
 
 import PortalGateway
 from "../navigation/PortalGateway";
+import {
+    t
+}
+from "../../core/i18n/LanguageSystem";
+
 
 
 
@@ -61,105 +66,25 @@ Living Intelligence™ generated.
 ==========================================
 */
 
-const portalResponses = {
+const responseKeys = {
 
-    arrival: {
+    arrival: "arrival",
 
-        title:
-            "Your Arrival",
+    invitation: "invitation",
 
-        message:
-            "Thank you.\n\nYour first words are now part of your Living World™ memory.\n\nThis is the first thing your world knows about you."
+    possibility: "possibility",
 
-    },
+    "the-call": "theCall",
 
+    "world-seed": "worldSeed",
 
-    invitation: {
+    vision: "vision",
 
-        title:
-            "The Invitation Is Open",
+    essence: "essence",
 
-        message:
-            "You have accepted the invitation.\n\nSomething has begun to move.\n\nYour Living World™ now knows what is asking for your attention."
+    experience: "experience",
 
-    },
-
-
-    possibility: {
-
-        title:
-            "A Possibility Has Appeared",
-
-        message:
-            "You have named a possibility.\n\nIt does not need to exist yet.\n\nIt only needed a place to begin."
-
-    },
-
-
-    "the-call": {
-
-        title:
-            "You Heard the Call",
-
-        message:
-            "You listened.\n\nYour answer gives the call its first form.\n\nYou do not need to know the whole path yet."
-
-    },
-
-
-    "world-seed": {
-
-        title:
-            "The Seed Has Been Planted",
-
-        message:
-            "Your world now has its first seed.\n\nIt is small enough to grow.\n\nAnd alive enough to become something more."
-
-    },
-
-
-    vision: {
-
-        title:
-            "Your Vision Has Been Remembered",
-
-        message:
-            "You have given your world a first glimpse of what it could become.\n\nYour vision can change as your world grows.\n\nThat is part of being alive."
-
-    },
-
-
-    essence: {
-
-        title:
-            "The Essence Has Been Found",
-
-        message:
-            "You have named something that belongs at the heart of your world.\n\nThis essence can become the thread that connects everything that follows."
-
-    },
-
-
-    experience: {
-
-        title:
-            "The Experience Has Begun",
-
-        message:
-            "You have imagined what it means to enter your world.\n\nNow it has something to offer — not only as an idea, but as an experience."
-
-    },
-
-
-    "living-world": {
-
-        title:
-            "Your Living World Has Begun",
-
-        message:
-            "Look at what you have created.\n\nYour answers are now part of its first memory.\n\nThis is not the end of the journey.\n\nThis is where your Living World™ begins to evolve."
-
-    }
+    "living-world": "livingWorld"
 
 };
 
@@ -250,7 +175,7 @@ export default function LivingPortalExperience({ portal }) {
     const portalPlaceholder =
         portal.experience?.placeholder
         ||
-        "Write your answer here...";
+        t("portal.placeholder");
 
 
 
@@ -264,18 +189,21 @@ export default function LivingPortalExperience({ portal }) {
     */
 
 
-    const response =
-        portalResponses[portal.id]
-        ||
-        {
+    const responseKey =
+    responseKeys[portal.id]
+    ||
+    "remembered";
 
-            title:
-                "Your World Has Remembered",
 
-            message:
-                "Your answer has become part of your Living World™ memory."
+const response = {
 
-        };
+    title:
+        t(`portal.responses.${responseKey}.title`),
+
+    message:
+        t(`portal.responses.${responseKey}.message`)
+
+};
 
 
 
@@ -564,11 +492,7 @@ export default function LivingPortalExperience({ portal }) {
             <div className="portal-atmosphere-window">
 
 
-                <h3>
-
-                    Atmosphere
-
-                </h3>
+                <h3>`r`n`r`n                    {t("portal.atmosphere")}`r`n`r`n                </h3>
 
 
                 <p>
@@ -603,11 +527,7 @@ export default function LivingPortalExperience({ portal }) {
             <div className="portal-whisper-window">
 
 
-                <h3>
-
-                    Whisper
-
-                </h3>
+                <h3>`r`n`r`n                    {t("portal.whisper")}`r`n`r`n                </h3>
 
 
                 <p>
@@ -626,11 +546,7 @@ export default function LivingPortalExperience({ portal }) {
             <div className="portal-message-window">
 
 
-                <h3>
-
-                    Message
-
-                </h3>
+                <h3>`r`n`r`n                    {t("portal.message")}`r`n`r`n                </h3>
 
 
                 <p>
@@ -649,11 +565,7 @@ export default function LivingPortalExperience({ portal }) {
             <div className="portal-ritual-window">
 
 
-                <h3>
-
-                    Ritual
-
-                </h3>
+                <h3>`r`n`r`n                    {t("portal.ritual")}`r`n`r`n                </h3>
 
 
                 <p>
@@ -677,11 +589,7 @@ export default function LivingPortalExperience({ portal }) {
                     <div className="portal-question-window">
 
 
-                        <h3>
-
-                            Your First Question
-
-                        </h3>
+                        <h3>`r`n`r`n                            {t("portal.firstQuestion")}`r`n`r`n                        </h3>
 
 
                         <p>
@@ -803,7 +711,7 @@ export default function LivingPortalExperience({ portal }) {
 
                     ?
 
-                    "Continue Journey"
+                    t("portal.continueJourney")
 
                     :
 
@@ -811,7 +719,7 @@ export default function LivingPortalExperience({ portal }) {
 
                     ||
 
-                    "Begin Your Journey™"
+                    t("portal.beginJourney")
 
                 }
 
@@ -839,3 +747,4 @@ export default function LivingPortalExperience({ portal }) {
     );
 
 }
+

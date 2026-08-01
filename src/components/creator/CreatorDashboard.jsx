@@ -1,6 +1,5 @@
 ﻿/*
 ==========================================
-
 BLINKITA METHOD™
 BLINKITA OS™
 
@@ -8,24 +7,39 @@ CREATOR DASHBOARD™
 
 Creator identity and evolution space
 
-Version 4.0
-
+Version 4.1
 ==========================================
 */
 
-import { useState } from "react";
+import {
+    useState
+} from "react";
+
+
+import {
+    useLanguage
+} from "../../core/i18n/LanguageState";
+
+
+import {
+    t
+} from "../../core/i18n/LanguageSystem";
+
 
 import {
     getCreatorState
 } from "../../core/creator/CreatorState";
+
 
 import {
     getWorldState,
     updateWorldState
 } from "../../core/state/WorldState";
 
+
 import WorldBuilderEvolutionCard
 from "../evolution/WorldBuilderEvolutionCard";
+
 
 import WorldBuilderDomainCard
 from "../worldbuilder/WorldBuilderDomainCard";
@@ -33,8 +47,13 @@ from "../worldbuilder/WorldBuilderDomainCard";
 
 export default function CreatorDashboard() {
 
+    const language =
+        useLanguage();
+
+
     const creatorState =
         getCreatorState() || {};
+
 
     const worldState =
         getWorldState() || {};
@@ -89,11 +108,43 @@ export default function CreatorDashboard() {
         worldState.action || {};
 
 
-    /*
-    ======================================
-    CREATOR IDENTITY FORM
-    ======================================
-    */
+    const creatorArchetype =
+        creator.identity?.archetype || "";
+
+
+    const normalizedArchetype =
+        creatorArchetype.toLowerCase();
+
+
+    const translatedArchetype =
+
+        normalizedArchetype === "explorer"
+
+            ? t("archetypes.explorer")
+
+            : creatorArchetype;
+
+
+    const creatorStage =
+        evolution?.stage || "";
+
+
+    const translatedCreatorStage =
+
+        creatorStage.toLowerCase() === "beginning"
+
+            ? t("creatorStages.beginning")
+
+            :
+
+        creatorStage.toLowerCase() === "creation"
+
+            ? t("creatorStages.creation")
+
+            :
+
+        creatorStage;
+
 
     const [name, setName] = useState(
 
@@ -119,12 +170,6 @@ export default function CreatorDashboard() {
     const [saved, setSaved] = useState(false);
 
 
-    /*
-    ======================================
-    SAVE CREATOR IDENTITY
-    ======================================
-    */
-
     function handleSaveIdentity() {
 
         const updatedCreator = {
@@ -136,10 +181,16 @@ export default function CreatorDashboard() {
                 ...creator.identity,
 
                 name:
-                    name.trim() || "Anonymous Creator",
+                    name.trim() ||
+                    t(
+                        "dashboard.anonymousCreator"
+                    ),
 
                 archetype:
-                    archetype.trim() || "Explorer",
+                    archetype.trim() ||
+                    t(
+                        "dashboard.explorer"
+                    ),
 
                 description:
                     description.trim()
@@ -177,30 +228,30 @@ export default function CreatorDashboard() {
     }
 
 
-    /*
-    ======================================
-    PAGE
-    ======================================
-    */
-
     return (
 
         <section className="living-page creator-dashboard">
-
 
             <header className="living-header">
 
                 <h1>
 
-                    🌱 Welcome Creator™
+                    🌱{" "}
+
+                    {t(
+                        "dashboard.creatorWelcome"
+                    )}
 
                 </h1>
 
 
                 <p>
 
-                    Your evolution space inside
-                    the Living World™
+                    {
+                        t(
+                            "dashboard.creatorIntroduction"
+                        )
+                    }
 
                 </p>
 
@@ -211,26 +262,37 @@ export default function CreatorDashboard() {
 
                 <h2>
 
-                    Creator Identity™
+                    {
+                        t(
+                            "dashboard.creatorIdentity"
+                        )
+                    }
 
                 </h2>
 
 
                 <p>
 
-                    Tell your Living World™ who you are.
+                    {
+                        t(
+                            "dashboard.creatorIdentityPrompt"
+                        )
+                    }
 
                 </p>
 
 
                 <div className="creator-identity-form">
 
-
                     <div>
 
                         <label>
 
-                            Name
+                            {
+                                t(
+                                    "dashboard.name"
+                                )
+                            }
 
                         </label>
 
@@ -242,16 +304,16 @@ export default function CreatorDashboard() {
                             value={name}
 
                             onChange={(event) =>
-
                                 setName(
-
                                     event.target.value
-
                                 )
-
                             }
 
-                            placeholder="Your name"
+                            placeholder={
+                                t(
+                                    "dashboard.yourName"
+                                )
+                            }
 
                         />
 
@@ -262,7 +324,11 @@ export default function CreatorDashboard() {
 
                         <label>
 
-                            Creator Archetype
+                            {
+                                t(
+                                    "dashboard.archetype"
+                                )
+                            }
 
                         </label>
 
@@ -274,16 +340,16 @@ export default function CreatorDashboard() {
                             value={archetype}
 
                             onChange={(event) =>
-
                                 setArchetype(
-
                                     event.target.value
-
                                 )
-
                             }
 
-                            placeholder="Explorer, Artist, Builder..."
+                            placeholder={
+                                t(
+                                    "dashboard.archetypePlaceholder"
+                                )
+                            }
 
                         />
 
@@ -294,7 +360,11 @@ export default function CreatorDashboard() {
 
                         <label>
 
-                            About You
+                            {
+                                t(
+                                    "dashboard.aboutYou"
+                                )
+                            }
 
                         </label>
 
@@ -304,16 +374,16 @@ export default function CreatorDashboard() {
                             value={description}
 
                             onChange={(event) =>
-
                                 setDescription(
-
                                     event.target.value
-
                                 )
-
                             }
 
-                            placeholder="Tell your Living World™ something about you..."
+                            placeholder={
+                                t(
+                                    "dashboard.aboutYouPlaceholder"
+                                )
+                            }
 
                             rows="5"
 
@@ -338,16 +408,19 @@ export default function CreatorDashboard() {
 
                                 ?
 
-                            "Identity Saved ✨"
+                            t(
+                                "dashboard.identitySaved"
+                            )
 
                                 :
 
-                            "Save My Identity"
+                            t(
+                                "dashboard.saveIdentity"
+                            )
 
                         }
 
                     </button>
-
 
                 </div>
 
@@ -356,25 +429,36 @@ export default function CreatorDashboard() {
 
             <div className="living-grid">
 
-
                 <section className="living-card">
 
                     <h2>
 
-                        Creator Identity
+                        {
+                            t(
+                                "dashboard.creatorIdentitySummary"
+                            )
+                        }
 
                     </h2>
 
 
                     <p>
 
-                        Name:{" "}
+                        {
+                            t(
+                                "dashboard.name"
+                            )
+                        }:
+
+                        {" "}
 
                         {
 
                             creator.identity?.name ||
 
-                            "Anonymous Creator"
+                            t(
+                                "dashboard.anonymousCreator"
+                            )
 
                         }
 
@@ -383,13 +467,21 @@ export default function CreatorDashboard() {
 
                     <p>
 
-                        Archetype:{" "}
+                        {
+                            t(
+                                "dashboard.archetypeSummary"
+                            )
+                        }:
+
+                        {" "}
 
                         {
 
-                            creator.identity?.archetype ||
+                            translatedArchetype ||
 
-                            "Explorer"
+                            t(
+                                "dashboard.explorer"
+                            )
 
                         }
 
@@ -402,12 +494,16 @@ export default function CreatorDashboard() {
 
                             <p>
 
-                                About:{" "}
+                                {
+                                    t(
+                                        "dashboard.about"
+                                    )
+                                }:
+
+                                {" "}
 
                                 {
-
                                     creator.identity.description
-
                                 }
 
                             </p>
@@ -423,19 +519,27 @@ export default function CreatorDashboard() {
 
                     <h2>
 
-                        Creator Journey™
+                        {
+                            t(
+                                "dashboard.creatorJourney"
+                            )
+                        }
 
                     </h2>
 
 
                     <p>
 
-                        Level:{" "}
+                        {
+                            t(
+                                "dashboard.level"
+                            )
+                        }:
+
+                        {" "}
 
                         {
-
                             evolution?.level || 1
-
                         }
 
                     </p>
@@ -443,28 +547,46 @@ export default function CreatorDashboard() {
 
                     <p>
 
-                        Experience:{" "}
+                        {
+                            t(
+                                "dashboard.experience"
+                            )
+                        }:
+
+                        {" "}
 
                         {
-
                             evolution?.experience || 0
-
                         }
 
-                        {" "}XP
+                        {" "}
+
+                        {
+                            t(
+                                "dashboard.xp"
+                            )
+                        }
 
                     </p>
 
 
                     <p>
 
-                        Stage:{" "}
+                        {
+                            t(
+                                "dashboard.stage"
+                            )
+                        }:
+
+                        {" "}
 
                         {
 
-                            evolution?.stage ||
+                            translatedCreatorStage ||
 
-                            "Beginning"
+                            t(
+                                "creatorStages.beginning"
+                            )
 
                         }
 
@@ -480,14 +602,24 @@ export default function CreatorDashboard() {
 
                     <h2>
 
-                        Living World™ Status
+                        {
+                            t(
+                                "dashboard.livingWorldStatus"
+                            )
+                        }
 
                     </h2>
 
 
                     <p>
 
-                        Current Portal:{" "}
+                        {
+                            t(
+                                "dashboard.currentPortal"
+                            )
+                        }:
+
+                        {" "}
 
                         {
 
@@ -502,7 +634,13 @@ export default function CreatorDashboard() {
 
                     <p>
 
-                        Evolution:{" "}
+                        {
+                            t(
+                                "dashboard.evolution"
+                            )
+                        }:
+
+                        {" "}
 
                         {
 
@@ -517,7 +655,13 @@ export default function CreatorDashboard() {
 
                     <p>
 
-                        Decisions:{" "}
+                        {
+                            t(
+                                "dashboard.decisions"
+                            )
+                        }:
+
+                        {" "}
 
                         {
 
@@ -532,7 +676,13 @@ export default function CreatorDashboard() {
 
                     <p>
 
-                        Governance:{" "}
+                        {
+                            t(
+                                "dashboard.governance"
+                            )
+                        }:
+
+                        {" "}
 
                         {
 
@@ -542,14 +692,26 @@ export default function CreatorDashboard() {
 
                         }
 
-                        {" "}evaluations
+                        {" "}
+
+                        {
+                            t(
+                                "dashboard.evaluations"
+                            )
+                        }
 
                     </p>
 
 
                     <p>
 
-                        Actions:{" "}
+                        {
+                            t(
+                                "dashboard.actions"
+                            )
+                        }:
+
+                        {" "}
 
                         {
 
@@ -563,7 +725,6 @@ export default function CreatorDashboard() {
 
                 </section>
 
-
             </div>
 
 
@@ -574,13 +735,16 @@ export default function CreatorDashboard() {
 
                 <h2>
 
-                    My Living Worlds™
+                    {
+                        t(
+                            "dashboard.myLivingWorlds"
+                        )
+                    }
 
                 </h2>
 
 
                 <div className="living-grid">
-
 
                     {
 
@@ -607,9 +771,17 @@ export default function CreatorDashboard() {
 
                                 <p>
 
-                                    Status:{" "}
+                                    {
+                                        t(
+                                            "dashboard.worldStatus"
+                                        )
+                                    }:
 
-                                    {world.status}
+                                    {" "}
+
+                                    {
+                                        world.status
+                                    }
 
                                 </p>
 
@@ -621,8 +793,11 @@ export default function CreatorDashboard() {
 
                         <p>
 
-                            Your first Living World™
-                            is waiting.
+                            {
+                                t(
+                                    "dashboard.firstLivingWorldWaiting"
+                                )
+                            }
 
                         </p>
 
@@ -637,20 +812,26 @@ export default function CreatorDashboard() {
 
                 <h2>
 
-                    Achievements™
+                    {
+                        t(
+                            "dashboard.achievements"
+                        )
+                    }
 
                 </h2>
 
 
                 <p>
 
-                    Your World Builder™
-                    milestones will appear here.
+                    {
+                        t(
+                            "dashboard.achievementsDescription"
+                        )
+                    }
 
                 </p>
 
             </section>
-
 
         </section>
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 
 BLINKITA METHOD™
@@ -12,7 +12,7 @@ Connected with:
 - Portal Routes™
 - Living UI System™
 
-Version 1.1
+Version 1.2
 
 ==========================================
 */
@@ -21,6 +21,9 @@ Version 1.1
 import { Link } from "react-router-dom";
 
 import { portals } from "../../core/data/portals";
+
+import LanguageSwitcher
+    from "../i18n/LanguageSwitcher";
 
 
 
@@ -73,8 +76,11 @@ export default function PortalNavigation() {
 
                 ))
 
-
             }
+
+
+
+            <LanguageSwitcher />
 
 
 
@@ -82,6 +88,4 @@ export default function PortalNavigation() {
 
 
     );
-
-
 }

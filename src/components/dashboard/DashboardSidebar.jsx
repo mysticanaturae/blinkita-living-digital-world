@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 
 BLINKITA METHOD™
@@ -8,10 +8,13 @@ DASHBOARD SIDEBAR™
 
 Living Ecosystem Navigation
 
-Version 1.2
+Version 1.4
 
 ==========================================
 */
+
+import LanguageSwitcher
+from "../i18n/LanguageSwitcher";
 
 
 export default function DashboardSidebar({
@@ -23,86 +26,70 @@ export default function DashboardSidebar({
 }) {
 
 
-
     const items = [
 
 
-
         {
-            id:"creator",
-            label:"CREATOR SPACE™"
+            id: "creator",
+            label: "CREATOR SPACE™"
         },
 
 
-
         {
-            id:"resume",
-            label:"WORLD RESUME™"
+            id: "resume",
+            label: "WORLD RESUME™"
         },
 
 
-
         {
-            id:"timeline",
-            label:"TIMELINE™"
+            id: "timeline",
+            label: "TIMELINE™"
         },
 
 
-
         {
-            id:"builder",
-            label:"WORLD BUILDER™"
+            id: "builder",
+            label: "WORLD BUILDER™"
         },
 
 
-
         {
-            id:"academy",
-            label:"ACADEMY™"
+            id: "academy",
+            label: "ACADEMY™"
         },
 
 
-
         {
-            id:"studio",
-            label:"STUDIO™"
+            id: "studio",
+            label: "STUDIO™"
         },
 
 
-
         {
-            id:"library",
-            label:"LIBRARY™"
+            id: "library",
+            label: "LIBRARY™"
         },
 
 
-
         {
-            id:"shop",
-            label:"SHOP™"
+            id: "shop",
+            label: "SHOP™"
         },
 
 
-
         {
-            id:"ai",
-            label:"BLINKITA AI™"
+            id: "ai",
+            label: "BLINKITA AI™"
         }
 
 
-
     ];
-
-
-
-
 
 
     return (
 
 
         <aside className="dashboard-sidebar">
-
 
 
             <h2>
@@ -112,6 +99,11 @@ export default function DashboardSidebar({
             </h2>
 
 
+            <div className="dashboard-language-switcher">
+
+                <LanguageSwitcher />
+
+            </div>
 
 
             {
@@ -119,13 +111,9 @@ export default function DashboardSidebar({
                 items.map(item => (
 
 
-
                     <button
 
-
                         key={item.id}
-
-
 
                         className={
 
@@ -141,19 +129,15 @@ export default function DashboardSidebar({
 
                         }
 
-
-
-                        onClick={()=>setActiveSpace(item.id)}
-
+                        onClick={() =>
+                            setActiveSpace(item.id)
+                        }
 
                     >
 
-
                         {item.label}
 
-
                     </button>
-
 
 
                 ))
@@ -161,13 +145,8 @@ export default function DashboardSidebar({
             }
 
 
-
-
-
         </aside>
 
-
     );
-
 
 }

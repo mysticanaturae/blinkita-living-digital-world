@@ -1,6 +1,5 @@
-/*
+﻿/*
 ==========================================
-
 BLINKITA OS™
 
 WORLD BUILDER DOMAIN CARD™
@@ -13,191 +12,185 @@ Connected with:
 - WorldBuilderDomains™
 - WorldBuilderActions™
 
-Version 1.0
-
+Version 1.1
 ==========================================
 */
 
+import {
+    useLanguage
+} from "../../core/i18n/LanguageState";
+
 
 import {
+    t
+} from "../../core/i18n/LanguageSystem";
 
+
+import {
     WorldBuilderDomains
-
-}
-
-from "../../core/worldbuilder/WorldBuilderDomains";
-
+} from "../../core/worldbuilder/WorldBuilderDomains";
 
 
 import {
-
     selectDomain
-
-}
-
-from "../../core/worldbuilder/WorldBuilderActions";
+} from "../../core/worldbuilder/WorldBuilderActions";
 
 
+export default function WorldBuilderDomainCard() {
+
+    const language =
+        useLanguage();
 
 
-
-
-
-export default function WorldBuilderDomainCard(){
-
-
-
-
-
-    function handleSelect(domain){
-
+    function handleSelect(domain) {
 
         selectDomain(domain);
-
-
 
     }
 
 
+    const domainKeys = {
 
+        "digital-worlds":
+            "digitalWorlds",
 
+        "books":
+            "books",
 
+        "businesses":
+            "businesses",
+
+        "academies":
+            "academies",
+
+        "communities":
+            "communities",
+
+        "creative-projects":
+            "creativeProjects",
+
+        "organizations":
+            "organizations"
+
+    };
 
 
     return (
 
-
-
         <section className="living-card living-section">
-
-
-
-
 
             <h2>
 
-                🌱 Choose Your Creation Path™
+                🌱{" "}
+
+                {
+                    t(
+                        "worldBuilder.domains.title"
+                    )
+                }
 
             </h2>
 
 
-
-
-
             <p>
 
-                Every World Builder™ begins
-                by choosing what kind of living creation
-                wants to emerge.
+                {
+                    t(
+                        "worldBuilder.domains.introduction"
+                    )
+                }
 
             </p>
 
 
-
-
-
-
-
-
             <div className="living-grid">
-
-
-
-
 
                 {
 
-
                     WorldBuilderDomains.map(
 
+                        domain => {
 
-                        domain => (
-
-
-                            <article
-
-                                key={domain.id}
-
-                                className="living-card"
+                            const translationKey =
+                                domainKeys[domain.id];
 
 
-                            >
+                            const translatedDomain =
+                                translationKey
+                                    ? t(
+                                        `worldBuilder.domains.${translationKey}`
+                                    )
+                                    : {};
 
 
+                            return (
 
-                                <h3>
+                                <article
 
-                                    {domain.icon}
+                                    key={domain.id}
 
-                                    {" "}
-
-                                    {domain.name}
-
-                                </h3>
-
-
-
-
-
-                                <p>
-
-                                    {domain.description}
-
-                                </p>
-
-
-
-
-
-                                <button
-
-
-                                    className="living-button"
-
-
-                                    onClick={() => handleSelect(domain)}
-
+                                    className="living-card"
 
                                 >
 
-                                    Choose
+                                    <h3>
+
+                                        {domain.icon}
+
+                                        {" "}
+
+                                        {
+                                            translatedDomain.name
+                                            ||
+                                            domain.name
+                                        }
+
+                                    </h3>
 
 
-                                </button>
+                                    <p>
+
+                                        {
+                                            translatedDomain.description
+                                            ||
+                                            domain.description
+                                        }
+
+                                    </p>
 
 
+                                    <button
 
+                                        className="living-button"
 
+                                        onClick={() =>
+                                            handleSelect(domain)
+                                        }
 
-                            </article>
+                                    >
 
+                                        {
+                                            t(
+                                                "worldBuilder.domains.choose"
+                                            )
+                                        }
 
+                                    </button>
 
-                        )
+                                </article>
 
+                            );
+
+                        }
 
                     )
 
-
                 }
-
-
-
-
 
             </div>
 
-
-
-
-
-
-
         </section>
 
-
     );
-
-
 
 }
