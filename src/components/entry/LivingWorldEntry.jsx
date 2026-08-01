@@ -84,11 +84,9 @@ export default function LivingWorldEntry() {
                 </p>
 
 
-                <div className="portal-opening">
+                <div className="living-spiral-portal">
 
-                    <span>
-                        ◌
-                    </span>
+                    <div className="spiral-core"></div>
 
                 </div>
 
@@ -102,3 +100,4 @@ export default function LivingWorldEntry() {
 
 
 }
+

@@ -147,3 +147,131 @@
 
 
 
+
+
+/* =================================
+   BLINKITA LIVING SPIRAL GATEWAY™
+   ================================= */
+
+
+.living-spiral-portal {
+
+    margin-top: 60px;
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        conic-gradient(
+
+            from 0deg,
+
+            transparent,
+
+            rgba(255,220,150,0.9),
+
+            transparent,
+
+            rgba(255,240,190,0.7),
+
+            transparent
+
+        );
+
+    filter:
+
+        drop-shadow(
+            0 0 35px rgba(255,220,150,0.45)
+        );
+
+    animation:
+
+        spiralRotate 18s infinite linear;
+
+}
+
+
+
+.living-spiral-portal::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 15px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,240,190,0.85),
+
+            transparent 60%
+
+        );
+
+}
+
+
+
+.spiral-core {
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #fff5d0,
+
+            rgba(255,210,120,0.4)
+
+        );
+
+    box-shadow:
+
+        0 0 25px rgba(255,230,160,0.9);
+
+}
+
+
+
+@keyframes spiralRotate {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
