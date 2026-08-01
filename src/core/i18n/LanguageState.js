@@ -17,7 +17,7 @@ import { useSyncExternalStore } from "react";
 const STORAGE_KEY = "blinkita_language";
 
 let currentLanguage =
-    localStorage.getItem(STORAGE_KEY) || "en";
+    "en";
 
 const listeners = new Set();
 
@@ -106,3 +106,4 @@ export function useLanguage() {
     );
 
 }
+

@@ -1632,6 +1632,7 @@ export default function CreatorDashboard() {
 
 
 
+
             {/* ==========================================
                 YOUR BIRTH MATRIX™
             ========================================== */}
@@ -1642,9 +1643,9 @@ export default function CreatorDashboard() {
                     HEADER
                 ========================================== */}
 
-                <div className="creator-birth-matrix-header">
+                <div className="creator-identity-heading creator-birth-matrix-heading">
 
-                    <span className="creator-birth-matrix-eyebrow">
+                    <span className="creator-identity-eyebrow">
 
                         ⟡ YOUR BIRTH MATRIX™
 
@@ -1677,433 +1678,471 @@ export default function CreatorDashboard() {
 
 
                 {/* ==========================================
-                    BIRTH DATE
+                    PERMANENT IDENTITY LAYOUT
                 ========================================== */}
 
-                <div className="creator-birth-date-section">
+                <div className="creator-identity-layout birth-matrix-layout">
 
-                    <div className="creator-field">
+                    {/* ==========================================
+                        LEFT — BIRTH ENERGY
+                    ========================================== */}
 
-                        <label>
+                    <div className="creator-portrait-panel birth-matrix-portrait-panel">
+
+                        <span className="creator-portrait-label">
 
                             {
                                 isSlovenian
-                                    ? "Datum rojstva"
-                                    : "Date of Birth"
+                                    ? "Tvoja rojstna energija"
+                                    : "Your Birth Energy"
                             }
 
-                        </label>
+                        </span>
 
 
-                        <input
+                        <div className="creator-portrait-frame birth-matrix-symbol-frame">
 
-                            type="date"
+                            {
+                                birthMatrix?.sign
 
-                            value={birthDate}
+                                    ?
 
-                            onChange={(event) =>
-                                setBirthDate(
-                                    event.target.value
-                                )
+                                <img
+
+                                    className="creator-portrait-image birth-matrix-sign-image"
+
+                                    src={
+                                        getSignImage(
+                                            birthMatrix.sign
+                                        )
+                                    }
+
+                                    alt={
+                                        birthMatrix.sign
+                                    }
+
+                                />
+
+                                    :
+
+                                <div className="birth-matrix-empty-symbol">
+
+                                    🌀
+
+                                </div>
+
                             }
 
-                        />
+                        </div>
+
+
+                        <p className="creator-portrait-note">
+
+                            {
+                                isSlovenian
+                                    ? "Tvoj Tzolk'in znak rojstva"
+                                    : "Your Tzolk'in birth sign"
+                            }
+
+                        </p>
+
+
+                        <div className="birth-matrix-identity-values">
+
+                            <span>
+
+                                Kin{" "}
+
+                                {
+                                    birthMatrix?.kin ?? "—"
+                                }
+
+                            </span>
+
+
+                            <strong>
+
+                                {
+                                    birthMatrix
+                                        ? `${birthMatrix.tone} ${birthMatrix.sign}`
+                                        : "—"
+                                }
+
+                            </strong>
+
+                        </div>
 
                     </div>
 
 
-                    <button
 
-                        type="button"
+                    {/* ==========================================
+                        RIGHT — DATE + IDENTITY
+                    ========================================== */}
 
-                        className="journey-button creator-birth-matrix-button"
+                    <div className="creator-identity-fields birth-matrix-fields">
 
-                        onClick={
-                            handleCalculateBirthMatrix
-                        }
+                        {/* ==========================================
+                            DATE OF BIRTH
+                        ========================================== */}
 
-                        disabled={!birthDate}
+                        <div className="creator-field">
 
-                    >
+                            <label>
 
-                        {
-                            birthMatrix
+                                {
+                                    isSlovenian
+                                        ? "DATUM ROJSTVA"
+                                        : "DATE OF BIRTH"
+                                }
 
-                                ?
+                            </label>
 
-                            (
-                                isSlovenian
-                                    ? "Posodobi Birth Matrix™"
-                                    : "Update Birth Matrix™"
-                            )
 
-                                :
+                            <input
 
-                            (
-                                isSlovenian
-                                    ? "Izračunaj Birth Matrix™"
-                                    : "Calculate Birth Matrix™"
-                            )
-                        }
+                                type="date"
 
-                    </button>
+                                value={birthDate}
 
-                </div>
+                                onChange={(event) =>
+                                    setBirthDate(
+                                        event.target.value
+                                    )
+                                }
 
-
-
-                {/* ==========================================
-                    BIRTH MATRIX CONTENT
-                ========================================== */}
-
-                {
-
-                    birthMatrix && (
-
-                        <div className="creator-identity-layout birth-matrix-layout">
-
-                            {/* ==========================================
-                                LEFT — BIRTH MATRIX VISUAL
-                            ========================================== */}
-
-                            <div className="creator-portrait-panel birth-matrix-portrait-panel">
-
-                                <span className="creator-portrait-label">
-
-                                    {
-                                        isSlovenian
-                                            ? "Tvoja rojstna energija"
-                                            : "Your Birth Energy"
-                                    }
-
-                                </span>
-
-
-                                <div className="creator-portrait-frame birth-matrix-symbol-frame">
-
-                                    <img
-
-                                        className="creator-portrait-image birth-matrix-sign-image"
-
-                                        src={
-                                            getSignImage(
-                                                birthMatrix.sign
-                                            )
-                                        }
-
-                                        alt={
-                                            birthMatrix.sign
-                                        }
-
-                                    />
-
-                                </div>
-
-
-                                <p className="creator-portrait-note">
-
-                                    {
-                                        isSlovenian
-                                            ? "Tvoj Tzolk'in znak rojstva"
-                                            : "Your Tzolk'in birth sign"
-                                    }
-
-                                </p>
-
-
-                                <div className="birth-matrix-meta">
-
-                                    <span>
-
-                                        Kin{" "}
-
-                                        {
-                                            birthMatrix.kin
-                                        }
-
-                                    </span>
-
-
-                                    <span>
-
-                                        {
-                                            birthMatrix.element
-                                        }
-
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-
-
-                            {/* ==========================================
-                                RIGHT — IDENTITY INFORMATION
-                            ========================================== */}
-
-                            <div className="creator-identity-fields birth-matrix-fields">
-
-                                <div className="creator-field">
-
-                                    <label>
-
-                                        {
-                                            isSlovenian
-                                                ? "Tzolk'in identiteta"
-                                                : "Tzolk'in Identity"
-                                        }
-
-                                    </label>
-
-
-                                    <div className="birth-matrix-value">
-
-                                        {
-                                            birthMatrix.tone
-                                        }{" "}
-
-                                        {
-                                            birthMatrix.sign
-                                        }
-
-                                    </div>
-
-                                </div>
-
-
-                                <div className="creator-field">
-
-                                    <label>
-
-                                        {
-                                            isSlovenian
-                                                ? "Ime znaka"
-                                                : "Sign Name"
-                                        }
-
-                                    </label>
-
-
-                                    <div className="birth-matrix-value birth-matrix-local-name">
-
-                                        {
-                                            birthMatrix.localSign
-                                        }
-
-                                    </div>
-
-                                </div>
-
-
-                                <div className="creator-field creator-field-wide">
-
-                                    <label>
-
-                                        {
-                                            isSlovenian
-                                                ? "Živ Čas rojstne energije"
-                                                : "Living Time of Birth Energy"
-                                        }
-
-                                    </label>
-
-
-                                    <div className="birth-matrix-value birth-matrix-signature">
-
-                                        {
-                                            isSlovenian
-                                                ? "Tvoja rojstna energija nosi svoj lasten čas, ritem in način izražanja."
-                                                : "Your birth energy carries its own rhythm, timing and way of expressing itself."
-                                        }
-
-                                    </div>
-
-                                </div>
-
-
-                                {/* ==========================================
-                                    TODAY'S MESSAGE
-                                ========================================== */}
-
-                                <div className="creator-field creator-field-wide birth-matrix-message">
-
-                                    <label>
-
-                                        {
-                                            isSlovenian
-                                                ? "Današnje sporočilo tvoje rojstne energije"
-                                                : "Today's Message from Your Birth Energy"
-                                        }
-
-                                    </label>
-
-
-                                    <div className="birth-matrix-message-content">
-
-                                        {
-                                            currentBirthMessage
-                                        }
-
-                                    </div>
-
-                                </div>
-
-
-                                {/* ==========================================
-                                    TODAY'S REFLECTION
-                                ========================================== */}
-
-                                <div className="creator-field creator-field-wide birth-matrix-reflection">
-
-                                    <label>
-
-                                        {
-                                            isSlovenian
-                                                ? "Današnje vprašanje"
-                                                : "Today's Reflection"
-                                        }
-
-                                    </label>
-
-
-                                    <h4>
-
-                                        {
-
-                                            isSlovenian
-
-                                                ?
-
-                                            "Kaj želi tvoja rojstna energija danes videti, ustvariti ali spremeniti?"
-
-                                                :
-
-                                            "What does your birth energy want to see, create or change today?"
-
-                                        }
-
-                                    </h4>
-
-
-                                    <textarea
-
-                                        value={
-                                            birthReflection
-                                        }
-
-                                        onChange={(event) =>
-                                            setBirthReflection(
-                                                event.target.value
-                                            )
-                                        }
-
-                                        rows="5"
-
-                                        placeholder={
-
-                                            isSlovenian
-
-                                                ?
-
-                                            "Zapiši svojo misel..."
-
-                                                :
-
-                                            "Write what is arising for you..."
-
-                                        }
-
-                                    />
-
-
-                                    <button
-
-                                        type="button"
-
-                                        className="journey-button creator-save-button birth-matrix-save-button"
-
-                                        onClick={
-                                            handleSaveReflection
-                                        }
-
-                                    >
-
-                                        {
-
-                                            reflectionSaved
-
-                                                ?
-
-                                            (
-                                                isSlovenian
-                                                    ? "Shranjeno ✓"
-                                                    : "Saved ✓"
-                                            )
-
-                                                :
-
-                                            (
-                                                isSlovenian
-                                                    ? "Shrani refleksijo"
-                                                    : "Save Reflection"
-                                            )
-
-                                        }
-
-                                    </button>
-
-                                </div>
-
-
-                                {/* ==========================================
-                                    CHANGE DATE
-                                ========================================== */}
-
-                                <div className="creator-identity-save-row birth-matrix-change-date-row">
-
-                                    <button
-
-                                        type="button"
-
-                                        className="creator-text-button"
-
-                                        onClick={() => {
-
-                                            setBirthMatrix(null);
-
-                                        }}
-
-                                    >
-
-                                        {
-
-                                            isSlovenian
-
-                                                ?
-
-                                            "Spremeni datum rojstva"
-
-                                                :
-
-                                            "Change birth date"
-
-                                        }
-
-                                    </button>
-
-                                </div>
-
-                            </div>
+                            />
 
                         </div>
 
-                    )
 
-                }
+                        <div className="creator-field birth-matrix-action-field">
+
+                            <label>
+
+                                {
+                                    isSlovenian
+                                        ? "Tvoj Živ Čas"
+                                        : "Your Living Time"
+                                }
+
+                            </label>
+
+
+                            <button
+
+                                type="button"
+
+                                className="journey-button creator-birth-matrix-button"
+
+                                onClick={
+                                    handleCalculateBirthMatrix
+                                }
+
+                                disabled={!birthDate}
+
+                            >
+
+                                {
+                                    birthMatrix
+
+                                        ?
+
+                                    (
+                                        isSlovenian
+                                            ? "Posodobi Birth Matrix™"
+                                            : "Update Birth Matrix™"
+                                    )
+
+                                        :
+
+                                    (
+                                        isSlovenian
+                                            ? "Izračunaj Birth Matrix™"
+                                            : "Calculate Birth Matrix™"
+                                    )
+                                }
+
+                            </button>
+
+                        </div>
+
+
+
+                        {/* ==========================================
+                            CALCULATED IDENTITY
+                        ========================================== */}
+
+                        {
+
+                            birthMatrix && (
+
+                                <>
+
+                                    <div className="creator-field">
+
+                                        <label>
+
+                                            {
+                                                isSlovenian
+                                                    ? "Tzolk'in identiteta"
+                                                    : "Tzolk'in Identity"
+                                            }
+
+                                        </label>
+
+
+                                        <div className="birth-matrix-value">
+
+                                            {
+                                                birthMatrix.tone
+                                            }{" "}
+
+                                            {
+                                                birthMatrix.sign
+                                            }
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div className="creator-field">
+
+                                        <label>
+
+                                            {
+                                                isSlovenian
+                                                    ? "Ime znaka"
+                                                    : "Sign Name"
+                                            }
+
+                                        </label>
+
+
+                                        <div className="birth-matrix-value birth-matrix-local-name">
+
+                                            {
+                                                birthMatrix.localSign
+                                            }
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div className="creator-field creator-field-wide">
+
+                                        <label>
+
+                                            {
+                                                isSlovenian
+                                                    ? "Živ Čas rojstne energije"
+                                                    : "Living Time of Birth Energy"
+                                            }
+
+                                        </label>
+
+
+                                        <div className="birth-matrix-value birth-matrix-signature">
+
+                                            {
+                                                isSlovenian
+                                                    ? "Tvoja rojstna energija nosi svoj lasten čas, ritem in način izražanja."
+                                                    : "Your birth energy carries its own rhythm, timing and way of expressing itself."
+                                            }
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    {/* ==========================================
+                                        TODAY'S MESSAGE
+                                    ========================================== */}
+
+                                    <div className="creator-field creator-field-wide birth-matrix-message">
+
+                                        <label>
+
+                                            {
+                                                isSlovenian
+                                                    ? "Današnje sporočilo tvoje rojstne energije"
+                                                    : "Today's Message from Your Birth Energy"
+                                            }
+
+                                        </label>
+
+
+                                        <div className="birth-matrix-message-content">
+
+                                            {
+                                                currentBirthMessage
+                                            }
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    {/* ==========================================
+                                        TODAY'S REFLECTION
+                                    ========================================== */}
+
+                                    <div className="creator-field creator-field-wide birth-matrix-reflection">
+
+                                        <label>
+
+                                            {
+                                                isSlovenian
+                                                    ? "Današnje vprašanje"
+                                                    : "Today's Reflection"
+                                            }
+
+                                        </label>
+
+
+                                        <h4>
+
+                                            {
+
+                                                isSlovenian
+
+                                                    ?
+
+                                                "Kaj želi tvoja rojstna energija danes videti, ustvariti ali spremeniti?"
+
+                                                    :
+
+                                                "What does your birth energy want to see, create or change today?"
+
+                                            }
+
+                                        </h4>
+
+
+                                        <textarea
+
+                                            value={
+                                                birthReflection
+                                            }
+
+                                            onChange={(event) =>
+                                                setBirthReflection(
+                                                    event.target.value
+                                                )
+                                            }
+
+                                            rows="5"
+
+                                            placeholder={
+
+                                                isSlovenian
+
+                                                    ?
+
+                                                "Zapiši svojo misel..."
+
+                                                    :
+
+                                                "Write what is arising for you..."
+
+                                            }
+
+                                        />
+
+
+                                        <button
+
+                                            type="button"
+
+                                            className="journey-button creator-save-button birth-matrix-save-button"
+
+                                            onClick={
+                                                handleSaveReflection
+                                            }
+
+                                        >
+
+                                            {
+
+                                                reflectionSaved
+
+                                                    ?
+
+                                                (
+                                                    isSlovenian
+                                                        ? "Shranjeno ✓"
+                                                        : "Saved ✓"
+                                                )
+
+                                                    :
+
+                                                (
+                                                    isSlovenian
+                                                        ? "Shrani refleksijo"
+                                                        : "Save Reflection"
+                                                )
+
+                                            }
+
+                                        </button>
+
+                                    </div>
+
+
+
+                                    {/* ==========================================
+                                        CHANGE DATE
+                                    ========================================== */}
+
+                                    <div className="creator-identity-save-row birth-matrix-change-date-row">
+
+                                        <button
+
+                                            type="button"
+
+                                            className="creator-text-button"
+
+                                            onClick={() => {
+
+                                                setBirthMatrix(null);
+
+                                            }}
+
+                                        >
+
+                                            {
+
+                                                isSlovenian
+
+                                                    ?
+
+                                                "Spremeni datum rojstva"
+
+                                                    :
+
+                                                "Change birth date"
+
+                                            }
+
+                                        </button>
+
+                                    </div>
+
+                                </>
+
+                            )
+
+                        }
+
+                    </div>
+
+                </div>
 
             </section>
-
 
             {/* ==========================================
                 CREATOR DASHBOARD SUMMARY
@@ -2539,6 +2578,9 @@ export default function CreatorDashboard() {
     );
 
 }
+
+
+
 
 
 

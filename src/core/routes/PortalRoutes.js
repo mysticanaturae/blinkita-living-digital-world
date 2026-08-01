@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 
 BLINKITA METHOD™
@@ -33,7 +33,7 @@ export const PortalRoutes = [
     {
         id: "arrival",
 
-        path: "/",
+        path: "/arrival",
 
         component: ArrivalPage,
 
@@ -157,3 +157,5 @@ export const PortalRoutes = [
 
 
 ];
+
+

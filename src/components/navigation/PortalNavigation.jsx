@@ -1,33 +1,11 @@
-﻿/*
-==========================================
-
-BLINKITA METHOD™
-BLINKITA OS™
-
-PORTAL NAVIGATION™
-
-Living World navigation layer
-
-Connected with:
-- Portal Routes™
-- Living UI System™
-
-Version 1.2
-
-==========================================
-*/
-
-
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import { portals } from "../../core/data/portals";
 
-import LanguageSwitcher
-    from "../i18n/LanguageSwitcher";
-
-
-
-
+import {
+    t
+}
+from "../../core/i18n/LanguageSystem";
 
 export default function PortalNavigation() {
 
@@ -68,7 +46,7 @@ export default function PortalNavigation() {
                     >
 
 
-                        {portal.title}
+                        {t("portal.pages." + portal.id + ".title") || portal.title}
 
 
                     </Link>
@@ -77,15 +55,15 @@ export default function PortalNavigation() {
                 ))
 
             }
-
-
-
-            <LanguageSwitcher />
-
-
-
-        </nav>
+</nav>
 
 
     );
 }
+
+
+
+
+
+
+

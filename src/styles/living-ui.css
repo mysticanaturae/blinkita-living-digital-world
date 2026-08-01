@@ -5839,3 +5839,431 @@ VERY SMALL SCREENS
 
 }
 
+
+/*
+
+BLINKITA METHOD™
+CREATOR BIRTH MATRIX™
+PREMIUM SPACIOUS LAYOUT
+=======================
+
+*/
+
+/* --------------------------------------------------
+BIRTH MATRIX — MAIN LAYOUT
+-------------------------------------------------- */
+
+.creator-birth-matrix {
+
+width: 100%;
+box-sizing: border-box;
+
+}
+
+.birth-matrix-layout {
+
+width: 100%;
+box-sizing: border-box;
+
+grid-template-columns:
+    minmax(260px, 300px)
+    minmax(0, 1fr);
+
+column-gap: 46px;
+row-gap: 34px;
+
+align-items: start;
+
+}
+
+/* --------------------------------------------------
+BIRTH MATRIX — RIGHT SIDE BECOMES GRID PARTICIPANT
+This allows the lower identity windows to span
+the entire Birth Matrix card.
+-------------------------------------------------- */
+
+.birth-matrix-fields {
+
+display: contents;
+
+}
+
+/* --------------------------------------------------
+DATE OF BIRTH
+-------------------------------------------------- */
+
+.birth-matrix-layout > .creator-field {
+
+min-width: 0;
+
+}
+
+.birth-matrix-layout > .creator-field:nth-child(2) {
+
+grid-column: 2;
+
+grid-row: 1;
+
+}
+
+/* --------------------------------------------------
+ACTION / CALCULATOR BUTTON
+-------------------------------------------------- */
+
+.birth-matrix-layout > .birth-matrix-action-field {
+
+grid-column: 2;
+
+grid-row: 2;
+
+align-self: start;
+
+}
+
+/* --------------------------------------------------
+CALCULATED IDENTITY WINDOWS
+-------------------------------------------------- */
+
+.birth-matrix-layout > .creator-field-wide {
+
+grid-column: 1 / -1;
+
+width: 100%;
+
+box-sizing: border-box;
+
+}
+
+/* --------------------------------------------------
+PREMIUM VALUE WINDOWS
+-------------------------------------------------- */
+
+.birth-matrix-value,
+.birth-matrix-signature,
+.birth-matrix-message-content {
+
+width: 100%;
+
+box-sizing: border-box;
+
+min-height: 58px;
+
+padding: 18px 22px;
+
+border:
+    1px solid
+    rgba(255,255,255,0.09);
+
+border-radius: 18px;
+
+background:
+    rgba(255,255,255,0.035);
+
+line-height: 1.7;
+
+}
+
+/* --------------------------------------------------
+SIGNATURE / LIVING TIME
+-------------------------------------------------- */
+
+.birth-matrix-signature {
+
+min-height: 72px;
+
+}
+
+/* --------------------------------------------------
+TODAY'S MESSAGE
+-------------------------------------------------- */
+
+.birth-matrix-message {
+
+margin-top: 2px;
+
+}
+
+.birth-matrix-message-content {
+
+min-height: 100px;
+
+display: flex;
+
+align-items: center;
+
+}
+
+/* --------------------------------------------------
+TODAY'S REFLECTION
+-------------------------------------------------- */
+
+.birth-matrix-reflection {
+
+margin-top: 2px;
+
+}
+
+.birth-matrix-reflection h4 {
+
+margin:
+    0 0 16px;
+
+padding:
+    20px 22px;
+
+border:
+    1px solid
+    rgba(255,255,255,0.07);
+
+border-radius: 18px;
+
+background:
+    rgba(255,255,255,0.025);
+
+font-size: 17px;
+
+line-height: 1.65;
+
+font-weight: 500;
+
+}
+
+.birth-matrix-reflection textarea {
+
+width: 100%;
+
+min-height: 150px;
+
+box-sizing: border-box;
+
+resize: vertical;
+
+padding: 20px 22px;
+
+border:
+    1px solid
+    rgba(255,255,255,0.10);
+
+border-radius: 18px;
+
+background:
+    rgba(255,255,255,0.035);
+
+line-height: 1.7;
+
+}
+
+/* --------------------------------------------------
+SAVE REFLECTION
+-------------------------------------------------- */
+
+.birth-matrix-save-button {
+
+margin-top: 18px;
+
+}
+
+/* --------------------------------------------------
+CHANGE DATE
+-------------------------------------------------- */
+
+.birth-matrix-change-date-row {
+
+grid-column: 1 / -1;
+
+width: 100%;
+
+padding-top: 8px;
+
+justify-content: flex-end;
+
+}
+
+/* --------------------------------------------------
+MOBILE
+-------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+.birth-matrix-layout {
+
+    grid-template-columns: 1fr;
+
+    row-gap: 26px;
+
+}
+
+.birth-matrix-layout > .creator-field:nth-child(2),
+.birth-matrix-layout > .birth-matrix-action-field,
+.birth-matrix-layout > .creator-field-wide,
+.birth-matrix-change-date-row {
+
+    grid-column: 1;
+
+}
+
+.birth-matrix-layout > .creator-field:nth-child(2),
+.birth-matrix-layout > .birth-matrix-action-field {
+
+    grid-row: auto;
+
+}
+
+}
+
+
+/* ==================================================
+BLINKITA METHOD™
+CREATOR BIRTH MATRIX™
+FINAL WIDTH ALIGNMENT
+2026-08-01
+================================================== */
+
+/*
+IMPORTANT:
+Keep the existing Birth Matrix visual layout.
+Only correct the lower content width alignment.
+*/
+
+/* ------------------------------------------
+BIRTH MATRIX OUTER CONTAINER
+------------------------------------------ */
+
+.creator-birth-matrix {
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+}
+
+/* ------------------------------------------
+BIRTH MATRIX LAYOUT
+------------------------------------------ */
+
+.birth-matrix-layout {
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+}
+
+/* ------------------------------------------
+FULL-WIDTH CONTENT
+Today's Message
+Today's Reflection
+------------------------------------------ */
+
+.birth-matrix-message,
+.birth-matrix-reflection {
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+grid-column: 1 / -1 !important;
+}
+
+/* ------------------------------------------
+MESSAGE CONTENT
+------------------------------------------ */
+
+.birth-matrix-message-content {
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+}
+
+/* ------------------------------------------
+REFLECTION
+------------------------------------------ */
+
+.birth-matrix-reflection h4 {
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+}
+
+.birth-matrix-reflection textarea {
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+}
+
+/* ------------------------------------------
+SAVE BUTTON
+------------------------------------------ */
+
+.birth-matrix-save-button {
+margin-top: 18px;
+}
+
+/* ------------------------------------------
+CHANGE DATE
+------------------------------------------ */
+
+.birth-matrix-change-date-row {
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+grid-column: 1 / -1 !important;
+}
+
+/* ------------------------------------------
+MOBILE
+------------------------------------------ */
+
+@media (max-width: 900px) {
+
+
+.birth-matrix-message,
+.birth-matrix-reflection,
+.birth-matrix-change-date-row {
+    grid-column: 1 !important;
+    width: 100%;
+    max-width: 100%;
+}
+
+
+}
+
+
+
+
+.language-switcher {
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.language-switcher button {
+    background:transparent;
+    border:none;
+    padding:2px;
+    margin:0;
+    font-size:16px;
+    line-height:1;
+    cursor:pointer;
+}
+
+.language-switcher button.active {
+    transform:scale(1.08);
+}
+
+.language-divider {
+    display:none;
+}
+.language-switcher {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:5px 8px;
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:999px;
+    background:rgba(255,255,255,0.06);
+}
+
+.language-switcher button {
+    background:transparent;
+    border:none;
+    padding:2px;
+    margin:0;
+    font-size:16px;
+    line-height:1;
+    cursor:pointer;
+}

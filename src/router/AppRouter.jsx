@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+﻿import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { PortalRoutes } from "../core/routes/PortalRoutes";
 import DynamicPortalPage from "../pages/DynamicPortalPage";
+import LivingWorldEntry from "../components/entry/LivingWorldEntry";
 
 
 // =================================
@@ -44,6 +45,19 @@ export default function AppRouter() {
                 {/* =================================
                     LIVING PORTAL JOURNEY™
                     ================================= */}
+
+
+                
+                {/* =================================
+                    LIVING WORLD ENTRY™
+                    ================================= */}
+
+
+                <Route
+                    path="/"
+                    element={<LivingWorldEntry />}
+                />
+
 
 
                 {PortalRoutes.map((route) => {
@@ -247,3 +261,6 @@ export default function AppRouter() {
 
 
 }
+
+
+

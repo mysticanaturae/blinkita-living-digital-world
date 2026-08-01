@@ -1,4 +1,4 @@
-﻿/*
+/*
 ==========================================
 BLINKITA METHOD™
 LIVING DIGITAL WORLD™
@@ -340,6 +340,84 @@ export const en = {
 
     portal: {
 
+        experiences: {
+
+            arrival: {
+
+                identity:
+                    "The First Portal",
+
+                identityMessage:
+                    "Every journey begins with a moment of arrival — a moment when you choose to be present.",
+
+                atmosphere:
+                    "Opening",
+
+                atmosphereMessage:
+                    "There is nothing you need to know yet.\nYou only need to arrive.",
+
+                whisper:
+                    "Time has been waiting for your arrival.\n\nPerhaps you have been waiting for this moment too.",
+
+                message:
+                    "You have arrived.\n\nThis is the beginning of your Living World™ journey.",
+
+                ritual:
+                    "Pause for one conscious breath.\n\nLeave everything else outside for a moment.\nBe here.",
+
+                question:
+                    "Who are you, and what brings you here?",
+
+                placeholder:
+                    "Tell your Living World™ something about yourself.\nThere is no right answer. This is simply the first memory it will have of you.",
+
+                interaction:
+                    "Begin Your Journey™"
+
+            }
+
+        },
+
+
+        experiences: {
+
+            arrival: {
+
+                identity:
+                    "The First Portal",
+
+                identityMessage:
+                    "Every journey begins with a moment of arrival — a moment when you choose to be present.",
+
+                atmosphere:
+                    "Opening",
+
+                atmosphereMessage:
+                    "There is nothing you need to know yet.\nYou only need to arrive.",
+
+                whisper:
+                    "Time has been waiting for your arrival.\n\nPerhaps you have been waiting for this moment too.",
+
+                message:
+                    "You have arrived.\n\nThis is the beginning of your Living World™ journey.",
+
+                ritual:
+                    "Pause for one conscious breath.\n\nLeave everything else outside for a moment.\nBe here.",
+
+                question:
+                    "Who are you, and what brings you here?",
+
+                placeholder:
+                    "Tell your Living World™ something about yourself.\nThere is no right answer. This is simply the first memory it will have of you.",
+
+                interaction:
+                    "Begin Your Journey™"
+
+            }
+
+        },
+
+
         atmosphere:
             "Atmosphere",
 
@@ -470,3 +548,4 @@ export const en = {
 
     }
 };
+

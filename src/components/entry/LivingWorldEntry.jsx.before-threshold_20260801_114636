@@ -1,0 +1,164 @@
+import { useNavigate } from "react-router-dom";
+
+import "./LivingWorldEntry.css";
+
+
+export default function LivingWorldEntry() {
+
+
+    const navigate = useNavigate();
+
+
+
+    const portals = [
+
+        {
+            number: "01",
+            title: "Arrival",
+            message: "The first moment of entering."
+        },
+
+        {
+            number: "02",
+            title: "Invitation",
+            message: "The whisper of possibility."
+        },
+
+        {
+            number: "03",
+            title: "Possibility",
+            message: "Where new worlds begin."
+        },
+
+        {
+            number: "04",
+            title: "The Call",
+            message: "The moment creation awakens."
+        },
+
+        {
+            number: "05",
+            title: "World Seed",
+            message: "The beginning of your living creation."
+        },
+
+        {
+            number: "06",
+            title: "Vision",
+            message: "Seeing what wants to become."
+        },
+
+        {
+            number: "07",
+            title: "Essence",
+            message: "Discovering the heart of the world."
+        },
+
+        {
+            number: "08",
+            title: "Experience",
+            message: "Living the journey."
+        },
+
+        {
+            number: "09",
+            title: "Living World",
+            message: "A world that continues evolving."
+        }
+
+    ];
+
+
+
+
+    return (
+
+        <div className="living-world-entry">
+
+
+            <div className="entry-inner">
+
+
+                <h1>
+                    Living World™
+                </h1>
+
+
+                <p className="entry-subtitle">
+                    A journey through 9 Living Portals.
+                </p>
+
+
+
+                <p className="entry-message">
+
+                    Not a path to follow.
+                    <br />
+                    A world to enter.
+
+                </p>
+
+
+
+
+                <div className="portal-preview">
+
+
+                    {
+                        portals.map((portal)=> (
+
+                            <div
+                                key={portal.number}
+                                className="portal-window"
+                            >
+
+                                <span>
+                                    {portal.number}
+                                </span>
+
+
+                                <h3>
+                                    {portal.title}
+                                </h3>
+
+
+                                <p>
+                                    {portal.message}
+                                </p>
+
+
+                            </div>
+
+                        ))
+                    }
+
+
+                </div>
+
+
+
+
+
+                <button
+
+                    className="enter-world-button"
+
+                    onClick={()=>navigate("/arrival")}
+
+                >
+
+                    Enter Living World™
+
+                </button>
+
+
+
+            </div>
+
+
+        </div>
+
+    );
+
+
+}

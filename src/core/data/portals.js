@@ -35,12 +35,12 @@ export const portals = [
             identity: "The First Door",
 
             identityMessage:
-                "Every journey begins with a moment of arrival — a moment when you choose to be present.",
+                "Welcome to Living World™.\n\nA journey through 9 Living Portals.\n\nNot a path to follow.\nA world to enter.",
 
             atmosphere: "Opening",
 
             atmosphereMessage:
-                "There is nothing you need to know yet.\nYou only need to arrive.",
+                "There is nothing you need to know yet.\n\nYou only need to arrive.\n\nThis is the first step into your Living World™ journey.",
 
             whisper:
                 "Time has been waiting for your arrival.\n\nPerhaps you have been waiting for this moment too.",
@@ -508,3 +508,4 @@ export const portals = [
     }
 
 ];
+

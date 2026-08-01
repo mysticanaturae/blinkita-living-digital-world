@@ -1,10 +1,10 @@
 ﻿/*
 ==========================================
 
-BLINKITA METHOD™
-LIVING DIGITAL WORLD™
+BLINKITA METHODĂ˘â€žË
+LIVING DIGITAL WORLDĂ˘â€žË
 
-LIVING PORTAL EXPERIENCE™
+LIVING PORTAL EXPERIENCEĂ˘â€žË
 
 The living experience layer
 
@@ -12,14 +12,14 @@ Version 1.6
 
 Connected with:
 
-* Portal Gateway™
-* Journey System™
-* Living World Runtime™
-* Event System™
-* Memory System™
-* Timeline System™
-* Creator House™
-* Living Intelligence™
+* Portal GatewayĂ˘â€žË
+* Journey SystemĂ˘â€žË
+* Living World RuntimeĂ˘â€žË
+* Event SystemĂ˘â€žË
+* Memory SystemĂ˘â€žË
+* Timeline SystemĂ˘â€žË
+* Creator HouseĂ˘â€žË
+* Living IntelligenceĂ˘â€žË
 
 ==========================================
 */
@@ -45,6 +45,7 @@ from "../../core/state/WorldState";
 
 import PortalGateway
 from "../navigation/PortalGateway";
+
 import {
     t
 }
@@ -56,13 +57,13 @@ from "../../core/i18n/LanguageSystem";
 
 /*
 ==========================================
-PORTAL RESPONSE SYSTEM™
+PORTAL RESPONSE SYSTEMĂ˘â€žË
 
 Each portal responds differently
 after the Creator gives an answer.
 
 Later this layer can become
-Living Intelligence™ generated.
+Living IntelligenceĂ˘â€žË generated.
 ==========================================
 */
 
@@ -116,13 +117,12 @@ export default function LivingPortalExperience({ portal }) {
 
     /*
     ======================================
-    PORTAL JOURNEY ACTION™
+    PORTAL JOURNEY ACTIONĂ˘â€žË
 
     Gateway exposes the next
     portal transition here.
     ======================================
     */
-
 
     const handleGatewayAction =
         useCallback(
@@ -149,6 +149,8 @@ export default function LivingPortalExperience({ portal }) {
     ======================================
     */
 
+    console.log("BLINKITA PORTAL DATA:", portal);
+    console.log("BLINKITA PORTAL EXPERIENCE:", portal?.experience);
 
     if (!portal) {
 
@@ -162,11 +164,9 @@ export default function LivingPortalExperience({ portal }) {
 
     /*
     ======================================
-    PORTAL QUESTION™
-
+    PORTAL QUESTIONĂ˘â€žË
     ======================================
     */
-
 
     const portalQuestion =
         portal.experience?.question;
@@ -183,27 +183,25 @@ export default function LivingPortalExperience({ portal }) {
 
     /*
     ======================================
-    PORTAL RESPONSE™
-
+    PORTAL RESPONSEĂ˘â€žË
     ======================================
     */
 
-
     const responseKey =
-    responseKeys[portal.id]
-    ||
-    "remembered";
+        responseKeys[portal.id]
+        ||
+        "remembered";
 
 
-const response = {
+    const response = {
 
-    title:
-        t(`portal.responses.${responseKey}.title`),
+        title:
+            t(`portal.responses.${responseKey}.title`),
 
-    message:
-        t(`portal.responses.${responseKey}.message`)
+        message:
+            t(`portal.responses.${responseKey}.message`)
 
-};
+    };
 
 
 
@@ -211,14 +209,13 @@ const response = {
 
     /*
     ======================================
-    FIRST PORTAL INTERACTION™
+    FIRST PORTAL INTERACTIONĂ˘â€žË
 
     Saves the Creator's answer,
     completes the portal,
     and creates the portal response.
     ======================================
     */
-
 
     function handleJourney() {
 
@@ -237,11 +234,9 @@ const response = {
 
         /*
         ----------------------------------
-        SAVE PORTAL ANSWER™
-
+        SAVE PORTAL ANSWERĂ˘â€žË
         ----------------------------------
         */
-
 
         if (
 
@@ -260,7 +255,6 @@ const response = {
                 currentState.portalAnswers
                 ||
                 {};
-
 
 
             const updatedAnswers = {
@@ -283,7 +277,6 @@ const response = {
             };
 
 
-
             updateWorldState({
 
                 portalAnswers:
@@ -292,10 +285,9 @@ const response = {
             });
 
 
-
             console.log(
 
-                "Living Intelligence™ received answer:",
+                "Living IntelligenceĂ˘â€žË received answer:",
 
                 portal.id,
 
@@ -315,17 +307,12 @@ const response = {
         ----------------------------------
         */
 
-
         const state =
-
             BlinkitaEngine.completePortal(
 
                 portal.id
 
             );
-
-
-
 
 
         console.log(
@@ -342,11 +329,9 @@ const response = {
 
         /*
         ----------------------------------
-        PORTAL-SPECIFIC RESPONSE™
-
+        PORTAL-SPECIFIC RESPONSEĂ˘â€žË
         ----------------------------------
         */
-
 
         setAwakeningMessage({
 
@@ -359,9 +344,6 @@ const response = {
         });
 
 
-
-
-
         setActivated(true);
 
     }
@@ -372,31 +354,26 @@ const response = {
 
     /*
     ======================================
-    SECOND PORTAL INTERACTION™
+    SECOND PORTAL INTERACTIONĂ˘â€žË
 
     Continue into the next portal
-    or Creator House™.
+    or Creator HouseĂ˘â€žË.
     ======================================
     */
-
 
     function handleContinue() {
 
 
         console.log(
 
-            "Continuing Living Journey™:",
+            "Continuing Living JourneyĂ˘â€žË:",
 
             portal.id
 
         );
 
 
-
-
-
         if (!continueJourney) {
-
 
             console.warn(
 
@@ -404,13 +381,9 @@ const response = {
 
             );
 
-
             return;
 
         }
-
-
-
 
 
         continueJourney();
@@ -423,11 +396,9 @@ const response = {
 
     /*
     ======================================
-    QUESTION VALIDATION™
-
+    QUESTION VALIDATIONĂ˘â€žË
     ======================================
     */
-
 
     const questionRequired =
         Boolean(portalQuestion);
@@ -448,17 +419,16 @@ const response = {
     ======================================
     */
 
-
     return (
 
         <section className="living-portal-experience">
 
 
-
-
+            {/* ======================================
+                PORTAL IDENTITY
+            ====================================== */}
 
             <div className="portal-identity-window">
-
 
                 <h2>
 
@@ -474,7 +444,7 @@ const response = {
 
                         <p>
 
-                            {portal.experience.identityMessage}
+                            {t(`portal.experiences.${portal.id}.identityMessage`) || portal.experience?.identityMessage}
 
                         </p>
 
@@ -482,24 +452,39 @@ const response = {
 
                 }
 
-
             </div>
 
 
 
 
 
+            {/* ======================================
+                ATMOSPHERE
+            ====================================== */}
+
             <div className="portal-atmosphere-window">
 
+                <h3>
 
-                <h3>`r`n`r`n                    {t("portal.atmosphere")}`r`n`r`n                </h3>
+                    {t("portal.atmosphere")}
+
+                </h3>
 
 
-                <p>
+                {
 
-                    {portal.experience?.atmosphere}
+                    portal.experience?.atmosphere
+                    && (
 
-                </p>
+                        <p>
+
+                            {t(`portal.experiences.${portal.id}.atmosphere`) || portal.experience?.atmosphere}
+
+                        </p>
+
+                    )
+
+                }
 
 
                 {
@@ -509,7 +494,7 @@ const response = {
 
                         <p>
 
-                            {portal.experience.atmosphereMessage}
+                            {t(`portal.experiences.${portal.id}.atmosphereMessage`) || portal.experience?.atmosphereMessage}
 
                         </p>
 
@@ -517,69 +502,117 @@ const response = {
 
                 }
 
-
             </div>
 
 
 
 
+
+            {/* ======================================
+                WHISPER
+            ====================================== */}
 
             <div className="portal-whisper-window">
 
+                <h3>
 
-                <h3>`r`n`r`n                    {t("portal.whisper")}`r`n`r`n                </h3>
+                    {t("portal.whisper")}
+
+                </h3>
 
 
-                <p>
+                {
 
-                    {portal.experience?.whisper}
+                    portal.experience?.whisper
+                    && (
 
-                </p>
+                        <p>
 
+                            {t(`portal.experiences.${portal.id}.whisper`) || portal.experience?.whisper}
+
+                        </p>
+
+                    )
+
+                }
 
             </div>
 
 
 
 
+
+            {/* ======================================
+                MESSAGE
+            ====================================== */}
 
             <div className="portal-message-window">
 
+                <h3>
 
-                <h3>`r`n`r`n                    {t("portal.message")}`r`n`r`n                </h3>
+                    {t("portal.message")}
+
+                </h3>
 
 
-                <p>
+                {
 
-                    {portal.experience?.message}
+                    portal.experience?.message
+                    && (
 
-                </p>
+                        <p>
 
+                            {t(`portal.experiences.${portal.id}.message`) || portal.experience?.message}
+
+                        </p>
+
+                    )
+
+                }
 
             </div>
 
 
 
 
+
+            {/* ======================================
+                RITUAL
+            ====================================== */}
 
             <div className="portal-ritual-window">
 
+                <h3>
 
-                <h3>`r`n`r`n                    {t("portal.ritual")}`r`n`r`n                </h3>
+                    {t("portal.ritual")}
+
+                </h3>
 
 
-                <p>
+                {
 
-                    {portal.experience?.ritual}
+                    portal.experience?.ritual
+                    && (
 
-                </p>
+                        <p>
 
+                            {t(`portal.experiences.${portal.id}.ritual`) || portal.experience?.ritual}
+
+                        </p>
+
+                    )
+
+                }
 
             </div>
 
 
 
 
+
+            {/* ======================================
+                PORTAL QUESTION
+            ====================================== */}
 
             {
 
@@ -588,13 +621,16 @@ const response = {
 
                     <div className="portal-question-window">
 
+                        <h3>
 
-                        <h3>`r`n`r`n                            {t("portal.firstQuestion")}`r`n`r`n                        </h3>
+                            {t("portal.firstQuestion")}
+
+                        </h3>
 
 
                         <p>
 
-                            {portalQuestion}
+                            {t(`portal.experiences.${portal.id}.question`) || portalQuestion}
 
                         </p>
 
@@ -617,7 +653,7 @@ const response = {
 
                             placeholder={
 
-                                portalPlaceholder
+                                t(`portal.experiences.${portal.id}.placeholder`) || portalPlaceholder
 
                             }
 
@@ -626,7 +662,6 @@ const response = {
                             disabled={activated}
 
                         />
-
 
                     </div>
 
@@ -638,13 +673,16 @@ const response = {
 
 
 
+            {/* ======================================
+                PORTAL RESPONSE
+            ====================================== */}
+
             {
 
                 awakeningMessage
                 && (
 
                     <div className="portal-message-window">
-
 
                         <h3>
 
@@ -659,7 +697,6 @@ const response = {
 
                         </p>
 
-
                     </div>
 
                 )
@@ -669,6 +706,10 @@ const response = {
 
 
 
+
+            {/* ======================================
+                JOURNEY BUTTON
+            ====================================== */}
 
             <button
 
@@ -704,7 +745,6 @@ const response = {
 
             >
 
-
                 {
 
                     activated
@@ -723,12 +763,15 @@ const response = {
 
                 }
 
-
             </button>
 
 
 
 
+
+            {/* ======================================
+                PORTAL GATEWAY
+            ====================================== */}
 
             <PortalGateway
 
@@ -739,12 +782,12 @@ const response = {
             />
 
 
-
-
-
         </section>
 
     );
 
 }
+
+
+
 

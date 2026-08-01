@@ -72,8 +72,9 @@ export function t(
 
         )
 
-        ||
-
-        path;
+        || null;
 
 }
+
+
+

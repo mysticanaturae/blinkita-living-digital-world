@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+﻿import { useEffect, useRef } from "react";
 
 import PortalShell from "../layouts/PortalShell";
+import { t } from "../core/i18n/LanguageSystem";
 
 import { getPortal } from "../core/registry/PortalRegistry";
 import { validatePortal } from "../core/utils/validatePortal";
@@ -64,7 +65,7 @@ export default function PortalPage({ portalId }) {
 
         console.log(
 
-            "🌎 Entering Living Portal™",
+            "Ă„â€ÄąĹźÄąĹˇÄąËť Entering Living PortalÄ‚ËĂ˘â‚¬ĹľĂ‹Â",
 
             portalId
 
@@ -88,7 +89,7 @@ export default function PortalPage({ portalId }) {
 
         console.log(
 
-            "🌱 Living World Response",
+            "Ă„â€ÄąĹźÄąĹˇĂ‚Â± Living World Response",
 
             state
 
@@ -110,10 +111,10 @@ export default function PortalPage({ portalId }) {
         <PortalShell
 
 
-            title={portal.title}
+            title={t(`portal.experiences.${portal.id}.title`) || portal.title}
 
 
-            subtitle={portal.subtitle}
+            subtitle={t(`portal.experiences.${portal.id}.subtitle`) || portal.subtitle}
 
 
         >
