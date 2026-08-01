@@ -163,17 +163,11 @@ savedWorld
 
 
 
-    memory:
+    memory: {
+    events: []
+},
 
-    {
-
-        events:
-
-            []
-
-    },
-
-
+portalResponses: {},
 
 
 
@@ -494,6 +488,7 @@ worldState.memory ||= {
 };
 
 
+worldState.portalResponses ||= {};
 
 worldState.relationships ||= [];
 
@@ -943,7 +938,107 @@ export function completeWorldPortal(
 
 
 
+/*
+==========================================
+SAVE PORTAL RESPONSE™
 
+Stores the Creator's answer
+inside the Living World™
+
+==========================================
+*/
+
+export function savePortalResponse(
+
+    portalId,
+
+    response
+
+){
+
+    const timestamp =
+        new Date().toISOString();
+
+
+    worldState = {
+
+        ...worldState,
+
+
+        portalResponses: {
+
+            ...worldState.portalResponses,
+
+
+            [portalId]: {
+
+                response,
+
+                timestamp
+
+            }
+
+        },
+
+
+        memory: {
+
+            ...worldState.memory,
+
+
+            events: [
+
+                ...worldState.memory.events,
+
+
+                {
+
+                    type:
+                        "PORTAL_RESPONSE",
+
+
+                    portalId,
+
+
+                    response,
+
+
+                    timestamp
+
+                }
+
+            ]
+
+        },
+
+
+        lastActive:
+            timestamp
+
+    };
+
+
+    WorldStorage.save(
+
+        worldState
+
+    );
+
+
+    console.log(
+
+        "🧠 Portal Response Saved:",
+
+        portalId,
+
+        response
+
+    );
+
+
+    return worldState;
+
+}
 
 
 

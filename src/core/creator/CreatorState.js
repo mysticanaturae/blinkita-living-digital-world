@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 BLINKITA METHOD™
 BLINKITA OS™
@@ -8,207 +8,92 @@ CREATOR STATE™
 The identity bridge
 between Creator and Living World™
 
-Version 1.1
+Version 1.2
 ==========================================
 */
 
-
 import {
-
     getWorldState
-
-}
-
-from "../state/WorldState";
+} from "../state/WorldState";
 
 
-
-
-
-export function getCreatorState(){
-
-
+export function getCreatorState() {
 
     const worldState =
-
-        getWorldState()
-        ||
-        {};
-
-
-
-
+        getWorldState() || {};
 
 
     const creator =
+        worldState.creator || {
 
-        worldState.creator
-        ||
+            id: null,
 
-        {
-
-            id:null,
-
-
-            identity:
-
-            {
-
-                name:null,
-
-                archetype:"Explorer"
-
+            identity: {
+                name: "",
+                archetype: "Explorer",
+                description: ""
             },
 
-
-
-            evolution:
-
-            {
-
-                level:1,
-
-                experience:0,
-
-                stage:"Beginning"
-
+            evolution: {
+                level: 1,
+                experience: 0,
+                stage: "Beginning"
             },
 
-
-
-            journey:
-
-            {
-
-                portalsVisited:[],
-
-                milestones:[]
-
+            journey: {
+                portalsVisited: [],
+                milestones: []
             },
 
-
-            creations:[]
-
+            creations: []
         };
-
-
-
-
-
-
 
 
     return {
 
-
-
         ...creator,
 
-
-
-
-
         identity:
+            creator.identity || {
 
-
-            creator.identity
-            ||
-
-            {
-
-                name:null,
-
-                archetype:"Explorer"
+                name: "",
+                archetype: "Explorer",
+                description: ""
 
             },
-
-
-
-
-
 
         worlds:
-
-
-            worldState.creations
-            ||
-
-            creator.creations
-            ||
-
+            worldState.creations ||
+            creator.creations ||
             [],
 
-
-
-
-
-
         evolution:
-
-
-            worldState.evolution
-            ||
-
-            creator.evolution
-            ||
-
+            worldState.evolution ||
+            creator.evolution ||
             {
 
-                level:1,
-
-                experience:0,
-
-                stage:"Beginning"
+                level: 1,
+                experience: 0,
+                stage: "Beginning"
 
             },
-
-
-
-
-
-
 
         journey:
-
-
-            worldState.journey
-            ||
-
-            creator.journey
-            ||
-
+            worldState.journey ||
+            creator.journey ||
             {
 
-                portalsVisited:[],
-
-                milestones:[]
+                portalsVisited: [],
+                milestones: []
 
             },
 
-
-
-
-
-
-
         memory:
-
-
-            worldState.memory
-            ||
-
+            worldState.memory ||
             {},
-
-
-
-
-
 
         worldState
 
-
-
     };
-
 
 }

@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 
 BLINKITA METHOD™
@@ -8,20 +8,21 @@ LIVING PORTAL EXPERIENCE™
 
 The living experience layer
 
-Version 1.4
+Version 1.6
 
 Connected with:
-- Portal Gateway™
-- Journey System™
-- Living World Runtime™
-- Event System™
-- Memory System™
-- Timeline System™
-- Creator House™
+
+* Portal Gateway™
+* Journey System™
+* Living World Runtime™
+* Event System™
+* Memory System™
+* Timeline System™
+* Creator House™
+* Living Intelligence™
 
 ==========================================
 */
-
 
 import {
     useState,
@@ -36,9 +37,131 @@ import {
 from "../../core/engine/BlinkitaEngine";
 
 
+import {
+    updateWorldState
+}
+from "../../core/state/WorldState";
+
+
 import PortalGateway
 from "../navigation/PortalGateway";
 
+
+
+
+/*
+==========================================
+PORTAL RESPONSE SYSTEM™
+
+Each portal responds differently
+after the Creator gives an answer.
+
+Later this layer can become
+Living Intelligence™ generated.
+==========================================
+*/
+
+const portalResponses = {
+
+    arrival: {
+
+        title:
+            "Your Arrival",
+
+        message:
+            "Thank you.\n\nYour first words are now part of your Living World™ memory.\n\nThis is the first thing your world knows about you."
+
+    },
+
+
+    invitation: {
+
+        title:
+            "The Invitation Is Open",
+
+        message:
+            "You have accepted the invitation.\n\nSomething has begun to move.\n\nYour Living World™ now knows what is asking for your attention."
+
+    },
+
+
+    possibility: {
+
+        title:
+            "A Possibility Has Appeared",
+
+        message:
+            "You have named a possibility.\n\nIt does not need to exist yet.\n\nIt only needed a place to begin."
+
+    },
+
+
+    "the-call": {
+
+        title:
+            "You Heard the Call",
+
+        message:
+            "You listened.\n\nYour answer gives the call its first form.\n\nYou do not need to know the whole path yet."
+
+    },
+
+
+    "world-seed": {
+
+        title:
+            "The Seed Has Been Planted",
+
+        message:
+            "Your world now has its first seed.\n\nIt is small enough to grow.\n\nAnd alive enough to become something more."
+
+    },
+
+
+    vision: {
+
+        title:
+            "Your Vision Has Been Remembered",
+
+        message:
+            "You have given your world a first glimpse of what it could become.\n\nYour vision can change as your world grows.\n\nThat is part of being alive."
+
+    },
+
+
+    essence: {
+
+        title:
+            "The Essence Has Been Found",
+
+        message:
+            "You have named something that belongs at the heart of your world.\n\nThis essence can become the thread that connects everything that follows."
+
+    },
+
+
+    experience: {
+
+        title:
+            "The Experience Has Begun",
+
+        message:
+            "You have imagined what it means to enter your world.\n\nNow it has something to offer — not only as an idea, but as an experience."
+
+    },
+
+
+    "living-world": {
+
+        title:
+            "Your Living World Has Begun",
+
+        message:
+            "Look at what you have created.\n\nYour answers are now part of its first memory.\n\nThis is not the end of the journey.\n\nThis is where your Living World™ begins to evolve."
+
+    }
+
+};
 
 
 
@@ -47,13 +170,20 @@ from "../navigation/PortalGateway";
 export default function LivingPortalExperience({ portal }) {
 
 
-    const [activated, setActivated] = useState(false);
+    const [activated, setActivated] =
+        useState(false);
 
 
-    const [awakeningMessage, setAwakeningMessage] = useState(null);
+    const [awakeningMessage, setAwakeningMessage] =
+        useState(null);
 
 
-    const [continueJourney, setContinueJourney] = useState(null);
+    const [continueJourney, setContinueJourney] =
+        useState(null);
+
+
+    const [answer, setAnswer] =
+        useState("");
 
 
 
@@ -65,28 +195,24 @@ export default function LivingPortalExperience({ portal }) {
 
     Gateway exposes the next
     portal transition here.
-
-    useCallback keeps the function
-    stable between renders.
     ======================================
     */
 
 
-    const handleGatewayAction = useCallback(
+    const handleGatewayAction =
+        useCallback(
 
-        (action) => {
+            (action) => {
 
-            setContinueJourney(
+                setContinueJourney(
+                    () => action
+                );
 
-                () => action
+            },
 
-            );
+            []
 
-        },
-
-        []
-
-    );
+        );
 
 
 
@@ -111,10 +237,57 @@ export default function LivingPortalExperience({ portal }) {
 
     /*
     ======================================
+    PORTAL QUESTION™
+
+    ======================================
+    */
+
+
+    const portalQuestion =
+        portal.experience?.question;
+
+
+    const portalPlaceholder =
+        portal.experience?.placeholder
+        ||
+        "Write your answer here...";
+
+
+
+
+
+    /*
+    ======================================
+    PORTAL RESPONSE™
+
+    ======================================
+    */
+
+
+    const response =
+        portalResponses[portal.id]
+        ||
+        {
+
+            title:
+                "Your World Has Remembered",
+
+            message:
+                "Your answer has become part of your Living World™ memory."
+
+        };
+
+
+
+
+
+    /*
+    ======================================
     FIRST PORTAL INTERACTION™
 
-    Completes the current portal
-    and awakens the journey.
+    Saves the Creator's answer,
+    completes the portal,
+    and creates the portal response.
     ======================================
     */
 
@@ -124,7 +297,7 @@ export default function LivingPortalExperience({ portal }) {
 
         console.log(
 
-            "🌱 Portal Interaction:",
+            "Portal Interaction:",
 
             portal.id
 
@@ -132,6 +305,87 @@ export default function LivingPortalExperience({ portal }) {
 
 
 
+
+
+        /*
+        ----------------------------------
+        SAVE PORTAL ANSWER™
+
+        ----------------------------------
+        */
+
+
+        if (
+
+            portalQuestion
+            &&
+            answer.trim()
+
+        ) {
+
+
+            const currentState =
+                BlinkitaEngine.getWorldState();
+
+
+            const existingAnswers =
+                currentState.portalAnswers
+                ||
+                {};
+
+
+
+            const updatedAnswers = {
+
+                ...existingAnswers,
+
+                [portal.id]: {
+
+                    question:
+                        portalQuestion,
+
+                    answer:
+                        answer.trim(),
+
+                    answeredAt:
+                        new Date().toISOString()
+
+                }
+
+            };
+
+
+
+            updateWorldState({
+
+                portalAnswers:
+                    updatedAnswers
+
+            });
+
+
+
+            console.log(
+
+                "Living Intelligence™ received answer:",
+
+                portal.id,
+
+                answer.trim()
+
+            );
+
+        }
+
+
+
+
+
+        /*
+        ----------------------------------
+        COMPLETE PORTAL
+        ----------------------------------
+        */
 
 
         const state =
@@ -148,7 +402,7 @@ export default function LivingPortalExperience({ portal }) {
 
         console.log(
 
-            "🌎 Living World Updated:",
+            "Living World Updated:",
 
             state
 
@@ -160,50 +414,27 @@ export default function LivingPortalExperience({ portal }) {
 
         /*
         ----------------------------------
-        PORTAL AWAKENING MESSAGE
-        ----------------------------------
+        PORTAL-SPECIFIC RESPONSE™
 
-        Individual portals may later
-        provide their own awakening
-        message.
-
-        Until then we use the
-        Living World fallback.
         ----------------------------------
         */
 
 
-        setAwakeningMessage(
+        setAwakeningMessage({
 
-            {
+            title:
+                response.title,
 
-                title:
+            text:
+                response.message
 
-                    portal.experience?.awakeningTitle
-
-                    ||
-
-                    "🌱 Portal Awakened",
-
-
-                text:
-
-                    portal.experience?.awakeningMessage
-
-                    ||
-
-                    "Your journey has begun. A new memory has entered your Living World™."
-
-            }
-
-        );
+        });
 
 
 
 
 
         setActivated(true);
-
 
     }
 
@@ -216,8 +447,7 @@ export default function LivingPortalExperience({ portal }) {
     SECOND PORTAL INTERACTION™
 
     Continue into the next portal
-    or enter Creator House™ when
-    the Living World journey is complete.
+    or Creator House™.
     ======================================
     */
 
@@ -227,7 +457,7 @@ export default function LivingPortalExperience({ portal }) {
 
         console.log(
 
-            "✨ Continuing Living Journey™:",
+            "Continuing Living Journey™:",
 
             portal.id
 
@@ -257,16 +487,41 @@ export default function LivingPortalExperience({ portal }) {
 
         continueJourney();
 
-
     }
 
 
 
 
 
+    /*
+    ======================================
+    QUESTION VALIDATION™
+
+    ======================================
+    */
+
+
+    const questionRequired =
+        Boolean(portalQuestion);
+
+
+    const answerMissing =
+        questionRequired
+        &&
+        !answer.trim();
+
+
+
+
+
+    /*
+    ======================================
+    RENDER
+    ======================================
+    */
+
 
     return (
-
 
         <section className="living-portal-experience">
 
@@ -282,6 +537,22 @@ export default function LivingPortalExperience({ portal }) {
                     {portal.experience?.identity}
 
                 </h2>
+
+
+                {
+
+                    portal.experience?.identityMessage
+                    && (
+
+                        <p>
+
+                            {portal.experience.identityMessage}
+
+                        </p>
+
+                    )
+
+                }
 
 
             </div>
@@ -305,6 +576,22 @@ export default function LivingPortalExperience({ portal }) {
                     {portal.experience?.atmosphere}
 
                 </p>
+
+
+                {
+
+                    portal.experience?.atmosphereMessage
+                    && (
+
+                        <p>
+
+                            {portal.experience.atmosphereMessage}
+
+                        </p>
+
+                    )
+
+                }
 
 
             </div>
@@ -382,12 +669,71 @@ export default function LivingPortalExperience({ portal }) {
 
 
 
+            {
+
+                portalQuestion
+                && (
+
+                    <div className="portal-question-window">
+
+
+                        <h3>
+
+                            Your First Question
+
+                        </h3>
+
+
+                        <p>
+
+                            {portalQuestion}
+
+                        </p>
+
+
+                        <textarea
+
+                            value={answer}
+
+                            onChange={
+
+                                (event) =>
+
+                                    setAnswer(
+
+                                        event.target.value
+
+                                    )
+
+                            }
+
+                            placeholder={
+
+                                portalPlaceholder
+
+                            }
+
+                            rows="6"
+
+                            disabled={activated}
+
+                        />
+
+
+                    </div>
+
+                )
+
+            }
+
+
+
+
 
             {
 
-
-                awakeningMessage && (
-
+                awakeningMessage
+                && (
 
                     <div className="portal-message-window">
 
@@ -408,7 +754,6 @@ export default function LivingPortalExperience({ portal }) {
 
                     </div>
 
-
                 )
 
             }
@@ -417,15 +762,11 @@ export default function LivingPortalExperience({ portal }) {
 
 
 
-
             <button
-
 
                 className="journey-button"
 
-
                 onClick={
-
 
                     activated
 
@@ -439,29 +780,32 @@ export default function LivingPortalExperience({ portal }) {
 
                 }
 
-
                 disabled={
 
-                    activated && !continueJourney
+                    activated
+
+                    ?
+
+                    !continueJourney
+
+                    :
+
+                    answerMissing
 
                 }
-
 
             >
 
 
                 {
 
-
                     activated
 
                     ?
 
-
-                    "Journey Activated ✨"
+                    "Continue Journey"
 
                     :
-
 
                     portal.experience?.interaction
 
@@ -472,38 +816,17 @@ export default function LivingPortalExperience({ portal }) {
                 }
 
 
-
             </button>
 
 
 
 
 
-
-            {/*
-
-            ======================================
-            PORTAL GATEWAY™
-
-            Invisible transition intelligence.
-
-            It prepares the next portal action
-            without rendering another button.
-
-            For the final portal, the Gateway
-            leads into Creator House™.
-            ======================================
-            */}
-
-
             <PortalGateway
-
 
                 currentPortalId={portal.id}
 
-
                 exposeAction={handleGatewayAction}
-
 
             />
 
@@ -513,8 +836,6 @@ export default function LivingPortalExperience({ portal }) {
 
         </section>
 
-
     );
-
 
 }

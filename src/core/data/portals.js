@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 BLINKITA METHOD™
 LIVING DIGITAL WORLD™
@@ -7,550 +7,504 @@ PORTAL DATA SYSTEM™
 
 The Living Experience Layer™
 
-Version 2.0
+Version 3.0
 ==========================================
 */
 
 export const portals = [
 
-{
+    {
+        id: "arrival",
+        type: "portal",
+        title: "Arrival",
+        subtitle: "Welcome to the Living Digital World™",
+        purpose: "The first entrance into the journey.",
 
-    id: "arrival",
+        experience: {
 
-    type: "portal",
+            sequence: [
+                "atmosphere",
+                "whisper",
+                "identity",
+                "message",
+                "ritual",
+                "question",
+                "interaction"
+            ],
 
-    title: "Arrival",
+            identity: "The First Door",
 
-    subtitle:
-        "Welcome to the Living Digital World™",
+            identityMessage:
+                "Every journey begins with a moment of arrival — a moment when you choose to be present.",
 
-    purpose:
-        "The first entrance into the journey.",
+            atmosphere: "Opening",
 
+            atmosphereMessage:
+                "There is nothing you need to know yet.\nYou only need to arrive.",
 
-    experience: {
+            whisper:
+                "Time has been waiting for your arrival.\n\nPerhaps you have been waiting for this moment too.",
 
-        sequence: [
+            message:
+                "You have arrived.\n\nThis is the beginning of your Living World™ journey.",
 
-            "atmosphere",
-            "whisper",
-            "identity",
-            "message",
-            "ritual",
-            "interaction"
+            ritual:
+                "Pause for one conscious breath before taking your first step.\n\nLeave everything else outside for a moment.\nBe here.",
 
-        ],
+            question:
+                "Who are you, and what brings you here?",
 
+            placeholder:
+                "Tell your Living World™ something about yourself.\nThere is no right answer. This is simply the first memory it will have of you.",
 
-        identity:
-            "The First Door",
+            interaction:
+                "Begin your journey",
 
-        atmosphere:
-            "Opening",
+            next: "invitation"
+        },
 
-        whisper:
-            "Time has been waiting for your arrival.",
-
-        message:
-            "You have arrived.",
-
-        ritual:
-            "Pause for one conscious breath before taking your first step.",
-
-        interaction:
-            "Begin your journey",
-
-        next:
-            "invitation"
-
+        path: "/",
+        order: 1
     },
 
-    path: "/",
 
-    order: 1
+    {
+        id: "invitation",
+        type: "portal",
+        title: "Invitation",
+        subtitle: "The first whisper of a new possibility.",
+        purpose: "The first invitation into creation.",
 
-},
+        experience: {
 
+            sequence: [
+                "atmosphere",
+                "whisper",
+                "identity",
+                "message",
+                "ritual",
+                "question",
+                "interaction"
+            ],
 
+            identity: "The First Whisper",
 
+            identityMessage:
+                "Something has brought you here.\n\nYou may not know yet what it is.\nYou do not need to.",
 
+            atmosphere: "Opening Possibility",
 
-{
+            atmosphereMessage:
+                "There is something waiting to be discovered.\n\nNot outside you.\nNot somewhere far away.\n\nPerhaps it has been waiting quietly within you.",
 
-    id: "invitation",
+            whisper:
+                "Every new world begins with a single invitation.\n\nYou do not have to know where it will lead.\nYou only have to decide whether you are willing to open the door.",
 
-    type: "portal",
+            message:
+                "You have been invited.\n\nNot to follow someone else's path.\n\nBut to discover what becomes possible when you begin creating your own.",
 
-    title: "Invitation",
+            ritual:
+                "Pause for a moment.\n\nLet the question arrive before the answer:\n\nWhat would you create if you allowed yourself to begin?",
 
-    subtitle:
-        "The first whisper of a new possibility.",
+            question:
+                "What are you being called to explore?",
 
-    purpose:
-        "The first invitation into creation.",
+            placeholder:
+                "Tell your Living World™ what is quietly asking for your attention.\n\nA thought, a feeling, a dream or even a single word is enough.",
 
+            interaction:
+                "Accept the invitation",
 
-    experience: {
+            transition: "possibility"
+        },
 
-        sequence: [
-
-            "atmosphere",
-            "whisper",
-            "identity",
-            "message",
-            "ritual",
-            "interaction"
-
-        ],
-
-
-        identity:
-            "The First Whisper",
-
-        atmosphere:
-            "Opening Possibility",
-
-        whisper:
-            "Every new world begins with a single invitation.",
-
-        message:
-            "A new world begins with a single invitation.",
-
-        ritual:
-            "Say 'Yes' inwardly before continuing.",
-
-        interaction:
-            "Accept the invitation",
-
-        transition:
-            "possibility"
-
+        path: "/invitation",
+        order: 2
     },
 
-    path: "/invitation",
 
-    order: 2
+    {
+        id: "possibility",
+        type: "portal",
+        title: "Possibility",
+        subtitle: "Where imagination becomes creation.",
+        purpose: "The place where ideas begin to take form.",
 
-},
+        experience: {
 
+            sequence: [
+                "atmosphere",
+                "whisper",
+                "identity",
+                "message",
+                "ritual",
+                "question",
+                "interaction"
+            ],
 
+            identity: "The Field of Possibility",
 
-{
+            identityMessage:
+                "Before something becomes real, it exists as a possibility.\n\nA thought.\nA feeling.\nA strange little idea that refuses to disappear.",
 
-    id: "possibility",
+            atmosphere: "Expansion",
 
-    type: "portal",
+            atmosphereMessage:
+                "For a moment, forget what is supposed to be possible.\n\nImagine what could be possible if you were not limited by what already exists.",
 
-    title: "Possibility",
+            whisper:
+                "Every possibility is waiting for someone to believe in it.\n\nSome possibilities arrive quietly.\n\nOthers feel almost impossible.\n\nPay attention to the one that keeps returning.",
 
-    subtitle:
-        "Where imagination becomes creation.",
+            message:
+                "Every creation begins as a possibility.\n\nThe world you are about to create does not need to exist anywhere yet.\n\nIt only needs somewhere to begin.",
 
-    purpose:
-        "The place where ideas begin to take form.",
+            ritual:
+                "Close your eyes for a moment.\n\nAllow one idea to appear that feels a little too big,\na little too strange,\nor a little too impossible.\n\nDo not judge it.\n\nJust let it be seen.",
 
+            question:
+                "What could become possible through your world?",
 
-    experience: {
+            placeholder:
+                "Describe the possibility you would love to bring into existence.\n\nIt does not have to be realistic yet.",
 
-        sequence: [
+            interaction:
+                "Explore what can become.",
 
-            "atmosphere",
-            "whisper",
-            "identity",
-            "message",
-            "ritual",
-            "interaction"
+            transition: "the-call"
+        },
 
-        ],
-
-
-        identity:
-            "The Field of Possibility",
-
-        atmosphere:
-            "Expansion",
-
-        whisper:
-            "Every possibility is waiting for someone to believe in it.",
-
-        message:
-            "Every creation begins as a possibility.",
-
-        ritual:
-            "Allow one impossible idea to enter your mind.",
-
-        interaction:
-            "Explore what can become.",
-
-        transition:
-            "the-call"
-
+        path: "/possibility",
+        order: 3
     },
 
-    path: "/possibility",
 
-    order: 3
+    {
+        id: "the-call",
+        type: "portal",
+        title: "The Call",
+        subtitle: "The moment when the journey begins.",
+        purpose: "The awakening moment where intention becomes movement.",
 
-},
+        experience: {
 
+            sequence: [
+                "atmosphere",
+                "whisper",
+                "identity",
+                "message",
+                "ritual",
+                "question",
+                "interaction"
+            ],
 
+            identity: "The Inner Call",
 
-{
+            identityMessage:
+                "There is a difference between having an idea\nand feeling called to bring it into the world.",
 
-    id: "the-call",
+            atmosphere: "Awakening",
 
-    type: "portal",
+            atmosphereMessage:
+                "Something has already started moving.\n\nPerhaps you felt it before you arrived here.\n\nPerhaps you are only noticing it now.",
 
-    title: "The Call",
+            whisper:
+                "Something within you has already answered.\n\nThe question is no longer whether the call exists.\n\nThe question is whether you are willing to listen.",
 
-    subtitle:
-        "The moment when the journey begins.",
+            message:
+                "Every journey begins when something within you responds.\n\nYou do not need to know the whole path.\n\nYou only need to recognize the next step.",
 
-    purpose:
-        "The awakening moment where intention becomes movement.",
+            ritual:
+                "Be still for a moment.\n\nListen beneath the noise,\nbeneath expectations,\nbeneath everything you think you should do.\n\nWhat remains?",
 
+            question:
+                "What is calling you forward?",
 
-    experience: {
+            placeholder:
+                "Write the thing you feel ready to explore, create, change or become.\n\nLet your answer be honest rather than impressive.",
 
-        sequence: [
+            interaction:
+                "Listen to the call.",
 
-            "atmosphere",
-            "whisper",
-            "identity",
-            "message",
-            "ritual",
-            "interaction"
+            transition: "world-seed"
+        },
 
-        ],
-
-
-        identity:
-            "The Inner Call",
-
-        atmosphere:
-            "Awakening",
-
-        whisper:
-            "Something within you has already answered.",
-
-        message:
-            "Every journey begins when something within you responds.",
-
-        ritual:
-            "Listen for the quietest voice within.",
-
-        interaction:
-            "Listen to the call.",
-
-        transition:
-            "world-seed"
-
+        path: "/the-call",
+        order: 4
     },
 
-    path: "/the-call",
 
-    order: 4
+    {
+        id: "world-seed",
+        type: "portal",
+        title: "World Seed",
+        subtitle: "The seed of a world waiting to emerge.",
+        purpose: "The moment where vision receives its first living form.",
 
-},
+        experience: {
 
+            sequence: [
+                "atmosphere",
+                "whisper",
+                "identity",
+                "message",
+                "ritual",
+                "question",
+                "interaction"
+            ],
 
+            identity: "The Living Seed",
 
-{
+            identityMessage:
+                "Every living world begins small.\n\nSometimes with an idea.\nSometimes with a memory.\nSometimes with a feeling that there should be something more.",
 
-    id: "world-seed",
+            atmosphere: "Potential",
 
-    type: "portal",
+            atmosphereMessage:
+                "A seed contains something that cannot yet be seen.\n\nIt does not reveal the whole tree.\n\nIt simply carries the possibility of becoming one.",
 
-    title: "World Seed",
+            whisper:
+                "Every living world begins as a single seed.\n\nWhat you place here today may grow into something you cannot yet imagine.",
 
-    subtitle:
-        "The seed of a world waiting to emerge.",
+            message:
+                "Your world begins here.\n\nNot as a finished creation.\n\nAs something alive enough to grow.",
 
-    purpose:
-        "The moment where vision receives its first living form.",
+            ritual:
+                "Imagine holding the smallest possible version of your world in your hands.\n\nIf you could plant only one thing,\nwhat would it be?",
 
+            question:
+                "What is the seed of your world?",
 
-    experience: {
+            placeholder:
+                "Give your world its first form.\n\nIt might be a place, an idea, a purpose, a feeling, a story, a community, a creation — anything that wants to become more.",
 
-        sequence: [
+            interaction:
+                "Plant the seed of your world.",
 
-            "atmosphere",
-            "whisper",
-            "identity",
-            "message",
-            "ritual",
-            "interaction"
+            transition: "vision"
+        },
 
-        ],
-
-
-        identity:
-            "The Living Seed",
-
-        atmosphere:
-            "Potential",
-
-        whisper:
-            "Every living world begins as a single seed.",
-
-        message:
-            "Every world begins as a seed of possibility.",
-
-        ritual:
-            "Imagine the smallest beginning of your world.",
-
-        interaction:
-            "Plant the seed of your world.",
-
-        transition:
-            "vision"
-
+        path: "/world-seed",
+        order: 5
     },
 
-    path: "/world-seed",
 
-    order: 5
+    {
+        id: "vision",
+        type: "portal",
+        title: "Vision",
+        subtitle: "See the world before it exists.",
+        purpose: "The moment where imagination becomes a clear direction.",
 
-},
+        experience: {
 
+            sequence: [
+                "atmosphere",
+                "whisper",
+                "identity",
+                "message",
+                "ritual",
+                "question",
+                "interaction"
+            ],
 
+            identity: "The Living Vision",
 
-{
+            identityMessage:
+                "Before a world can be built,\nsomeone has to see it.\n\nNot perfectly.\nNot completely.\n\nJust clearly enough to recognize what it wants to become.",
 
-    id: "vision",
+            atmosphere: "Clarity",
 
-    type: "portal",
+            atmosphereMessage:
+                "Let the noise fall away.\n\nFor a moment, do not ask how.\n\nFirst, allow yourself to see what.",
 
-    title: "Vision",
+            whisper:
+                "Every great creation is first seen within.\n\nThe clearer your inner picture becomes,\nthe easier it becomes to recognize the next step.",
 
-    subtitle:
-        "See the world before it exists.",
+            message:
+                "Your world begins with a vision held in consciousness.\n\nWhat you see here may change.\n\nThat is not a failure.\n\nLiving things are allowed to evolve.",
 
-    purpose:
-        "The moment where imagination becomes a clear direction.",
+            ritual:
+                "Imagine that your world already exists.\n\nWalk through it.\n\nWhat do you see?\nWho is there?\nWhat does it feel like to be inside it?",
 
+            question:
+                "What does your world look like when it is alive?",
 
-    experience: {
+            placeholder:
+                "Describe the world you see.\n\nYou can write about its people, places, purpose, experiences, atmosphere or anything else that appears.",
 
-        sequence: [
+            interaction:
+                "Reveal your vision.",
 
-            "atmosphere",
-            "whisper",
-            "identity",
-            "message",
-            "ritual",
-            "interaction"
+            transition: "essence"
+        },
 
-        ],
-
-
-        identity:
-            "The Living Vision",
-
-        atmosphere:
-            "Clarity",
-
-        whisper:
-            "Every great creation is first seen within.",
-
-        message:
-            "Every living world begins with a vision held in consciousness.",
-
-        ritual:
-            "See your world as if it already exists.",
-
-        interaction:
-            "Reveal your vision.",
-
-        transition:
-            "essence"
-
+        path: "/vision",
+        order: 6
     },
 
-    path: "/vision",
 
-    order: 6
+    {
+        id: "essence",
+        type: "portal",
+        title: "Essence",
+        subtitle: "Discover the living core.",
+        purpose: "The discovery of the soul and identity of the world.",
 
-},
+        experience: {
 
+            sequence: [
+                "atmosphere",
+                "whisper",
+                "identity",
+                "message",
+                "ritual",
+                "question",
+                "interaction"
+            ],
 
+            identity: "The Living Essence",
 
-{
+            identityMessage:
+                "Every world has something at its center.\n\nSomething that makes it different from every other world.\n\nIts reason for existing.\nIts feeling.\nIts heartbeat.\n\nThis is its essence.",
 
-    id: "essence",
+            atmosphere: "Recognition",
 
-    type: "portal",
+            atmosphereMessage:
+                "You may not need to invent the essence of your world.\n\nYou may simply need to recognize it.",
 
-    title: "Essence",
+            whisper:
+                "Every world has a soul waiting to be remembered.\n\nLook beneath the ideas.\n\nBeneath the features.\n\nBeneath the appearance.\n\nWhat is still there?",
 
-    subtitle:
-        "Discover the living core.",
+            message:
+                "Every world carries a unique essence waiting to be expressed.\n\nThe essence becomes the thread that connects everything your world may one day become.",
 
-    purpose:
-        "The discovery of the soul and identity of the world.",
+            ritual:
+                "Ask yourself quietly:\n\nIf everything else disappeared, what would still need to remain?\n\nStay with the first honest answer.",
 
+            question:
+                "What is the heart of your world?",
 
-    experience: {
+            placeholder:
+                "Describe the quality, purpose, feeling or truth that you want your world to carry wherever it grows.",
 
-        sequence: [
+            interaction:
+                "Discover the core.",
 
-            "atmosphere",
-            "whisper",
-            "identity",
-            "message",
-            "ritual",
-            "interaction"
+            transition: "experience"
+        },
 
-        ],
-
-
-        identity:
-            "The Living Essence",
-
-        atmosphere:
-            "Recognition",
-
-        whisper:
-            "Every world has a soul waiting to be remembered.",
-
-        message:
-            "Every world carries a unique essence waiting to be expressed.",
-
-        ritual:
-            "Ask yourself: What is the soul of my world?",
-
-        interaction:
-            "Discover the core.",
-
-        transition:
-            "experience"
-
+        path: "/essence",
+        order: 7
     },
 
-    path: "/essence",
 
-    order: 7
+    {
+        id: "experience",
+        type: "portal",
+        title: "Experience",
+        subtitle: "Enter the world through experience.",
+        purpose: "The transformation of ideas into lived reality.",
 
-},
+        experience: {
 
+            sequence: [
+                "atmosphere",
+                "whisper",
+                "identity",
+                "message",
+                "ritual",
+                "question",
+                "interaction"
+            ],
 
+            identity: "The Living Experience",
 
-{
+            identityMessage:
+                "A world becomes more than an idea\nwhen someone can experience it.\n\nWhen it can be entered.\nTouched.\nExplored.\nRemembered.\nShared.",
 
-    id: "experience",
+            atmosphere: "Embodiment",
 
-    type: "portal",
+            atmosphereMessage:
+                "You have imagined your world.\n\nNow step inside it.\n\nDo not look at it from the outside.\n\nExperience it from within.",
 
-    title: "Experience",
+            whisper:
+                "A world becomes real when it can be lived.\n\nWhat would someone actually experience when they enter your world?",
 
-    subtitle:
-        "Enter the world through experience.",
+            message:
+                "A world becomes alive when it can be experienced.\n\nYour world is not only what it contains.\n\nIt is what happens inside it.",
 
-    purpose:
-        "The transformation of ideas into lived reality.",
+            ritual:
+                "Imagine yourself entering your world for the very first time.\n\nWhat is the first thing you notice?\n\nWhat do you feel?\n\nWhat makes you want to stay?",
 
+            question:
+                "What should someone experience inside your world?",
 
-    experience: {
+            placeholder:
+                "Describe the feeling, transformation, discovery or experience you want your world to create.",
 
-        sequence: [
+            interaction:
+                "Enter the experience.",
 
-            "atmosphere",
-            "whisper",
-            "identity",
-            "message",
-            "ritual",
-            "interaction"
+            transition: "living-world"
+        },
 
-        ],
-
-
-        identity:
-            "The Living Experience",
-
-        atmosphere:
-            "Embodiment",
-
-        whisper:
-            "A world becomes real when it can be lived.",
-
-        message:
-            "A world becomes alive when it can be experienced.",
-
-        ritual:
-            "Step fully into the experience you are creating.",
-
-        interaction:
-            "Enter the experience.",
-
-        transition:
-            "living-world"
-
+        path: "/experience",
+        order: 8
     },
 
-    path: "/experience",
 
-    order: 8
+    {
+        id: "living-world",
+        type: "portal",
+        title: "Living World",
+        subtitle: "A world that evolves with you.",
+        purpose: "The completion of the first Living Digital World™ cycle.",
 
-},
+        experience: {
 
+            sequence: [
+                "atmosphere",
+                "whisper",
+                "identity",
+                "message",
+                "ritual",
+                "question",
+                "interaction"
+            ],
 
+            identity: "The Living World",
 
-{
+            identityMessage:
+                "You have arrived with an idea.\n\nYou listened to a possibility.\nYou heard a call.\nYou planted a seed.\nYou shaped a vision.\nYou discovered an essence.\n\nAnd now you have entered the world.",
 
-    id: "living-world",
+            atmosphere: "Evolution",
 
-    type: "portal",
+            atmosphereMessage:
+                "A living world is never finished.\n\nIt changes as you discover more.\nIt grows as you create.\nIt remembers what matters.\n\nAnd sometimes it surprises you.",
 
-    title: "Living World",
+            whisper:
+                "This is not the end. It is the beginning of an evolving world.",
 
-    subtitle:
-        "A world that evolves with you.",
+            message:
+                "A living world never ends. It continues to evolve.\n\nYour answers are now part of its first memory.\n\nYour ideas have become its first foundations.\n\nWhat happens next is up to you — and eventually, perhaps, to the world itself.",
 
-    purpose:
-        "The completion of the first Living Digital World™ cycle.",
+            ritual:
+                "Take one moment to look back.\n\nNotice where you began.\n\nNotice what changed along the way.\n\nAnd remember:\n\nYou did not simply complete a journey.\n\nYou gave something a beginning.",
 
+            question:
+                "What do you want your world to become?",
 
-    experience: {
+            placeholder:
+                "Now that you can see the world beginning to take form,\nwhat would you love to create next?\n\nThis answer does not close the journey.\n\nIt opens the next one.",
 
-        sequence: [
+            interaction:
+                "Continue creating.",
 
-            "atmosphere",
-            "whisper",
-            "identity",
-            "message",
-            "ritual",
-            "interaction"
+            transition: null
+        },
 
-        ],
-
-
-        identity:
-            "The Living World",
-
-        atmosphere:
-            "Evolution",
-
-        whisper:
-            "This is not the end. It is the beginning of an evolving world.",
-
-        message:
-            "A living world never ends. It continues to evolve.",
-
-        ritual:
-            "Honor your journey before creating the next one.",
-
-        interaction:
-            "Continue creating.",
-
-        transition:
-            null
-
-    },
-
-    path: "/world",
-
-    order: 9
-
-}
+        path: "/world",
+        order: 9
+    }
 
 ];

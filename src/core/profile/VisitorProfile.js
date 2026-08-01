@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 BLINKITA METHOD™
 LIVING DIGITAL WORLD™
@@ -8,7 +8,7 @@ VISITOR PROFILE™
 The identity layer
 of a Living World™
 
-Version 1.0
+Version 1.1
 ==========================================
 */
 
@@ -25,9 +25,11 @@ export const VisitorProfile = {
 
             identity: {
 
-                name: null,
+                name: "",
 
-                archetype: "Explorer"
+                archetype: "Explorer",
+
+                description: ""
 
             },
 
@@ -50,7 +52,9 @@ export const VisitorProfile = {
 
                 level: 1,
 
-                experience: 0
+                experience: 0,
+
+                stage: "Beginning"
 
             },
 
@@ -64,36 +68,76 @@ export const VisitorProfile = {
 
 
     discoverPortal(
+
         profile,
+
         portalId
+
     ) {
+
+
+        const safeProfile =
+
+            profile || this.createProfile();
+
+
+        const safeJourney = {
+
+            stage:
+                "awakening",
+
+            discoveredPortals:
+                [],
+
+            completedPortals:
+                [],
+
+            ...(safeProfile.journey || {})
+
+        };
+
+
+        const discoveredPortals =
+
+            Array.isArray(
+                safeJourney.discoveredPortals
+            )
+
+                ? safeJourney.discoveredPortals
+
+                : [];
+
 
 
         return {
 
-            ...profile,
+            ...safeProfile,
 
 
             journey: {
 
-                ...profile.journey,
+                ...safeJourney,
 
 
                 discoveredPortals:
 
-                    profile.journey.discoveredPortals.includes(portalId)
-
-                    ? profile.journey.discoveredPortals
-
-                    :
-
-                    [
-
-                        ...profile.journey.discoveredPortals,
-
+                    discoveredPortals.includes(
                         portalId
+                    )
 
-                    ]
+                        ?
+
+                        discoveredPortals
+
+                        :
+
+                        [
+
+                            ...discoveredPortals,
+
+                            portalId
+
+                        ]
 
             }
 
@@ -104,50 +148,104 @@ export const VisitorProfile = {
 
 
     completePortal(
+
         profile,
+
         portalId
+
     ) {
+
+
+        const safeProfile =
+
+            profile || this.createProfile();
+
+
+        const safeJourney = {
+
+            stage:
+                "awakening",
+
+            discoveredPortals:
+                [],
+
+            completedPortals:
+                [],
+
+            ...(safeProfile.journey || {})
+
+        };
+
+
+        const completedPortals =
+
+            Array.isArray(
+                safeJourney.completedPortals
+            )
+
+                ? safeJourney.completedPortals
+
+                : [];
+
+
+        const evolution = {
+
+            level:
+                1,
+
+            experience:
+                0,
+
+            stage:
+                "Beginning",
+
+            ...(safeProfile.evolution || {})
+
+        };
+
 
 
         return {
 
-            ...profile,
+            ...safeProfile,
 
 
             journey: {
 
-                ...profile.journey,
+                ...safeJourney,
 
 
                 completedPortals:
 
-                    profile.journey.completedPortals.includes(portalId)
-
-                    ?
-
-                    profile.journey.completedPortals
-
-                    :
-
-                    [
-
-                        ...profile.journey.completedPortals,
-
+                    completedPortals.includes(
                         portalId
+                    )
 
-                    ]
+                        ?
+
+                        completedPortals
+
+                        :
+
+                        [
+
+                            ...completedPortals,
+
+                            portalId
+
+                        ]
 
             },
 
 
             evolution: {
 
-                ...profile.evolution,
+                ...evolution,
 
 
                 experience:
 
-                    profile.evolution.experience + 10
+                    (evolution.experience || 0) + 10
 
             }
 

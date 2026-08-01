@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 
 BLINKITA METHOD™
@@ -6,614 +6,654 @@ BLINKITA OS™
 
 CREATOR DASHBOARD™
 
-The evolution space
-of a World Builder™
+Creator identity and evolution space
 
-Connected with:
-- Creator State™
-- World State™
-- Evolution System™
-- World Builder Evolution™
-
-Version 3.2
-
-Connected with:
-- Living UI System™
+Version 4.0
 
 ==========================================
 */
 
+import { useState } from "react";
 
 import {
-
     getCreatorState
-
-}
-
-from "../../core/creator/CreatorState";
-
-
+} from "../../core/creator/CreatorState";
 
 import {
-
-    getWorldState
-
-}
-
-from "../../core/state/WorldState";
-
-
+    getWorldState,
+    updateWorldState
+} from "../../core/state/WorldState";
 
 import WorldBuilderEvolutionCard
-
 from "../evolution/WorldBuilderEvolutionCard";
 
-
-
 import WorldBuilderDomainCard
-
 from "../worldbuilder/WorldBuilderDomainCard";
 
 
-
-
-
-
-
-
-export default function CreatorDashboard(){
-
-
-
-
+export default function CreatorDashboard() {
 
     const creatorState =
-
-        getCreatorState()
-
-        ||
-
-        {};
-
-
-
-
+        getCreatorState() || {};
 
     const worldState =
-
-        getWorldState()
-
-        ||
-
-        {};
-
-
-
-
-
-
+        getWorldState() || {};
 
 
     const creator =
+        creatorState.creator || {
 
-        creatorState.creator
-
-        ||
-
-        {
+            id: null,
 
             identity: {
 
-                name:"Anonymous Creator",
-
-                archetype:"Explorer"
+                name: "",
+                archetype: "Explorer",
+                description: ""
 
             },
 
-
             evolution: {
 
-                level:1,
-
-                experience:0,
-
-                stage:"Beginning"
+                level: 1,
+                experience: 0,
+                stage: "Beginning"
 
             }
 
         };
 
 
-
-
-
-
-
     const worlds =
-
-        creatorState.worlds
-
-        ||
-
-        [];
-
-
-
-
-
-
+        creatorState.worlds || [];
 
 
     const evolution =
-
-        creatorState.evolution
-
-        ||
-
+        creatorState.evolution ||
         creator.evolution;
 
 
-
-
-
-
-
     const worldEvolution =
-
-        worldState.evolution
-
-        ||
-
-        {};
-
-
-
+        worldState.evolution || {};
 
 
     const worldGovernance =
-
-        worldState.governance
-
-        ||
-
-        {};
-
-
-
+        worldState.governance || {};
 
 
     const worldDecision =
-
-        worldState.decision
-
-        ||
-
-        {};
-
-
-
+        worldState.decision || {};
 
 
     const worldAction =
+        worldState.action || {};
 
-        worldState.action
 
-        ||
+    /*
+    ======================================
+    CREATOR IDENTITY FORM
+    ======================================
+    */
 
-        {};
+    const [name, setName] = useState(
 
+        creator.identity?.name || ""
 
+    );
 
 
+    const [archetype, setArchetype] = useState(
 
+        creator.identity?.archetype || "Explorer"
 
+    );
 
 
-return (
+    const [description, setDescription] = useState(
 
+        creator.identity?.description || ""
 
+    );
 
-<section className="living-page creator-dashboard">
 
+    const [saved, setSaved] = useState(false);
 
 
+    /*
+    ======================================
+    SAVE CREATOR IDENTITY
+    ======================================
+    */
 
+    function handleSaveIdentity() {
 
+        const updatedCreator = {
 
-<header className="living-header">
+            ...creator,
 
+            identity: {
 
-<h1>
+                ...creator.identity,
 
-🌱 Welcome Creator™
+                name:
+                    name.trim() || "Anonymous Creator",
 
-</h1>
+                archetype:
+                    archetype.trim() || "Explorer",
 
+                description:
+                    description.trim()
 
+            }
 
-<p>
+        };
 
-Your evolution space inside
-the Living World™
 
-</p>
+        updateWorldState({
 
+            creator: updatedCreator
 
-</header>
+        });
 
 
+        setSaved(true);
 
 
+        console.log(
 
+            "🌱 Creator Identity Saved:",
 
+            updatedCreator.identity
 
+        );
 
 
-<div className="living-grid">
+        setTimeout(() => {
 
+            setSaved(false);
 
+        }, 2500);
 
+    }
 
 
+    /*
+    ======================================
+    PAGE
+    ======================================
+    */
 
+    return (
 
-<section className="living-card">
+        <section className="living-page creator-dashboard">
 
 
-<h2>
+            <header className="living-header">
 
-Creator Identity
+                <h1>
 
-</h2>
+                    🌱 Welcome Creator™
 
+                </h1>
 
 
-<p>
+                <p>
 
-Name:
+                    Your evolution space inside
+                    the Living World™
 
-{" "}
+                </p>
 
-{creator.identity?.name}
+            </header>
 
-</p>
 
+            <section className="living-card living-section">
 
+                <h2>
 
+                    Creator Identity™
 
-<p>
+                </h2>
 
-Archetype:
 
-{" "}
+                <p>
 
-{creator.identity?.archetype}
+                    Tell your Living World™ who you are.
 
-</p>
+                </p>
 
 
+                <div className="creator-identity-form">
 
-</section>
 
+                    <div>
 
+                        <label>
 
+                            Name
 
+                        </label>
 
 
+                        <input
 
+                            type="text"
 
+                            value={name}
 
-<section className="living-card">
+                            onChange={(event) =>
 
+                                setName(
 
-<h2>
+                                    event.target.value
 
-Creator Journey™
+                                )
 
-</h2>
+                            }
 
+                            placeholder="Your name"
 
+                        />
 
-<p>
+                    </div>
 
-Level:
 
-{" "}
+                    <div>
 
-{evolution?.level || 1}
+                        <label>
 
-</p>
+                            Creator Archetype
 
+                        </label>
 
 
-<p>
+                        <input
 
-Experience:
+                            type="text"
 
-{" "}
+                            value={archetype}
 
-{evolution?.experience || 0}
+                            onChange={(event) =>
 
-XP
+                                setArchetype(
 
-</p>
+                                    event.target.value
 
+                                )
 
+                            }
 
-<p>
+                            placeholder="Explorer, Artist, Builder..."
 
-Stage:
+                        />
 
-{" "}
+                    </div>
 
-{evolution?.stage || "Beginning"}
 
-</p>
+                    <div>
 
+                        <label>
 
-</section>
+                            About You
 
+                        </label>
 
 
+                        <textarea
 
+                            value={description}
 
+                            onChange={(event) =>
 
+                                setDescription(
 
+                                    event.target.value
 
+                                )
 
-<WorldBuilderEvolutionCard />
+                            }
 
+                            placeholder="Tell your Living World™ something about you..."
 
+                            rows="5"
 
+                        />
 
+                    </div>
 
 
+                    <button
 
-<section className="living-card">
+                        type="button"
 
+                        className="journey-button"
 
-<h2>
+                        onClick={handleSaveIdentity}
 
-Living World™ Status
+                    >
 
-</h2>
+                        {
 
+                            saved
 
+                                ?
 
-<p>
+                            "Identity Saved ✨"
 
-Current Portal:
+                                :
 
-{" "}
+                            "Save My Identity"
 
-{worldState.currentPortal || "arrival"}
+                        }
 
-</p>
+                    </button>
 
 
+                </div>
 
+            </section>
 
-<p>
 
-Evolution:
+            <div className="living-grid">
 
-{" "}
 
-{worldEvolution.stage || "seed"}
+                <section className="living-card">
 
-</p>
+                    <h2>
 
+                        Creator Identity
 
+                    </h2>
 
-<p>
 
-Decisions:
+                    <p>
 
-{" "}
+                        Name:{" "}
 
-{worldDecision.choices?.length || 0}
+                        {
 
-</p>
+                            creator.identity?.name ||
 
+                            "Anonymous Creator"
 
+                        }
 
+                    </p>
 
-<p>
 
-Governance:
+                    <p>
 
-{" "}
+                        Archetype:{" "}
 
-{worldGovernance.decisions || 0}
+                        {
 
-evaluations
+                            creator.identity?.archetype ||
 
-</p>
+                            "Explorer"
 
+                        }
 
+                    </p>
 
 
-<p>
+                    {
 
-Actions:
+                        creator.identity?.description && (
 
-{" "}
+                            <p>
 
-{worldAction.executed || 0}
+                                About:{" "}
 
-</p>
+                                {
 
+                                    creator.identity.description
 
+                                }
 
-</section>
+                            </p>
 
+                        )
 
+                    }
 
+                </section>
 
 
+                <section className="living-card">
 
+                    <h2>
 
-</div>
+                        Creator Journey™
 
+                    </h2>
 
 
+                    <p>
 
+                        Level:{" "}
 
+                        {
 
+                            evolution?.level || 1
 
+                        }
 
+                    </p>
 
 
+                    <p>
 
+                        Experience:{" "}
 
+                        {
 
-<WorldBuilderDomainCard />
+                            evolution?.experience || 0
 
+                        }
 
+                        {" "}XP
 
+                    </p>
 
 
+                    <p>
 
+                        Stage:{" "}
 
+                        {
 
+                            evolution?.stage ||
 
-<section className="living-card living-section">
+                            "Beginning"
 
+                        }
 
-<h2>
+                    </p>
 
-My Living Worlds™
+                </section>
 
-</h2>
 
+                <WorldBuilderEvolutionCard />
 
 
-<div className="living-grid">
+                <section className="living-card">
 
+                    <h2>
 
+                        Living World™ Status
 
-{
+                    </h2>
 
 
-worlds.length > 0
+                    <p>
 
+                        Current Portal:{" "}
 
-?
+                        {
 
+                            worldState.currentPortal ||
 
-worlds.map(
+                            "arrival"
 
+                        }
 
-world => (
+                    </p>
 
 
-<article
+                    <p>
 
-key={world.id}
+                        Evolution:{" "}
 
-className="living-card"
+                        {
 
+                            worldEvolution.stage ||
 
->
+                            "seed"
 
+                        }
 
-<h3>
+                    </p>
 
-🌎 {world.id}
 
-</h3>
+                    <p>
 
+                        Decisions:{" "}
 
+                        {
 
-<p>
+                            worldDecision.choices?.length ||
 
-Status:
+                            0
 
-{" "}
+                        }
 
-{world.status}
+                    </p>
 
-</p>
 
+                    <p>
 
+                        Governance:{" "}
 
-</article>
+                        {
 
+                            worldGovernance.decisions ||
 
-)
+                            0
 
+                        }
 
-)
+                        {" "}evaluations
 
+                    </p>
 
 
-:
+                    <p>
 
+                        Actions:{" "}
 
-<p>
+                        {
 
-Your first Living World™
-is waiting.
+                            worldAction.executed ||
 
-</p>
+                            0
 
+                        }
 
-}
+                    </p>
 
+                </section>
 
 
-</div>
+            </div>
 
 
+            <WorldBuilderDomainCard />
 
-</section>
 
+            <section className="living-card living-section">
 
+                <h2>
 
+                    My Living Worlds™
 
+                </h2>
 
 
+                <div className="living-grid">
 
 
+                    {
 
+                        worlds.length > 0
 
+                            ?
 
+                        worlds.map((world) => (
 
+                            <article
 
-<section className="living-card living-section">
+                                key={world.id}
 
+                                className="living-card"
 
-<h2>
+                            >
 
-Achievements™
+                                <h3>
 
-</h2>
+                                    🌎 {world.id}
 
+                                </h3>
 
 
-<p>
+                                <p>
 
-Your World Builder™
-milestones will appear here.
+                                    Status:{" "}
 
-</p>
+                                    {world.status}
 
+                                </p>
 
+                            </article>
 
-</section>
+                        ))
 
+                            :
 
+                        <p>
 
+                            Your first Living World™
+                            is waiting.
 
+                        </p>
 
+                    }
 
+                </div>
 
-</section>
+            </section>
 
 
+            <section className="living-card living-section">
 
-);
+                <h2>
 
+                    Achievements™
 
+                </h2>
+
+
+                <p>
+
+                    Your World Builder™
+                    milestones will appear here.
+
+                </p>
+
+            </section>
+
+
+        </section>
+
+    );
 
 }

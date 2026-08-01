@@ -22,12 +22,12 @@ import {
 
     getWorldState,
 
-    updateWorldState
+    updateWorldState,
+
+    savePortalResponse
 
 }
-
 from "../state/WorldState";
-
 
 
 import {
@@ -339,7 +339,33 @@ export const LivingWorldRuntime = {
 
 
 
+/*
+==========================================
+SAVE PORTAL RESPONSE™
 
+The Runtime bridge between
+Creator input and Living World Memory™
+
+==========================================
+*/
+
+savePortalResponse(
+
+    portalId,
+
+    response
+
+){
+
+    return savePortalResponse(
+
+        portalId,
+
+        response
+
+    );
+
+},
 
 
 
