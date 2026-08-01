@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.backup
+*.backup_*
+*.birth-matrix-backup
+*.birth-matrix-jsx-backup
+*.birth-matrix-layout-backup*
+*.birth-matrix-v3-backup

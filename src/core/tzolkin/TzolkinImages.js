@@ -10,10 +10,11 @@ Visual layer of Living Time™
 
 Traditional Maya Tzolk'in System
 
-Version 1.0
+Version 2.0
 
 Connected with:
 - Tzolkin Calculator™
+- Birth Matrix™
 - Time Signature™
 - Living UI System™
 
@@ -21,214 +22,181 @@ Connected with:
 */
 
 
-
 /*
 ==========================================
-TONES
-
-13 Sacred Numbers
-
+ASSET ROOT
 ==========================================
 */
 
+const TZOLKIN_IMAGE_ROOT =
+    "/Slike-Maya";
+
+
+/*
+==========================================
+13 SACRED NUMBERS / TONES
+==========================================
+*/
 
 export const tzolkinToneImages = {
 
-
     1:
-        "/tzolkin/numbers/1.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo1.png`,
 
     2:
-        "/tzolkin/numbers/2.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo2.png`,
 
     3:
-        "/tzolkin/numbers/3.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo3.png`,
 
     4:
-        "/tzolkin/numbers/4.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo4.png`,
 
     5:
-        "/tzolkin/numbers/5.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo5.png`,
 
     6:
-        "/tzolkin/numbers/6.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo6.png`,
 
     7:
-        "/tzolkin/numbers/7.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo7.png`,
 
     8:
-        "/tzolkin/numbers/8.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo8.png`,
 
     9:
-        "/tzolkin/numbers/9.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo9.png`,
 
     10:
-        "/tzolkin/numbers/10.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo10.png`,
 
     11:
-        "/tzolkin/numbers/11.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo11.png`,
 
     12:
-        "/tzolkin/numbers/12.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo12.png`,
 
     13:
-        "/tzolkin/numbers/13.png"
-
+        `${TZOLKIN_IMAGE_ROOT}/stevilo13.png`
 
 };
-
-
-
-
-
-
-
 
 
 /*
 ==========================================
 20 DAY SIGNS
 
-Traditional Maya Names
+CreatorDashboard naming
+        ↓
+Actual visual asset
 
+The mapping intentionally lives here
+so the calculation layer does not need
+to know anything about filenames.
 ==========================================
 */
 
-
 export const tzolkinSignImages = {
 
-
     Imix:
-        "/tzolkin/signs/imix.png",
+        `${TZOLKIN_IMAGE_ROOT}/maya-imix-rdeca.png`,
 
+    "Ik'":
+        `${TZOLKIN_IMAGE_ROOT}/maya-ik-bela.png`,
 
-    Ik:
-        "/tzolkin/signs/ik.png",
+    "Ak'b'al":
+        `${TZOLKIN_IMAGE_ROOT}/maya-akbal-modra.png`,
 
+    "K'an":
+        `${TZOLKIN_IMAGE_ROOT}/maya-kan-rumena.png`,
 
-    Akbal:
-        "/tzolkin/signs/akbal.png",
+    Chikchan:
+        `${TZOLKIN_IMAGE_ROOT}/maya-chicchan-rdeca.png`,
 
+    Kimi:
+        `${TZOLKIN_IMAGE_ROOT}/maya-cimi-bela.png`,
 
-    Kan:
-        "/tzolkin/signs/kan.png",
-
-
-    Chicchan:
-        "/tzolkin/signs/chicchan.png",
-
-
-    Cimi:
-        "/tzolkin/signs/cimi.png",
-
-
-    Manik:
-        "/tzolkin/signs/manik.png",
-
+    "Manik'":
+        `${TZOLKIN_IMAGE_ROOT}/maya-manik-modra.png`,
 
     Lamat:
-        "/tzolkin/signs/lamat.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/maya-lamat-rumena.png`,
 
     Muluk:
-        "/tzolkin/signs/muluk.png",
+        `${TZOLKIN_IMAGE_ROOT}/maya-muluc-rdeca.png`,
 
+    Ok:
+        `${TZOLKIN_IMAGE_ROOT}/maya-oc-bela.png`,
 
-    Oc:
-        "/tzolkin/signs/oc.png",
+    Chuwen:
+        `${TZOLKIN_IMAGE_ROOT}/maya-chuen-modra.png`,
 
+    "Eb'":
+        `${TZOLKIN_IMAGE_ROOT}/maya-eb-rumena.png`,
 
-    Chuen:
-        "/tzolkin/signs/chuen.png",
-
-
-    Eb:
-        "/tzolkin/signs/eb.png",
-
-
-    Ben:
-        "/tzolkin/signs/ben.png",
-
+    "B'en":
+        `${TZOLKIN_IMAGE_ROOT}/maya-ben-rdeca.png`,
 
     Ix:
-        "/tzolkin/signs/ix.png",
-
+        `${TZOLKIN_IMAGE_ROOT}/maya-ix-bela.png`,
 
     Men:
-        "/tzolkin/signs/men.png",
+        `${TZOLKIN_IMAGE_ROOT}/maya-men-modra.png`,
 
+    "K'ib'":
+        `${TZOLKIN_IMAGE_ROOT}/maya-cib-rumena.png`,
 
-    Cib:
-        "/tzolkin/signs/cib.png",
+    "Kab'an":
+        `${TZOLKIN_IMAGE_ROOT}/maya-caban-rdeca.png`,
 
+    "Etz'nab'":
+        `${TZOLKIN_IMAGE_ROOT}/maya-etznab-belo.png`,
 
-    Caban:
-        "/tzolkin/signs/caban.png",
+    Kawak:
+        `${TZOLKIN_IMAGE_ROOT}/maya-cauac-modra.png`,
 
-
-    Etznab:
-        "/tzolkin/signs/etznab.png",
-
-
-    Cauac:
-        "/tzolkin/signs/cauac.png",
-
-
-    Ahau:
-        "/tzolkin/signs/ahau.png"
-
+    Ajaw:
+        `${TZOLKIN_IMAGE_ROOT}/maya-ahau-rumena.png`
 
 };
-
-
-
-
-
-
-
 
 
 /*
 ==========================================
 GET IMAGE HELPERS
-
 ==========================================
 */
 
+export function getToneImage(tone) {
 
-export function getToneImage(tone){
-
-
-    return tzolkinToneImages[
-
-        tone
-
-    ];
+    return tzolkinToneImages[tone];
 
 }
 
 
+export function getSignImage(sign) {
+
+    return tzolkinSignImages[sign];
+
+}
 
 
-export function getSignImage(sign){
+/*
+==========================================
+GET COMPLETE TZOLKIN VISUAL IDENTITY
+==========================================
+*/
 
+export function getTzolkinImages(tone, sign) {
 
-    return tzolkinSignImages[
+    return {
 
-        sign
+        tone:
+            getToneImage(tone),
 
-    ];
+        sign:
+            getSignImage(sign)
+
+    };
 
 }
