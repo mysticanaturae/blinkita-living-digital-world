@@ -8,7 +8,7 @@ LIVING WORLD RUNTIME™
 The heartbeat
 of a Living World™
 
-Version 1.0
+Version 1.1
 
 ==========================================
 */
@@ -20,11 +20,23 @@ import {
 
     completeWorldPortal,
 
-    getWorldState
+    getWorldState,
+
+    updateWorldState
 
 }
 
 from "../state/WorldState";
+
+
+
+import {
+
+    createLivingWorld
+
+}
+
+from "../../world/LivingWorld";
 
 
 
@@ -60,11 +72,98 @@ from "../events/EventTypes";
 
 
 
-
-
 export const LivingWorldRuntime = {
 
 
+
+
+    /*
+    ==========================================
+    CREATE LIVING WORLD™
+
+    Creates a new Living World
+    and connects it with WorldState.
+
+    ==========================================
+    */
+
+
+    createWorld(
+
+        seed = {}
+
+    ){
+
+
+        const world =
+
+            createLivingWorld(
+
+                seed
+
+            );
+
+
+
+
+        const state =
+
+            updateWorldState({
+
+                livingWorld:
+
+                    world,
+
+                currentPortal:
+
+                    "world-seed",
+
+                status:
+
+                    "seed",
+
+                lastActive:
+
+                    new Date().toISOString()
+
+            });
+
+
+
+
+
+        console.log(
+
+            "🌱 Living World created:",
+
+            world
+
+        );
+
+
+
+
+
+        return {
+
+            world,
+
+            state
+
+        };
+
+
+    },
+
+
+
+
+
+    /*
+    ==========================================
+    ENTER PORTAL
+    ==========================================
+    */
 
 
     enterPortal(
@@ -127,8 +226,6 @@ export const LivingWorldRuntime = {
 
 
 
-
-
         emit(
 
             event.type,
@@ -154,6 +251,11 @@ export const LivingWorldRuntime = {
 
 
 
+    /*
+    ==========================================
+    COMPLETE PORTAL
+    ==========================================
+    */
 
 
     completePortal(
@@ -171,7 +273,6 @@ export const LivingWorldRuntime = {
                 portalId
 
             );
-
 
 
 
@@ -217,8 +318,6 @@ export const LivingWorldRuntime = {
 
 
 
-
-
         emit(
 
             event.type,
@@ -244,6 +343,11 @@ export const LivingWorldRuntime = {
 
 
 
+    /*
+    ==========================================
+    GET WORLD STATE
+    ==========================================
+    */
 
 
     getState(){

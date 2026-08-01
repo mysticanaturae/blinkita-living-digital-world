@@ -1,5 +1,5 @@
 /*
-==========================================
+
 BLINKITA METHOD™
 LIVING DIGITAL WORLD™
 
@@ -8,86 +8,44 @@ PORTAL GATEWAY™
 Stable transition layer
 
 Connected with:
-- Journey System™
-- Event System™
-- Memory System™
-- World State™
 
-Version 3.1
-==========================================
+Journey System™
+Event System™
+World State™
+Living World Runtime™
+Creator House™
+Version 3.3
+
 */
 
-
 import {
-    useNavigate
+useNavigate
 }
 from "react-router-dom";
 
-
 import {
-    useEffect,
-    useRef
+useEffect,
+useRef
 }
 from "react";
 
-
-
 import {
-    TransitionEngine
+TransitionEngine
 }
 from "../../core/transitions/TransitionEngine";
 
-
-
 import {
-    PortalRoutes
+PortalRoutes
 }
 from "../../core/routes/PortalRoutes";
 
-
-
 import {
-
-    enterWorldPortal,
-
-    completeWorldPortal
-
+BlinkitaEngine
 }
-from "../../core/state/WorldState";
-
-
+from "../../core/engine/BlinkitaEngine";
 
 import {
-
-    emit
-
-}
-from "../../core/events/EventBus";
-
-
-
-import {
-
-    createEvent
-
-}
-from "../../core/events/EventFactory";
-
-
-
-import {
-
-    EventTypes
-
-}
-from "../../core/events/EventTypes";
-
-
-
-import {
-
-    getAuthState
-
+getAuthState
 }
 from "../../core/auth/AuthState";
 
@@ -99,140 +57,163 @@ from "../../core/auth/AuthState";
 
 export default function PortalGateway({
 
-    currentPortalId,
+currentPortalId,
 
-    exposeAction,
+exposeAction,
 
 }) {
 
 
 
-    const navigate = useNavigate();
+
+const navigate = useNavigate();
 
 
-    const transitioning = useRef(false);
-
-
-
-
-
-
-
-    /*
-    ======================================
-    FIND NEXT PORTAL
-    ======================================
-    */
-
-
-    const nextPortalId =
-
-        TransitionEngine.getNextPortal(
-
-            currentPortalId
-
-        );
-
-
-
-
-
-    const nextPortal =
-
-        PortalRoutes.find(
-
-            portal =>
-
-                portal.id === nextPortalId
-
-        );
+const transitioning = useRef(false);
 
 
 
 
 
 
+/*
+======================================
+FIND NEXT PORTAL
+======================================
+*/
 
 
-    /*
-    ======================================
-    ENTER NEXT PORTAL™
+const nextPortalId =
 
-    ONLY AFTER BUTTON CLICK
+    TransitionEngine.getNextPortal(
 
-    ======================================
-    */
+        currentPortalId
+
+    );
 
 
-    function enterNextPortal(){
+
+
+
+const nextPortal =
+
+    PortalRoutes.find(
+
+        portal =>
+
+            portal.id === nextPortalId
+
+    );
+
+
+
+
+
+
+/*
+======================================
+ENTER NEXT PORTAL™
+
+The Gateway does NOT complete
+the current portal.
+
+The current portal has already
+been completed by
+LivingPortalExperience™.
+
+The Gateway only:
+
+1. enters the next portal
+2. activates the Living World Runtime™
+3. navigates to the next route
+
+FINAL PORTAL:
+
+living-world
+    ↓
+Creator House™
+
+======================================
+*/
+
+
+function enterNextPortal() {
+
+
+    console.log(
+
+        "🌱 Gateway activated:",
+
+        currentPortalId
+
+    );
+
+
+
+
+
+    if (transitioning.current) {
 
 
         console.log(
 
-            "🌱 Gateway activated:",
+            "Transition already running."
 
-            currentPortalId
+        );
+
+
+        return;
+
+    }
+
+
+
+
+
+    transitioning.current = true;
+
+
+
+
+
+
+    /*
+    ======================================
+    FINAL LIVING WORLD PORTAL
+    ======================================
+
+    There is no next portal in
+    PortalRoutes.
+
+    Instead the Living Portal Journey™
+    hands the Creator into
+    Creator House™.
+
+    ======================================
+    */
+
+
+    if (currentPortalId === "living-world") {
+
+
+        console.log(
+
+            "🌎 Living Portal Journey™ completed."
+
+        );
+
+
+        console.log(
+
+            "🏠 Entering Creator House™"
 
         );
 
 
 
-        if(transitioning.current){
-
-            console.log(
-                "Transition already running."
-            );
-
-            return;
-
-        }
-
-
-
-        transitioning.current = true;
-
-
-
-
-
-        if(!nextPortal){
-
-
-            console.warn(
-
-                "No next portal available."
-
-            );
-
-
-            transitioning.current = false;
-
-
-            return;
-
-        }
-
-
-
-
-
-
-
-
-        /*
-        ----------------------------------
-        OPTIONAL IDENTITY CHECK
-        ----------------------------------
-
-        Arrival remains open.
-        Identity can be created anytime.
-
-        ----------------------------------
-        */
 
 
         const auth = getAuthState();
-
 
 
         console.log(
@@ -247,154 +228,126 @@ export default function PortalGateway({
 
 
 
+        window.scrollTo({
 
+            top: 0,
 
+            behavior: "auto"
 
-
-        /*
-        ----------------------------------
-        COMPLETE CURRENT PORTAL
-        ----------------------------------
-        */
-
-
-        const completedWorld =
-
-            completeWorldPortal(
-
-                currentPortalId
-
-            );
+        });
 
 
 
 
 
+        navigate(
 
-        emit(
-
-            EventTypes.PORTAL_COMPLETED,
-
-
-            createEvent({
-
-                type:
-
-                    EventTypes.PORTAL_COMPLETED,
-
-
-                source:
-
-                    "PortalGateway",
-
-
-                payload:{
-
-
-                    portalId:
-
-                        currentPortalId,
-
-
-                    worldState:
-
-                        completedWorld
-
-
-                }
-
-
-            })
+            "/creator"
 
         );
 
 
+        return;
+
+    }
 
 
 
 
 
 
+    /*
+    ======================================
+    NORMAL PORTAL TRANSITION
+    ======================================
+    */
 
 
-        /*
-        ----------------------------------
-        ENTER NEXT PORTAL
-        ----------------------------------
-        */
+    if (!nextPortal) {
 
 
-        const updatedWorld =
+        console.warn(
 
-            enterWorldPortal(
-
-                nextPortal.id
-
-            );
-
-
-
-
-
-
-
-
-        emit(
-
-            EventTypes.PORTAL_ENTERED,
-
-
-            createEvent({
-
-                type:
-
-                    EventTypes.PORTAL_ENTERED,
-
-
-                source:
-
-                    "PortalGateway",
-
-
-                payload:{
-
-
-                    portalId:
-
-                        nextPortal.id,
-
-
-                    previousPortal:
-
-                        currentPortalId,
-
-
-                    worldState:
-
-                        updatedWorld
-
-
-                }
-
-
-            })
+            "No next portal available."
 
         );
 
 
+        transitioning.current = false;
+
+
+        return;
+
+    }
 
 
 
 
 
 
-        console.log(
+    /*
+    ----------------------------------
+    OPTIONAL IDENTITY CHECK
+    ----------------------------------
 
-            "🌎 Portal transition:",
+    Arrival remains open.
+    Identity can be created anytime.
 
-            currentPortalId,
+    ----------------------------------
+    */
 
-            "→",
+
+    const auth = getAuthState();
+
+
+    console.log(
+
+        "Identity state:",
+
+        auth
+
+    );
+
+
+
+
+
+
+    /*
+    ======================================
+    ENTER NEXT PORTAL
+
+    IMPORTANT:
+
+    Use the central Living World Runtime™.
+
+    This guarantees that:
+
+    enterPortal()
+        ↓
+    WorldState
+        ↓
+    PORTAL_ENTERED
+        ↓
+    EventBus
+        ↓
+    Memory
+    Timeline
+    Journey
+    Intelligence
+    Decision
+    Governance
+    Action
+
+    all remain connected.
+
+    ======================================
+    */
+
+
+    const updatedWorld =
+
+        BlinkitaEngine.enterPortal(
 
             nextPortal.id
 
@@ -405,38 +358,29 @@ export default function PortalGateway({
 
 
 
+    console.log(
 
+        "🌎 Portal transition:",
 
-        /*
-        ----------------------------------
-        NAVIGATION
-        ----------------------------------
-        */
+        currentPortalId,
 
+        "→",
 
-        window.scrollTo({
+        nextPortal.id
 
-            top:0,
-
-            behavior:"auto"
-
-        });
+    );
 
 
 
 
-        navigate(
 
-            nextPortal.path
+    console.log(
 
-        );
+        "🌱 Next Living World State:",
 
+        updatedWorld
 
-
-    }
-
-
-
+    );
 
 
 
@@ -444,27 +388,70 @@ export default function PortalGateway({
 
 
     /*
-    ======================================
-    CONNECT BUTTON ACTION
-
-    Does NOT execute automatically.
-
-    Only stores callback.
-
-    ======================================
+    ----------------------------------
+    NAVIGATION
+    ----------------------------------
     */
 
 
-    useEffect(()=>{
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "auto"
+
+    });
+
+
+
+
+
+
+    navigate(
+
+        nextPortal.path
+
+    );
+
+}
+
+
+
+
+
+
+
+
+
+/*
+======================================
+CONNECT BUTTON ACTION
+
+Does NOT execute automatically.
+
+Only exposes the Gateway action
+to LivingPortalExperience™.
+
+======================================
+*/
+
+
+useEffect(() => {
 
 
     console.log(
+
         "🟢 Gateway mounted:",
+
         currentPortalId
+
     );
 
 
-    if(!exposeAction){
+
+
+
+    if (!exposeAction) {
 
         return;
 
@@ -472,27 +459,42 @@ export default function PortalGateway({
 
 
 
+
+
+
     exposeAction(
 
         () => {
 
+
             console.log(
+
                 "✨ USER CLICK SHOULD START THIS:",
+
                 currentPortalId
+
             );
 
 
+
+
+
             enterNextPortal();
+
 
         }
 
     );
 
 
-},[
+}, [
+
     exposeAction,
+
     currentPortalId,
+
     nextPortalId
+
 ]);
 
 
@@ -503,17 +505,18 @@ export default function PortalGateway({
 
 
 
-    /*
-    ======================================
-    GATEWAY
+/*
+======================================
+GATEWAY
 
-    Invisible intelligence bridge
+Invisible intelligence bridge.
 
-    ======================================
-    */
+It does not render another button.
+
+======================================
+*/
 
 
-    return null;
-
+return null;
 
 }
