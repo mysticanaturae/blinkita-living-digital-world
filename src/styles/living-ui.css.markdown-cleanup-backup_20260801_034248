@@ -1,0 +1,6147 @@
+﻿/*
+==========================================
+
+BLINKITA METHODâ„˘
+
+LIVING UI SYSTEMâ„˘
+
+BLINKITA OSâ„˘
+
+Version 2.0
+
+Universal visual language
+of Living Digital Worldsâ„˘
+
+==========================================
+*/
+
+
+/*
+==========================================
+GLOBAL PAGE
+==========================================
+*/
+
+
+.living-page {
+
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:40px;
+
+    box-sizing:border-box;
+
+
+    background:
+
+
+        radial-gradient(
+            circle at top,
+            rgba(139,92,246,0.35),
+            transparent 45%
+        ),
+
+
+        linear-gradient(
+            180deg,
+            #10172a,
+            #050816
+        );
+
+
+    color:
+        var(--color-text);
+
+
+}
+
+
+
+
+/*
+==========================================
+HEADER
+==========================================
+*/
+
+
+.living-header {
+
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+.living-header h1 {
+
+
+    font-size:42px;
+
+
+    color:
+        var(--color-text);
+
+
+}
+
+
+
+.living-header p {
+
+
+    color:
+        var(--color-text-soft);
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+
+
+/*
+==========================================
+GRID
+==========================================
+*/
+
+
+.living-grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+        repeat(
+
+            auto-fit,
+
+            minmax(
+
+                260px,
+
+                1fr
+
+            )
+
+        );
+
+
+    gap:24px;
+
+
+}
+
+
+
+
+
+
+/*
+==========================================
+GLASS CARDSâ„˘
+
+==========================================
+*/
+
+
+.living-card {
+
+
+    background:
+
+
+        rgba(
+
+            16,
+
+            23,
+
+            42,
+
+            0.65
+
+        );
+
+
+
+    border:
+
+
+        1px solid
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            0.25
+
+        );
+
+
+
+
+    border-radius:
+
+
+        24px;
+
+
+
+    padding:
+
+
+        28px;
+
+
+
+    backdrop-filter:
+
+
+        blur(18px);
+
+
+
+    -webkit-backdrop-filter:
+
+
+        blur(18px);
+
+
+
+
+    box-shadow:
+
+
+        0 20px 60px
+
+        rgba(
+
+            0,
+
+            0,
+
+            0,
+
+            .45
+
+        );
+
+
+
+    transition:
+
+
+        .35s ease;
+
+
+}
+
+
+
+
+.living-card:hover {
+
+
+    transform:
+
+
+        translateY(-8px);
+
+
+
+    box-shadow:
+
+
+        0 30px 80px
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            .25
+
+        );
+
+
+}
+
+
+
+
+
+
+
+.living-card h2,
+
+.living-card h3 {
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.living-card p {
+
+
+    color:
+
+        var(--color-text-soft);
+
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+
+
+/*
+==========================================
+ACTIVE EVOLUTION STAGEâ„˘
+
+==========================================
+*/
+
+
+.active-stage {
+
+
+    border:
+
+
+        1px solid
+
+        var(--color-secondary);
+
+
+
+    box-shadow:
+
+
+        0 0 40px
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            .45
+
+        );
+
+
+
+    background:
+
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            .12
+
+        );
+
+
+
+}
+
+
+
+
+
+
+
+/*
+==========================================
+BUTTONS
+==========================================
+*/
+
+
+.living-button {
+
+
+    border:none;
+
+
+    border-radius:999px;
+
+
+    padding:14px 32px;
+
+
+
+    background:
+
+
+        linear-gradient(
+
+            135deg,
+
+            var(--color-primary),
+
+            var(--color-secondary)
+
+        );
+
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+
+}
+
+
+
+
+
+
+.living-button:hover {
+
+
+    transform:
+
+        translateY(-3px);
+
+
+}
+
+/*
+==========================================
+WORLD LIFECYCLE SPACINGâ„˘
+==========================================
+*/
+
+
+.lifecycle-path {
+
+    margin-bottom:60px;
+
+}
+
+
+
+.world-current-state {
+
+
+    margin-top:20px;
+
+
+}
+
+/*
+==========================================
+DASHBOARD SECTION SPACINGâ„˘
+==========================================
+*/
+
+
+.creator-dashboard > .living-card,
+.world-lifecycle-dashboard > .living-card,
+.world-resume > .living-card {
+
+
+    margin-top:40px;
+
+
+}
+
+
+
+.creator-dashboard .living-grid + .living-card {
+
+
+    margin-top:60px;
+
+
+}
+
+
+
+.world-current-state {
+
+
+    margin-top:60px;
+
+
+}
+
+
+
+.creator-achievements {
+
+
+    margin-top:40px;
+
+
+}
+
+/*
+==========================================
+LIVING SECTIONSâ„˘
+Universal spacing system
+==========================================
+*/
+
+
+.living-section {
+
+
+    margin-top:40px;
+
+
+}
+
+
+
+.living-section:first-child {
+
+
+    margin-top:0;
+
+
+}
+
+/*
+==========================================
+LIVING SECTION SPACINGâ„˘
+==========================================
+*/
+
+
+.living-page > section {
+
+    margin-bottom:40px;
+
+}
+
+
+
+.living-page > .living-card {
+
+    margin-bottom:24px;
+
+}
+
+
+
+.living-page section:last-child {
+
+    margin-bottom:0;
+
+}
+
+.creator-dashboard,
+.world-builder-home,
+.world-timeline,
+.world-resume {
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:40px;
+
+    box-sizing:border-box;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(139,92,246,0.35),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            180deg,
+            #10172a,
+            #050816
+        );
+
+    color:var(--color-text);
+
+}
+
+/*
+==========================================
+BUILDER SECTIONS SPACINGâ„˘
+==========================================
+*/
+
+
+.builder-section {
+
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+.builder-section:last-child {
+
+
+    margin-bottom:0;
+
+
+}
+
+
+
+
+.world-builder-home {
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+}
+
+/*
+==========================================
+PORTAL EXPERIENCE LAYOUTâ„˘
+==========================================
+*/
+
+
+.portal-grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+        1fr;
+
+
+
+    gap:40px;
+
+
+}
+
+
+
+.portal-main-card {
+
+
+    min-height:400px;
+
+
+}
+
+
+
+.portal-progress-card {
+
+
+    min-height:120px;
+
+
+}
+
+
+
+.portal-template .living-header {
+
+
+    margin-bottom:50px;
+
+
+}
+
+/*
+==========================================
+LIVING PORTAL EXPERIENCEâ„˘
+==========================================
+*/
+
+
+.living-portal-experience {
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+    width:100%;
+
+
+}
+
+
+
+.portal-identity-window,
+.portal-atmosphere-window,
+.portal-whisper-window,
+.portal-message-window,
+.portal-ritual-window {
+
+
+    background:
+
+        rgba(
+
+            16,
+
+            23,
+
+            42,
+
+            0.65
+
+        );
+
+
+    border:
+
+        1px solid
+
+        rgba(
+
+            56,
+
+            189,
+
+            248,
+
+            0.25
+
+        );
+
+
+    border-radius:24px;
+
+
+    padding:28px;
+
+
+    backdrop-filter:
+
+        blur(18px);
+
+
+    -webkit-backdrop-filter:
+
+        blur(18px);
+
+
+
+    box-shadow:
+
+
+        0 20px 60px
+
+        rgba(
+
+            0,
+
+            0,
+
+            0,
+
+            .45
+
+        );
+
+
+}
+
+
+
+.portal-identity-window h2,
+.portal-atmosphere-window h3,
+.portal-whisper-window h3,
+.portal-message-window h3,
+.portal-ritual-window h3 {
+
+
+    color:white;
+
+
+}
+
+
+
+.portal-atmosphere-window p,
+.portal-whisper-window p,
+.portal-message-window p,
+.portal-ritual-window p {
+
+
+    color:
+
+        var(--color-text-soft);
+
+
+    line-height:1.7;
+
+
+}
+
+
+
+.journey-button {
+
+
+    margin-top:20px;
+
+
+    border:none;
+
+
+    border-radius:999px;
+
+
+    padding:16px 40px;
+
+
+    background:
+
+
+        linear-gradient(
+
+            135deg,
+
+            var(--color-primary),
+
+            var(--color-secondary)
+
+        );
+
+
+    color:white;
+
+
+    font-size:16px;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+.journey-button:hover {
+
+
+    transform:
+
+        translateY(-3px);
+
+
+}
+
+/*
+==========================================
+WORLD BUILDER HOME LAYOUTâ„˘
+==========================================
+*/
+
+
+.world-builder-layout {
+
+    display:grid;
+
+    grid-template-columns:280px 1fr;
+
+    gap:40px;
+
+    align-items:start;
+
+}
+
+
+
+.world-builder-menu {
+
+    position:sticky;
+
+    top:40px;
+
+}
+
+
+
+.world-builder-menu .living-card {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+
+.world-builder-menu button {
+
+    width:100%;
+
+    text-align:left;
+
+}
+
+
+
+.world-builder-content {
+
+    min-height:600px;
+
+}
+
+
+
+.world-builder-content .living-card {
+
+    min-height:500px;
+
+}
+
+/*
+==========================================
+
+BLINKITA OSâ„˘
+
+CREATOR HOUSEâ„˘
+
+Dashboard Architecture
+
+Version 1.0
+
+==========================================
+*/
+
+
+.creator-house {
+
+
+    display:flex;
+
+    width:100%;
+
+    min-height:100vh;
+
+
+}
+
+
+
+
+.dashboard-sidebar {
+
+
+    width:280px;
+
+
+    min-height:100vh;
+
+
+    padding:30px 20px;
+
+
+    box-sizing:border-box;
+
+
+    background:
+
+        rgba(
+            16,
+            23,
+            42,
+            0.85
+        );
+
+
+    backdrop-filter:
+
+        blur(20px);
+
+
+
+    border-right:
+
+        1px solid
+
+        rgba(
+            56,
+            189,
+            248,
+            0.25
+        );
+
+
+}
+
+
+
+
+
+.dashboard-sidebar h2 {
+
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+
+}
+
+
+
+
+
+.dashboard-sidebar button {
+
+
+    width:100%;
+
+
+    height:48px;
+
+
+    margin-bottom:12px;
+
+
+    border-radius:999px;
+
+
+    border:
+
+        1px solid
+
+        rgba(
+            56,
+            189,
+            248,
+            0.25
+        );
+
+
+    background:
+
+        rgba(
+            255,
+            255,
+            255,
+            0.05
+        );
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    font-size:14px;
+
+
+    transition:.3s ease;
+
+
+}
+
+
+
+
+
+.dashboard-sidebar button:hover {
+
+
+    transform:
+
+        translateX(6px);
+
+
+    background:
+
+        rgba(
+            56,
+            189,
+            248,
+            0.15
+        );
+
+
+}
+
+
+
+
+
+.dashboard-sidebar button.active {
+
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            var(--color-primary),
+
+            var(--color-secondary)
+
+        );
+
+
+    box-shadow:
+
+        0 0 30px
+
+        rgba(
+            56,
+            189,
+            248,
+            .35
+        );
+
+
+}
+
+
+
+
+
+.creator-house-content {
+
+
+    flex:1;
+
+
+    padding:40px;
+
+
+    box-sizing:border-box;
+
+
+}
+
+
+/*
+==========================================
+LIVING QUESTION WINDOW
+Match the full portal window width
+==========================================
+*/
+
+.portal-question-window {
+
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.portal-question-window textarea {
+
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+
+}
+
+
+/* ==========================================
+   LIVING PORTAL GUIDANCE™
+   ========================================== */
+
+.portal-guidance {
+
+    margin-top: 10px;
+
+    color: rgba(186, 230, 253, 0.78);
+
+    font-size: 0.92rem;
+
+    line-height: 1.65;
+
+    font-style: italic;
+
+    max-width: 720px;
+
+}
+
+
+/* ==========================================
+   ARRIVAL — LIVING WINDOW VARIATION™
+   ========================================== */
+
+.portal-identity-window {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15, 23, 42, 0.78),
+            rgba(30, 41, 59, 0.62)
+        );
+
+}
+
+
+.portal-message-window {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 24, 55, 0.76),
+            rgba(49, 46, 129, 0.38)
+        );
+
+}
+
+
+.portal-question-window {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15, 23, 42, 0.78),
+            rgba(37, 99, 235, 0.22)
+        );
+
+}
+
+
+/*
+==========================================
+BLINKITA LANGUAGE CONTROL™
+Creator House language selector
+==========================================
+*/
+
+.dashboard-language-switcher {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 8px 0 14px;
+
+}
+
+
+.dashboard-language-switcher .language-switcher {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 5px 10px;
+
+    border-radius: 10px;
+
+    background: rgba(150, 100, 190, 0.18);
+
+    border: 1px solid rgba(170, 120, 210, 0.35);
+
+}
+
+
+.dashboard-language-switcher .language-switcher button {
+
+    width: auto;
+
+    min-width: 0;
+
+    height: auto;
+
+    margin: 0;
+
+    padding: 2px 5px;
+
+    border: none;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    border-radius: 6px;
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    opacity: 0.65;
+
+}
+
+
+.dashboard-language-switcher .language-switcher button:hover {
+
+    opacity: 1;
+
+    transform: none;
+
+}
+
+
+.dashboard-language-switcher .language-switcher button.active {
+
+    opacity: 1;
+
+    background: rgba(255, 255, 255, 0.12);
+
+}
+
+
+.dashboard-language-switcher .language-divider {
+
+    opacity: 0.45;
+
+    font-size: 13px;
+
+    line-height: 1;
+
+}
+
+/*
+==========================================
+BLINKITA CREATOR IDENTITY™
+Premium identity card
+Version 1.0
+==========================================
+*/
+
+.creator-identity-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 42px;
+
+    border:
+        1px solid
+        rgba(180, 140, 255, 0.30);
+
+    background:
+
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(139, 92, 246, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(56, 189, 248, 0.10),
+            transparent 32%
+        ),
+
+        rgba(16, 23, 42, 0.72);
+
+}
+
+
+.creator-identity-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.045),
+            transparent 35%
+        );
+
+}
+
+
+.creator-identity-heading {
+
+    position: relative;
+
+    margin-bottom: 36px;
+
+}
+
+
+.creator-identity-eyebrow {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color:
+        rgba(196, 181, 253, 0.82);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+}
+
+
+.creator-identity-heading h2 {
+
+    margin: 0 0 10px;
+
+    font-size: 30px;
+
+    letter-spacing: -0.02em;
+
+}
+
+
+.creator-identity-heading p {
+
+    max-width: 720px;
+
+    margin: 0;
+
+    color:
+        var(--color-text-soft);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+}
+
+
+.creator-identity-layout {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        300px
+        minmax(0, 1fr);
+
+    gap: 46px;
+
+    align-items: start;
+
+}
+
+
+.creator-portrait-panel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
+
+    border-radius: 24px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+}
+
+
+.creator-portrait-label {
+
+    align-self: flex-start;
+
+    margin-bottom: 18px;
+
+    color:
+        rgba(186, 230, 253, 0.72);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+}
+
+
+.creator-portrait-frame {
+
+    width: 172px;
+
+    height: 172px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.48);
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.22),
+            rgba(16, 23, 42, 0.85)
+        );
+
+    box-shadow:
+        0 0 0 8px rgba(139, 92, 246, 0.05),
+        0 20px 50px rgba(0,0,0,0.35);
+
+}
+
+
+.creator-portrait-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.creator-avatar-display {
+
+    font-size: 76px;
+
+    line-height: 1;
+
+}
+
+
+.creator-portrait-actions {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 9px;
+
+    width: 100%;
+
+    margin-top: 22px;
+
+}
+
+
+.creator-secondary-button {
+
+    width: 100%;
+
+    padding: 11px 18px;
+
+    border-radius: 999px;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.28);
+
+    background:
+        rgba(139, 92, 246, 0.10);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: .3s ease;
+
+}
+
+
+.creator-secondary-button:hover {
+
+    background:
+        rgba(139, 92, 246, 0.20);
+
+    border-color:
+        rgba(196, 181, 253, 0.48);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.creator-text-button {
+
+    border: none;
+
+    background: transparent;
+
+    color:
+        rgba(186, 230, 253, 0.65);
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+}
+
+
+.creator-text-button:hover {
+
+    color: white;
+
+}
+
+
+.creator-photo-input {
+
+    display: none;
+
+}
+
+
+.creator-portrait-note {
+
+    margin: 18px 0 24px;
+
+    color:
+        rgba(186, 230, 253, 0.58);
+
+    font-size: 12px;
+
+    line-height: 1.55;
+
+    text-align: center;
+
+}
+
+
+.creator-avatar-section {
+
+    width: 100%;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+}
+
+
+.creator-field-label {
+
+    display: block;
+
+    margin-bottom: 13px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: .04em;
+
+}
+
+
+.creator-avatar-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 7px;
+
+}
+
+
+.creator-avatar-option {
+
+    aspect-ratio: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.035);
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+}
+
+
+.creator-avatar-option:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(139, 92, 246, 0.14);
+
+}
+
+
+.creator-avatar-option.active {
+
+    border-color:
+        rgba(196, 181, 253, 0.65);
+
+    background:
+        rgba(139, 92, 246, 0.18);
+
+    box-shadow:
+        0 0 18px
+        rgba(139, 92, 246, 0.18);
+
+}
+
+
+.creator-identity-fields {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 28px;
+
+    align-content: start;
+
+}
+
+
+.creator-field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.creator-field-wide {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.creator-field label {
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: .05em;
+
+}
+
+
+.creator-field input,
+.creator-field textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 16px;
+
+    padding: 15px 17px;
+
+    background:
+        rgba(4, 8, 22, 0.42);
+
+    color: white;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.creator-field input {
+
+    min-height: 52px;
+
+}
+
+
+.creator-field textarea {
+
+    min-height: 160px;
+
+    resize: vertical;
+
+    line-height: 1.65;
+
+}
+
+
+.creator-field input::placeholder,
+.creator-field textarea::placeholder {
+
+    color:
+        rgba(186, 230, 253, 0.38);
+
+}
+
+
+.creator-field input:focus,
+.creator-field textarea:focus {
+
+    border-color:
+        rgba(196, 181, 253, 0.52);
+
+    background:
+        rgba(4, 8, 22, 0.60);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(139, 92, 246, 0.07);
+
+}
+
+
+.creator-identity-save-row {
+
+    grid-column:
+        1 / -1;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding-top: 2px;
+
+}
+
+
+.creator-save-button {
+
+    min-width: 190px;
+
+    margin-top: 0;
+
+}
+
+
+/*
+==========================================
+CREATOR IDENTITY RESPONSIVE
+==========================================
+*/
+
+@media (max-width: 900px) {
+
+    .creator-identity-layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .creator-portrait-panel {
+
+        max-width: 420px;
+
+        width: 100%;
+
+        margin: 0 auto;
+
+        box-sizing: border-box;
+
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .creator-identity-card {
+
+        padding: 26px 20px;
+
+    }
+
+
+    .creator-identity-fields {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 22px;
+
+    }
+
+
+    .creator-field-wide {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    .creator-identity-save-row {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    .creator-save-button {
+
+        width: 100%;
+
+    }
+
+
+    .creator-avatar-grid {
+
+        grid-template-columns:
+            repeat(6, 1fr);
+
+    }
+
+}
+
+
+/*
+==========================================
+BLINKITA METHOD™
+BLINKITA OS™
+
+CREATOR BIRTH MATRIX™
+Premium Living Time Identity Layer
+
+Version 2.0
+==========================================
+*/
+
+
+/*
+==========================================
+MAIN BIRTH MATRIX WINDOW
+==========================================
+*/
+
+.creator-birth-matrix {
+
+    position: relative;
+
+    width: 100%;
+
+    margin-top: 40px;
+
+    padding: 56px 58px 60px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.30);
+
+    background:
+
+        radial-gradient(
+            circle at 12% 8%,
+            rgba(139, 92, 246, 0.20),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 88% 92%,
+            rgba(56, 189, 248, 0.12),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.025),
+            transparent 55%
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(16, 23, 42, 0.92),
+            rgba(20, 24, 55, 0.82)
+        );
+
+    box-shadow:
+
+        0 30px 90px
+        rgba(0, 0, 0, 0.50),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.07);
+
+    backdrop-filter: blur(24px);
+
+    -webkit-backdrop-filter: blur(24px);
+
+}
+
+
+/*
+==========================================
+ATMOSPHERIC GLOW
+==========================================
+*/
+
+.creator-birth-matrix::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+
+    height: 520px;
+
+    top: -300px;
+
+    right: -180px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.16),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.creator-birth-matrix::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+
+    height: 420px;
+
+    bottom: -280px;
+
+    left: -180px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(56, 189, 248, 0.09),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/*
+==========================================
+HEADER
+==========================================
+*/
+
+.creator-birth-matrix-header {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 820px;
+
+    margin-bottom: 48px;
+
+}
+
+
+.creator-birth-matrix-eyebrow {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        rgba(196, 181, 253, 0.78);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.24em;
+
+    text-transform: uppercase;
+
+}
+
+
+.creator-birth-matrix-header h2 {
+
+    margin: 0 0 14px;
+
+    color: white;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    letter-spacing: -0.025em;
+
+    line-height: 1.2;
+
+}
+
+
+.creator-birth-matrix-header p {
+
+    max-width: 700px;
+
+    margin: 0;
+
+    color:
+        var(--color-text-soft);
+
+    font-size: 16px;
+
+    line-height: 1.75;
+
+}
+
+
+/*
+==========================================
+BIRTH DATE AREA
+==========================================
+*/
+
+.creator-birth-date-section {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 760px;
+
+    margin-bottom: 50px;
+
+    padding: 26px 28px;
+
+    border-radius: 22px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+}
+
+
+.creator-birth-date-section label {
+
+    display: block;
+
+    margin-bottom: 11px;
+
+    color:
+        rgba(226, 232, 240, 0.78);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+}
+
+
+.creator-birth-date-section input {
+
+    width: 100%;
+
+    min-height: 54px;
+
+    box-sizing: border-box;
+
+    padding: 15px 18px;
+
+    border:
+        1px solid
+        rgba(148, 163, 184, 0.22);
+
+    border-radius: 15px;
+
+    background:
+        rgba(4, 8, 22, 0.48);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.creator-birth-date-section input::placeholder {
+
+    color:
+        rgba(148, 163, 184, 0.48);
+
+}
+
+
+.creator-birth-date-section input:focus {
+
+    border-color:
+        rgba(196, 181, 253, 0.58);
+
+    background:
+        rgba(4, 8, 22, 0.65);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(139, 92, 246, 0.07);
+
+}
+
+
+/*
+==========================================
+CALCULATE BUTTON
+==========================================
+*/
+
+.creator-birth-matrix-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 18px;
+
+    min-height: 50px;
+
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            var(--color-secondary)
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.01em;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 35px
+        rgba(56, 189, 248, 0.16);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.creator-birth-matrix-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 18px 48px
+        rgba(56, 189, 248, 0.25);
+
+}
+
+
+/*
+==========================================
+RESULT AREA
+==========================================
+*/
+
+.creator-birth-result {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        330px
+        minmax(0, 1fr);
+
+    gap: 64px;
+
+    align-items: center;
+
+    margin-top: 12px;
+
+    padding-top: 52px;
+
+    border-top:
+        1px solid
+        rgba(148, 163, 184, 0.11);
+
+}
+
+
+/*
+==========================================
+TZOLKIN SYMBOL COLUMN
+==========================================
+*/
+
+.creator-birth-symbol-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 330px;
+
+}
+
+
+/*
+==========================================
+SYMBOL FRAME
+==========================================
+*/
+
+.creator-birth-symbol-frame {
+
+    position: relative;
+
+    width: 250px;
+
+    height: 250px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.42);
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.20),
+            rgba(16, 23, 42, 0.88)
+        );
+
+    box-shadow:
+
+        0 0 0 10px
+        rgba(139, 92, 246, 0.035),
+
+        0 0 0 22px
+        rgba(139, 92, 246, 0.018),
+
+        0 25px 70px
+        rgba(0, 0, 0, 0.38),
+
+        0 0 70px
+        rgba(139, 92, 246, 0.18);
+
+}
+
+
+.creator-birth-symbol-frame img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+
+}
+
+
+.creator-birth-symbol-placeholder {
+
+    font-size: 78px;
+
+    opacity: .72;
+
+}
+
+
+/*
+==========================================
+IDENTITY INFORMATION
+==========================================
+*/
+
+.creator-tzolkin-identity {
+
+    min-width: 0;
+
+    text-align: left;
+
+}
+
+
+.creator-tzolkin-eyebrow {
+
+    display: block;
+
+    margin-bottom: 13px;
+
+    color:
+        rgba(196, 181, 253, 0.72);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+}
+
+
+.creator-tzolkin-identity h3 {
+
+    margin: 0 0 9px;
+
+    color: white;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    letter-spacing: -0.035em;
+
+    line-height: 1.15;
+
+}
+
+
+.creator-tzolkin-signature {
+
+    margin: 0 0 26px;
+
+    color:
+        rgba(186, 230, 253, 0.86);
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+}
+
+
+.creator-tzolkin-message {
+
+    max-width: 680px;
+
+    margin: 0;
+
+    color:
+        var(--color-text-soft);
+
+    font-size: 16px;
+
+    line-height: 1.85;
+
+}
+
+
+/*
+==========================================
+DAILY LIVING TIME
+==========================================
+*/
+
+.creator-birth-daily-message {
+
+    position: relative;
+
+    margin-top: 42px;
+
+    padding: 28px 30px;
+
+    border-radius: 22px;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.17);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.11),
+            rgba(56, 189, 248, 0.055)
+        );
+
+}
+
+
+.creator-birth-daily-message-label {
+
+    display: block;
+
+    margin-bottom: 11px;
+
+    color:
+        rgba(196, 181, 253, 0.70);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .20em;
+
+    text-transform: uppercase;
+
+}
+
+
+.creator-birth-daily-message p {
+
+    margin: 0;
+
+    color:
+        rgba(226, 232, 240, 0.90);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+}
+
+
+/*
+==========================================
+DAILY REFLECTION
+==========================================
+*/
+
+.creator-birth-reflection {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 30px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid
+        rgba(148, 163, 184, 0.09);
+
+}
+
+
+.creator-birth-reflection label {
+
+    display: block;
+
+    margin-bottom: 11px;
+
+    color:
+        rgba(226, 232, 240, 0.80);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: .03em;
+
+}
+
+
+.creator-birth-reflection textarea {
+
+    width: 100%;
+
+    min-height: 140px;
+
+    box-sizing: border-box;
+
+    padding: 18px 20px;
+
+    resize: vertical;
+
+    border:
+        1px solid
+        rgba(148, 163, 184, 0.18);
+
+    border-radius: 18px;
+
+    background:
+        rgba(4, 8, 22, 0.40);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    outline: none;
+
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.creator-birth-reflection textarea::placeholder {
+
+    color:
+        rgba(186, 230, 253, 0.35);
+
+}
+
+
+.creator-birth-reflection textarea:focus {
+
+    border-color:
+        rgba(196, 181, 253, 0.52);
+
+    background:
+        rgba(4, 8, 22, 0.58);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(139, 92, 246, 0.065);
+
+}
+
+
+/*
+==========================================
+REFLECTION SAVE
+==========================================
+*/
+
+.creator-birth-reflection-save {
+
+    margin-top: 14px;
+
+    padding: 11px 24px;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.28);
+
+    border-radius: 999px;
+
+    background:
+        rgba(139, 92, 246, 0.08);
+
+    color:
+        rgba(226, 232, 240, 0.90);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.creator-birth-reflection-save:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(139, 92, 246, 0.16);
+
+    border-color:
+        rgba(196, 181, 253, 0.44);
+
+}
+
+
+/*
+==========================================
+TABLET
+==========================================
+*/
+
+@media (max-width: 900px) {
+
+    .creator-birth-matrix {
+
+        padding: 44px 36px 48px;
+
+    }
+
+
+    .creator-birth-result {
+
+        grid-template-columns:
+            270px
+            minmax(0, 1fr);
+
+        gap: 42px;
+
+    }
+
+
+    .creator-birth-symbol-frame {
+
+        width: 210px;
+
+        height: 210px;
+
+    }
+
+
+    .creator-tzolkin-identity h3 {
+
+        font-size: 36px;
+
+    }
+
+}
+
+
+/*
+==========================================
+MOBILE
+==========================================
+*/
+
+@media (max-width: 720px) {
+
+    .creator-birth-matrix {
+
+        padding: 36px 24px 42px;
+
+        border-radius: 26px;
+
+    }
+
+
+    .creator-birth-matrix-header {
+
+        margin-bottom: 34px;
+
+    }
+
+
+    .creator-birth-matrix-header h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .creator-birth-date-section {
+
+        padding: 22px;
+
+        margin-bottom: 38px;
+
+    }
+
+
+    .creator-birth-result {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 34px;
+
+        text-align: center;
+
+    }
+
+
+    .creator-birth-symbol-column {
+
+        min-height: auto;
+
+    }
+
+
+    .creator-birth-symbol-frame {
+
+        width: 190px;
+
+        height: 190px;
+
+    }
+
+
+    .creator-tzolkin-identity {
+
+        text-align: center;
+
+    }
+
+
+    .creator-tzolkin-message {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+
+    .creator-birth-daily-message {
+
+        text-align: left;
+
+    }
+
+
+    .creator-birth-reflection {
+
+        text-align: left;
+
+    }
+
+}
+
+
+/*
+==========================================
+VERY SMALL SCREENS
+==========================================
+*/
+
+@media (max-width: 480px) {
+
+    .creator-birth-matrix {
+
+        padding: 30px 18px 36px;
+
+    }
+
+
+    .creator-birth-matrix-header h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .creator-birth-symbol-frame {
+
+        width: 160px;
+
+        height: 160px;
+
+    }
+
+
+    .creator-tzolkin-identity h3 {
+
+        font-size: 31px;
+
+    }
+
+
+    .creator-birth-daily-message {
+
+        padding: 22px 20px;
+
+    }
+
+}
+
+
+
+/*
+==================================================
+BLINKITA BIRTH MATRIX™
+VISUAL IDENTITY SYSTEM
+Version 1.0
+==================================================
+*/
+
+
+.birth-matrix-result {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 0.85fr)
+        minmax(0, 1.35fr);
+
+    align-items: center;
+
+    gap: 72px;
+
+    width: 100%;
+
+    margin-top: 52px;
+
+    padding-top: 52px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.birth-matrix-identity {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 72px;
+
+    min-width: 0;
+
+}
+
+
+/*
+==================================================
+BIRTH MATRIX SEAL
+==================================================
+*/
+
+.birth-matrix-seal {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 280px;
+
+    height: 280px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(139, 92, 246, 0.22),
+            rgba(16, 23, 42, 0.92) 68%
+        );
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.34);
+
+    box-shadow:
+
+        0 0 0 1px
+        rgba(255, 255, 255, 0.025),
+
+        0 0 0 12px
+        rgba(139, 92, 246, 0.035),
+
+        0 0 0 24px
+        rgba(139, 92, 246, 0.018),
+
+        0 30px 80px
+        rgba(0, 0, 0, 0.42),
+
+        0 0 90px
+        rgba(139, 92, 246, 0.16);
+
+}
+
+
+.birth-matrix-seal::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 14px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.14);
+
+    pointer-events: none;
+
+}
+
+
+.birth-matrix-seal::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 27px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+
+    pointer-events: none;
+
+}
+
+
+.birth-matrix-seal-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 214px;
+
+    height: 214px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/*
+==================================================
+MAYA SIGN
+==================================================
+*/
+
+.birth-matrix-sign-image {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 190px;
+
+    height: 190px;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+
+        drop-shadow(
+            0 12px 24px
+            rgba(0, 0, 0, 0.34)
+        );
+
+}
+
+
+/*
+==================================================
+TONE IMAGE
+==================================================
+*/
+
+.birth-matrix-tone-image {
+
+    position: absolute;
+
+    z-index: 3;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 72px;
+
+    height: 72px;
+
+    object-fit: contain;
+
+    display: block;
+
+    padding: 8px;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    background:
+        rgba(10, 14, 30, 0.92);
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.32);
+
+    box-shadow:
+
+        0 10px 28px
+        rgba(0, 0, 0, 0.38),
+
+        0 0 24px
+        rgba(139, 92, 246, 0.12);
+
+}
+
+
+/*
+==================================================
+RESULT COPY
+==================================================
+*/
+
+.birth-matrix-result-copy {
+
+    min-width: 0;
+
+    max-width: 620px;
+
+}
+
+
+.birth-matrix-result-eyebrow {
+
+    display: block;
+
+    margin-bottom: 16px;
+
+    color:
+        rgba(196, 181, 253, 0.72);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+}
+
+
+.birth-matrix-result-copy h3 {
+
+    margin: 0 0 8px;
+
+    color: white;
+
+    font-size: 46px;
+
+    font-weight: 500;
+
+    letter-spacing: -0.035em;
+
+    line-height: 1.08;
+
+}
+
+
+.birth-matrix-local-name {
+
+    margin: 0 0 14px;
+
+    color:
+        rgba(186, 230, 253, 0.86);
+
+    font-size: 19px;
+
+    line-height: 1.5;
+
+}
+
+
+.birth-matrix-signature {
+
+    margin: 0 0 24px;
+
+    color:
+        var(--color-text-soft);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
+
+/*
+==================================================
+META
+==================================================
+*/
+
+.birth-matrix-meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+
+.birth-matrix-meta span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 34px;
+
+    padding: 7px 14px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.16);
+
+    border-radius: 999px;
+
+    background:
+        rgba(139, 92, 246, 0.055);
+
+    color:
+        rgba(226, 232, 240, 0.72);
+
+    font-size: 12px;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+/*
+==================================================
+TABLET
+==================================================
+*/
+
+@media (max-width: 1000px) {
+
+    .birth-matrix-result {
+
+        grid-template-columns: 1fr;
+
+        gap: 48px;
+
+    }
+
+
+    .birth-matrix-identity {
+
+        justify-content: center;
+
+        gap: 56px;
+
+    }
+
+
+    .birth-matrix-result-copy {
+
+        max-width: 560px;
+
+    }
+
+}
+
+
+/*
+==================================================
+MOBILE
+==================================================
+*/
+
+@media (max-width: 720px) {
+
+    .birth-matrix-result {
+
+        margin-top: 38px;
+
+        padding-top: 38px;
+
+    }
+
+
+    .birth-matrix-identity {
+
+        flex-direction: column;
+
+        gap: 42px;
+
+        text-align: center;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 240px;
+
+        height: 240px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 184px;
+
+        height: 184px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 164px;
+
+        height: 164px;
+
+    }
+
+
+    .birth-matrix-tone-image {
+
+        width: 64px;
+
+        height: 64px;
+
+        right: -2px;
+
+        bottom: -2px;
+
+    }
+
+
+    .birth-matrix-result-copy {
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+
+    .birth-matrix-result-copy h3 {
+
+        font-size: 36px;
+
+    }
+
+
+    .birth-matrix-meta {
+
+        justify-content: center;
+
+    }
+
+}
+
+
+/*
+==================================================
+VERY SMALL SCREENS
+==================================================
+*/
+
+@media (max-width: 480px) {
+
+    .birth-matrix-result {
+
+        gap: 38px;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 210px;
+
+        height: 210px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 160px;
+
+        height: 160px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 142px;
+
+        height: 142px;
+
+    }
+
+
+    .birth-matrix-tone-image {
+
+        width: 58px;
+
+        height: 58px;
+
+    }
+
+
+    .birth-matrix-result-copy h3 {
+
+        font-size: 31px;
+
+    }
+
+
+    .birth-matrix-local-name {
+
+        font-size: 17px;
+
+    }
+
+}
+
+
+/*
+==================================================
+BLINKITA BIRTH MATRIX™
+CREATOR IDENTITY V3
+Vertical Premium Identity Layout
+==================================================
+
+Design intention:
+- one continuous vertical composition
+- no left/right identity split
+- no oversized empty seal
+- smaller transparent Maya symbol
+- more breathing room
+- premium Living Identity feeling
+==================================================
+*/
+
+
+/*
+==================================================
+MAIN RESULT
+==================================================
+*/
+
+.birth-matrix-result {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0;
+
+    width: 100%;
+
+    margin-top: 52px;
+
+    padding-top: 46px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+/*
+==================================================
+IDENTITY
+Everything flows vertically
+==================================================
+*/
+
+.birth-matrix-identity {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 28px;
+
+    width: 100%;
+
+    min-width: 0;
+
+    text-align: center;
+
+}
+
+
+/*
+==================================================
+MAYA SYMBOL
+Small, clean, transparent
+==================================================
+*/
+
+.birth-matrix-seal {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 142px;
+
+    height: 142px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+}
+
+
+/*
+Remove the old decorative circles
+around the transparent symbol.
+*/
+
+.birth-matrix-seal::before,
+.birth-matrix-seal::after {
+
+    display: none;
+
+}
+
+
+/*
+==================================================
+SYMBOL INNER
+==================================================
+*/
+
+.birth-matrix-seal-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 142px;
+
+    height: 142px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/*
+==================================================
+MAYA SIGN
+==================================================
+*/
+
+.birth-matrix-sign-image {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 128px;
+
+    height: 128px;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+
+        drop-shadow(
+            0 8px 18px
+            rgba(0, 0, 0, 0.28)
+        );
+
+}
+
+
+/*
+==================================================
+TONE IMAGE
+Do not make it float over the symbol.
+==================================================
+*/
+
+.birth-matrix-tone-image {
+
+    position: static;
+
+    width: 48px;
+
+    height: 48px;
+
+    margin-top: 2px;
+
+    padding: 5px;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    background:
+        rgba(10, 14, 30, 0.78);
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.22);
+
+    box-shadow:
+
+        0 8px 22px
+        rgba(0, 0, 0, 0.25);
+
+}
+
+
+/*
+==================================================
+RESULT COPY
+Centered beneath symbol
+==================================================
+*/
+
+.birth-matrix-result-copy {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    min-width: 0;
+
+    text-align: center;
+
+}
+
+
+/*
+==================================================
+EYEBROW
+==================================================
+*/
+
+.birth-matrix-result-eyebrow {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        rgba(196, 181, 253, 0.72);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+}
+
+
+/*
+==================================================
+MAIN IDENTITY NAME
+==================================================
+*/
+
+.birth-matrix-result-copy h3 {
+
+    margin: 0 0 8px;
+
+    color: white;
+
+    font-size: 38px;
+
+    font-weight: 500;
+
+    letter-spacing: -0.025em;
+
+    line-height: 1.15;
+
+}
+
+
+/*
+==================================================
+LOCAL MAYA NAME
+==================================================
+*/
+
+.birth-matrix-local-name {
+
+    margin: 0 0 14px;
+
+    color:
+        rgba(186, 230, 253, 0.86);
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+}
+
+
+/*
+==================================================
+SIGNATURE / DESCRIPTION
+==================================================
+*/
+
+.birth-matrix-signature {
+
+    max-width: 620px;
+
+    margin: 0 0 24px;
+
+    color:
+        var(--color-text-soft);
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+}
+
+
+/*
+==================================================
+META
+Subtle identity information
+==================================================
+*/
+
+.birth-matrix-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    width: 100%;
+
+    margin-top: 4px;
+
+}
+
+
+.birth-matrix-meta span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 32px;
+
+    padding: 6px 13px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.14);
+
+    border-radius: 999px;
+
+    background:
+        rgba(139, 92, 246, 0.045);
+
+    color:
+        rgba(226, 232, 240, 0.70);
+
+    font-size: 11px;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+/*
+==================================================
+TABLET
+==================================================
+*/
+
+@media (max-width: 900px) {
+
+    .birth-matrix-result {
+
+        margin-top: 44px;
+
+        padding-top: 40px;
+
+    }
+
+
+    .birth-matrix-identity {
+
+        gap: 26px;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 132px;
+
+        height: 132px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 132px;
+
+        height: 132px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 118px;
+
+        height: 118px;
+
+    }
+
+
+    .birth-matrix-result-copy h3 {
+
+        font-size: 35px;
+
+    }
+
+}
+
+
+/*
+==================================================
+MOBILE
+==================================================
+*/
+
+@media (max-width: 720px) {
+
+    .birth-matrix-result {
+
+        margin-top: 38px;
+
+        padding-top: 34px;
+
+    }
+
+
+    .birth-matrix-identity {
+
+        gap: 24px;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 120px;
+
+        height: 120px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 120px;
+
+        height: 120px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 108px;
+
+        height: 108px;
+
+    }
+
+
+    .birth-matrix-tone-image {
+
+        width: 44px;
+
+        height: 44px;
+
+    }
+
+
+    .birth-matrix-result-copy {
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+
+    .birth-matrix-result-copy h3 {
+
+        font-size: 32px;
+
+    }
+
+
+    .birth-matrix-local-name {
+
+        font-size: 16px;
+
+    }
+
+
+    .birth-matrix-signature {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+/*
+==================================================
+VERY SMALL SCREENS
+==================================================
+*/
+
+@media (max-width: 480px) {
+
+    .birth-matrix-result {
+
+        margin-top: 32px;
+
+        padding-top: 30px;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 108px;
+
+        height: 108px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 108px;
+
+        height: 108px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 96px;
+
+        height: 96px;
+
+    }
+
+
+    .birth-matrix-tone-image {
+
+        width: 40px;
+
+        height: 40px;
+
+    }
+
+
+    .birth-matrix-result-copy h3 {
+
+        font-size: 29px;
+
+    }
+
+
+    .birth-matrix-local-name {
+
+        font-size: 15px;
+
+    }
+
+
+    .birth-matrix-meta {
+
+        gap: 7px;
+
+    }
+
+
+    .birth-matrix-meta span {
+
+        padding:
+            6px 10px;
+
+        font-size: 10px;
+
+    }
+
+}
+
+
+/*
+==================================================
+BLINKITA BIRTH MATRIX™
+CREATOR IDENTITY V3
+Vertical Premium Identity Layout
+==================================================
+*/
+
+.birth-matrix-result {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0;
+
+    width: 100%;
+
+    margin-top: 52px;
+
+    padding-top: 46px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.birth-matrix-identity {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 28px;
+
+    width: 100%;
+
+    min-width: 0;
+
+    text-align: center;
+
+}
+
+
+.birth-matrix-seal {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 142px;
+
+    height: 142px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+}
+
+
+.birth-matrix-seal::before,
+.birth-matrix-seal::after {
+
+    display: none;
+
+}
+
+
+.birth-matrix-seal-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 142px;
+
+    height: 142px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.birth-matrix-sign-image {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 128px;
+
+    height: 128px;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 8px 18px
+            rgba(0, 0, 0, 0.28)
+        );
+
+}
+
+
+.birth-matrix-tone-image {
+
+    position: static;
+
+    width: 48px;
+
+    height: 48px;
+
+    margin-top: 2px;
+
+    padding: 5px;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    background:
+        rgba(10, 14, 30, 0.78);
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.22);
+
+    box-shadow:
+        0 8px 22px
+        rgba(0, 0, 0, 0.25);
+
+}
+
+
+.birth-matrix-result-copy {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    min-width: 0;
+
+    text-align: center;
+
+}
+
+
+.birth-matrix-result-eyebrow {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        rgba(196, 181, 253, 0.72);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+}
+
+
+.birth-matrix-result-copy h3 {
+
+    margin: 0 0 8px;
+
+    color: white;
+
+    font-size: 38px;
+
+    font-weight: 500;
+
+    letter-spacing: -0.025em;
+
+    line-height: 1.15;
+
+}
+
+
+.birth-matrix-local-name {
+
+    margin: 0 0 14px;
+
+    color:
+        rgba(186, 230, 253, 0.86);
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+}
+
+
+.birth-matrix-signature {
+
+    max-width: 620px;
+
+    margin: 0 0 24px;
+
+    color:
+        var(--color-text-soft);
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+}
+
+
+.birth-matrix-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    width: 100%;
+
+    margin-top: 4px;
+
+}
+
+
+.birth-matrix-meta span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 32px;
+
+    padding: 6px 13px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.14);
+
+    border-radius: 999px;
+
+    background:
+        rgba(139, 92, 246, 0.045);
+
+    color:
+        rgba(226, 232, 240, 0.70);
+
+    font-size: 11px;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+@media (max-width: 900px) {
+
+    .birth-matrix-result {
+
+        margin-top: 44px;
+
+        padding-top: 40px;
+
+    }
+
+
+    .birth-matrix-identity {
+
+        gap: 26px;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 132px;
+
+        height: 132px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 132px;
+
+        height: 132px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 118px;
+
+        height: 118px;
+
+    }
+
+
+    .birth-matrix-result-copy h3 {
+
+        font-size: 35px;
+
+    }
+
+}
+
+
+@media (max-width: 720px) {
+
+    .birth-matrix-result {
+
+        margin-top: 38px;
+
+        padding-top: 34px;
+
+    }
+
+
+    .birth-matrix-identity {
+
+        gap: 24px;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 120px;
+
+        height: 120px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 120px;
+
+        height: 120px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 108px;
+
+        height: 108px;
+
+    }
+
+
+    .birth-matrix-tone-image {
+
+        width: 44px;
+
+        height: 44px;
+
+    }
+
+
+    .birth-matrix-result-copy {
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+
+    .birth-matrix-result-copy h3 {
+
+        font-size: 32px;
+
+    }
+
+
+    .birth-matrix-local-name {
+
+        font-size: 16px;
+
+    }
+
+
+    .birth-matrix-signature {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .birth-matrix-result {
+
+        margin-top: 32px;
+
+        padding-top: 30px;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 108px;
+
+        height: 108px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 108px;
+
+        height: 108px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 96px;
+
+        height: 96px;
+
+    }
+
+
+    .birth-matrix-tone-image {
+
+        width: 40px;
+
+        height: 40px;
+
+    }
+
+
+    .birth-matrix-result-copy h3 {
+
+        font-size: 29px;
+
+    }
+
+
+    .birth-matrix-local-name {
+
+        font-size: 15px;
+
+    }
+
+
+    .birth-matrix-meta {
+
+        gap: 7px;
+
+    }
+
+
+    .birth-matrix-meta span {
+
+        padding:
+            6px 10px;
+
+        font-size: 10px;
+
+    }
+
+}
+
+
+/*
+==================================================
+BLINKITA BIRTH MATRIX™
+CREATOR IDENTITY VISUAL STRUCTURE
+Premium Layout Override
+Version 3.0
+==================================================
+
+Purpose:
+Birth Matrix follows the same spatial language
+as Creator Identity.
+
+Desktop:
+left identity / right information
+
+Tablet + Mobile:
+stacked vertical composition
+
+The existing calculation logic remains untouched.
+==================================================
+*/
+
+
+/*
+==================================================
+MAIN BIRTH MATRIX CARD
+==================================================
+*/
+
+.birth-matrix-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 42px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(180, 140, 255, 0.30);
+
+    background:
+
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(139, 92, 246, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(56, 189, 248, 0.10),
+            transparent 32%
+        ),
+
+        rgba(16, 23, 42, 0.72);
+
+}
+
+
+.birth-matrix-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.045),
+            transparent 35%
+        );
+
+}
+
+
+/*
+==================================================
+BIRTH MATRIX HEADING
+Same breathing space as Creator Identity
+==================================================
+*/
+
+.birth-matrix-heading {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 36px;
+
+}
+
+
+.birth-matrix-eyebrow {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color:
+        rgba(196, 181, 253, 0.82);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+}
+
+
+.birth-matrix-heading h2 {
+
+    margin: 0 0 10px;
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    letter-spacing: -0.02em;
+
+}
+
+
+.birth-matrix-heading p {
+
+    max-width: 720px;
+
+    margin: 0;
+
+    color:
+        var(--color-text-soft);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+}
+
+
+/*
+==================================================
+DATE INPUT AREA
+Same spacious language as Creator Identity
+==================================================
+*/
+
+.birth-matrix-input-area {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        300px
+        minmax(0, 1fr);
+
+    gap: 46px;
+
+    align-items: end;
+
+    margin-top: 10px;
+
+}
+
+
+.birth-date-field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.birth-date-field label {
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: .05em;
+
+}
+
+
+.birth-date-field input {
+
+    width: 100%;
+
+    min-height: 52px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 16px;
+
+    padding: 15px 17px;
+
+    background:
+        rgba(4, 8, 22, 0.42);
+
+    color: white;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.birth-date-field input:focus {
+
+    border-color:
+        rgba(196, 181, 253, 0.52);
+
+    background:
+        rgba(4, 8, 22, 0.60);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(139, 92, 246, 0.07);
+
+}
+
+
+.birth-matrix-calculate-button {
+
+    width: fit-content;
+
+    min-width: 230px;
+
+    margin: 0;
+
+}
+
+
+/*
+==================================================
+CALCULATED RESULT
+Creator Identity-style two-column structure
+==================================================
+*/
+
+.birth-matrix-result {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        300px
+        minmax(0, 1fr);
+
+    gap: 46px;
+
+    align-items: start;
+
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding-top: 0;
+
+    border-top: none;
+
+}
+
+
+/*
+==================================================
+LEFT IDENTITY PANEL
+==================================================
+*/
+
+.birth-matrix-identity {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 28px;
+
+    min-width: 0;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
+
+    border-radius: 24px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+}
+
+
+/*
+==================================================
+SMALLER BIRTH MATRIX SEAL
+==================================================
+*/
+
+.birth-matrix-seal {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 190px;
+
+    height: 190px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(139, 92, 246, 0.22),
+            rgba(16, 23, 42, 0.94) 70%
+        );
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.34);
+
+    box-shadow:
+
+        0 0 0 8px
+        rgba(139, 92, 246, 0.035),
+
+        0 18px 50px
+        rgba(0, 0, 0, 0.34),
+
+        0 0 55px
+        rgba(139, 92, 246, 0.12);
+
+}
+
+
+.birth-matrix-seal::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 10px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.12);
+
+    pointer-events: none;
+
+}
+
+
+.birth-matrix-seal::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 20px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.045);
+
+    pointer-events: none;
+
+}
+
+
+.birth-matrix-seal-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 156px;
+
+    height: 156px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/*
+==================================================
+MAYA SIGN
+Smaller because the artwork has no background
+==================================================
+*/
+
+.birth-matrix-sign-image {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 138px;
+
+    height: 138px;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+
+        drop-shadow(
+            0 10px 20px
+            rgba(0, 0, 0, 0.30)
+        );
+
+}
+
+
+/*
+==================================================
+REMOVE TONE NUMBER IMAGE
+The main Maya sign carries the identity.
+==================================================
+*/
+
+.birth-matrix-tone-image {
+
+    display: none;
+
+}
+
+
+/*
+==================================================
+RIGHT RESULT INFORMATION
+==================================================
+*/
+
+.birth-matrix-result-copy {
+
+    min-width: 0;
+
+    max-width: 720px;
+
+    padding-top: 8px;
+
+}
+
+
+.birth-matrix-result-eyebrow {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        rgba(196, 181, 253, 0.72);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+}
+
+
+.birth-matrix-result-copy h3 {
+
+    margin: 0 0 10px;
+
+    color: white;
+
+    font-size: 38px;
+
+    font-weight: 500;
+
+    letter-spacing: -0.03em;
+
+    line-height: 1.15;
+
+}
+
+
+.birth-matrix-local-name {
+
+    margin: 0 0 14px;
+
+    color:
+        rgba(186, 230, 253, 0.86);
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+}
+
+
+.birth-matrix-signature {
+
+    margin: 0 0 22px;
+
+    color:
+        var(--color-text-soft);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
+
+/*
+==================================================
+META
+==================================================
+*/
+
+.birth-matrix-meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+
+.birth-matrix-meta span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 34px;
+
+    padding: 7px 14px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.16);
+
+    border-radius: 999px;
+
+    background:
+        rgba(139, 92, 246, 0.055);
+
+    color:
+        rgba(226, 232, 240, 0.72);
+
+    font-size: 12px;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+/*
+==================================================
+TODAY'S MESSAGE
+Wide, breathable content area
+==================================================
+*/
+
+.birth-matrix-message {
+
+    position: relative;
+
+    z-index: 2;
+
+    grid-column:
+        2;
+
+    margin-top: 4px;
+
+    padding: 26px 28px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(196, 181, 253, 0.15);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.10),
+            rgba(56, 189, 248, 0.045)
+        );
+
+}
+
+
+.birth-matrix-message-label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color:
+        rgba(196, 181, 253, 0.70);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .20em;
+
+    text-transform: uppercase;
+
+}
+
+
+.birth-matrix-message p {
+
+    margin: 0;
+
+    color:
+        rgba(226, 232, 240, 0.90);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+/*
+==================================================
+REFLECTION
+==================================================
+*/
+
+.birth-matrix-reflection {
+
+    position: relative;
+
+    z-index: 2;
+
+    grid-column:
+        2;
+
+    margin-top: 0;
+
+    padding-top: 26px;
+
+    border-top:
+        1px solid
+        rgba(148, 163, 184, 0.09);
+
+}
+
+
+.birth-matrix-question-label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color:
+        rgba(196, 181, 253, 0.70);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .20em;
+
+    text-transform: uppercase;
+
+}
+
+
+.birth-matrix-reflection h4 {
+
+    max-width: 720px;
+
+    margin: 0 0 18px;
+
+    color:
+        rgba(255,255,255,0.92);
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    line-height: 1.6;
+
+}
+
+
+.birth-matrix-reflection textarea {
+
+    width: 100%;
+
+    min-height: 150px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 16px;
+
+    padding: 15px 17px;
+
+    background:
+        rgba(4, 8, 22, 0.42);
+
+    color: white;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    line-height: 1.65;
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.birth-matrix-reflection textarea:focus {
+
+    border-color:
+        rgba(196, 181, 253, 0.52);
+
+    background:
+        rgba(4, 8, 22, 0.60);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(139, 92, 246, 0.07);
+
+}
+
+
+.birth-matrix-reflection textarea::placeholder {
+
+    color:
+        rgba(186, 230, 253, 0.38);
+
+}
+
+
+.birth-matrix-save-button {
+
+    margin-top: 16px;
+
+}
+
+
+/*
+==================================================
+CHANGE DATE
+==================================================
+*/
+
+.birth-matrix-recalculate {
+
+    grid-column:
+        2;
+
+    justify-self: start;
+
+    margin-top: 4px;
+
+    border: none;
+
+    background: transparent;
+
+    color:
+        rgba(186, 230, 253, 0.60);
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+}
+
+
+.birth-matrix-recalculate:hover {
+
+    color: white;
+
+}
+
+
+/*
+==================================================
+TABLET
+Same transition philosophy as Creator Identity
+==================================================
+*/
+
+@media (max-width: 900px) {
+
+    .birth-matrix-card {
+
+        padding: 36px;
+
+    }
+
+
+    .birth-matrix-input-area {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 24px;
+
+    }
+
+
+    .birth-matrix-calculate-button {
+
+        width: 100%;
+
+    }
+
+
+    .birth-matrix-result {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 30px;
+
+    }
+
+
+    .birth-matrix-identity {
+
+        max-width: 420px;
+
+        width: 100%;
+
+        margin: 0 auto;
+
+    }
+
+
+    .birth-matrix-message,
+    .birth-matrix-reflection,
+    .birth-matrix-recalculate {
+
+        grid-column:
+            1;
+
+    }
+
+
+    .birth-matrix-result-copy {
+
+        max-width: 100%;
+
+    }
+
+}
+
+
+/*
+==================================================
+MOBILE
+==================================================
+*/
+
+@media (max-width: 640px) {
+
+    .birth-matrix-card {
+
+        padding: 26px 20px;
+
+        border-radius: 26px;
+
+    }
+
+
+    .birth-matrix-heading {
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .birth-matrix-heading h2 {
+
+        font-size: 27px;
+
+    }
+
+
+    .birth-matrix-heading p {
+
+        font-size: 15px;
+
+    }
+
+
+    .birth-matrix-identity {
+
+        padding: 24px 20px;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 175px;
+
+        height: 175px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 145px;
+
+        height: 145px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 128px;
+
+        height: 128px;
+
+    }
+
+
+    .birth-matrix-result-copy {
+
+        padding-top: 0;
+
+        text-align: center;
+
+    }
+
+
+    .birth-matrix-meta {
+
+        justify-content: center;
+
+    }
+
+
+    .birth-matrix-message,
+    .birth-matrix-reflection {
+
+        text-align: left;
+
+    }
+
+
+    .birth-matrix-message {
+
+        padding: 22px 20px;
+
+    }
+
+
+    .birth-matrix-reflection {
+
+        padding-top: 24px;
+
+    }
+
+
+    .birth-matrix-save-button {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/*
+==================================================
+VERY SMALL SCREENS
+==================================================
+*/
+
+@media (max-width: 480px) {
+
+    .birth-matrix-card {
+
+        padding: 24px 18px 32px;
+
+    }
+
+
+    .birth-matrix-seal {
+
+        width: 160px;
+
+        height: 160px;
+
+    }
+
+
+    .birth-matrix-seal-inner {
+
+        width: 132px;
+
+        height: 132px;
+
+    }
+
+
+    .birth-matrix-sign-image {
+
+        width: 116px;
+
+        height: 116px;
+
+    }
+
+
+    .birth-matrix-result-copy h3 {
+
+        font-size: 32px;
+
+    }
+
+}
+
+
+# /*
+
+BLINKITA METHOD™
+CREATOR BIRTH MATRIX™
+PREMIUM SPACIOUS LAYOUT
+=======================
+
+*/
+
+/* --------------------------------------------------
+BIRTH MATRIX — MAIN LAYOUT
+-------------------------------------------------- */
+
+.creator-birth-matrix {
+
+```
+width: 100%;
+box-sizing: border-box;
+```
+
+}
+
+.birth-matrix-layout {
+
+```
+width: 100%;
+box-sizing: border-box;
+
+grid-template-columns:
+    minmax(260px, 300px)
+    minmax(0, 1fr);
+
+column-gap: 46px;
+row-gap: 34px;
+
+align-items: start;
+```
+
+}
+
+/* --------------------------------------------------
+BIRTH MATRIX — RIGHT SIDE BECOMES GRID PARTICIPANT
+This allows the lower identity windows to span
+the entire Birth Matrix card.
+-------------------------------------------------- */
+
+.birth-matrix-fields {
+
+```
+display: contents;
+```
+
+}
+
+/* --------------------------------------------------
+DATE OF BIRTH
+-------------------------------------------------- */
+
+.birth-matrix-layout > .creator-field {
+
+```
+min-width: 0;
+```
+
+}
+
+.birth-matrix-layout > .creator-field:nth-child(2) {
+
+```
+grid-column: 2;
+
+grid-row: 1;
+```
+
+}
+
+/* --------------------------------------------------
+ACTION / CALCULATOR BUTTON
+-------------------------------------------------- */
+
+.birth-matrix-layout > .birth-matrix-action-field {
+
+```
+grid-column: 2;
+
+grid-row: 2;
+
+align-self: start;
+```
+
+}
+
+/* --------------------------------------------------
+CALCULATED IDENTITY WINDOWS
+-------------------------------------------------- */
+
+.birth-matrix-layout > .creator-field-wide {
+
+```
+grid-column: 1 / -1;
+
+width: 100%;
+
+box-sizing: border-box;
+```
+
+}
+
+/* --------------------------------------------------
+PREMIUM VALUE WINDOWS
+-------------------------------------------------- */
+
+.birth-matrix-value,
+.birth-matrix-signature,
+.birth-matrix-message-content {
+
+```
+width: 100%;
+
+box-sizing: border-box;
+
+min-height: 58px;
+
+padding: 18px 22px;
+
+border:
+    1px solid
+    rgba(255,255,255,0.09);
+
+border-radius: 18px;
+
+background:
+    rgba(255,255,255,0.035);
+
+line-height: 1.7;
+```
+
+}
+
+/* --------------------------------------------------
+SIGNATURE / LIVING TIME
+-------------------------------------------------- */
+
+.birth-matrix-signature {
+
+```
+min-height: 72px;
+```
+
+}
+
+/* --------------------------------------------------
+TODAY'S MESSAGE
+-------------------------------------------------- */
+
+.birth-matrix-message {
+
+```
+margin-top: 2px;
+```
+
+}
+
+.birth-matrix-message-content {
+
+```
+min-height: 100px;
+
+display: flex;
+
+align-items: center;
+```
+
+}
+
+/* --------------------------------------------------
+TODAY'S REFLECTION
+-------------------------------------------------- */
+
+.birth-matrix-reflection {
+
+```
+margin-top: 2px;
+```
+
+}
+
+.birth-matrix-reflection h4 {
+
+```
+margin:
+    0 0 16px;
+
+padding:
+    20px 22px;
+
+border:
+    1px solid
+    rgba(255,255,255,0.07);
+
+border-radius: 18px;
+
+background:
+    rgba(255,255,255,0.025);
+
+font-size: 17px;
+
+line-height: 1.65;
+
+font-weight: 500;
+```
+
+}
+
+.birth-matrix-reflection textarea {
+
+```
+width: 100%;
+
+min-height: 150px;
+
+box-sizing: border-box;
+
+resize: vertical;
+
+padding: 20px 22px;
+
+border:
+    1px solid
+    rgba(255,255,255,0.10);
+
+border-radius: 18px;
+
+background:
+    rgba(255,255,255,0.035);
+
+line-height: 1.7;
+```
+
+}
+
+/* --------------------------------------------------
+SAVE REFLECTION
+-------------------------------------------------- */
+
+.birth-matrix-save-button {
+
+```
+margin-top: 18px;
+```
+
+}
+
+/* --------------------------------------------------
+CHANGE DATE
+-------------------------------------------------- */
+
+.birth-matrix-change-date-row {
+
+```
+grid-column: 1 / -1;
+
+width: 100%;
+
+padding-top: 8px;
+
+justify-content: flex-end;
+```
+
+}
+
+/* --------------------------------------------------
+MOBILE
+-------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+```
+.birth-matrix-layout {
+
+    grid-template-columns: 1fr;
+
+    row-gap: 26px;
+
+}
+
+.birth-matrix-layout > .creator-field:nth-child(2),
+.birth-matrix-layout > .birth-matrix-action-field,
+.birth-matrix-layout > .creator-field-wide,
+.birth-matrix-change-date-row {
+
+    grid-column: 1;
+
+}
+
+.birth-matrix-layout > .creator-field:nth-child(2),
+.birth-matrix-layout > .birth-matrix-action-field {
+
+    grid-row: auto;
+
+}
+```
+
+}
+
