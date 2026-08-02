@@ -1917,7 +1917,7 @@ avatarOptions.map(
 
                             />
 
-                        </div>
+                                               </div>
 
 
                         <div className="creator-identity-save-row">
@@ -1956,9 +1956,23 @@ avatarOptions.map(
 
                         </div>
 
+
+                        {/* ==========================================
+                            CREATOR INTELLIGENCE™
+                            Living Reflection Layer™
+                        ========================================== */}
+
+                        <CreatorIntelligenceCard
+
+                            creator={creator}
+
+                        />
+
+
                     </div>
 
                 </div>
+
 
             </section>{
 
@@ -2486,9 +2500,29 @@ avatarOptions.map(
 
             </section>
 
-            {
 
-/* ==========================================
+            {/* ==========================================
+                CREATOR ESSENCE™
+            ========================================== */}
+
+            <CreatorEssenceCard
+                creator={creator}
+            />
+
+
+            {/* ==========================================
+                CREATOR EVOLUTION™
+            ========================================== */}
+
+            <CreatorEvolutionTimeline
+                creator={creator}
+                evolution={evolution}
+            />
+
+
+    
+
+{/* ==========================================
                 
 CREATOR JOURNEY™
 ========================================== */}
@@ -2508,7 +2542,6 @@ CREATOR JOURNEY™
 
 
             <WorldBuilderDomainCard />
-
 
             
 

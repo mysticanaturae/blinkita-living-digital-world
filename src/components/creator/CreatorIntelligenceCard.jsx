@@ -16,37 +16,37 @@ import React from "react";
 
 export default function CreatorIntelligenceCard({
 
-    avatar,
-    archetype,
-    symbolData
+    creator
 
 }) {
 
-    const intelligence = {
 
-        archetype:
-            archetype ||
-            "Seed Creator",
+    const avatar =
+        creator?.identity?.avatar ||
+        "🌱";
 
-        symbol:
-            symbolData?.symbol ||
-            avatar ||
-            "🌱",
 
-        meaning:
-            symbolData?.meaning ||
-            "Creator of beginnings",
+    const archetype =
+        creator?.identity?.archetype ||
+        "Seed Creator";
 
-        message:
-            symbolData?.message ||
-            "Your creative intelligence is beginning to reveal itself."
+const intelligence = {
 
-    };
+    archetype,
 
+    symbol: avatar,
+
+    meaning:
+        "Creator connected with your first living intention.",
+
+    message:
+        "Your creative intelligence grows through your memories, choices and the worlds you bring into being."
+
+};
 
     return (
 
-        <section className="creator-intelligence-card">
+        <section className="living-card living-section creator-intelligence-card">
 
             <div className="creator-intelligence-header">
 
