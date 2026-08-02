@@ -48,10 +48,37 @@ from "../evolution/WorldBuilderEvolutionCard";
 import WorldBuilderDomainCard
 from "../worldbuilder/WorldBuilderDomainCard";
 
+
+import CreatorJourneyCard
+from "./CreatorJourneyCard";
+
+
+import CreatorEssenceCard
+from "./CreatorEssenceCard";
+
+
+import IdentityEvolutionTimeline
+from "./IdentityEvolutionTimeline";
+
+
+import CreatorEvolutionTimeline
+from "./CreatorEvolutionTimeline";
+
+
+import LivingMemoryStatus
+from "./LivingMemoryStatus";
+
+
+import CreatorIntelligenceCard
+from "./CreatorIntelligenceCard";
+
+
 import {
     getToneImage,
     getSignImage
 } from "../../core/tzolkin/TzolkinImages";
+
+
 
 /*
 ==========================================
@@ -534,12 +561,14 @@ export default function CreatorDashboard() {
         worldState.action || {};
 
 
-    const creatorArchetype =
-        creator.identity?.archetype || "";
+const creatorArchetype =
+    evolution?.archetype ||
+    creator.identity?.archetype ||
+    "Seed Creator";
 
 
-    const normalizedArchetype =
-        creatorArchetype.toLowerCase();
+const normalizedArchetype =
+    creatorArchetype.toLowerCase();
 
 
     const translatedArchetype =
@@ -599,11 +628,10 @@ export default function CreatorDashboard() {
         );
 
 
-    const [archetype, setArchetype] =
-        useState(
-            creator.identity?.archetype ||
-            "Explorer"
-        );
+   const archetype =
+    creator.identity?.archetype ||
+    evolution?.archetype ||
+    "Seed Creator";
 
 
     const [description, setDescription] =
@@ -709,23 +737,254 @@ export default function CreatorDashboard() {
     };
 
 
-    const avatarOptions = [
+const creatorSymbols = [
 
-        "🌱",
-        "✨",
-        "🌙",
-        "🌞",
-        "🌀",
-        "🦋",
-        "🌺",
-        "🔥",
-        "🌊",
-        "🌎",
-        "🪶",
-        "💫"
+{
+    symbol: "🌱",
+    name: "Seed Creator",
+    meaning: "Creator of beginnings",
+    message:
+    "You are planting the first seeds of creation. Your ideas may still be small, but every Living World begins with a single intention. Give them time, space and care. Blinkita sees the first roots of something meaningful growing within you."
+},
 
-    ];
+{
+    symbol: "🌿",
+    name: "Nature Creator",
+    meaning: "Creator connected with life",
+    message:
+    "You create through connection, harmony and natural rhythms. Your ideas need room to grow in their own way. Trust the seasons within yourself and allow your creations to unfold naturally."
+},
 
+{
+    symbol: "🦋",
+    name: "Explorer Creator",
+    meaning: "Discoverer of possibilities",
+    message:
+    "Your gift is curiosity. You discover new paths by asking questions and exploring possibilities. Blinkita sees a creator who turns discovery into new worlds."
+},
+
+{
+    symbol: "🌙",
+    name: "Dreamer Creator",
+    meaning: "Creator of visions",
+    message:
+    "Your creations begin in the world of imagination. Your dreams carry messages from possibilities that are waiting to become real. Protect your visions and give them a place to grow."
+},
+
+{
+    symbol: "✨",
+    name: "Vision Creator",
+    meaning: "Creator of future possibilities",
+    message:
+    "You naturally see what could become. Your imagination reaches beyond the present moment. Blinkita reminds you that every vision becomes real through one small step of creation."
+},
+
+{
+    symbol: "☀️",
+    name: "Light Creator",
+    meaning: "Creator who brings clarity",
+    message:
+    "You bring light, understanding and new perspectives into the world. Your creations help others see things differently and discover new possibilities."
+},
+
+{
+    symbol: "🔥",
+    name: "Fire Creator",
+    meaning: "Creator of transformation",
+    message:
+    "You create through passion, courage and change. Your energy transforms ideas into movement and inspires new beginnings."
+},
+
+{
+    symbol: "🌊",
+    name: "Flow Creator",
+    meaning: "Creator who follows living rhythms",
+    message:
+    "You understand that creation has its own rhythm. Your strength comes from listening, adapting and moving with inspiration as it arrives."
+},
+
+{
+    symbol: "🌎",
+    name: "World Creator",
+    meaning: "Creator of Living Worlds",
+    message:
+    "You are drawn to creating places where ideas, experiences and people can meet. Your creations have the potential to become living spaces for connection."
+},
+
+{
+    symbol: "🪶",
+    name: "Wisdom Creator",
+    meaning: "Creator carrying knowledge",
+    message:
+    "You create by collecting experiences, memories and wisdom. Your gift is transforming what you learn into something that can guide others."
+},
+
+{
+    symbol: "🌀",
+    name: "Spiral Creator",
+    meaning: "Creator of evolution and cycles",
+    message:
+    "You understand that every creation continues to evolve. Your journey is not about reaching an ending, but discovering new layers of possibility."
+},
+
+{
+    symbol: "🌺",
+    name: "Beauty Creator",
+    meaning: "Creator of harmony and expression",
+    message:
+    "You bring beauty, emotion and harmony into your creations. Your work reminds others that beauty can also be a way of connecting."
+},
+
+{
+    symbol: "🐚",
+    name: "Ocean Creator",
+    meaning: "Creator connected with depth and memory",
+    message:
+    "You create from deep inner places. Like the ocean, your imagination carries hidden treasures and memories waiting to be discovered."
+},
+
+{
+    symbol: "⭐",
+    name: "Star Creator",
+    meaning: "Creator guided by inspiration",
+    message:
+    "You follow sparks of inspiration and moments of wonder. Your creations become points of light that can inspire others."
+},
+
+{
+    symbol: "🌈",
+    name: "Rainbow Creator",
+    meaning: "Creator of connection and diversity",
+    message:
+    "You bring different colors, ideas and perspectives together. Your gift is creating harmony through diversity."
+},
+
+{
+    symbol: "🦅",
+    name: "Freedom Creator",
+    meaning: "Creator expanding beyond limits",
+    message:
+    "You are here to explore beyond familiar boundaries. Your creations grow when you allow yourself to imagine without limits."
+},
+
+{
+    symbol: "🐉",
+    name: "Transformation Creator",
+    meaning: "Creator of deep change",
+    message:
+    "You carry the energy of transformation. Your creations help change perspectives, experiences and the way people see possibilities."
+},
+
+{
+    symbol: "💎",
+    name: "Crystal Creator",
+    meaning: "Creator of clarity and value",
+    message:
+    "You see the essence hidden inside ideas. Your gift is bringing clarity, structure and value into what you create."
+},
+
+{
+    symbol: "🌳",
+    name: "Guardian Creator",
+    meaning: "Creator protecting wisdom",
+    message:
+    "You create with care and responsibility. Your role is to protect what matters and nurture what continues to grow."
+},
+
+{
+    symbol: "🧭",
+    name: "Navigator Creator",
+    meaning: "Creator finding the path",
+    message:
+    "You are guided by exploration and direction. Your creations help reveal paths where others may see uncertainty."
+},
+
+{
+    symbol: "🌌",
+    name: "Cosmic Creator",
+    meaning: "Creator connected with universal patterns",
+    message:
+    "You see connections between ideas, moments and possibilities. Your creations are inspired by a bigger picture."
+},
+
+{
+    symbol: "🌸",
+    name: "Heart Creator",
+    meaning: "Creator of beauty and connection",
+    message:
+    "You create through emotion, authenticity and connection. Your creations remind people that they are seen and valued."
+},
+
+{
+    symbol: "🪨",
+    name: "Foundation Creator",
+    meaning: "Creator building strong roots",
+    message:
+    "You build with patience and intention. Your creations are designed to grow from strong foundations and support the future."
+},
+
+{
+    symbol: "🌬️",
+    name: "Spirit Creator",
+    meaning: "Creator guided by intuition and flow",
+    message:
+    "You listen to subtle inspiration and inner guidance. Your creations bring invisible ideas into visible form."
+}
+
+];
+
+
+const avatarOptions = creatorSymbols;
+
+
+avatarOptions.map(
+    (option) => (
+
+        <button
+
+            key={option.symbol}
+
+            type="button"
+
+            className={
+                avatar === option.symbol
+                ?
+                "creator-avatar-option active"
+                :
+                "creator-avatar-option"
+            }
+
+            onClick={() =>
+                setAvatar(option.symbol)
+            }
+
+            aria-label={
+                option.name
+            }
+
+        >
+
+            <span className="creator-avatar-symbol">
+
+                {
+                    option.symbol
+                }
+
+            </span>
+
+
+            <span className="creator-avatar-name">
+
+                {
+                    option.name
+                }
+
+            </span>
+
+        </button>
+
+    )
+)
 
 
     /*
@@ -812,10 +1071,9 @@ export default function CreatorDashboard() {
                     ),
 
                 archetype:
-                    archetype.trim() ||
-                    t(
-                        "dashboard.explorer"
-                    ),
+    creator.identity?.archetype ||
+    evolution?.archetype ||
+    "Seed Creator",
 
                 description:
                     description.trim(),
@@ -1240,7 +1498,9 @@ export default function CreatorDashboard() {
 
 
 
-            {/* ==========================================
+            {
+
+         /* ==========================================
                 CREATOR IDENTITY™
             ========================================== */}
 
@@ -1424,55 +1684,127 @@ export default function CreatorDashboard() {
 
                             <div className="creator-avatar-grid">
 
-                                {
+                               {
 
-                                    avatarOptions.map(
-                                        (option) => (
 
-                                            <button
+    avatarOptions.map(
 
-                                                key={option}
+        (option) => (
 
-                                                type="button"
+            <button
 
-                                                className={
+                key={option.symbol}
 
-                                                    avatar === option
+                type="button"
 
-                                                        ?
+                className={
 
-                                                    "creator-avatar-option active"
+                    avatar === option.symbol
 
-                                                        :
+                        ?
 
-                                                    "creator-avatar-option"
+                    "creator-avatar-option active"
 
-                                                }
+                        :
 
-                                                onClick={() =>
-                                                    setAvatar(option)
-                                                }
+                    "creator-avatar-option"
 
-                                                aria-label={
-                                                    `Choose avatar ${option}`
-                                                }
+                }
 
-                                            >
+                onClick={() =>
+                    setAvatar(option.symbol)
+                }
 
-                                                {
-                                                    option
-                                                }
+                aria-label={
+                    option.name
+                }
 
-                                            </button>
+            >
 
-                                        )
-                                    )
+                {
+                    option.symbol
+                }
 
-                                }
+            </button>
+
+        )
+
+    )
+
+}
 
                             </div>
 
                         </div>
+
+
+<div className="creator-symbol-preview">
+
+    {
+
+        (() => {
+
+            const selectedSymbol =
+                creatorSymbols.find(
+                    item =>
+                    item.symbol === avatar
+                );
+
+
+            if (!selectedSymbol)
+                return null;
+
+
+            return (
+
+                <>
+
+                    <div className="creator-symbol-large">
+
+                        {
+                            selectedSymbol.symbol
+                        }
+
+                    </div>
+
+
+                    <h3>
+
+                        {
+                            selectedSymbol.name
+                        }
+
+                    </h3>
+
+
+                    <p className="creator-symbol-meaning">
+
+                        {
+                            selectedSymbol.meaning
+                        }
+
+                    </p>
+
+
+                    <p className="creator-symbol-message">
+
+                        {
+                            selectedSymbol.message
+                        }
+
+                    </p>
+
+
+                </>
+
+            );
+
+
+        })()
+
+    }
+
+</div>
 
                     </aside>
 
@@ -1628,18 +1960,17 @@ export default function CreatorDashboard() {
 
                 </div>
 
-            </section>
+            </section>{
 
-
-
-
-            {/* ==========================================
+         /* ==========================================
                 YOUR BIRTH MATRIX™
             ========================================== */}
 
             <section className="living-card living-section creator-birth-matrix">
 
-                {/* ==========================================
+                {
+
+             /* ==========================================
                     HEADER
                 ========================================== */}
 
@@ -1677,7 +2008,9 @@ export default function CreatorDashboard() {
 
 
 
-                {/* ==========================================
+                {
+
+             /* ==========================================
                     PERMANENT IDENTITY LAYOUT
                 ========================================== */}
 
@@ -1776,7 +2109,9 @@ export default function CreatorDashboard() {
 
 
 
-                    {/* ==========================================
+                    {
+
+                 /* ==========================================
                         RIGHT — DATE + IDENTITY
                     ========================================== */}
 
@@ -1869,7 +2204,8 @@ export default function CreatorDashboard() {
 
 
 
-                        {/* ==========================================
+                        {
+                     /* ==========================================
                             CALCULATED IDENTITY
                         ========================================== */}
 
@@ -1958,7 +2294,9 @@ export default function CreatorDashboard() {
 
 
 
-                                    {/* ==========================================
+                                    {
+  
+                                 /* ==========================================
                                         TODAY'S MESSAGE
                                     ========================================== */}
 
@@ -1987,7 +2325,9 @@ export default function CreatorDashboard() {
 
 
 
-                                    {/* ==========================================
+                                    {
+
+                                 /* ==========================================
                                         TODAY'S REFLECTION
                                     ========================================== */}
 
@@ -2094,7 +2434,9 @@ export default function CreatorDashboard() {
 
 
 
-                                    {/* ==========================================
+                                    {
+
+                                 /* ==========================================
                                         CHANGE DATE
                                     ========================================== */}
 
@@ -2144,323 +2486,36 @@ export default function CreatorDashboard() {
 
             </section>
 
-            {/* ==========================================
-                CREATOR DASHBOARD SUMMARY
-            ========================================== */}
+            {
 
-            <div className="living-grid">
+/* ==========================================
+                
+CREATOR JOURNEY™
+========================================== */}
 
-                <section className="living-card">
 
-                    <h2>
+          <CreatorJourneyCard
 
-                        {
-                            t(
-                                "dashboard.creatorIdentitySummary"
-                            )
-                        }
+    creator={creator}
 
-                    </h2>
+    evolution={evolution}
 
+    creatorStage={translatedCreatorStage}
 
-                    <p>
+    worldState={worldState}
 
-                        {
-                            t(
-                                "dashboard.name"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-
-                            creator.identity?.name ||
-
-                            t(
-                                "dashboard.anonymousCreator"
-                            )
-
-                        }
-
-                    </p>
-
-
-                    <p>
-
-                        {
-                            t(
-                                "dashboard.archetypeSummary"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-
-                            translatedArchetype ||
-
-                            t(
-                                "dashboard.explorer"
-                            )
-
-                        }
-
-                    </p>
-
-
-                    {
-
-                        creator.identity?.description && (
-
-                            <p>
-
-                                {
-                                    t(
-                                        "dashboard.about"
-                                    )
-                                }:
-
-                                {" "}
-
-                                {
-                                    creator.identity.description
-                                }
-
-                            </p>
-
-                        )
-
-                    }
-
-                </section>
-
-
-
-                <section className="living-card">
-
-                    <h2>
-
-                        {
-                            t(
-                                "dashboard.creatorJourney"
-                            )
-                        }
-
-                    </h2>
-
-
-                    <p>
-
-                        {
-                            t(
-                                "dashboard.level"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-                            evolution?.level || 1
-                        }
-
-                    </p>
-
-
-                    <p>
-
-                        {
-                            t(
-                                "dashboard.experience"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-                            evolution?.experience || 0
-                        }
-
-                        {" "}
-
-                        {
-                            t(
-                                "dashboard.xp"
-                            )
-                        }
-
-                    </p>
-
-
-                    <p>
-
-                        {
-                            t(
-                                "dashboard.stage"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-
-                            translatedCreatorStage ||
-
-                            t(
-                                "creatorStages.beginning"
-                            )
-
-                        }
-
-                    </p>
-
-                </section>
-
-
-
-                <WorldBuilderEvolutionCard />
-
-
-
-                <section className="living-card">
-
-                    <h2>
-
-                        {
-                            t(
-                                "dashboard.livingWorldStatus"
-                            )
-                        }
-
-                    </h2>
-
-
-                    <p>
-
-                        {
-                            t(
-                                "dashboard.currentPortal"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-
-                            worldState.currentPortal ||
-
-                            "arrival"
-
-                        }
-
-                    </p>
-
-
-                    <p>
-
-                        {
-                            t(
-                                "dashboard.evolution"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-
-                            worldEvolution.stage ||
-
-                            "seed"
-
-                        }
-
-                    </p>
-
-
-                    <p>
-
-                        {
-                            t(
-                                "dashboard.decisions"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-
-                            worldDecision.choices?.length ||
-
-                            0
-
-                        }
-
-                    </p>
-
-
-                    <p>
-
-                        {
-                            t(
-                                "dashboard.governance"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-
-                            worldGovernance.decisions ||
-
-                            0
-
-                        }
-
-                        {" "}
-
-                        {
-                            t(
-                                "dashboard.evaluations"
-                            )
-                        }
-
-                    </p>
-
-
-                    <p>
-
-                        {
-                            t(
-                                "dashboard.actions"
-                            )
-                        }:
-
-                        {" "}
-
-                        {
-
-                            worldAction.executed ||
-
-                            0
-
-                        }
-
-                    </p>
-
-                </section>
-
-            </div>
-
+/>
 
 
             <WorldBuilderDomainCard />
 
 
+            
+
 
             {/* ==========================================
                 MY LIVING WORLDS
             ========================================== */}
-
             <section className="living-card living-section">
 
                 <h2>
@@ -2578,6 +2633,16 @@ export default function CreatorDashboard() {
     );
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
