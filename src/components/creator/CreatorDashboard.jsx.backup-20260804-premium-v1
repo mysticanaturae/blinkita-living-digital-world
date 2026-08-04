@@ -66,9 +66,6 @@ from "./LivingMemoryStatus";
 
 import CreatorIntelligenceCard
 from "./CreatorIntelligenceCard";
-
-import CreatorAnalysisCard from "./CreatorAnalysisCard";
-
 import CreatorEssenceCard
 from "./CreatorEssenceCard";
 
@@ -1511,7 +1508,7 @@ const avatarOptions = creatorSymbols;
 
         <div className="my-living-premium-grid my-living-analysis-grid">
 
-            {/* BLINKITA ANALYSIS™ */}
+            {/* CREATOR ANALYSIS */}
 
             <article className="my-living-premium-card my-living-analysis-primary">
 
@@ -1520,7 +1517,7 @@ const avatarOptions = creatorSymbols;
                 </div>
 
                 <div className="my-living-card-header">
-                    <span>BLINKITA ANALYSIS™</span>
+                    <span>CREATOR ANALYSIS</span>
                     <small>01</small>
                 </div>
 
@@ -1529,12 +1526,16 @@ const avatarOptions = creatorSymbols;
                 </h3>
 
                 <p>
-                    A living synthesis of what your 9 Living Portals reveal about the Creator behind your creation.
+                    The first reflection of who you are
+                    and what is emerging through your
+                    Living Portal journey.
                 </p>
 
                 <div className="my-living-analysis-body">
 
-                    <CreatorAnalysisCard />
+                    <CreatorEssenceCard
+                        creator={creator}
+                    />
 
                 </div>
 
@@ -2500,12 +2501,6 @@ const avatarOptions = creatorSymbols;
     );
 
 }
-
-
-
-
-
-
 
 
 

@@ -66,9 +66,6 @@ from "./LivingMemoryStatus";
 
 import CreatorIntelligenceCard
 from "./CreatorIntelligenceCard";
-
-import CreatorAnalysisCard from "./CreatorAnalysisCard";
-
 import CreatorEssenceCard
 from "./CreatorEssenceCard";
 
@@ -1469,687 +1466,16 @@ const avatarOptions = creatorSymbols;
     06 WORLDS
 ========================================== */}
 
+<div className="my-living-content-grid">
 
 
-<div className="my-living-layout">
-
-    {/* ==================================================
-        01 · MY LIVING ANALYSIS
-    ================================================== */}
+    {/* ======================================
+        01 · ANALYSIS
+    ====================================== */}
 
     <section
         id="living-analysis"
-        className="my-living-section my-living-section-analysis"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ✦
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    01
-                </span>
-
-                <span className="my-living-section-label">
-                    MY LIVING ANALYSIS
-                </span>
-
-                <p>
-                    See what your creation is revealing.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ✧
-            </div>
-
-        </div>
-
-
-        <div className="my-living-premium-grid my-living-analysis-grid">
-
-            {/* BLINKITA ANALYSIS™ */}
-
-            <article className="my-living-premium-card my-living-analysis-primary">
-
-                <div className="my-living-card-symbol">
-                    ✦
-                </div>
-
-                <div className="my-living-card-header">
-                    <span>BLINKITA ANALYSIS™</span>
-                    <small>01</small>
-                </div>
-
-                <h3>
-                    Your Living Analysis
-                </h3>
-
-                <p>
-                    A living synthesis of what your 9 Living Portals reveal about the Creator behind your creation.
-                </p>
-
-                <div className="my-living-analysis-body">
-
-                    <CreatorAnalysisCard />
-
-                </div>
-
-            </article>
-
-
-            {/* DEEPENING ANALYSIS */}
-
-            <article className="my-living-premium-card my-living-analysis-secondary">
-
-                <div className="my-living-card-symbol">
-                    ◇
-                </div>
-
-                <div className="my-living-card-header">
-                    <span>DEEPENING ANALYSIS</span>
-                    <small>02</small>
-                </div>
-
-                <h3>
-                    Go Deeper
-                </h3>
-
-                <p>
-                    Add anything that has emerged since
-                    your first Living Portal reflection.
-                </p>
-
-                <textarea
-                    className="my-living-reflection-input"
-                    placeholder="What else would you like to reveal, add or explore?"
-                    rows="8"
-                />
-
-                <button
-                    type="button"
-                    className="my-living-premium-button"
-                >
-                    DEEPEN MY ANALYSIS
-                </button>
-
-            </article>
-
-
-            {/* WORLD ANALYSIS */}
-
-            <article className="my-living-premium-card my-living-analysis-world">
-
-                <div className="my-living-card-symbol">
-                    ◈
-                </div>
-
-                <div className="my-living-card-header">
-                    <span>WORLD ANALYSIS</span>
-                    <small>03</small>
-                </div>
-
-                <h3>
-                    Analyze a Living World
-                </h3>
-
-                <p>
-                    Choose one of your Living Worlds
-                    and explore what is alive within it.
-                </p>
-
-                <div className="my-living-world-selector">
-
-                    <div className="my-living-placeholder-visual">
-                        <span>◉</span>
-                        <small>
-                            YOUR LIVING WORLD
-                        </small>
-                    </div>
-
-                    <select
-                        className="my-living-premium-select"
-                        defaultValue=""
-                    >
-                        <option value="" disabled>
-                            Choose a Living World
-                        </option>
-
-                        {worlds?.map((world, index) => (
-                            <option
-                                key={world?.id || index}
-                                value={world?.id || index}
-                            >
-                                {
-                                    world?.name ||
-                                    world?.title ||
-                                    `Living World ${index + 1}`
-                                }
-                            </option>
-                        ))}
-
-                    </select>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-
-    {/* ==================================================
-        02 · MY LIVING IDENTITY
-    ================================================== */}
-
-    <section
-        id="living-identity"
-        className="my-living-section my-living-section-identity"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ◎
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    02
-                </span>
-
-                <span className="my-living-section-label">
-                    MY LIVING IDENTITY
-                </span>
-
-                <p>
-                    Meet the Creator behind the creation.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ✧
-            </div>
-
-        </div>
-
-
-        <div className="my-living-premium-grid my-living-identity-grid">
-
-            {/* YOUR PORTRAIT */}
-
-            <article className="my-living-premium-card my-living-portrait-card">
-
-                <div className="my-living-card-header">
-                    <span>YOUR PORTRAIT</span>
-                    <small>01</small>
-                </div>
-
-                <div className="my-living-portrait-inner">
-
-                    <CreatorIdentityCard
-                        creator={creator}
-                        t={t}
-                        identityLabels={identityLabels}
-                        photo={photo}
-                        avatar={avatar}
-                        setAvatar={setAvatar}
-                        avatarOptions={avatarOptions}
-                        creatorSymbols={creatorSymbols}
-                        fileInputRef={fileInputRef}
-                        handlePhotoChange={handlePhotoChange}
-                        handleRemovePhoto={handleRemovePhoto}
-                        name={name}
-                        setName={setName}
-                        archetype={archetype}
-                        setArchetype={setArchetype}
-                        description={description}
-                        setDescription={setDescription}
-                        saved={saved}
-                        handleSaveIdentity={handleSaveIdentity}
-                    />
-
-                </div>
-
-            </article>
-
-
-            {/* IDENTITY EVOLUTION + ESSENCE */}
-
-            <article className="my-living-premium-card my-living-evolution-card">
-
-                <div className="my-living-card-header">
-                    <span>MY IDENTITY EVOLUTION</span>
-                    <small>02</small>
-                </div>
-
-                <div className="my-living-inner-module">
-
-                    <div className="my-living-inner-module-title">
-                        <span>✦</span>
-                        My Identity Evolution
-                    </div>
-
-                    <CreatorEvolutionTimeline
-                        creator={creator}
-                        evolution={evolution}
-                    />
-
-                </div>
-
-
-                <div className="my-living-inner-module my-living-essence-module">
-
-                    <div className="my-living-inner-module-title">
-                        <span>◇</span>
-                        My Living Essence
-                    </div>
-
-                    <CreatorEssenceCard
-                        creator={creator}
-                    />
-
-                </div>
-
-            </article>
-
-
-            {/* ACHIEVEMENTS */}
-
-            <article className="my-living-premium-card my-living-achievements-card">
-
-                <div className="my-living-card-header">
-                    <span>MY ACHIEVEMENTS</span>
-                    <small>03</small>
-                </div>
-
-                <div className="my-living-achievements-visual">
-                    <div className="my-living-achievement-orbit">
-                        ✦
-                    </div>
-
-                    <span>
-                        YOUR CREATION IS BECOMING REAL
-                    </span>
-                </div>
-
-                <div className="my-living-achievements-content">
-
-                    <h3>
-                        {
-                            t(
-                                "dashboard.achievements"
-                            )
-                        }
-                    </h3>
-
-                    <p>
-                        {
-                            t(
-                                "dashboard.achievementsDescription"
-                            )
-                        }
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-
-    {/* ==================================================
-        03 · MY LIVING TIME
-    ================================================== */}
-
-    <section
-        id="living-time"
-        className="my-living-section my-living-section-time"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ◌
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    03
-                </span>
-
-                <span className="my-living-section-label">
-                    MY LIVING TIME
-                </span>
-
-                <p>
-                    Your personal journey through Living Time.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ∞
-            </div>
-
-        </div>
-
-
-        <div className="my-living-premium-grid my-living-time-grid">
-
-            {/* BIRTH MATRIX */}
-
-            <article className="my-living-premium-card my-living-birth-card">
-
-                <div className="my-living-card-header">
-                    <span>YOUR BIRTH MATRIX™</span>
-                    <small>01</small>
-                </div>
-
-                <div className="my-living-time-modules">
-
-                    <div className="my-living-time-module">
-                        <span className="my-living-module-symbol">
-                            ☼
-                        </span>
-
-                        <strong>
-                            Birth Tzolk’in
-                        </strong>
-
-                        <small>
-                            Your birth energy
-                        </small>
-                    </div>
-
-                    <div className="my-living-time-module">
-                        <span className="my-living-module-symbol">
-                            ◌
-                        </span>
-
-                        <strong>
-                            Daily Tzolk’in
-                        </strong>
-
-                        <small>
-                            Today’s energy
-                        </small>
-                    </div>
-
-                    <div className="my-living-time-module">
-                        <span className="my-living-module-symbol">
-                            ✧
-                        </span>
-
-                        <strong>
-                            Personal Daily Energy
-                        </strong>
-
-                        <small>
-                            Birth + today
-                        </small>
-                    </div>
-
-                </div>
-
-                <CreatorBirthMatrix
-                    birthMatrix={birthMatrix}
-                    birthDate={birthDate}
-                    setBirthDate={setBirthDate}
-                    handleCalculateBirthMatrix={
-                        handleCalculateBirthMatrix
-                    }
-                    isSlovenian={isSlovenian}
-                    getSignImage={getSignImage}
-                />
-
-            </article>
-
-
-            {/* ORAKELJ AI */}
-
-            <article className="my-living-premium-card my-living-orakelj-card">
-
-                <div className="my-living-card-header">
-                    <span>BLINKITA ORAKELJ AI</span>
-                    <small>02</small>
-                </div>
-
-                <div className="my-living-orakelj-visual">
-                    <div className="my-living-orakelj-symbol">
-                        ◉
-                    </div>
-
-                    <span>
-                        LIVING GUIDANCE
-                    </span>
-
-                    <small>
-                        Your personal portal of reflection.
-                    </small>
-                </div>
-
-                <div className="my-living-orakelj-space">
-                    <span>
-                        Your Orakelj AI space
-                    </span>
-                </div>
-
-            </article>
-
-
-            {/* TIME TRAVEL HISTORY */}
-
-            <article className="my-living-premium-card my-living-history-card">
-
-                <div className="my-living-card-header">
-                    <span>YOUR TIME TRAVEL HISTORY™</span>
-                    <small>03</small>
-                </div>
-
-                <p className="my-living-card-intro">
-                    Your living record of what you created,
-                    discovered, reflected upon and moved
-                    through — together with the Tzolk’in energy
-                    that accompanied it.
-                </p>
-
-                <div className="my-living-history-space">
-
-                    <div className="my-living-history-empty">
-                        <span>◌</span>
-                        <strong>
-                            Your journey will appear here.
-                        </strong>
-                        <small>
-                            Creation · Reflection · Movement · Time
-                        </small>
-                    </div>
-
-                </div>
-
-                <textarea
-                    className="my-living-history-input"
-                    placeholder="Add something from your journey through time..."
-                    rows="4"
-                />
-
-                <button
-                    type="button"
-                    className="my-living-premium-button"
-                >
-                    ADD TO MY HISTORY
-                </button>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-
-    {/* ==================================================
-        04 · LIVING INTELLIGENCE
-    ================================================== */}
-
-    <section
-        id="living-intelligence"
-        className="my-living-section my-living-section-intelligence"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ✧
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    04
-                </span>
-
-                <span className="my-living-section-label">
-                    LIVING INTELLIGENCE
-                </span>
-
-                <p>
-                    Think, reflect and evolve with your living intelligence.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ◇
-            </div>
-
-        </div>
-
-        <div className="my-living-single-module">
-
-            <CreatorIntelligenceCard
-                creator={creator}
-            />
-
-        </div>
-
-    </section>
-
-
-
-    {/* ==================================================
-        05 · MY LIVING CREATION PATH
-    ================================================== */}
-
-    <section
-        id="living-creation-path"
-        className="my-living-section my-living-section-creation"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ➜
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    05
-                </span>
-
-                <span className="my-living-section-label">
-                    MY LIVING CREATION PATH
-                </span>
-
-                <p>
-                    See where your creation is moving now.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ✦
-            </div>
-
-        </div>
-
-        <div className="my-living-premium-grid my-living-creation-grid">
-
-            <div className="my-living-single-module">
-
-                <CreatorJourneyCard
-                    creator={creator}
-                    evolution={evolution}
-                    creatorStage={translatedCreatorStage}
-                    worldState={worldState}
-                />
-
-            </div>
-
-            <div className="my-living-single-module">
-
-                <WorldBuilderDomainCard />
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    {/* ==================================================
-        06 · CHOOSE YOUR LIVING PATH
-    ================================================== */}
-
-    <section
-        id="living-path"
-        className="my-living-section my-living-section-path"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ⟡
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    06
-                </span>
-
-                <span className="my-living-section-label">
-                    CHOOSE YOUR LIVING PATH
-                </span>
-
-                <p>
-                    Choose where your creation wants to go next.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ∞
-            </div>
-
-        </div>
-
-    </section>
-
-</div>
-<div className="my-living-layout">
-
-    {/* ==========================================
-        ROW 01 · ANALYSIS
-    ========================================== */}
-
-    <section
-        id="living-analysis"
-        className="my-living-row my-living-row-analysis"
+        className="my-living-space my-living-space-analysis"
     >
 
         <div className="my-living-space-header">
@@ -2172,200 +1498,190 @@ const avatarOptions = creatorSymbols;
 
         </div>
 
-        <div className="my-living-analysis-content">
 
-            <CreatorEssenceCard
-                creator={creator}
-            />
-
-        </div>
+        <CreatorEssenceCard
+            creator={creator}
+        />
 
     </section>
 
 
-    {/* ==========================================
-        ROW 02 · IDENTITY / TIME / ACHIEVEMENTS
-    ========================================== */}
 
-    <div className="my-living-row my-living-row-triad">
+    {/* ======================================
+        02 · IDENTITY
+    ====================================== */}
 
+    <section
+        id="living-identity"
+        className="my-living-space my-living-space-identity"
+    >
 
-        <section
-            id="living-identity"
-            className="my-living-space my-living-space-identity"
-        >
+        <div className="my-living-space-header">
 
-            <div className="my-living-space-header">
+            <span className="my-living-space-number">
+                02
+            </span>
 
-                <span className="my-living-space-number">
-                    02
+            <div>
+
+                <span className="my-living-space-label">
+                    IDENTITY
                 </span>
-
-                <div>
-
-                    <span className="my-living-space-label">
-                        IDENTITY
-                    </span>
-
-                    <p>
-                        Know the Creator behind the creation.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <CreatorIdentityCard
-
-                creator={creator}
-
-                t={t}
-
-                identityLabels={identityLabels}
-
-                photo={photo}
-                avatar={avatar}
-                setAvatar={setAvatar}
-
-                avatarOptions={avatarOptions}
-                creatorSymbols={creatorSymbols}
-
-                fileInputRef={fileInputRef}
-
-                handlePhotoChange={handlePhotoChange}
-                handleRemovePhoto={handleRemovePhoto}
-
-                name={name}
-                setName={setName}
-
-                archetype={archetype}
-                setArchetype={setArchetype}
-
-                description={description}
-                setDescription={setDescription}
-
-                saved={saved}
-                handleSaveIdentity={handleSaveIdentity}
-
-            />
-
-            <CreatorBirthMatrix
-
-                birthMatrix={birthMatrix}
-
-                birthDate={birthDate}
-                setBirthDate={setBirthDate}
-
-                handleCalculateBirthMatrix={
-                    handleCalculateBirthMatrix
-                }
-
-                isSlovenian={isSlovenian}
-
-                getSignImage={getSignImage}
-
-            />
-
-        </section>
-
-
-        <section
-            id="living-time"
-            className="my-living-space my-living-space-time"
-        >
-
-            <div className="my-living-space-header">
-
-                <span className="my-living-space-number">
-                    03
-                </span>
-
-                <div>
-
-                    <span className="my-living-space-label">
-                        LIVING TIME
-                    </span>
-
-                    <p>
-                        Meet yourself through Living Time.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <CreatorEvolutionTimeline
-
-                creator={creator}
-
-                evolution={evolution}
-
-            />
-
-        </section>
-
-
-        <section
-            id="living-achievements"
-            className="my-living-space my-living-space-achievements"
-        >
-
-            <div className="my-living-space-header">
-
-                <span className="my-living-space-number">
-                    04
-                </span>
-
-                <div>
-
-                    <span className="my-living-space-label">
-                        ACHIEVEMENTS
-                    </span>
-
-                    <p>
-                        See what is already becoming real.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div className="my-living-achievements-content">
-
-                <h2>
-
-                    {
-                        t(
-                            "dashboard.achievements"
-                        )
-                    }
-
-                </h2>
 
                 <p>
-
-                    {
-                        t(
-                            "dashboard.achievementsDescription"
-                        )
-                    }
-
+                    Know the Creator behind the creation.
                 </p>
 
             </div>
 
-        </section>
-
-    </div>
+        </div>
 
 
-    {/* ==========================================
-        ROW 03 · LIVING INTELLIGENCE
-    ========================================== */}
+        <CreatorIdentityCard
+
+            creator={creator}
+
+            t={t}
+
+            identityLabels={identityLabels}
+
+            photo={photo}
+            avatar={avatar}
+            setAvatar={setAvatar}
+
+            avatarOptions={avatarOptions}
+            creatorSymbols={creatorSymbols}
+
+            fileInputRef={fileInputRef}
+
+            handlePhotoChange={handlePhotoChange}
+            handleRemovePhoto={handleRemovePhoto}
+
+            name={name}
+            setName={setName}
+
+            archetype={archetype}
+            setArchetype={setArchetype}
+
+            description={description}
+            setDescription={setDescription}
+
+            saved={saved}
+            handleSaveIdentity={handleSaveIdentity}
+
+        />
+
+
+        <CreatorBirthMatrix
+
+            birthMatrix={birthMatrix}
+
+            birthDate={birthDate}
+            setBirthDate={setBirthDate}
+
+            handleCalculateBirthMatrix={
+                handleCalculateBirthMatrix
+            }
+
+            isSlovenian={isSlovenian}
+
+            getSignImage={getSignImage}
+
+        />
+
+    </section>
+
+
+
+    {/* ======================================
+        03 · TIME
+    ====================================== */}
+
+    <section
+        id="living-time"
+        className="my-living-space my-living-space-time"
+    >
+
+        <div className="my-living-space-header">
+
+            <span className="my-living-space-number">
+                03
+            </span>
+
+            <div>
+
+                <span className="my-living-space-label">
+                    TIME
+                </span>
+
+                <p>
+                    Meet yourself through Living Time.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <CreatorEvolutionTimeline
+
+            creator={creator}
+
+            evolution={evolution}
+
+        />
+
+    </section>
+
+
+
+    {/* ======================================
+        04 · INTELLIGENCE
+    ====================================== */}
 
     <section
         id="living-intelligence"
-        className="my-living-row my-living-row-intelligence"
+        className="my-living-space my-living-space-intelligence"
+    >
+
+        <div className="my-living-space-header">
+
+            <span className="my-living-space-number">
+                04
+            </span>
+
+            <div>
+
+                <span className="my-living-space-label">
+                    INTELLIGENCE
+                </span>
+
+                <p>
+                    Think, reflect and evolve with your intelligence.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <CreatorIntelligenceCard
+
+            creator={creator}
+
+        />
+
+    </section>
+
+
+
+    {/* ======================================
+        05 · CREATION PATH
+    ====================================== */}
+
+    <section
+        id="living-creation-path"
+        className="my-living-space my-living-space-path"
     >
 
         <div className="my-living-space-header">
@@ -2377,35 +1693,44 @@ const avatarOptions = creatorSymbols;
             <div>
 
                 <span className="my-living-space-label">
-                    LIVING INTELLIGENCE
+                    CREATION PATH
                 </span>
 
                 <p>
-                    Think, reflect and evolve with your living intelligence.
+                    Choose where your creation wants to go.
                 </p>
 
             </div>
 
         </div>
 
-        <div className="my-living-intelligence-content">
 
-            <CreatorIntelligenceCard
-                creator={creator}
-            />
+        <CreatorJourneyCard
 
-        </div>
+            creator={creator}
+
+            evolution={evolution}
+
+            creatorStage={translatedCreatorStage}
+
+            worldState={worldState}
+
+        />
+
+
+        <WorldBuilderDomainCard />
 
     </section>
 
 
-    {/* ==========================================
-        ROW 04 · MY LIVING CREATION PATH
-    ========================================== */}
+
+    {/* ======================================
+        06 · WORLDS
+    ====================================== */}
 
     <section
-        id="living-creation-path"
-        className="my-living-row my-living-row-creation"
+        id="living-worlds"
+        className="my-living-space my-living-space-worlds"
     >
 
         <div className="my-living-space-header">
@@ -2417,57 +1742,7 @@ const avatarOptions = creatorSymbols;
             <div>
 
                 <span className="my-living-space-label">
-                    MY LIVING CREATION PATH
-                </span>
-
-                <p>
-                    See where your creation is moving now.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div className="my-living-creation-content">
-
-            <CreatorJourneyCard
-
-                creator={creator}
-
-                evolution={evolution}
-
-                creatorStage={translatedCreatorStage}
-
-                worldState={worldState}
-
-            />
-
-            <WorldBuilderDomainCard />
-
-        </div>
-
-    </section>
-
-
-    {/* ==========================================
-        ROW 05 · LIVING WORLDS
-    ========================================== */}
-
-    <section
-        id="living-worlds"
-        className="my-living-row my-living-row-worlds"
-    >
-
-        <div className="my-living-space-header">
-
-            <span className="my-living-space-number">
-                07
-            </span>
-
-            <div>
-
-                <span className="my-living-space-label">
-                    LIVING WORLDS
+                    WORLDS
                 </span>
 
                 <p>
@@ -2478,36 +1753,54 @@ const avatarOptions = creatorSymbols;
 
         </div>
 
-        <div className="my-living-worlds-content">
 
-            <CreatorLivingWorlds
+        <CreatorLivingWorlds
 
-                worlds={worlds}
+            worlds={worlds}
 
-                t={t}
+            t={t}
 
-            />
-
-        </div>
+        />
 
     </section>
 
+
 </div>
 
+{/* ==========================================
+                ACHIEVEMENTS
+            ========================================== */}
+
+            <section className="living-card living-section">
+
+                <h2>
+
+                    {
+                        t(
+                            "dashboard.achievements"
+                        )
+                    }
+
+                </h2>
+
+
+                <p>
+
+                    {
+                        t(
+                            "dashboard.achievementsDescription"
+                        )
+                    }
+
+                </p>
+
+            </section>
 
         </section>
 
     );
 
 }
-
-
-
-
-
-
-
-
 
 
 

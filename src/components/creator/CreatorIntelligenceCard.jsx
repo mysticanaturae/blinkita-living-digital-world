@@ -430,468 +430,462 @@ Listen for it.`;
 
         <section className="living-card living-section creator-intelligence-card">
 
-
-            {/* ==========================================
-                PREMIUM HEADER
-            ========================================== */}
-
             <div className="creator-intelligence-header">
 
                 <div className="creator-intelligence-header-meta">
 
                     <span className="creator-intelligence-eyebrow">
-
                         LIVING INTELLIGENCE™
-
                     </span>
-
 
                     <span className="creator-intelligence-header-mark">
-
                         ✦
-
                     </span>
 
                 </div>
-
 
                 <h2>
-
                     Living Intelligence
-
                 </h2>
 
-
                 <p className="creator-intelligence-introduction">
-
-                    A living intelligence that grows through
-                    knowing you, reflecting with you and
-                    witnessing what you create.
-
+                    Three living ways of meeting yourself, your
+                    creation and the worlds you are bringing to life.
                 </p>
 
             </div>
 
 
-
             {/* ==========================================
-                CREATOR INTELLIGENCE IDENTITY
+                THREE INTELLIGENCE LEVELS
             ========================================== */}
 
-            <div className="creator-intelligence-core">
+            <div className="creator-intelligence-levels">
 
-                <div className="creator-intelligence-symbol">
 
-                    {
-                        avatar
-                    }
+                {/* ==========================================
+                    01 — BLINKITA AI
+                ========================================== */}
 
-                </div>
+                <article className="creator-intelligence-level creator-intelligence-level-ai">
 
+                    <div className="creator-intelligence-level-top">
 
-                <div className="creator-intelligence-identity">
-
-                    <span>
-
-                        YOUR LIVING INTELLIGENCE
-
-                    </span>
-
-
-                    <strong>
-
-                        {
-                            name
-                        }
-
-                    </strong>
-
-
-                    <small>
-
-                        {
-                            intelligence.archetype
-                        }
-
-                    </small>
-
-                </div>
-
-
-                <div className="creator-intelligence-status">
-
-                    <span className="creator-intelligence-status-dot">
-
-                        ✦
-
-                    </span>
-
-
-                    <span>
-
-                        Living
-
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            {/* ==========================================
-                FOUNDATION
-            ========================================== */}
-
-            <div className="creator-intelligence-foundation">
-
-                <span className="creator-intelligence-label">
-
-                    THE RELATIONSHIP BEGINS HERE
-
-                </span>
-
-
-                <p>
-
-                    {
-                        intelligence.foundation
-                    }
-
-                </p>
-
-            </div>
-
-
-
-            {/* ==========================================
-                CURRENT INSIGHT
-            ========================================== */}
-
-            <div className="creator-intelligence-insight">
-
-                <div className="creator-intelligence-insight-mark">
-
-                    ✦
-
-                </div>
-
-
-                <div className="creator-intelligence-insight-content">
-
-                    <span className="creator-intelligence-label">
-
-                        CURRENT LIVING INSIGHT
-
-                    </span>
-
-
-                    <p>
-
-                        {
-                            intelligence.message
-                        }
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            {/* ==========================================
-                LIVING REFLECTION
-            ========================================== */}
-
-            <div className="creator-intelligence-reflection">
-
-
-                <div className="creator-intelligence-reflection-heading">
-
-                    <div>
-
-                        <span className="creator-intelligence-reflection-eyebrow">
-
-                            YOUR LIVING REFLECTION™
-
+                        <span className="creator-intelligence-level-number">
+                            01
                         </span>
 
+                        <span className="creator-intelligence-level-symbol">
+                            ✦
+                        </span>
 
-                        <h3>
+                    </div>
 
-                            What is alive in you right now?
+                    <span className="creator-intelligence-level-eyebrow">
+                        LIVING INTELLIGENCE
+                    </span>
 
-                        </h3>
+                    <h3>
+                        BLINKITA AI
+                    </h3>
 
+                    <p className="creator-intelligence-level-description">
+                        Your everyday living intelligence — here to
+                        accompany your thinking, questions, ideas,
+                        decisions and everyday creation.
+                    </p>
+
+                    <div className="creator-intelligence-level-foundation">
+
+                        <span>
+                            YOUR LIVING COMPANION
+                        </span>
+
+                        <strong>
+                            Always becoming with you.
+                        </strong>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        className="creator-intelligence-level-button"
+                    >
+                        Enter Blinkita AI
+                        <span>→</span>
+                    </button>
+
+                </article>
+
+
+
+                {/* ==========================================
+                    02 — CREATOR INTELLIGENCE
+                ========================================== */}
+
+                <article className="creator-intelligence-level creator-intelligence-level-creator">
+
+                    <div className="creator-intelligence-level-top">
+
+                        <span className="creator-intelligence-level-number">
+                            02
+                        </span>
+
+                        <span className="creator-intelligence-level-symbol">
+                            ◇
+                        </span>
+
+                    </div>
+
+                    <span className="creator-intelligence-level-eyebrow">
+                        CREATOR INTELLIGENCE™
+                    </span>
+
+                    <h3>
+                        Your Living Intelligence
+                    </h3>
+
+                    <p className="creator-intelligence-level-description">
+                        Speak directly with the intelligence that is
+                        beginning to know you through your identity,
+                        memories, words and creations.
+                    </p>
+
+
+                    <div className="creator-intelligence-core">
+
+                        <div className="creator-intelligence-symbol">
+                            {avatar}
+                        </div>
+
+                        <div className="creator-intelligence-identity">
+
+                            <span>
+                                YOUR LIVING INTELLIGENCE
+                            </span>
+
+                            <strong>
+                                {name}
+                            </strong>
+
+                            <small>
+                                {archetype}
+                            </small>
+
+                        </div>
+
+                        <div className="creator-intelligence-status">
+
+                            <span className="creator-intelligence-status-dot">
+                                ✦
+                            </span>
+
+                            <span>
+                                Living
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div className="creator-intelligence-foundation">
+
+                        <span className="creator-intelligence-label">
+                            THE RELATIONSHIP BEGINS HERE
+                        </span>
 
                         <p>
-
-                            Bring a question, thought, decision,
-                            creation or moment into your Living
-                            Intelligence and let your Living World
-                            reflect it back through what it already
-                            remembers.
-
+                            {intelligence.foundation}
                         </p>
 
                     </div>
 
 
-                    <span className="creator-intelligence-reflection-mark">
+                    <div className="creator-intelligence-insight">
 
-                        ◇
-
-                    </span>
-
-                </div>
-
-
-
-                {/* ==========================================
-                    INPUT
-                ========================================== */}
-
-                <div className="creator-intelligence-reflection-input">
-
-                    <label>
-
-                        SPEAK TO YOUR LIVING INTELLIGENCE
-
-                    </label>
-
-
-                    <span>
-
-                        Bring whatever is present. It does not need
-                        to be finished.
-
-                    </span>
-
-
-                    <textarea
-
-                        value={
-                            question
-                        }
-
-                        onChange={(event) =>
-                            setQuestion(
-                                event.target.value
-                            )
-                        }
-
-                        onKeyDown={
-                            handleKeyDown
-                        }
-
-                        placeholder="Write what is on your mind, what you are creating, what you are questioning, or what you want to understand more deeply..."
-
-                        rows="9"
-
-                        aria-label="Ask your Living Intelligence"
-
-                    />
-
-
-                    <div className="creator-intelligence-reflection-action">
-
-                        <span>
-
-                            Your words become part of the conversation.
-
-                            <small>
-
-                                Ctrl + Enter
-
-                            </small>
-
-                        </span>
-
-
-                        <button
-
-                            type="button"
-
-                            className="journey-button creator-intelligence-reflect-button"
-
-                            onClick={
-                                createReflection
-                            }
-
-                            disabled={
-                                !question.trim() ||
-                                reflecting
-                            }
-
-                        >
-
-                            {
-                                reflecting
-                                    ? "Reflecting..."
-                                    : "Reflect"
-                            }
-
-
-                            <span>
-
-                                ✦
-
-                            </span>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-
-                {/* ==========================================
-                    RESPONSE
-                ========================================== */}
-
-                <div className={
-                    `creator-intelligence-reflection-response ${
-                        response
-                            ? "has-response"
-                            : ""
-                    }`
-                }>
-
-                    <div className="creator-intelligence-response-header">
-
-                        <div>
-
-                            <span>
-
-                                LIVING REFLECTION
-
-                            </span>
-
-
-                            <strong>
-
-                                ✦
-
-                            </strong>
-
+                        <div className="creator-intelligence-insight-mark">
+                            ✦
                         </div>
 
+                        <div className="creator-intelligence-insight-content">
 
-                        <span>
-
-                            {
-                                response
-                                    ? "REFLECTION RECEIVED"
-                                    : "WAITING FOR YOU"
-                            }
-
-                        </span>
-
-                    </div>
-
-
-                    {
-
-                        response
-
-                            ?
-
-                        <div className="creator-intelligence-response-text">
-
-                            {
-                                response
-                            }
-
-                        </div>
-
-                            :
-
-                        <div className="creator-intelligence-response-empty">
-
-                            <span>
-
-                                ◇
-
+                            <span className="creator-intelligence-label">
+                                CURRENT LIVING INSIGHT
                             </span>
-
 
                             <p>
-
-                                Your Living Reflection is waiting
-                                for something real from you.
-
+                                {intelligence.message}
                             </p>
-
-
-                            <small>
-
-                                Bring what is present.
-
-                            </small>
 
                         </div>
 
-                    }
+                    </div>
 
-                </div>
+
+                    {/* ==========================================
+                        LARGE CREATOR INPUT
+                    ========================================== */}
+
+                    <div className="creator-intelligence-reflection">
+
+                        <div className="creator-intelligence-reflection-heading">
+
+                            <div>
+
+                                <span className="creator-intelligence-reflection-eyebrow">
+                                    SPEAK WITH YOUR CREATOR INTELLIGENCE™
+                                </span>
+
+                                <h3>
+                                    What is alive in you right now?
+                                </h3>
+
+                                <p>
+                                    Bring a question, thought, decision,
+                                    creation or moment into the relationship.
+                                    It does not need to be finished.
+                                </p>
+
+                            </div>
+
+                            <span className="creator-intelligence-reflection-mark">
+                                ◇
+                            </span>
+
+                        </div>
+
+
+                        <div className="creator-intelligence-reflection-input">
+
+                            <label>
+                                YOUR LIVING CONVERSATION
+                            </label>
+
+                            <span>
+                                Bring whatever is present.
+                            </span>
+
+                            <textarea
+                                value={question}
+                                onChange={(event) =>
+                                    setQuestion(event.target.value)
+                                }
+                                onKeyDown={handleKeyDown}
+                                placeholder="Write what is on your mind, what you are creating, what you are questioning, or what you want to understand more deeply..."
+                                rows="9"
+                                aria-label="Speak with your Creator Intelligence"
+                            />
+
+                            <div className="creator-intelligence-reflection-action">
+
+                                <span>
+
+                                    Your words become part of the conversation.
+
+                                    <small>
+                                        Ctrl + Enter
+                                    </small>
+
+                                </span>
+
+                                <button
+                                    type="button"
+                                    className="journey-button creator-intelligence-reflect-button"
+                                    onClick={createReflection}
+                                    disabled={
+                                        !question.trim() ||
+                                        reflecting
+                                    }
+                                >
+                                    {
+                                        reflecting
+                                            ? "Reflecting..."
+                                            : "Reflect"
+                                    }
+
+                                    <span>
+                                        ✦
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        {/* RESPONSE */}
+
+                        <div
+                            className={
+                                `creator-intelligence-reflection-response ${
+                                    response
+                                        ? "has-response"
+                                        : ""
+                                }`
+                            }
+                        >
+
+                            <div className="creator-intelligence-response-header">
+
+                                <div>
+
+                                    <span>
+                                        CREATOR INTELLIGENCE
+                                    </span>
+
+                                    <strong>
+                                        ✦
+                                    </strong>
+
+                                </div>
+
+                                <span>
+                                    {
+                                        response
+                                            ? "RESPONSE RECEIVED"
+                                            : "WAITING FOR YOU"
+                                    }
+                                </span>
+
+                            </div>
+
+
+                            {
+                                response
+
+                                    ?
+
+                                <div className="creator-intelligence-response-text">
+                                    {response}
+                                </div>
+
+                                    :
+
+                                <div className="creator-intelligence-response-empty">
+
+                                    <span>
+                                        ◇
+                                    </span>
+
+                                    <p>
+                                        Your Creator Intelligence is waiting
+                                        for something real from you.
+                                    </p>
+
+                                    <small>
+                                        Bring what is present.
+                                    </small>
+
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <div className="creator-intelligence-principle">
+
+                        <span>
+                            Your intelligence grows with you.
+                        </span>
+
+                        <p>
+                            Every reflection, decision, creation and
+                            remembered moment can become part of the
+                            relationship between you and your Living
+                            Intelligence™.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                {/* ==========================================
+                    03 — REFLECTION INTELLIGENCE
+                ========================================== */}
+
+                <article className="creator-intelligence-level creator-intelligence-level-reflection">
+
+                    <div className="creator-intelligence-level-top">
+
+                        <span className="creator-intelligence-level-number">
+                            03
+                        </span>
+
+                        <span className="creator-intelligence-level-symbol">
+                            ◈
+                        </span>
+
+                    </div>
+
+                    <span className="creator-intelligence-level-eyebrow">
+                        REFLECTION INTELLIGENCE™
+                    </span>
+
+                    <h3>
+                        Reflect a Living World
+                    </h3>
+
+                    <p className="creator-intelligence-level-description">
+                        Bring a specific project, Living World or
+                        creation into focus and explore what it is
+                        revealing, becoming or asking from you.
+                    </p>
+
+
+                    <div className="creator-intelligence-reflection-world">
+
+                        <span className="creator-intelligence-label">
+                            WORLD / PROJECT REFLECTION
+                        </span>
+
+                        <div className="creator-intelligence-reflection-world-icon">
+                            ◇
+                        </div>
+
+                        <strong>
+                            Nothing selected yet
+                        </strong>
+
+                        <p>
+                            Choose a Living World or project to begin
+                            a deeper reflection within its own context.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        className="creator-intelligence-level-button"
+                    >
+                        Choose a Living World
+                        <span>→</span>
+                    </button>
+
+                </article>
 
 
             </div>
 
-
-
-            {/* ==========================================
-                RELATIONSHIP PRINCIPLE
-            ========================================== */}
-
-            <div className="creator-intelligence-principle">
-
-                <span>
-
-                    Your intelligence grows with you.
-
-                </span>
-
-
-                <p>
-
-                    Every reflection, decision, creation and
-                    remembered moment can become part of the
-                    relationship between you and your Living
-                    Intelligence™.
-
-                </p>
-
-            </div>
-
-
-
-            {/* ==========================================
-                FOOTER
-            ========================================== */}
 
             <div className="creator-intelligence-footer">
 
                 <span>
-
                     LIVING INTELLIGENCE™
-
                 </span>
 
-
                 <span>
-
                     Living relationship • Living memory • Living evolution
-
                 </span>
 
-
                 <span>
-
                     ✦
-
                 </span>
 
             </div>
@@ -902,3 +896,4 @@ Listen for it.`;
     );
 
 }
+

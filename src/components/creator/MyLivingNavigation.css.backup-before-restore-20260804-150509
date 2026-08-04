@@ -1,0 +1,1706 @@
+﻿/*
+==========================================
+MY LIVING NAVIGATION™
+
+Premium Living Space Navigation
+6 Living Spaces
+Mobile Optimized
+==========================================
+*/
+
+
+.my-living-navigation {
+
+    width: 100%;
+
+    margin: 34px 0 54px;
+
+    padding: 36px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 79, 145, 0.42),
+            rgba(84, 57, 116, 0.48)
+        );
+
+    border:
+        1px solid
+        rgba(190, 160, 225, 0.22);
+
+    box-shadow:
+        0 20px 55px
+        rgba(45, 25, 70, 0.18);
+
+    scroll-margin-top: 40px;
+
+    color: rgba(255,255,255,0.94);
+
+}
+
+
+/*
+==========================================
+HEADER
+==========================================
+*/
+
+.my-living-navigation-header {
+
+    margin-bottom: 28px;
+
+    text-align: center;
+
+}
+
+
+.my-living-navigation-eyebrow {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255,255,255,0.62);
+
+}
+
+
+.my-living-navigation-header h2 {
+
+    margin: 0;
+
+    font-size:
+        clamp(28px, 4vw, 42px);
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    letter-spacing: -0.03em;
+
+    color:
+        rgba(255,255,255,0.96);
+
+}
+
+
+.my-living-navigation-header p {
+
+    margin: 11px auto 0;
+
+    max-width: 620px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,0.68);
+
+}
+
+
+/*
+==========================================
+GRID
+==========================================
+*/
+
+.my-living-navigation-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap: 12px;
+
+}
+
+
+/*
+==========================================
+CARDS
+==========================================
+*/
+
+.my-living-navigation-card {
+
+    position: relative;
+
+    min-height: 165px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    padding: 20px 16px 24px;
+
+    border:
+        1px solid
+        rgba(220,200,240,0.16);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(82, 54, 112, 0.72),
+            rgba(67, 43, 94, 0.82)
+        );
+
+    cursor: pointer;
+
+    text-align: center;
+
+    color:
+        rgba(255,255,255,0.94);
+
+    transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        border-color 220ms ease,
+        background 220ms ease;
+
+}
+
+
+.my-living-navigation-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(220,200,240,0.34);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(95, 64, 128, 0.82),
+            rgba(75, 48, 105, 0.92)
+        );
+
+    box-shadow:
+        0 16px 34px
+        rgba(35,20,55,0.24);
+
+}
+
+
+/*
+==========================================
+NUMBER
+==========================================
+*/
+
+.my-living-navigation-number {
+
+    display: block;
+
+    margin-bottom: 17px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    color:
+        rgba(255,255,255,0.48);
+
+}
+
+
+/*
+==========================================
+CONTENT
+==========================================
+*/
+
+.my-living-navigation-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+}
+
+
+.my-living-navigation-content strong {
+
+    display: block;
+
+    width: 100%;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    letter-spacing: 0.035em;
+
+    font-weight: 700;
+
+    color:
+        rgba(255,255,255,0.96);
+
+}
+
+
+.my-living-navigation-content small {
+
+    display: block;
+
+    max-width: 145px;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+
+    color:
+        rgba(255,255,255,0.60);
+
+}
+
+
+/*
+==========================================
+ARROW
+==========================================
+*/
+
+.my-living-navigation-arrow {
+
+    position: absolute;
+
+    right: 15px;
+
+    bottom: 13px;
+
+    font-size: 17px;
+
+    color:
+        rgba(255,255,255,0.48);
+
+    transition:
+        transform 220ms ease,
+        opacity 220ms ease;
+
+}
+
+
+.my-living-navigation-card:hover
+.my-living-navigation-arrow {
+
+    transform:
+        translate(3px, 3px);
+
+    opacity: 0.9;
+
+}
+
+
+/*
+==========================================
+FOCUS
+==========================================
+*/
+
+.my-living-space-focus {
+
+    animation:
+        myLivingSpaceFocus 1200ms ease;
+
+}
+
+
+@keyframes myLivingSpaceFocus {
+
+    0% {
+
+        box-shadow:
+            0 0 0
+            rgba(180,140,220,0);
+
+    }
+
+    35% {
+
+        box-shadow:
+            0 0 0 5px
+            rgba(190,150,230,0.14),
+            0 20px 60px
+            rgba(55,30,80,0.24);
+
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 0
+            rgba(180,140,220,0);
+
+    }
+
+}
+
+
+/*
+==========================================
+TABLET
+==========================================
+*/
+
+@media (max-width: 1150px) {
+
+    .my-living-navigation-grid {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/*
+==========================================
+MOBILE
+==========================================
+*/
+
+@media (max-width: 700px) {
+
+    .my-living-navigation {
+
+        margin:
+            28px 0 42px;
+
+        padding:
+            28px 18px 30px;
+
+        border-radius: 24px;
+
+    }
+
+
+    .my-living-navigation-header {
+
+        margin-bottom: 24px;
+
+    }
+
+
+    .my-living-navigation-header h2 {
+
+        font-size: 30px;
+
+    }
+
+
+    .my-living-navigation-header p {
+
+        font-size: 14px;
+
+        line-height: 1.65;
+
+    }
+
+
+    .my-living-navigation-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 11px;
+
+    }
+
+
+    .my-living-navigation-card {
+
+        min-height: 190px;
+
+        padding:
+            18px 13px 27px;
+
+        border-radius: 18px;
+
+        justify-content: flex-start;
+
+    }
+
+
+    .my-living-navigation-number {
+
+        margin-bottom: 15px;
+
+        font-size: 10px;
+
+    }
+
+
+    .my-living-navigation-content {
+
+        gap: 9px;
+
+    }
+
+
+    .my-living-navigation-content strong {
+
+        font-size: 11px;
+
+        line-height: 1.45;
+
+        letter-spacing: 0.025em;
+
+    }
+
+
+    .my-living-navigation-content small {
+
+        max-width: 125px;
+
+        font-size: 10.5px;
+
+        line-height: 1.55;
+
+    }
+
+
+    .my-living-navigation-arrow {
+
+        right: 12px;
+
+        bottom: 10px;
+
+        font-size: 15px;
+
+    }
+
+}
+
+
+/*
+==========================================
+SMALL MOBILE
+==========================================
+*/
+
+@media (max-width: 480px) {
+
+    .my-living-navigation {
+
+        padding:
+            26px 14px 28px;
+
+    }
+
+
+    .my-living-navigation-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 9px;
+
+    }
+
+
+    .my-living-navigation-card {
+
+        min-height: 178px;
+
+        padding:
+            17px 10px 25px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .my-living-navigation-number {
+
+        margin-bottom: 13px;
+
+    }
+
+
+    .my-living-navigation-content strong {
+
+        font-size: 10.5px;
+
+    }
+
+
+    .my-living-navigation-content small {
+
+        max-width: 115px;
+
+        font-size: 10px;
+
+    }
+
+}
+
+/* =========================================================
+   BLINKITA OS™ — MY LIVING™ CONTENT GRID
+   Creator Space · 3 × 2 Desktop / 1 Column Mobile
+   ========================================================= */
+
+.my-living-content-grid {
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 10px 0 70px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   INDIVIDUAL LIVING SPACES
+   ========================================================= */
+
+.my-living-space {
+    min-width: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(71, 48, 105, 0.96),
+            rgba(48, 31, 78, 0.98)
+        );
+
+    border: 1px solid rgba(196, 168, 232, 0.16);
+
+    box-shadow:
+        0 18px 45px rgba(18, 9, 35, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* subtle top glow */
+
+.my-living-space::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(210, 181, 242, 0),
+            rgba(210, 181, 242, 0.45),
+            rgba(210, 181, 242, 0)
+        );
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   CONTENT INSIDE EACH SPACE
+   ========================================================= */
+
+.my-living-space > * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   INDIVIDUAL SPACE CHARACTER
+   ========================================================= */
+
+.my-living-space-analysis {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(76, 52, 112, 0.98),
+            rgba(49, 32, 79, 0.98)
+        );
+}
+
+.my-living-space-identity {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(82, 56, 116, 0.98),
+            rgba(52, 34, 83, 0.98)
+        );
+}
+
+.my-living-space-time {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(73, 49, 107, 0.98),
+            rgba(46, 30, 75, 0.98)
+        );
+}
+
+.my-living-space-intelligence {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(67, 45, 101, 0.98),
+            rgba(43, 28, 70, 0.98)
+        );
+}
+
+.my-living-space-path {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(79, 52, 111, 0.98),
+            rgba(49, 31, 78, 0.98)
+        );
+}
+
+.my-living-space-worlds {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(72, 47, 105, 0.98),
+            rgba(45, 29, 73, 0.98)
+        );
+}
+
+
+/* =========================================================
+   FOCUS STATE FROM MY LIVING NAVIGATION
+   ========================================================= */
+
+.my-living-space-focus {
+    animation: myLivingSpaceFocus 1.2s ease;
+}
+
+@keyframes myLivingSpaceFocus {
+
+    0% {
+        transform: translateY(0);
+        box-shadow:
+            0 18px 45px rgba(18, 9, 35, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    }
+
+    35% {
+        transform: translateY(-4px);
+        box-shadow:
+            0 24px 60px rgba(20, 10, 40, 0.38),
+            0 0 0 1px rgba(205, 174, 240, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP — LARGE SCREENS
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .my-living-content-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    .my-living-content-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .my-living-content-grid {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding:
+            8px 0 45px;
+    }
+
+
+    .my-living-space {
+        width: 100%;
+        min-width: 0;
+
+        border-radius: 20px;
+    }
+
+
+    /*
+       Mobile content should breathe.
+       The heading stays above the body content
+       instead of being squeezed beside it.
+    */
+
+    .my-living-space h1,
+    .my-living-space h2,
+    .my-living-space h3 {
+        width: 100%;
+        display: block;
+    }
+
+
+    .my-living-space p {
+        max-width: 100%;
+        line-height: 1.65;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .my-living-content-grid {
+        gap: 16px;
+    }
+
+
+    .my-living-space {
+        border-radius: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   BLINKITA — MY LIVING PREMIUM LAYOUT
+   FINAL LAYOUT OVERRIDE
+   2026-08-04
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   The JSX now uses:
+
+   .my-living-layout
+   .my-living-row
+   .my-living-row-triad
+   .my-living-row-intelligence
+   .my-living-row-creation
+   .my-living-row-worlds
+
+   This override intentionally neutralizes the previous
+   grid/column system.
+*/
+
+
+/* =========================================================
+   MASTER LAYOUT
+   ========================================================= */
+
+.my-living-layout {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 32px;
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   EVERY MAJOR ROW
+   ========================================================= */
+
+.my-living-layout > .my-living-row {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    margin: 0;
+
+    padding: 32px;
+
+    box-sizing: border-box;
+
+    border-radius: 28px;
+
+}
+
+
+/* =========================================================
+   SECTION HEADERS
+   ========================================================= */
+
+.my-living-layout .my-living-space-header {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+.my-living-layout .my-living-space-number {
+
+    flex: 0 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 50%;
+
+}
+
+
+.my-living-layout .my-living-space-header > div {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.my-living-layout .my-living-space-label {
+
+    display: block;
+
+    margin: 0;
+
+}
+
+
+.my-living-layout .my-living-space-header p {
+
+    margin: 4px 0 0;
+
+}
+
+
+/* =========================================================
+   ANALYSIS
+   ========================================================= */
+
+.my-living-layout
+.my-living-row-analysis {
+
+    width: 100%;
+
+}
+
+
+.my-living-analysis-content {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   TRIAD
+   IDENTITY / TIME / ACHIEVEMENTS
+   ========================================================= */
+
+.my-living-layout
+.my-living-row-triad {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(0, 1fr)
+        minmax(0, 0.85fr);
+
+    align-items: stretch;
+
+    gap: 24px;
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/*
+   These are the ONLY three columns in the entire
+   My Living layout.
+*/
+
+.my-living-layout
+.my-living-row-triad
+.my-living-space {
+
+    width: 100%;
+
+    min-width: 0;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    margin: 0;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    border-radius: 26px;
+
+}
+
+
+/* Prevent old grid rules from creating nested columns */
+
+.my-living-layout
+.my-living-row-triad
+.my-living-space > * {
+
+    max-width: 100%;
+
+}
+
+
+/* =========================================================
+   IDENTITY
+   ========================================================= */
+
+.my-living-layout
+.my-living-space-identity {
+
+    min-width: 0;
+
+}
+
+
+.my-living-layout
+.my-living-space-identity
+.creator-identity-card,
+
+.my-living-layout
+.my-living-space-identity
+.creator-birth-matrix {
+
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   LIVING TIME
+   ========================================================= */
+
+.my-living-layout
+.my-living-space-time {
+
+    min-width: 0;
+
+}
+
+
+.my-living-layout
+.my-living-space-time
+> * {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS
+   ========================================================= */
+
+.my-living-layout
+.my-living-space-achievements {
+
+    min-width: 0;
+
+}
+
+
+.my-living-achievements-content {
+
+    width: 100%;
+
+    min-width: 0;
+
+    margin-top: auto;
+
+}
+
+
+/* =========================================================
+   LIVING INTELLIGENCE
+   FULL-WIDTH PREMIUM ROW
+   ========================================================= */
+
+.my-living-layout
+.my-living-row-intelligence {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    padding: 36px;
+
+}
+
+
+.my-living-intelligence-content {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+/*
+   IMPORTANT:
+   The Intelligence card itself must remain one
+   wide horizontal premium card.
+*/
+
+.my-living-intelligence-content
+.creator-intelligence-card {
+
+    width: 100%;
+
+    max-width: none;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   CREATION PATH
+   ========================================================= */
+
+.my-living-layout
+.my-living-row-creation {
+
+    width: 100%;
+
+}
+
+
+.my-living-creation-content {
+
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+
+.my-living-creation-content > * {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   LIVING WORLDS
+   ========================================================= */
+
+.my-living-layout
+.my-living-row-worlds {
+
+    width: 100%;
+
+}
+
+
+.my-living-worlds-content {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+.my-living-worlds-content > * {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   CRITICAL RESET
+   Prevent old .my-living-space rules from creating
+   nested grid/flex behavior inside the new architecture.
+   ========================================================= */
+
+.my-living-layout
+.my-living-row
+.my-living-content-grid {
+
+    display: block;
+
+    width: 100%;
+
+}
+
+
+.my-living-layout
+.my-living-row
+.my-living-space {
+
+    grid-column: auto;
+
+    grid-row: auto;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .my-living-layout
+    .my-living-row-triad {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .my-living-layout {
+
+        gap: 20px;
+
+    }
+
+
+    .my-living-layout > .my-living-row {
+
+        padding: 22px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .my-living-layout
+    .my-living-row-triad {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+    }
+
+
+    .my-living-layout
+    .my-living-row-triad
+    .my-living-space {
+
+        padding: 22px;
+
+    }
+
+
+    .my-living-layout
+    .my-living-row-intelligence {
+
+        padding: 22px;
+
+    }
+
+}
+
+
+/* =========================================================
+   END BLINKITA PREMIUM LAYOUT
+   ========================================================= */
+
+
+/* =========================================================
+   MY LIVING ANALYSIS™
+   PREMIUM MOSAIC — 01
+   ========================================================= */
+
+.my-living-section-analysis {
+    margin-bottom: 72px;
+}
+
+.my-living-analysis-mosaic {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1fr;
+    gap: 22px;
+    align-items: stretch;
+}
+
+.my-living-analysis-tile {
+    position: relative;
+    min-width: 0;
+    min-height: 680px;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 28px;
+    overflow: hidden;
+    background:
+        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
+        rgba(20,16,38,.82);
+    box-shadow:
+        0 28px 70px rgba(0,0,0,.24),
+        inset 0 1px 0 rgba(255,255,255,.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.my-living-analysis-tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 85% 8%, rgba(255,255,255,.09), transparent 28%),
+        radial-gradient(circle at 10% 90%, rgba(255,255,255,.045), transparent 32%);
+}
+
+.my-living-analysis-tile > * {
+    position: relative;
+    z-index: 1;
+}
+
+.my-living-analysis-tile-primary {
+    min-height: 720px;
+}
+
+.my-living-analysis-tile-deepen {
+    min-height: 720px;
+}
+
+.my-living-analysis-tile-world {
+    min-height: 720px;
+}
+
+.my-living-tile-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.my-living-tile-symbol {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.11);
+    font-size: 20px;
+}
+
+.my-living-tile-number {
+    font-size: 11px;
+    letter-spacing: .18em;
+    opacity: .55;
+}
+
+.my-living-tile-heading > span {
+    font-size: 10px;
+    letter-spacing: .2em;
+    opacity: .58;
+}
+
+.my-living-tile-heading h3 {
+    margin: 9px 0 9px;
+    font-size: 25px;
+    line-height: 1.15;
+    font-weight: 600;
+}
+
+.my-living-tile-heading p {
+    margin: 0;
+    max-width: 430px;
+    font-size: 13px;
+    line-height: 1.7;
+    opacity: .66;
+}
+
+.my-living-tile-content {
+    flex: 1;
+    margin-top: 24px;
+    min-height: 0;
+}
+
+.my-living-analysis-inner .creator-analysis-card {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.my-living-analysis-inner .creator-analysis-header {
+    display: none;
+}
+
+.my-living-analysis-inner .creator-analysis-progress {
+    margin-top: 0;
+}
+
+.my-living-analysis-inner .creator-analysis-addition {
+    display: none;
+}
+
+.my-living-analysis-inner .creator-analysis-footer {
+    display: none;
+}
+
+.my-living-tile-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 20px;
+    margin-top: 22px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    font-size: 9px;
+    letter-spacing: .16em;
+    opacity: .48;
+}
+
+.my-living-deepen-visual {
+    height: 92px;
+    margin: 24px 0 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    background:
+        radial-gradient(circle, rgba(255,255,255,.09), transparent 62%),
+        rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.07);
+}
+
+.my-living-deepen-visual span {
+    font-size: 23px;
+}
+
+.my-living-deepen-visual small,
+.my-living-world-visual small {
+    font-size: 9px;
+    letter-spacing: .18em;
+    opacity: .5;
+}
+
+.my-living-deepen-space {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-living-deepen-space label,
+.my-living-world-selector label {
+    margin-bottom: 9px;
+    font-size: 9px;
+    letter-spacing: .17em;
+    opacity: .5;
+}
+
+.my-living-deepen-input {
+    flex: 1;
+    width: 100%;
+    min-height: 270px;
+    resize: vertical;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(0,0,0,.18);
+    color: inherit;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.75;
+    outline: none;
+}
+
+.my-living-deepen-input:focus {
+    border-color: rgba(255,255,255,.24);
+    background: rgba(0,0,0,.23);
+}
+
+.my-living-deepen-button {
+    width: 100%;
+    margin-top: 18px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.my-living-world-visual {
+    flex: 1;
+    min-height: 260px;
+    margin: 24px 0;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 18px;
+    background:
+        radial-gradient(circle at center, rgba(255,255,255,.1), transparent 48%),
+        rgba(255,255,255,.025);
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.my-living-world-orbit {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow:
+        0 0 0 14px rgba(255,255,255,.025),
+        0 0 0 28px rgba(255,255,255,.015);
+}
+
+.my-living-world-orbit span {
+    font-size: 30px;
+}
+
+.my-living-world-selector {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-living-world-selector select {
+    width: 100%;
+    min-height: 48px;
+}
+
+.my-living-world-bottom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.my-living-world-bottom span {
+    font-size: 16px;
+}
+
+.my-living-world-bottom small {
+    font-size: 9px;
+    letter-spacing: .15em;
+    opacity: .45;
+}
+
+@media (max-width: 900px) {
+
+    .my-living-analysis-mosaic {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .my-living-analysis-tile,
+    .my-living-analysis-tile-primary,
+    .my-living-analysis-tile-deepen,
+    .my-living-analysis-tile-world {
+        min-height: auto;
+    }
+
+    .my-living-analysis-tile {
+        padding: 22px;
+    }
+
+    .my-living-analysis-inner {
+        min-height: 420px;
+    }
+
+    .my-living-deepen-input {
+        min-height: 300px;
+    }
+
+    .my-living-world-visual {
+        min-height: 230px;
+        flex: none;
+    }
+}
+
+
+/* =========================================================
+   BLINKITA — MY LIVING ANALYSIS™
+   FINAL MOBILE LAYOUT
+   PREMIUM DESKTOP MOSAIC REMAINS UNTOUCHED
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+    .my-living-section-analysis .my-living-analysis-mosaic {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        gap: 18px !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+
+    .my-living-section-analysis .my-living-analysis-tile,
+    .my-living-section-analysis .my-living-analysis-tile-primary,
+    .my-living-section-analysis .my-living-analysis-tile-deepen,
+    .my-living-section-analysis .my-living-analysis-tile-world {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        box-sizing: border-box !important;
+    }
+
+}

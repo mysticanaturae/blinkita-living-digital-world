@@ -1,0 +1,262 @@
+﻿/*
+==========================================
+BLINKITA METHOD™
+BLINKITA OS™
+
+MY LIVING ANALYSIS™
+Creator Analysis Card
+
+Premium visual layer
+==========================================
+*/
+
+.creator-analysis-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 34px;
+    border-radius: 24px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.035)
+        );
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.18);
+    color: inherit;
+}
+
+.creator-analysis-header {
+    margin-bottom: 28px;
+}
+
+.creator-analysis-header-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.creator-analysis-eyebrow,
+.creator-analysis-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.68;
+}
+
+.creator-analysis-mark {
+    font-size: 1.3rem;
+    opacity: 0.75;
+}
+
+.creator-analysis-header h2 {
+    margin: 0 0 10px;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.creator-analysis-header p {
+    max-width: 720px;
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    opacity: 0.72;
+}
+
+.creator-analysis-progress {
+    margin-bottom: 30px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.creator-analysis-progress > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 11px;
+}
+
+.creator-analysis-progress span {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.58;
+}
+
+.creator-analysis-progress strong {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.creator-analysis-progress-track {
+    width: 100%;
+    height: 5px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+}
+
+.creator-analysis-progress-track > div {
+    height: 100%;
+    border-radius: inherit;
+    background: currentColor;
+    opacity: 0.75;
+    transition: width 0.4s ease;
+}
+
+.creator-analysis-body {
+    padding: 28px 0 6px;
+}
+
+.creator-analysis-body h3 {
+    margin: 10px 0 18px;
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+.creator-analysis-lead {
+    margin: 0;
+    white-space: pre-line;
+    font-size: 1rem;
+    line-height: 1.85;
+    opacity: 0.82;
+}
+
+.creator-analysis-themes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 24px;
+}
+
+.creator-analysis-themes span {
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+}
+
+.creator-analysis-addition {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 30px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.creator-analysis-addition p {
+    max-width: 720px;
+    margin: 8px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    opacity: 0.68;
+}
+
+.creator-analysis-addition textarea {
+    width: 100%;
+    min-height: 170px;
+    box-sizing: border-box;
+    resize: vertical;
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.12);
+    color: inherit;
+    font: inherit;
+    line-height: 1.65;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.creator-analysis-addition textarea:focus {
+    border-color: rgba(255,255,255,0.28);
+    background: rgba(0,0,0,0.18);
+}
+
+.creator-analysis-addition textarea::placeholder {
+    color: currentColor;
+    opacity: 0.38;
+}
+
+.creator-analysis-button {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 19px;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    color: inherit;
+    font: inherit;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.creator-analysis-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,0.13);
+}
+
+.creator-analysis-button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.creator-analysis-button span {
+    font-size: 1rem;
+}
+
+.creator-analysis-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.45;
+}
+
+@media (max-width: 700px) {
+
+    .creator-analysis-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .creator-analysis-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .creator-analysis-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+}
