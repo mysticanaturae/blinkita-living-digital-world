@@ -1,12 +1,12 @@
-/*
+﻿/*
 ==========================================
 
-BLINKITA METHOD™
+BLINKITA METHODâ„˘
 
-LIVING WORLD CORE™
+LIVING WORLD COREâ„˘
 
 The living organism
-of a Living World™
+of a Living Worldâ„˘
 
 Version 1.2
 
@@ -42,11 +42,6 @@ from "./evolution/WorldEvolutionEngine";
 import { WorldTransformationEngine }
 
 from "./transformation/WorldTransformationEngine";
-
-
-import { LivingWorldEventAdapter }
-
-from "./events/LivingWorldEventAdapter";
 
 
 import { attachBirthMemory }
@@ -311,9 +306,9 @@ export function createLivingWorld(seed = {}) {
     /*
     ======================================
 
-    WORLD EVOLUTION FUNCTION™
+    WORLD EVOLUTION FUNCTIONâ„˘
 
-    A Living World™ can evolve itself
+    A Living Worldâ„˘ can evolve itself
 
     ======================================
     */
@@ -339,9 +334,9 @@ export function createLivingWorld(seed = {}) {
 /*
 ======================================
 
-WORLD TRANSFORMATION FUNCTION™
+WORLD TRANSFORMATION FUNCTIONâ„˘
 
-A Living World™ transforms
+A Living Worldâ„˘ transforms
 through experiences
 
 ======================================
@@ -373,33 +368,24 @@ world.transform = function(
 /*
 ======================================
 
-WORLD BIRTH EVENT™
+WORLD BIRTH EVENTâ„˘
 
 The first heartbeat
-of a Living World™
+of a Living Worldâ„˘
 
 ======================================
 */
+    const livingWorld =
+
+        attachBirthMemory(
+
+            world
+
+        );
 
 
-const livingWorld =
+    return livingWorld;
 
-    attachBirthMemory(
-
-        world
-
-    );
-
-
-
-LivingWorldEventAdapter.worldCreated(
-
-    livingWorld
-
-);
-
-
-return livingWorld;
 
 
 }

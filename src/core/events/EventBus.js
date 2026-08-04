@@ -1,5 +1,6 @@
-/*
+﻿/*
 ==========================================
+
 BLINKITA METHOD™
 
 EVENT BUS™
@@ -7,7 +8,8 @@ EVENT BUS™
 The nervous system
 of a Living World™
 
-Version 2.0
+Version 2.1
+
 ==========================================
 */
 
@@ -17,6 +19,12 @@ const listeners = {};
 
 
 
+/*
+==========================================
+SUBSCRIBE
+==========================================
+*/
+
 
 export function subscribe(
 
@@ -24,14 +32,32 @@ export function subscribe(
 
     callback
 
-){
+) {
 
-    
-    if(!listeners[eventType]){
 
+    if (
+
+        !eventType
+
+        ||
+
+        typeof callback !== "function"
+
+    ) {
+
+        return () => {};
+
+    }
+
+
+
+    if (
+
+        !listeners[eventType]
+
+    ) {
 
         listeners[eventType] = [];
-
 
     }
 
@@ -44,12 +70,53 @@ export function subscribe(
     );
 
 
+
+
+    /*
+    ======================================
+    UNSUBSCRIBE
+    ======================================
+    */
+
+
+    return () => {
+
+        const eventListeners =
+
+            listeners[eventType];
+
+
+
+        if (!eventListeners) {
+
+            return;
+
+        }
+
+
+
+        listeners[eventType] =
+
+            eventListeners.filter(
+
+                listener =>
+
+                    listener !== callback
+
+            );
+
+    };
+
 }
 
 
 
 
-
+/*
+==========================================
+EMIT
+==========================================
+*/
 
 
 export function emit(
@@ -58,24 +125,43 @@ export function emit(
 
     event
 
-){
+) {
+
 
     console.log(
+
         "📡 EVENT EMITTED:",
+
         eventType,
+
         event
+
     );
 
 
+
     const eventListeners =
+
         listeners[eventType];
 
 
-    if(!eventListeners){
+
+    if (
+
+        !eventListeners
+
+        ||
+
+        eventListeners.length === 0
+
+    ) {
 
         console.log(
+
             "⚠️ No listeners for:",
+
             eventType
+
         );
 
         return;
@@ -83,11 +169,93 @@ export function emit(
     }
 
 
-    eventListeners.forEach(
+
+
+    /*
+    ======================================
+    SNAPSHOT LISTENERS
+
+    Prevent mutation of the listener
+    collection while an event is running.
+
+    ======================================
+    */
+
+
+    [
+
+        ...eventListeners
+
+    ].forEach(
 
         callback => {
 
-            callback(event);
+
+            try {
+
+                callback(event);
+
+            }
+
+            catch (error) {
+
+                console.error(
+
+                    "❌ Event listener failed:",
+
+                    eventType,
+
+                    error
+
+                );
+
+            }
+
+        }
+
+    );
+
+}
+
+
+
+
+/*
+==========================================
+CLEAR LISTENERS
+
+Useful for development/testing.
+
+==========================================
+*/
+
+
+export function clearListeners(
+
+    eventType
+
+) {
+
+
+    if (eventType) {
+
+        delete listeners[eventType];
+
+        return;
+
+    }
+
+
+
+    Object.keys(
+
+        listeners
+
+    ).forEach(
+
+        type => {
+
+            delete listeners[type];
 
         }
 

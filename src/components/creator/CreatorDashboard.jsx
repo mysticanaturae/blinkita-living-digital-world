@@ -53,24 +53,23 @@ import CreatorJourneyCard
 from "./CreatorJourneyCard";
 
 
-import CreatorEssenceCard
-from "./CreatorEssenceCard";
-
-
-import IdentityEvolutionTimeline
-from "./IdentityEvolutionTimeline";
-
-
-import CreatorEvolutionTimeline
-from "./CreatorEvolutionTimeline";
-
-
 import LivingMemoryStatus
 from "./LivingMemoryStatus";
 
 
 import CreatorIntelligenceCard
 from "./CreatorIntelligenceCard";
+
+
+import CreatorReflection
+from "./CreatorReflection";
+
+import CreatorEssenceCard
+from "./CreatorEssenceCard";
+
+
+import CreatorEvolutionTimeline
+from "./CreatorEvolutionTimeline";
 
 
 import {
@@ -623,18 +622,20 @@ const normalizedArchetype =
     */
 
     const [name, setName] =
-        useState(
-            creator.identity?.name || ""
-        );
+    useState(
+        creator.identity?.name || ""
+    );
 
 
-   const archetype =
-    creator.identity?.archetype ||
-    evolution?.archetype ||
-    "Seed Creator";
+    const [archetype, setArchetype] =
+    useState(
+        creator.identity?.archetype ||
+        evolution?.archetype ||
+        "Seed Creator"
+    );
 
 
-    const [description, setDescription] =
+        const [description, setDescription] =
         useState(
             creator.identity?.description ||
             ""
@@ -1070,9 +1071,8 @@ avatarOptions.map(
                         "dashboard.anonymousCreator"
                     ),
 
-                archetype:
-    creator.identity?.archetype ||
-    evolution?.archetype ||
+               archetype:
+    archetype.trim() ||
     "Seed Creator",
 
                 description:
@@ -1956,23 +1956,9 @@ avatarOptions.map(
 
                         </div>
 
-
-                        {/* ==========================================
-                            CREATOR INTELLIGENCE™
-                            Living Reflection Layer™
-                        ========================================== */}
-
-                        <CreatorIntelligenceCard
-
-                            creator={creator}
-
-                        />
-
-
-                    </div>
-
                 </div>
 
+             </div>
 
             </section>{
 
@@ -2511,6 +2497,29 @@ avatarOptions.map(
 
 
             {/* ==========================================
+                CREATOR INTELLIGENCE™
+                
+                First Mirror of the Creator
+                Living Intelligence Layer™
+            ========================================== */}
+
+            <CreatorIntelligenceCard
+                creator={creator}
+            />
+
+
+            {/* ==========================================
+                YOUR LIVING REFLECTION™
+                
+                Second Mirror of the Creator
+                Living Memory Mirror™
+            ========================================== */}
+
+            <CreatorReflection />
+
+
+
+            {/* ==========================================
                 CREATOR EVOLUTION™
             ========================================== */}
 
@@ -2666,19 +2675,3 @@ CREATOR JOURNEY™
     );
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

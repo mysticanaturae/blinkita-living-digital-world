@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 
 BLINKITA METHOD™
@@ -8,11 +8,10 @@ SYSTEM INITIALIZER™
 The birth sequence
 of Living Systems™
 
-Version 3.0
+Version 3.1
 
 ==========================================
 */
-
 
 
 import {
@@ -24,7 +23,6 @@ import {
 from "./memory/MemoryListener";
 
 
-
 import {
 
     initializeTimelineListener
@@ -32,17 +30,6 @@ import {
 }
 
 from "./timeline/TimelineListener";
-
-
-
-import {
-
-    initializeEvolutionListener
-
-}
-
-from "../evolution/EvolutionListener";
-
 
 
 import {
@@ -54,7 +41,6 @@ import {
 from "../journey/JourneyListener";
 
 
-
 import {
 
     initializeIntelligenceListener
@@ -62,7 +48,6 @@ import {
 }
 
 from "../world/intelligence/IntelligenceListener";
-
 
 
 import {
@@ -74,7 +59,6 @@ import {
 from "../world/decision/DecisionListener";
 
 
-
 import {
 
     initializeActionListener
@@ -82,7 +66,6 @@ import {
 }
 
 from "../world/action/ActionListener";
-
 
 
 import {
@@ -94,7 +77,6 @@ import {
 from "../world/governance/GovernanceListener";
 
 
-
 import {
 
     initializeHarmonyListener
@@ -102,7 +84,6 @@ import {
 }
 
 from "../world/harmony/HarmonyListener";
-
 
 
 import {
@@ -114,7 +95,6 @@ import {
 from "../world/discovery/DiscoveryListener";
 
 
-
 import {
 
     initializeAuthenticityListener
@@ -124,15 +104,22 @@ import {
 from "../world/authenticity/AuthenticityListener";
 
 
+import {
 
-import { 
-
-    initializeRuntime 
+    initializeRuntime
 
 }
 
 from "./runtime/RuntimeInitializer";
 
+
+import {
+
+    initializeWorldEvolutionListener
+
+}
+
+from "../world/evolution/WorldEvolutionListener";
 
 
 import {
@@ -147,67 +134,32 @@ from "../world/governance/GovernanceDecisionBridge";
 
 
 
-
-
-
 export function initializeSystems(){
-
-
-
-    const world =
-
-        initializeRuntime();
-
-
-
-
-
-
 
     /*
     ======================================
-
     ACTIVATE LIVING SYSTEMS™
 
-    Each layer awakens
+    Listener registration MUST happen
+    before runtime bootstrap.
+
+    This guarantees that the canonical
+    WORLD_CREATED event is observed by
+    the complete Living World system.
 
     ======================================
     */
 
-
-
-
-
     initializeMemoryListener();
-
-
-
-
 
     initializeTimelineListener();
 
-
-
-
-
-    initializeEvolutionListener();
-
-
-
-
-
     initializeJourneyListener();
 
-
-
-
-
-
-
+    initializeWorldEvolutionListener();
 
     /*
     ======================================
-
     CONSCIOUS WORLD FLOW™
 
     Intelligence
@@ -219,77 +171,50 @@ export function initializeSystems(){
     ======================================
     */
 
-
-
-
-
     initializeIntelligenceListener();
-
-
-
-
 
     initializeDecisionListener();
 
-
-
-
-
     initializeActionListener();
-
-
-
-
-
-
-
 
     initializeHarmonyListener();
 
-
-
-
-
     initializeDiscoveryListener();
-
-
-
-
 
     initializeAuthenticityListener();
 
-
-
-
-
     initializeGovernanceListener();
 
+    /*
+    ======================================
+    GOVERNANCE DECISION BRIDGE™
 
+    Connects governance decisions
+    with the living world action flow.
 
-
+    ======================================
+    */
 
     initializeGovernanceDecisionBridge();
 
+    /*
+    ======================================
+    RUNTIME BOOTSTRAP™
 
+    The world is created or resumed
+    only AFTER all listeners are
+    registered.
 
+    ======================================
+    */
 
-
-
-
-
-    console.log(
-
-        "🌱 Living Systems Initialized"
-
-    );
-
-
-
-
-
-
+    const world =
+        initializeRuntime();
 
     return world;
 
-
 }
+
+
+
+

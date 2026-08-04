@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 BLINKITA METHOD™
 LIVING DIGITAL WORLD™
@@ -9,10 +9,9 @@ The living condition
 and memory foundation
 of a Living World™
 
-Version 3.0
+Version 3.1
 ==========================================
 */
-
 
 import { VisitorProfile }
 from "../profile/VisitorProfile";
@@ -29,13 +28,9 @@ from "../storage/WorldStorage";
 
 
 
-
-
 const savedWorld =
 
     WorldStorage.load();
-
-
 
 
 
@@ -163,11 +158,49 @@ savedWorld
 
 
 
-    memory: {
-    events: []
-},
+    /*
+    ======================================
+    LIVING MEMORY™
+    ======================================
+    */
 
-portalResponses: {},
+    memory: {
+
+        events: []
+
+    },
+
+
+
+
+
+    /*
+    ======================================
+    PORTAL ANSWERS™
+
+    Canonical memory of the Creator's
+    answers to the Living Portals.
+
+    ======================================
+    */
+
+    portalAnswers: {},
+
+
+
+    /*
+    ======================================
+    PORTAL RESPONSES™
+
+    Compatibility layer for existing
+    portal response records.
+
+    ======================================
+    */
+
+    portalResponses: {},
+
+
 
 
 
@@ -210,6 +243,9 @@ portalResponses: {},
     },
 
 
+
+
+
     /*
     ======================================
     DISCOVERY LAYER™
@@ -220,11 +256,9 @@ portalResponses: {},
     ======================================
     */
 
-
     discovery:
 
     {
-
 
         level:
 
@@ -255,8 +289,10 @@ portalResponses: {},
 
             []
 
-
     },
+
+
+
 
 
     creations:
@@ -274,166 +310,171 @@ portalResponses: {},
 
 
 
-/*
-======================================
-AUTHENTICITY LAYER™
 
-The identity essence
-of a Living World™
+    /*
+    ======================================
+    AUTHENTICITY LAYER™
 
-======================================
-*/
+    The identity essence
+    of a Living World™
 
+    ======================================
+    */
 
-authenticity:
+    authenticity:
 
-{
+    {
 
-    level:
+        level:
 
-        0,
+            0,
 
-    history:
 
-        []
+        history:
 
-},
+            []
 
+    },
 
 
-/*
-======================================
-GOVERNANCE LAYER™
 
-The wisdom balance
-of a Living World™
 
-======================================
-*/
 
+    /*
+    ======================================
+    GOVERNANCE LAYER™
 
-governance:
+    The wisdom balance
+    of a Living World™
 
-{
+    ======================================
+    */
 
-    decisions:
+    governance:
 
-        0,
+    {
 
-    evaluations:
+        decisions:
 
-        [],
+            0,
 
-    history:
 
-        []
+        evaluations:
 
-},
+            [],
 
 
+        history:
 
+            []
 
+    },
 
-/*
-======================================
-INTELLIGENCE LAYER™
 
-The awareness state
-of a Living World™
 
-======================================
-*/
 
 
-intelligence:
+    /*
+    ======================================
+    INTELLIGENCE LAYER™
 
-{
+    The awareness state
+    of a Living World™
 
-    level:
+    ======================================
+    */
 
-        0,
+    intelligence:
 
-    insights:
+    {
 
-        [],
+        level:
 
-    history:
+            0,
 
-        []
 
-},
+        insights:
 
+            [],
 
 
+        history:
 
+            []
 
+    },
 
-/*
-======================================
-DECISION LAYER™
 
-The choice intelligence
-of a Living World™
 
-======================================
-*/
 
 
-decision:
+    /*
+    ======================================
+    DECISION LAYER™
 
-{
+    The choice intelligence
+    of a Living World™
 
-    choices:
+    ======================================
+    */
 
-        [],
+    decision:
 
-    history:
+    {
 
-        []
+        choices:
 
-},
+            [],
 
 
+        history:
 
+            []
 
+    },
 
 
-/*
-======================================
-ACTION LAYER™
 
-The execution state
-of a Living World™
 
-======================================
-*/
 
+    /*
+    ======================================
+    ACTION LAYER™
 
-action:
+    The execution state
+    of a Living World™
 
-{
+    ======================================
+    */
 
-    executed:
+    action:
 
-        0,
+    {
 
-    history:
+        executed:
 
-        []
+            0,
 
-},
 
+        history:
 
+            []
 
+    },
 
 
- lastActive:
+
+
+
+    lastActive:
 
         new Date().toISOString()
 
 
 
 };
+
+
 
 
 
@@ -465,6 +506,7 @@ worldState.evolution ||= {
 
 
 
+
 worldState.journey ||= {
 
     stage:
@@ -479,6 +521,7 @@ worldState.journey ||= {
 
 
 
+
 worldState.memory ||= {
 
     events:
@@ -488,102 +531,121 @@ worldState.memory ||= {
 };
 
 
+
+
+worldState.portalAnswers ||= {};
+
+
+
+
 worldState.portalResponses ||= {};
+
+
+
 
 worldState.relationships ||= [];
 
+
+
+
 worldState.creations ||= [];
+
+
+
 
 worldState.harmony ||= {
 
-    level:0,
+    level: 0,
 
-    connections:0,
+    connections: 0,
 
-    collaborations:0,
+    collaborations: 0,
 
-    resonance:0,
+    resonance: 0,
 
-    history:[]
+    history: []
 
 };
+
+
 
 
 worldState.discovery ||= {
 
+    level: 0,
 
-    level:0,
+    curiosity: 0,
 
+    knowledge: 0,
 
-    curiosity:0,
+    possibilities: 0,
 
+    creations: 0,
 
-    knowledge:0,
-
-
-    possibilities:0,
-
-
-    creations:0,
-
-
-    history:[]
-
+    history: []
 
 };
+
+
 
 
 worldState.intelligence ||= {
 
-    level:0,
+    level: 0,
 
-    insights:[],
+    insights: [],
 
-    history:[]
+    history: []
 
 };
+
 
 
 
 worldState.decision ||= {
 
-    choices:[],
+    choices: [],
 
-    history:[]
+    history: []
 
 };
+
 
 
 
 worldState.action ||= {
 
-    executed:0,
+    executed: 0,
 
-    history:[]
+    history: []
 
 };
+
 
 
 
 worldState.authenticity ||= {
 
-    level:0,
+    level: 0,
 
-    history:[]
+    history: []
 
 };
+
 
 
 
 worldState.governance ||= {
 
-    decisions:0,
+    decisions: 0,
 
-    evaluations:[],
+    evaluations: [],
 
-    history:[]
+    history: []
 
 };
+
+
 
 
 
@@ -602,8 +664,6 @@ export function getWorldState(){
 
 
 }
-
-
 
 
 
@@ -658,8 +718,6 @@ export function updateWorldState(
 
 
 }
-
-
 
 
 
@@ -731,12 +789,11 @@ export function addWorldMemory(
 
 
 
+
     return worldState;
 
 
 }
-
-
 
 
 
@@ -806,12 +863,11 @@ export function addJourneyMilestone(
 
 
 
+
     return worldState;
 
 
 }
-
-
 
 
 
@@ -897,7 +953,6 @@ export function completeWorldPortal(
 
 
 
-
     worldState = {
 
 
@@ -930,10 +985,14 @@ export function completeWorldPortal(
 
 
 
+
     return worldState;
 
 
 }
+
+
+
 
 
 
@@ -945,8 +1004,12 @@ SAVE PORTAL RESPONSE™
 Stores the Creator's answer
 inside the Living World™
 
+This is the canonical write path
+for Creator portal answers.
+
 ==========================================
 */
+
 
 export function savePortalResponse(
 
@@ -956,44 +1019,85 @@ export function savePortalResponse(
 
 ){
 
+
     const timestamp =
+
         new Date().toISOString();
+
+
+    const existingAnswer =
+
+        worldState.portalAnswers?.[portalId];
+
+
+    const portalAnswer = {
+
+        ...(existingAnswer || {}),
+
+        response,
+
+        timestamp
+
+    };
 
 
     worldState = {
 
+
         ...worldState,
 
 
+        portalAnswers: {
+
+
+            ...worldState.portalAnswers,
+
+
+            [portalId]:
+
+                portalAnswer
+
+
+        },
+
+
         portalResponses: {
+
 
             ...worldState.portalResponses,
 
 
             [portalId]: {
 
+
                 response,
 
                 timestamp
 
+
             }
+
 
         },
 
 
         memory: {
 
+
             ...worldState.memory,
 
 
             events: [
+
 
                 ...worldState.memory.events,
 
 
                 {
 
+
                     type:
+
                         "PORTAL_RESPONSE",
 
 
@@ -1005,17 +1109,24 @@ export function savePortalResponse(
 
                     timestamp
 
+
                 }
 
+
             ]
+
 
         },
 
 
         lastActive:
+
             timestamp
 
+
     };
+
+
 
 
     WorldStorage.save(
@@ -1023,6 +1134,8 @@ export function savePortalResponse(
         worldState
 
     );
+
+
 
 
     console.log(
@@ -1036,9 +1149,15 @@ export function savePortalResponse(
     );
 
 
+
+
     return worldState;
 
+
 }
+
+
+
 
 
 
@@ -1157,9 +1276,12 @@ export function enterWorldPortal(
 
                 [
 
+
                     ...worldState.visitedPortals,
 
+
                     portalId
+
 
                 ],
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 
 BLINKITA METHOD™
@@ -8,7 +8,22 @@ WORLD EVOLUTION ENGINE™
 The consciousness growth
 of a Living World™
 
-Version 1.0
+Version 2.0
+
+==========================================
+*/
+
+
+/*
+==========================================
+CANONICAL EVOLUTION STAGES™
+==========================================
+
+These stages are aligned with
+WorldLifecycle™.
+
+There is one canonical evolution
+language for the Living World™.
 
 ==========================================
 */
@@ -20,11 +35,6 @@ export const EvolutionStages = {
     SEED:
 
         "seed",
-
-
-    AWAKENING:
-
-        "awakening",
 
 
     GROWING:
@@ -53,17 +63,52 @@ export const EvolutionStages = {
 
 
 
+/*
+==========================================
+WORLD EVOLUTION ENGINE™
+==========================================
+*/
 
 
 export const WorldEvolutionEngine = {
 
 
+    /*
+    ======================================
+    EXPOSE CANONICAL STAGES
+    ======================================
 
-    evolve(world, nextStage) {
+    Kept on the engine as well as exported
+    separately for compatibility with
+    existing LivingWorld™ code.
+
+    ======================================
+    */
+
+
+    EvolutionStages,
 
 
 
-        if (!world) {
+
+
+    /*
+    ======================================
+    EVOLVE WORLD™
+    ======================================
+    */
+
+
+    evolve(
+
+        world,
+
+        nextStage
+
+    ){
+
+
+        if(!world){
 
             return null;
 
@@ -71,67 +116,183 @@ export const WorldEvolutionEngine = {
 
 
 
+        const currentStage =
+
+            world.evolution?.stage
+
+            ||
+
+            world.status
+
+            ||
+
+            EvolutionStages.SEED;
 
 
-        return {
+
+
+        const targetStage =
+
+            nextStage
+
+            ||
+
+            this.getNextStage(
+
+                currentStage
+
+            );
+
+
+
+
+        if(!targetStage){
+
+            return world;
+
+        }
+
+
+
+
+        const previousHistory =
+
+            world.evolution?.history
+
+            ||
+
+            [];
+
+
+
+
+        const historyEntry = {
+
+
+            from:
+
+                currentStage,
+
+
+            to:
+
+                targetStage,
+
+
+            timestamp:
+
+                new Date().toISOString()
+
+
+        };
+
+
+
+
+        const currentLevel =
+
+            world.evolution?.level
+
+            ??
+
+            0;
+
+
+
+
+        const milestones =
+
+            world.evolution?.milestones
+
+            ||
+
+            [];
+
+
+
+
+        const evolvedWorld = {
 
 
             ...world,
 
 
 
+            /*
+            ==================================
+            WORLD STATUS
+            ==================================
+            */
+
+
+            status:
+
+                targetStage,
+
+
+
+            /*
+            ==================================
+            EVOLUTION STATE
+            ==================================
+            */
+
+
             evolution: {
+
+
+                ...(world.evolution || {}),
 
 
                 stage:
 
-                    nextStage,
+                    targetStage,
 
 
+                history: [
 
-                history:
+                    ...previousHistory,
 
-                [
+                    historyEntry
 
-                    ...(world.evolution?.history || []),
-
-
-
-                    {
+                ],
 
 
-                        from:
-
-                            world.evolution?.stage || "seed",
+                milestones,
 
 
+                level:
 
-                        to:
+                    currentLevel + 1
 
-                            nextStage,
-
-
-
-                        timestamp:
-
-                            new Date().toISOString()
-
-
-                    }
-
-
-                ]
 
             },
 
 
 
+            /*
+            ==================================
+            TIMESTAMPS
+            ==================================
+            */
+
+
             updatedAt:
+
+                new Date().toISOString(),
+
+
+            lastEvolution:
 
                 new Date().toISOString()
 
 
         };
+
+
+
+
+        return evolvedWorld;
 
 
     },
@@ -140,44 +301,64 @@ export const WorldEvolutionEngine = {
 
 
 
+    /*
+    ======================================
+    GET NEXT STAGE™
+    ======================================
+    */
 
 
-    getNextStage(currentStage) {
+    getNextStage(
+
+        currentStage
+
+    ){
 
 
 
         const stages = [
 
+
             EvolutionStages.SEED,
 
-            EvolutionStages.AWAKENING,
 
             EvolutionStages.GROWING,
 
+
             EvolutionStages.LIVING,
+
 
             EvolutionStages.THRIVING,
 
+
             EvolutionStages.LEGACY
+
 
         ];
 
 
 
+
         const index =
 
-            stages.indexOf(currentStage);
+            stages.indexOf(
+
+                currentStage
+
+            );
 
 
 
 
-        if (
+        if(
 
-            index === -1 ||
+            index === -1
+
+            ||
 
             index === stages.length - 1
 
-        ) {
+        ){
 
             return currentStage;
 
@@ -185,14 +366,101 @@ export const WorldEvolutionEngine = {
 
 
 
-        return stages[index + 1];
+
+        return stages[
+
+            index + 1
+
+        ];
+
+
+    },
+
+
+
+
+
+    /*
+    ======================================
+    GET STAGE ORDER™
+    ======================================
+    */
+
+
+    getStageOrder(
+
+        stage
+
+    ){
+
+
+
+        const stages = [
+
+
+            EvolutionStages.SEED,
+
+
+            EvolutionStages.GROWING,
+
+
+            EvolutionStages.LIVING,
+
+
+            EvolutionStages.THRIVING,
+
+
+            EvolutionStages.LEGACY
+
+
+        ];
+
+
+
+
+        return stages.indexOf(
+
+            stage
+
+        ) + 1;
+
+
+    },
+
+
+
+
+
+    /*
+    ======================================
+    IS FINAL STAGE™
+    ======================================
+    */
+
+
+    isFinalStage(
+
+        stage
+
+    ){
+
+
+
+        return (
+
+            stage ===
+
+            EvolutionStages.LEGACY
+
+        );
 
 
     }
 
 
-
-
-
-
 };
+
+
+
+
+export default WorldEvolutionEngine;

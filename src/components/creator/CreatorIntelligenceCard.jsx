@@ -3,11 +3,14 @@
 BLINKITA METHOD™
 BLINKITA OS™
 
-CREATOR INTELLIGENCE™
+LIVING INTELLIGENCE™
 
-Creator awareness and creative intelligence space
+Creator Intelligence™
 
-Version 1.0
+A living intelligence relationship
+with the Creator
+
+Version 3.0
 ==========================================
 */
 
@@ -15,9 +18,7 @@ import React from "react";
 
 
 export default function CreatorIntelligenceCard({
-
     creator
-
 }) {
 
 
@@ -26,49 +27,88 @@ export default function CreatorIntelligenceCard({
         "🌱";
 
 
+    const name =
+        creator?.identity?.name ||
+        "Creator";
+
+
     const archetype =
         creator?.identity?.archetype ||
         "Seed Creator";
 
-const intelligence = {
 
-    archetype,
+    const description =
+        creator?.identity?.description ||
+        "";
 
-    symbol: avatar,
 
-    meaning:
-        "Creator connected with your first living intention.",
+    /*
+    ==========================================
+    LIVING INTELLIGENCE FOUNDATION
+    ==========================================
+    */
 
-    message:
-        "Your creative intelligence grows through your memories, choices and the worlds you bring into being."
+    const intelligence = {
 
-};
+        symbol:
+            avatar,
+
+        archetype,
+
+        foundation:
+            description
+                ? "Your Living Intelligence begins with what you have already revealed about yourself."
+                : "Your Living Intelligence begins by discovering the Creator behind the creation.",
+
+        message:
+            description
+                ? "It is beginning to recognize the patterns, intentions and possibilities carried within the way you describe yourself."
+                : "It is waiting to discover how you think, what you value and what you are here to create."
+
+    };
+
 
     return (
 
         <section className="living-card living-section creator-intelligence-card">
 
+
+            {/* ==========================================
+                PREMIUM HEADER
+            ========================================== */}
+
             <div className="creator-intelligence-header">
 
-                <span className="creator-intelligence-eyebrow">
+                <div className="creator-intelligence-header-meta">
 
-                    CREATOR INTELLIGENCE™
+                    <span className="creator-intelligence-eyebrow">
 
-                </span>
+                        LIVING INTELLIGENCE™
 
-
-                <h3>
-
-                    Your Creative Intelligence
-
-                </h3>
+                    </span>
 
 
-                <p>
+                    <span className="creator-intelligence-header-mark">
 
-                    Discover how your natural way of seeing,
-                    thinking and creating shapes the worlds
-                    you bring into being.
+                        ✦
+
+                    </span>
+
+                </div>
+
+
+                <h2>
+
+                    Living Intelligence
+
+                </h2>
+
+
+                <p className="creator-intelligence-introduction">
+
+                    A living intelligence that grows through
+                    knowing you, reflecting with you and
+                    witnessing what you create.
 
                 </p>
 
@@ -76,11 +116,17 @@ const intelligence = {
 
 
 
+            {/* ==========================================
+                CREATOR INTELLIGENCE IDENTITY
+            ========================================== */}
+
             <div className="creator-intelligence-core">
 
                 <div className="creator-intelligence-symbol">
 
-                    {intelligence.symbol}
+                    {
+                        intelligence.symbol
+                    }
 
                 </div>
 
@@ -89,16 +135,45 @@ const intelligence = {
 
                     <span>
 
-                        CREATOR PATTERN
+                        YOUR LIVING INTELLIGENCE
 
                     </span>
 
 
                     <strong>
 
-                        {intelligence.archetype}
+                        {
+                            name
+                        }
 
                     </strong>
+
+
+                    <small>
+
+                        {
+                            intelligence.archetype
+                        }
+
+                    </small>
+
+                </div>
+
+
+                <div className="creator-intelligence-status">
+
+                    <span className="creator-intelligence-status-dot">
+
+                        ✦
+
+                    </span>
+
+
+                    <span>
+
+                        Living
+
+                    </span>
 
                 </div>
 
@@ -106,18 +181,24 @@ const intelligence = {
 
 
 
-            <div className="creator-intelligence-meaning">
+            {/* ==========================================
+                FOUNDATION
+            ========================================== */}
 
-                <span>
+            <div className="creator-intelligence-foundation">
 
-                    CREATIVE QUALITY
+                <span className="creator-intelligence-label">
+
+                    THE RELATIONSHIP BEGINS HERE
 
                 </span>
 
 
                 <p>
 
-                    {intelligence.meaning}
+                    {
+                        intelligence.foundation
+                    }
 
                 </p>
 
@@ -125,30 +206,84 @@ const intelligence = {
 
 
 
-            <div className="creator-intelligence-message">
+            {/* ==========================================
+                CURRENT INSIGHT
+            ========================================== */}
+
+            <div className="creator-intelligence-insight">
+
+                <div className="creator-intelligence-insight-mark">
+
+                    ✦
+
+                </div>
+
+
+                <div className="creator-intelligence-insight-content">
+
+                    <span className="creator-intelligence-label">
+
+                        CURRENT LIVING INSIGHT
+
+                    </span>
+
+
+                    <p>
+
+                        {
+                            intelligence.message
+                        }
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            {/* ==========================================
+                RELATIONSHIP PRINCIPLE
+            ========================================== */}
+
+            <div className="creator-intelligence-principle">
 
                 <span>
 
-                    BLINKITA INSIGHT
+                    Your intelligence grows with you.
 
                 </span>
 
 
                 <p>
 
-                    {intelligence.message}
+                    Every reflection, decision, creation and
+                    remembered moment can become part of the
+                    relationship between you and your Living
+                    Intelligence™.
 
                 </p>
 
             </div>
 
 
+
+            {/* ==========================================
+                FOOTER
+            ========================================== */}
 
             <div className="creator-intelligence-footer">
 
                 <span>
 
-                    Living Intelligence™
+                    LIVING INTELLIGENCE™
+
+                </span>
+
+
+                <span>
+
+                    Living relationship • Living memory • Living evolution
 
                 </span>
 
@@ -160,6 +295,7 @@ const intelligence = {
                 </span>
 
             </div>
+
 
         </section>
 

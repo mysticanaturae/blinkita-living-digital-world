@@ -1069,6 +1069,90 @@ IDENTITY HEADING
 }
 
 
+/*
+==========================================
+CREATOR TYPOGRAPHY SYSTEM™
+Unified Creator visual language
+==========================================
+*/
+
+.creator-dashboard
+.creator-identity-heading p,
+
+.creator-dashboard
+.creator-portrait-note,
+
+.creator-dashboard
+.creator-symbol-meaning,
+
+.creator-dashboard
+.creator-symbol-message,
+
+.creator-dashboard
+.creator-field label,
+
+.creator-dashboard
+.creator-field-label,
+
+.creator-dashboard
+.creator-text-button,
+
+.creator-dashboard
+.creator-secondary-button {
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/*
+==========================================
+CREATOR SUPPORTING TEXT
+==========================================
+*/
+
+.creator-dashboard
+.creator-symbol-meaning,
+
+.creator-dashboard
+.creator-symbol-message,
+
+.creator-dashboard
+.creator-portrait-note {
+
+    font-weight: 400;
+
+    color:
+        var(--color-text-soft);
+}
+
+
+/*
+==========================================
+CREATOR FIELD LABELS
+==========================================
+*/
+
+.creator-dashboard
+.creator-field label,
+
+.creator-dashboard
+.creator-field-label {
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    letter-spacing: 0.05em;
+
+    text-transform: uppercase;
+}
+
 .creator-identity-heading p {
 
     max-width: 760px;
@@ -1512,6 +1596,82 @@ AVATAR SECTION
     margin-top: 22px;
 }
 
+
+/*
+==========================================
+SELECTED CREATOR SYMBOL
+==========================================
+*/
+
+.creator-symbol-preview {
+
+    width: 100%;
+
+    margin-top: 24px;
+
+    padding-top: 24px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    text-align: center;
+}
+
+
+.creator-symbol-large {
+
+    margin-bottom: 12px;
+
+    font-size: 42px;
+
+    line-height: 1;
+}
+
+
+.creator-symbol-preview h3 {
+
+    margin: 0 0 6px;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    letter-spacing: -0.01em;
+}
+
+
+.creator-symbol-meaning {
+
+    margin: 0 0 10px;
+
+    font-size: 12px !important;
+
+    line-height: 1.5;
+
+    color:
+        var(--color-text-soft);
+}
+
+
+.creator-symbol-message {
+
+    margin: 0;
+
+    font-size: 12px !important;
+
+    line-height: 1.6;
+
+    color:
+        var(--color-text-soft);
+}
 
 /*
 ==========================================

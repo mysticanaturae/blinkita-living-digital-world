@@ -1,12 +1,12 @@
-/*
+﻿/*
 ==========================================
 
-BLINKITA METHOD™
+BLINKITA METHODâ„˘
 
-LIVING WORLD RUNTIME™
+LIVING WORLD RUNTIMEâ„˘
 
 The heartbeat
-of a Living World™
+of a Living Worldâ„˘
 
 Version 1.1
 
@@ -15,17 +15,11 @@ Version 1.1
 
 
 import {
-
     enterWorldPortal,
-
     completeWorldPortal,
-
     getWorldState,
-
     updateWorldState,
-
-    savePortalResponse
-
+    savePortalResponse as savePortalResponseFromState
 }
 from "../state/WorldState";
 
@@ -79,7 +73,7 @@ export const LivingWorldRuntime = {
 
     /*
     ==========================================
-    CREATE LIVING WORLD™
+    CREATE LIVING WORLDâ„˘
 
     Creates a new Living World
     and connects it with WorldState.
@@ -129,12 +123,54 @@ export const LivingWorldRuntime = {
             });
 
 
+        const event =
+
+            createEvent({
+
+                type:
+
+                    EventTypes.WORLD_CREATED,
+
+                source:
+
+                    "LivingWorldRuntime",
+
+                payload: {
+
+                    worldId:
+
+                        world.id,
+
+                    world,
+
+                    identity:
+
+                        world.identity,
+
+                    createdAt:
+
+                        world.createdAt
+
+                }
+
+            });
+
+
+        emit(
+
+            event.type,
+
+            event
+
+        );
+
+
 
 
 
         console.log(
 
-            "🌱 Living World created:",
+            "đźŚ± Living World created:",
 
             world
 
@@ -341,10 +377,10 @@ export const LivingWorldRuntime = {
 
 /*
 ==========================================
-SAVE PORTAL RESPONSE™
+SAVE PORTAL RESPONSEâ„˘
 
 The Runtime bridge between
-Creator input and Living World Memory™
+Creator input and Living World Memoryâ„˘
 
 ==========================================
 */
@@ -357,7 +393,7 @@ savePortalResponse(
 
 ){
 
-    return savePortalResponse(
+    return savePortalResponseFromState(
 
         portalId,
 
@@ -390,3 +426,7 @@ savePortalResponse(
 
 
 };
+
+
+
+

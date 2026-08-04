@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================
 
 BLINKITA METHOD™
@@ -8,10 +8,46 @@ WORLD EVOLUTION LISTENER™
 The awareness system
 of a Living World™
 
-Version 1.0
+Version 1.2
+
+Connected with:
+
+- EventTypes™
+- EventBus™
+- WorldEvolutionEngine™
+- WorldState™
+- LivingWorldEventAdapter™
 
 ==========================================
 */
+
+
+import {
+
+    subscribe
+
+}
+
+from "../../core/events/EventBus";
+
+
+import {
+
+    EventTypes
+
+}
+
+from "../../core/events/EventTypes";
+
+
+import {
+
+    getWorldState,
+    updateWorldState
+
+}
+
+from "../../core/state/WorldState";
 
 
 import {
@@ -23,7 +59,28 @@ import {
 from "./WorldEvolutionEngine";
 
 
+import {
 
+    LivingWorldEventAdapter
+
+}
+
+from "../events/LivingWorldEventAdapter";
+
+
+
+
+
+/*
+==========================================
+EVOLVE FROM EVENT™
+
+The listener translates
+canonical Living World events
+into evolution transitions.
+
+==========================================
+*/
 
 
 export function evolveFromEvent(
@@ -35,14 +92,19 @@ export function evolveFromEvent(
 ) {
 
 
-    if (!world || !event) {
+    if (
+
+        !world
+
+        ||
+
+        !event
+
+    ) {
 
         return world;
 
     }
-
-
-
 
 
 
@@ -51,28 +113,34 @@ export function evolveFromEvent(
 
 
 
+    switch (
 
-    switch(event.type) {
+        event.type
+
+    ) {
 
 
 
-        case "WORLD_CREATED":
-
+        case EventTypes.WORLD_CREATED:
 
             nextStage =
+
+                WorldEvolutionEngine.EvolutionStages
+
+                ?.
+
+                AWAKENING
+
+                ||
 
                 "awakening";
 
-
             break;
 
 
 
 
-
-
-        case "PORTAL_COMPLETED":
-
+        case EventTypes.PORTAL_COMPLETED:
 
             nextStage =
 
@@ -80,64 +148,38 @@ export function evolveFromEvent(
 
                     world.evolution?.stage
 
-                );
+                    ||
 
+                    "seed"
+
+                );
 
             break;
 
 
 
 
+        case EventTypes.WORLD_EVOLVED:
 
-
-
-        case "MILESTONE_REACHED":
-
-
-            nextStage =
-
-                WorldEvolutionEngine.getNextStage(
-
-                    world.evolution?.stage
-
-                );
-
-
-            break;
-
-
-
-
+            return world;
 
 
 
 
         default:
 
-
             return world;
 
-
-
     }
-
-
-
 
 
 
 
     if (!nextStage) {
 
-
         return world;
 
-
     }
-
-
-
-
 
 
 
@@ -147,6 +189,172 @@ export function evolveFromEvent(
         world,
 
         nextStage
+
+    );
+
+}
+
+
+
+
+
+
+/*
+==========================================
+INITIALIZE WORLD EVOLUTION™
+
+Connects canonical world events
+with the Evolution Engine™.
+
+==========================================
+*/
+
+
+export function initializeWorldEvolutionListener() {
+
+
+
+    subscribe(
+
+        EventTypes.WORLD_CREATED,
+
+        (event) => {
+
+
+
+            const world =
+
+                getWorldState();
+
+
+
+            const evolvedWorld =
+
+                evolveFromEvent(
+
+                    world,
+
+                    event
+
+                );
+
+
+
+            if (
+
+                !evolvedWorld
+
+                ||
+
+                evolvedWorld === world
+
+            ) {
+
+                return;
+
+            }
+
+
+
+            updateWorldState(
+
+                evolvedWorld
+
+            );
+
+
+
+            LivingWorldEventAdapter.worldEvolved(
+
+                evolvedWorld
+
+            );
+
+
+
+            console.log(
+
+                "🌱 World Evolution Awakening™",
+
+                evolvedWorld.evolution
+
+            );
+
+        }
+
+    );
+
+
+
+
+
+    subscribe(
+
+        EventTypes.PORTAL_COMPLETED,
+
+        (event) => {
+
+
+
+            const world =
+
+                getWorldState();
+
+
+
+            const evolvedWorld =
+
+                evolveFromEvent(
+
+                    world,
+
+                    event
+
+                );
+
+
+
+            if (
+
+                !evolvedWorld
+
+                ||
+
+                evolvedWorld === world
+
+            ) {
+
+                return;
+
+            }
+
+
+
+            updateWorldState(
+
+                evolvedWorld
+
+            );
+
+
+
+            LivingWorldEventAdapter.worldEvolved(
+
+                evolvedWorld
+
+            );
+
+
+
+            console.log(
+
+                "🌱 World Evolution Transition™",
+
+                evolvedWorld.evolution
+
+            );
+
+        }
 
     );
 
