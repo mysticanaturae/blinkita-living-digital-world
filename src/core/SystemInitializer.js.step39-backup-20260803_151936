@@ -1,0 +1,252 @@
+﻿/*
+==========================================
+
+BLINKITA METHOD™
+
+SYSTEM INITIALIZER™
+
+The birth sequence
+of Living Systems™
+
+Version 3.1
+
+==========================================
+*/
+
+
+import {
+
+    initializeMemoryListener
+
+}
+
+from "./memory/MemoryListener";
+
+
+import {
+
+    initializeTimelineListener
+
+}
+
+from "./timeline/TimelineListener";
+
+
+import {
+
+    initializeJourneyListener
+
+}
+
+from "../journey/JourneyListener";
+
+
+import {
+
+    initializeIntelligenceListener
+
+}
+
+from "../world/intelligence/IntelligenceListener";
+
+
+import {
+
+    initializeDecisionListener
+
+}
+
+from "../world/decision/DecisionListener";
+
+
+import {
+
+    initializeActionListener
+
+}
+
+from "../world/action/ActionListener";
+
+
+import {
+
+    initializeGovernanceListener
+
+}
+
+from "../world/governance/GovernanceListener";
+
+
+import {
+
+    initializeHarmonyListener
+
+}
+
+from "../world/harmony/HarmonyListener";
+
+
+import {
+
+    initializeDiscoveryListener
+
+}
+
+from "../world/discovery/DiscoveryListener";
+
+
+import {
+
+    initializeAuthenticityListener
+
+}
+
+from "../world/authenticity/AuthenticityListener";
+
+
+import {
+
+    initializeRuntime
+
+}
+
+from "./runtime/RuntimeInitializer";
+
+
+import {
+
+    initializeWorldEvolutionListener
+
+}
+
+from "../world/evolution/WorldEvolutionListener";
+
+
+import {
+
+    initializeGovernanceDecisionBridge
+
+}
+
+from "../world/governance/GovernanceDecisionBridge";
+
+
+
+
+
+export function initializeSystems(){
+
+
+
+    const world =
+
+        initializeRuntime();
+
+
+
+
+
+    /*
+    ======================================
+
+    ACTIVATE LIVING SYSTEMS™
+
+    Each layer awakens
+
+    ======================================
+    */
+
+
+
+    initializeMemoryListener();
+
+
+
+
+    initializeTimelineListener();
+
+
+
+
+    initializeJourneyListener();
+
+
+    initializeWorldEvolutionListener();
+
+
+
+
+    /*
+    ======================================
+
+    CONSCIOUS WORLD FLOW™
+
+    Intelligence
+        ↓
+    Decision
+        ↓
+    Action
+
+    ======================================
+    */
+
+
+
+    initializeIntelligenceListener();
+
+
+
+
+    initializeDecisionListener();
+
+
+
+
+    initializeActionListener();
+
+
+
+
+    initializeHarmonyListener();
+
+
+
+
+    initializeDiscoveryListener();
+
+
+
+
+    initializeAuthenticityListener();
+
+
+
+
+    initializeGovernanceListener();
+
+
+
+
+    /*
+    ======================================
+
+    GOVERNANCE DECISION BRIDGE™
+
+    Connects governance decisions
+    with the living world action flow.
+
+    ======================================
+    */
+
+
+    initializeGovernanceDecisionBridge();
+
+
+
+
+    return world;
+
+
+}
+
+

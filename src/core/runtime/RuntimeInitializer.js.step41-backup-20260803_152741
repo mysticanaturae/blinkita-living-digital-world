@@ -1,0 +1,52 @@
+﻿/*
+==========================================
+
+BLINKITA METHODâ„˘
+
+RUNTIME INITIALIZERâ„˘
+
+Awakens the Living World Runtimeâ„˘
+
+Version 1.0
+
+==========================================
+*/
+
+
+
+import { LivingWorldRuntime }
+
+from "./LivingWorldRuntime";
+
+
+
+
+
+export function initializeRuntime(){
+
+
+
+    const world =
+
+        LivingWorldRuntime.getState();
+
+
+
+
+
+    console.log(
+
+        "đźŚ± Living World Runtime Initialized",
+
+        world.id
+
+    );
+
+
+
+
+
+    return world;
+
+
+}

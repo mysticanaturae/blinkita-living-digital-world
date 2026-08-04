@@ -938,7 +938,57 @@ const creatorSymbols = [
 const avatarOptions = creatorSymbols;
 
 
-/*
+avatarOptions.map(
+    (option) => (
+
+        <button
+
+            key={option.symbol}
+
+            type="button"
+
+            className={
+                avatar === option.symbol
+                ?
+                "creator-avatar-option active"
+                :
+                "creator-avatar-option"
+            }
+
+            onClick={() =>
+                setAvatar(option.symbol)
+            }
+
+            aria-label={
+                option.name
+            }
+
+        >
+
+            <span className="creator-avatar-symbol">
+
+                {
+                    option.symbol
+                }
+
+            </span>
+
+
+            <span className="creator-avatar-name">
+
+                {
+                    option.name
+                }
+
+            </span>
+
+        </button>
+
+    )
+)
+
+
+    /*
     ==========================================
     PHOTO
     ==========================================
@@ -1909,19 +1959,6 @@ const avatarOptions = creatorSymbols;
                 </div>
 
              </div>
-            {/* ==========================================
-                IDENTITY EVOLUTION ARCHIVE
-                Part of CREATOR IDENTITY™
-            ========================================== */}
-
-            <div className="creator-identity-evolution-archive">
-
-                <CreatorEvolutionTimeline
-                    creator={creator}
-                />
-
-            </div>
-
 
             </section>{
 
@@ -2638,5 +2675,3 @@ CREATOR JOURNEY™
     );
 
 }
-
-
