@@ -21,43 +21,43 @@ export default function BlinkitaEcosystemMandala() {
         {
             id:"method",
             name:"BLINKITA METHOD™",
-            icon:"blinkita-method.png"
+            icon:"blinkita_method_the_way.png"
         },
 
         {
             id:"os",
             name:"BLINKITA OS™",
-            icon:"blinkita-os.png"
+            icon:"blinkita_os_the_system.png"
         },
 
         {
             id:"world-builder",
             name:"WORLD BUILDER™",
-            icon:"blinkita-worldbuilder.png"
+            icon:"blinkita_the_world_builder.png"
         },
 
         {
             id:"academy",
             name:"BLINKITA ACADEMY™",
-            icon:"blinkita-academy.png"
+            icon:"blinkita_academy_learn.png"
         },
 
         {
             id:"ai",
             name:"BLINKITA AI™",
-            icon:"blinkita-ai.png"
+            icon:"blinkita_ai_your_companion.png"
         },
 
         {
             id:"studio",
             name:"BLINKITA STUDIO™",
-            icon:"blinkita-studio.png"
+            icon:"blinkita_studio_create.png"
         },
 
         {
             id:"living-worlds",
             name:"LIVING WORLDS™",
-            icon:"blinkita-livingworlds.png"
+            icon:"blinkita_living_worlds_the_living_result.png"
         },
 
         {
