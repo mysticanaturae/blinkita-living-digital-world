@@ -1,12 +1,12 @@
-﻿import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { PortalRoutes } from "../core/routes/PortalRoutes";
 import DynamicPortalPage from "../pages/DynamicPortalPage";
-import LivingWorldEntry from "../components/entry/LivingWorldEntry";
+import BlinkitaGenesis from "../components/entry/BlinkitaGenesis";
 
 
 // =================================
-// BLINKITA OS™ DASHBOARD
+// BLINKITA OS  DASHBOARD
 // =================================
 
 import CreatorHouse from "../components/dashboard/CreatorHouse";
@@ -16,12 +16,12 @@ import CreatorHouse from "../components/dashboard/CreatorHouse";
 // DASHBOARD MODULES
 // =================================
 
-import WorldDashboard from "../components/world/WorldDashboard";
-import WorldBuilderHome from "../components/builder/WorldBuilderHome";
+import WorldResume from "../components/resume/WorldResume";
 import WorldLifecycleDashboard from "../components/lifecycle/WorldLifecycleDashboard";
 import WorldTimeline from "../components/timeline/WorldTimeline";
-import WorldResume from "../components/resume/WorldResume";
-
+import WorldDashboard from "../components/world/WorldDashboard";
+import WorldBuilderHome from "../components/builder/WorldBuilderHome";
+import BlinkitaEcosystemMandala from "../components/ecosystem/BlinkitaEcosystemMandala";
 
 
 
@@ -36,26 +36,37 @@ export default function AppRouter() {
         <BrowserRouter>
 
 
-            <Routes>
+                     <Routes>
+
+    <Route
+        path="/ecosystem"
+        element={<BlinkitaEcosystemMandala />}
+    />
+
+
+    <Route
+        path="/"
+        element={<BlinkitaGenesis />}
+    />
 
 
 
 
 
                 {/* =================================
-                    LIVING PORTAL JOURNEY™
+                    LIVING PORTAL JOURNEY 
                     ================================= */}
 
 
                 
                 {/* =================================
-                    LIVING WORLD ENTRY™
+                    LIVING WORLD ENTRY 
                     ================================= */}
 
 
                 <Route
                     path="/"
-                    element={<LivingWorldEntry />}
+                    element={<BlinkitaGenesis />}
                 />
 
 
@@ -123,8 +134,8 @@ export default function AppRouter() {
 
 
                 {/* =================================
-                    BLINKITA OS™
-                    CREATOR HOUSE™
+                    BLINKITA OS 
+                    CREATOR HOUSE 
                     ================================= */}
 
 
@@ -149,7 +160,7 @@ export default function AppRouter() {
 
 
                 {/* =================================
-                    SUPPORTING SPACES™
+                    SUPPORTING SPACES 
                     ================================= */}
 
 
@@ -261,6 +272,11 @@ export default function AppRouter() {
 
 
 }
+
+
+
+
+
 
 
 

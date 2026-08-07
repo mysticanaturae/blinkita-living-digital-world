@@ -16,7 +16,8 @@ export const portals = [
     {
         id: "arrival",
         type: "portal",
-        title: "Arrival",
+        icon:
+              "/portal/icons/arrival.png",
         subtitle: "Welcome to the Living Digital World™",
         purpose: "The first entrance into the journey.",
 
@@ -32,7 +33,7 @@ export const portals = [
                 "interaction"
             ],
 
-            identity: "The First Door",
+            identity: "The Beginning",
 
             identityMessage:
                 "Welcome to Living World™.\n\nA journey through 9 Living Portals.\n\nNot a path to follow.\nA world to enter.",
@@ -71,7 +72,8 @@ export const portals = [
     {
         id: "invitation",
         type: "portal",
-        title: "Invitation",
+         invitation:
+        "/portal/icons/invitation.png",
         subtitle: "The first whisper of a new possibility.",
         purpose: "The first invitation into creation.",
 
@@ -126,7 +128,8 @@ export const portals = [
     {
         id: "possibility",
         type: "portal",
-        title: "Possibility",
+        possibility:
+        "/portal/icons/possibility.png",
         subtitle: "Where imagination becomes creation.",
         purpose: "The place where ideas begin to take form.",
 
@@ -181,7 +184,8 @@ export const portals = [
     {
         id: "the-call",
         type: "portal",
-        title: "The Call",
+        "the-call":
+        "/portal/icons/the-call.png",
         subtitle: "The moment when the journey begins.",
         purpose: "The awakening moment where intention becomes movement.",
 
@@ -236,7 +240,7 @@ export const portals = [
     {
         id: "world-seed",
         type: "portal",
-        title: "World Seed",
+        
         subtitle: "The seed of a world waiting to emerge.",
         purpose: "The moment where vision receives its first living form.",
 
@@ -291,7 +295,7 @@ export const portals = [
     {
         id: "vision",
         type: "portal",
-        title: "Vision",
+        
         subtitle: "See the world before it exists.",
         purpose: "The moment where imagination becomes a clear direction.",
 
@@ -346,7 +350,7 @@ export const portals = [
     {
         id: "essence",
         type: "portal",
-        title: "Essence",
+        
         subtitle: "Discover the living core.",
         purpose: "The discovery of the soul and identity of the world.",
 
@@ -401,7 +405,7 @@ export const portals = [
     {
         id: "experience",
         type: "portal",
-        title: "Experience",
+        
         subtitle: "Enter the world through experience.",
         purpose: "The transformation of ideas into lived reality.",
 
@@ -456,7 +460,7 @@ export const portals = [
     {
         id: "living-world",
         type: "portal",
-        title: "Living World",
+        
         subtitle: "A world that evolves with you.",
         purpose: "The completion of the first Living Digital World™ cycle.",
 

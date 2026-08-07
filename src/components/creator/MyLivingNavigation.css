@@ -21,10 +21,10 @@ Mobile Optimized
 
     background:
         linear-gradient(
-            145deg,
-            rgba(111, 79, 145, 0.42),
-            rgba(84, 57, 116, 0.48)
-        );
+        145deg,
+        rgba(111, 79, 145, 0.42),
+        rgba(84, 57, 116, 0.48)
+    );
 
     border:
         1px solid
@@ -600,10 +600,10 @@ SMALL MOBILE
 
     background:
         linear-gradient(
-            145deg,
-            rgba(71, 48, 105, 0.96),
-            rgba(48, 31, 78, 0.98)
-        );
+        145deg,
+        rgba(111, 79, 145, 0.42),
+        rgba(84, 57, 116, 0.48)
+    );
 
     border: 1px solid rgba(196, 168, 232, 0.16);
 
@@ -1789,125 +1789,41 @@ SMALL MOBILE
 
 
 /* =========================================================
-   MY LIVING ANALYSIS™
-   PREMIUM MOSAIC — 01
+   MY LIVING ANALYSIS™ — OUTER SHELL RESET
    ========================================================= */
 
-.my-living-section-analysis {
-    margin-bottom: 72px;
-}
-
 .my-living-analysis-mosaic {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr 1fr;
-    gap: 22px;
-    align-items: stretch;
+    display: block;
+    width: 100%;
 }
 
 .my-living-analysis-tile {
-    position: relative;
-    min-width: 0;
-    min-height: 680px;
-    padding: 28px;
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 28px;
-    overflow: hidden;
-    background:
-        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
-        rgba(20,16,38,.82);
-    box-shadow:
-        0 28px 70px rgba(0,0,0,.24),
-        inset 0 1px 0 rgba(255,255,255,.08);
-    display: flex;
-    flex-direction: column;
-}
-
-.my-living-analysis-tile::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-        radial-gradient(circle at 85% 8%, rgba(255,255,255,.09), transparent 28%),
-        radial-gradient(circle at 10% 90%, rgba(255,255,255,.045), transparent 32%);
-}
-
-.my-living-analysis-tile > * {
-    position: relative;
-    z-index: 1;
-}
-
-.my-living-analysis-tile-primary {
-    min-height: 720px;
-}
-
-.my-living-analysis-tile-deepen {
-    min-height: 720px;
-}
-
-.my-living-analysis-tile-world {
-    min-height: 720px;
-}
-
-.my-living-tile-topline {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
-
-.my-living-tile-symbol {
-    width: 46px;
-    height: 46px;
-    display: grid;
-    place-items: center;
-    border-radius: 15px;
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.11);
-    font-size: 20px;
-}
-
-.my-living-tile-number {
-    font-size: 11px;
-    letter-spacing: .18em;
-    opacity: .55;
-}
-
-.my-living-tile-heading > span {
-    font-size: 10px;
-    letter-spacing: .2em;
-    opacity: .58;
-}
-
-.my-living-tile-heading h3 {
-    margin: 9px 0 9px;
-    font-size: 25px;
-    line-height: 1.15;
-    font-weight: 600;
-}
-
-.my-living-tile-heading p {
-    margin: 0;
-    max-width: 430px;
-    font-size: 13px;
-    line-height: 1.7;
-    opacity: .66;
-}
-
-.my-living-tile-content {
-    flex: 1;
-    margin-top: 24px;
     min-height: 0;
-}
-
-.my-living-analysis-inner .creator-analysis-card {
-    height: 100%;
-    margin: 0;
     padding: 0;
     border: 0;
     border-radius: 0;
     background: transparent;
     box-shadow: none;
+    overflow: visible;
+}
+
+.my-living-analysis-tile::before {
+    display: none;
+}
+
+.my-living-analysis-tile > * {
+    position: static;
+}
+
+.my-living-analysis-tile-primary,
+.my-living-analysis-tile-deepen,
+.my-living-analysis-tile-world {
+    min-height: 0;
+}
+
+.my-living-analysis-inner .creator-analysis-card {
+    height: auto;
+    margin: 0;
 }
 
 .my-living-analysis-inner .creator-analysis-header {
@@ -2102,3 +2018,1292 @@ SMALL MOBILE
         flex: none;
     }
 }
+
+
+
+
+
+/* ============================================================
+   BLINKITA — FINAL MY LIVING ANALYSIS LAYOUT
+   ============================================================
+   Desktop:
+   01 Main Analysis | 02 Go Deeper | 03 Analyze a Living World
+
+   All three cards share the same outer height.
+   Main Analysis naturally determines the row height.
+   Secondary cards keep their content compact at the top.
+
+   Below:
+   4-card Living Analysis Mosaic.
+   ============================================================ */
+
+
+/* ============================================================
+   TOP — THREE ANALYSIS WINDOWS
+   ============================================================ */
+
+.my-living-analysis-layout {
+    display: grid !important;
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+    gap: 18px;
+    width: 100%;
+    align-items: stretch;
+}
+
+
+/*
+   The JSX wrapper contains all three cards.
+   Make it transparent to the outer grid so the
+   three cards themselves occupy the three columns.
+*/
+
+.my-living-analysis-layout .my-living-analysis-top {
+    display: contents;
+}
+
+
+/* All three cards = same outer height */
+
+.my-living-analysis-layout .my-living-premium-card {
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    align-self: stretch;
+}
+
+
+/* Main Analysis may remain deep */
+
+.my-living-analysis-layout .my-living-analysis-primary {
+    min-height: 500px;
+}
+
+
+/* Go Deeper stays compact internally */
+
+.my-living-analysis-layout .my-living-analysis-secondary {
+    min-height: 0;
+    height: auto;
+    justify-content: flex-start;
+}
+
+
+/* Analyze World stays compact internally */
+
+.my-living-analysis-layout .my-living-analysis-world {
+    min-height: 0;
+    height: auto;
+    justify-content: flex-start;
+}
+
+
+/*
+   Do NOT stretch the actual controls inside the
+   compact cards.
+*/
+
+.my-living-analysis-layout .my-living-analysis-secondary
+.my-living-reflection-input {
+    flex: none;
+}
+
+.my-living-analysis-layout .my-living-analysis-secondary
+.my-living-premium-button {
+    flex: none;
+}
+
+
+/* ============================================================
+   LIVING ANALYSIS MOSAIC — 4 LIVING DATA WINDOWS
+   ============================================================ */
+
+.my-living-analysis-mosaic {
+    display: grid !important;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin-top: 18px;
+    align-items: stretch;
+}
+
+
+/* Keep mosaic cards alive and colourful */
+
+.my-living-analysis-mosaic .my-living-mosaic-card {
+    position: relative;
+    min-width: 0;
+    min-height: 220px;
+    height: auto;
+    padding: 26px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,.11);
+    overflow: hidden;
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+
+/* ============================================================
+   MOSAIC — LIVING / COLOUR / MOVEMENT
+   ============================================================ */
+
+.my-living-mosaic-worlds {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(72,180,255,.16),
+            rgba(255,255,255,.035)
+        );
+}
+
+.my-living-mosaic-patterns {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(190,110,255,.17),
+            rgba(255,255,255,.035)
+        );
+}
+
+.my-living-mosaic-direction {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,175,75,.17),
+            rgba(255,255,255,.035)
+        );
+}
+
+.my-living-mosaic-evolution {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(70,220,170,.16),
+            rgba(255,255,255,.035)
+        );
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1050px) {
+
+    .my-living-analysis-layout {
+        grid-template-columns:
+            minmax(0, 1.2fr)
+            minmax(0, 1fr);
+    }
+
+    .my-living-analysis-layout .my-living-analysis-top {
+        display: contents;
+    }
+
+    .my-living-analysis-layout .my-living-analysis-primary {
+        grid-column: 1 / -1;
+    }
+
+    .my-living-analysis-mosaic {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 720px) {
+
+    .my-living-analysis-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .my-living-analysis-layout .my-living-analysis-primary,
+    .my-living-analysis-layout .my-living-analysis-secondary,
+    .my-living-analysis-layout .my-living-analysis-world {
+        grid-column: auto;
+    }
+
+    .my-living-analysis-layout .my-living-analysis-primary {
+        min-height: 0;
+    }
+
+    .my-living-analysis-mosaic {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================================================
+   BLINKITA — ANALYSIS FINAL STRUCTURE
+   ============================================================
+
+   DESKTOP:
+
+   ┌────────────────────┬───────────────┬───────────────┐
+   │                    │               │               │
+   │  MAIN ANALYSIS     │  GO DEEPER    │ ANALYZE WORLD │
+   │                    │               │               │
+   │  deep / tall       │  compact      │  compact      │
+   │                    │               │               │
+   └────────────────────┴───────────────┴───────────────┘
+
+   ┌────────────────────┬───────────────┬───────────────┬───────────────┐
+   │ LIVING WORLDS      │ PATTERNS      │ DIRECTION     │ EVOLUTION     │
+   └────────────────────┴───────────────┴───────────────┴───────────────┘
+
+   ============================================================ */
+
+
+/* ============================================================
+   01 — TOP THREE WINDOWS
+   ============================================================ */
+
+.my-living-analysis-layout {
+    display: block !important;
+    width: 100%;
+}
+
+
+/*
+   The TOP wrapper itself is the three-column grid.
+   Do NOT use display: contents.
+*/
+
+.my-living-analysis-layout .my-living-analysis-top {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 18px;
+
+    width: 100%;
+
+    align-items: stretch;
+}
+
+
+/*
+   All three outer cards have equal height because
+   the grid row stretches them to the height of
+   the Main Analysis card.
+*/
+
+.my-living-analysis-top > .my-living-premium-card {
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+
+    align-self: stretch;
+}
+
+
+/*
+   Main Analysis is allowed to determine the depth
+   of the row.
+*/
+
+.my-living-analysis-top > .my-living-analysis-primary {
+    min-height: 500px;
+}
+
+
+/*
+   The two compact windows are NOT internally stretched.
+*/
+
+.my-living-analysis-top > .my-living-analysis-secondary,
+.my-living-analysis-top > .my-living-analysis-world {
+    min-height: 0;
+    height: auto;
+
+    justify-content: flex-start;
+}
+
+
+/*
+   Keep the Go Deeper textarea compact.
+*/
+
+.my-living-analysis-top
+.my-living-analysis-secondary
+.my-living-reflection-input {
+    flex: 0 0 auto;
+}
+
+
+/*
+   Keep the Analyze World selector compact.
+*/
+
+.my-living-analysis-top
+.my-living-analysis-world
+.my-living-world-selector {
+    flex: 0 0 auto;
+}
+
+
+/* ============================================================
+   02 — FOUR-CARD ANALYSIS MOSAIC
+   ============================================================ */
+
+.my-living-analysis-layout .my-living-analysis-mosaic {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    align-items: stretch;
+}
+
+
+/*
+   Each mosaic card remains its own visual window.
+*/
+
+.my-living-analysis-layout
+.my-living-analysis-mosaic
+.my-living-mosaic-card {
+    position: relative;
+
+    min-width: 0;
+    min-height: 220px;
+    height: auto;
+
+    padding: 26px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+
+/* ============================================================
+   MOSAIC — LIVING COLOUR
+   ============================================================ */
+
+.my-living-mosaic-worlds {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(70,190,255,.18),
+            rgba(255,255,255,.035)
+        );
+}
+
+.my-living-mosaic-patterns {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(190,105,255,.18),
+            rgba(255,255,255,.035)
+        );
+}
+
+.my-living-mosaic-direction {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,175,75,.18),
+            rgba(255,255,255,.035)
+        );
+}
+
+.my-living-mosaic-evolution {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(65,220,170,.18),
+            rgba(255,255,255,.035)
+        );
+}
+
+
+/* ============================================================
+   03 — RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1050px) {
+
+    .my-living-analysis-layout .my-living-analysis-top {
+        grid-template-columns:
+            minmax(0, 1.2fr)
+            minmax(0, 1fr);
+    }
+
+    .my-living-analysis-top > .my-living-analysis-primary {
+        grid-column: 1 / -1;
+    }
+
+    .my-living-analysis-layout .my-living-analysis-mosaic {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 720px) {
+
+    .my-living-analysis-layout .my-living-analysis-top {
+        grid-template-columns: 1fr;
+    }
+
+    .my-living-analysis-top > .my-living-analysis-primary {
+        grid-column: auto;
+        min-height: 0;
+    }
+
+    .my-living-analysis-layout .my-living-analysis-mosaic {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================================================
+   BLINKITA — TRUE 3 COLUMN ANALYSIS
+   FINAL DESKTOP OVERRIDE
+   ============================================================ */
+
+/* OUTER ANALYSIS SHELL */
+.my-living-analysis-layout {
+    display: block !important;
+    width: 100% !important;
+}
+
+
+/* ============================================================
+   TOP ROW
+   MAIN | GO DEEPER | ANALYZE WORLD
+   ============================================================ */
+
+.my-living-analysis-layout .my-living-analysis-top {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(0, .825fr)
+        minmax(0, .825fr) !important;
+
+    grid-template-rows: auto !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+
+    align-items: stretch !important;
+}
+
+
+/* The three cards MUST be direct grid items */
+.my-living-analysis-layout
+.my-living-analysis-top
+> .my-living-premium-card {
+    grid-column: auto !important;
+    grid-row: 1 !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    height: auto !important;
+
+    align-self: stretch !important;
+}
+
+
+/* Main Analysis is the deep card */
+.my-living-analysis-layout
+.my-living-analysis-top
+> .my-living-analysis-primary {
+    min-height: 500px !important;
+}
+
+
+/* Compact cards remain compact internally */
+.my-living-analysis-layout
+.my-living-analysis-top
+> .my-living-analysis-secondary,
+.my-living-analysis-layout
+.my-living-analysis-top
+> .my-living-analysis-world {
+    min-height: 0 !important;
+    height: auto !important;
+
+    justify-content: flex-start !important;
+}
+
+
+/* ============================================================
+   BELOW — FOUR-CARD LIVING ANALYSIS MOSAIC
+   ============================================================ */
+
+.my-living-analysis-layout
+.my-living-analysis-mosaic {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr)) !important;
+
+    grid-template-rows: auto !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+
+    margin-top: 18px !important;
+
+    align-items: stretch !important;
+}
+
+
+/* Four independent mosaic windows */
+.my-living-analysis-layout
+.my-living-analysis-mosaic
+> .my-living-mosaic-card {
+    grid-column: auto !important;
+    grid-row: 1 !important;
+
+    min-width: 0 !important;
+    min-height: 210px !important;
+
+    height: auto !important;
+
+    padding: 26px !important;
+
+    border-radius: 24px !important;
+
+    overflow: hidden !important;
+}
+
+
+/* ============================================================
+   KEEP THE MOSAIC ALIVE
+   ============================================================ */
+
+.my-living-analysis-layout
+.my-living-mosaic-worlds {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(70,190,255,.18),
+            rgba(255,255,255,.035)
+        ) !important;
+}
+
+.my-living-analysis-layout
+.my-living-mosaic-patterns {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(190,105,255,.18),
+            rgba(255,255,255,.035)
+        ) !important;
+}
+
+.my-living-analysis-layout
+.my-living-mosaic-direction {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,175,75,.18),
+            rgba(255,255,255,.035)
+        ) !important;
+}
+
+.my-living-analysis-layout
+.my-living-mosaic-evolution {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(65,220,170,.18),
+            rgba(255,255,255,.035)
+        ) !important;
+}
+
+
+/* ============================================================
+   IMPORTANT:
+   Override old responsive rules for desktop content.
+   ============================================================ */
+
+@media (min-width: 1051px) {
+
+    .my-living-analysis-layout
+    .my-living-analysis-top {
+        display: grid !important;
+
+        grid-template-columns:
+            minmax(0, 1.35fr)
+            minmax(0, .825fr)
+            minmax(0, .825fr) !important;
+    }
+
+    .my-living-analysis-layout
+    .my-living-analysis-top
+    > .my-living-premium-card {
+        grid-column: auto !important;
+        grid-row: 1 !important;
+    }
+
+    .my-living-analysis-layout
+    .my-living-analysis-mosaic {
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    .my-living-analysis-layout
+    .my-living-analysis-mosaic
+    > .my-living-mosaic-card {
+        grid-column: auto !important;
+        grid-row: 1 !important;
+    }
+}
+
+
+/* =========================================================
+   BLINKITA ANALYSIS™ — FINAL DASHBOARD MOSAIC
+   DESKTOP:
+   MAIN ANALYSIS | GO DEEPER + 2 | WORLD ANALYSIS + 2
+   ========================================================= */
+
+.my-living-section-analysis .my-living-analysis-layout {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(0, 0.82fr)
+        minmax(0, 0.82fr);
+
+    gap: 18px;
+
+    width: 100%;
+
+    align-items: start;
+}
+
+
+/* ---------------------------------------------------------
+   THREE MAIN COLUMNS
+   --------------------------------------------------------- */
+
+.my-living-analysis-column {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    align-self: start;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN ANALYSIS — TALL
+   --------------------------------------------------------- */
+
+.my-living-analysis-column-primary {
+    min-width: 0;
+}
+
+.my-living-analysis-column-primary
+.my-living-analysis-primary {
+    min-height: 680px !important;
+
+    height: 100%;
+
+    box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   GO DEEPER + WORLD ANALYSIS — COMPACT
+   --------------------------------------------------------- */
+
+.my-living-analysis-column-deepen
+.my-living-analysis-secondary,
+
+.my-living-analysis-column-world
+.my-living-analysis-world {
+    min-height: 0 !important;
+
+    height: auto !important;
+
+    box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   REMOVE OLD STRETCH BEHAVIOUR
+   --------------------------------------------------------- */
+
+.my-living-analysis-layout
+.my-living-premium-card {
+    align-self: start;
+
+    flex: none;
+}
+
+
+/* ---------------------------------------------------------
+   TWO MOSAIC CARDS UNDER EACH COMPACT WINDOW
+   --------------------------------------------------------- */
+
+.my-living-analysis-mosaic-column {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 18px;
+
+    width: 100%;
+
+    align-items: stretch;
+}
+
+
+/* Each analytical card remains an actual card */
+
+.my-living-analysis-mosaic-column
+.my-living-mosaic-card {
+    min-width: 0;
+
+    min-height: 190px;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   KEEP THE MOSAIC ALIVE / COLOURFUL
+   --------------------------------------------------------- */
+
+.my-living-analysis-mosaic-column
+.my-living-mosaic-card {
+    border-radius: 22px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(255,255,255,.10),
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.12),
+        inset 0 1px 0 rgba(255,255,255,.07);
+
+    padding: 20px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.my-living-analysis-mosaic-column
+.my-living-mosaic-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 24px 55px rgba(0,0,0,.17),
+        inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+
+/* ---------------------------------------------------------
+   MAKE THE FOUR MOSAIC CARDS VISUALLY DISTINCT
+   --------------------------------------------------------- */
+
+.my-living-analysis-column-deepen
+.my-living-mosaic-worlds {
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(255,205,90,.14),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+}
+
+.my-living-analysis-column-deepen
+.my-living-mosaic-patterns {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(190,130,255,.15),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+}
+
+.my-living-analysis-column-world
+.my-living-mosaic-direction {
+    background:
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(80,210,210,.13),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+}
+
+.my-living-analysis-column-world
+.my-living-mosaic-evolution {
+    background:
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,120,190,.13),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .my-living-section-analysis .my-living-analysis-layout {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+    }
+
+    .my-living-analysis-column-primary {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+@media (max-width: 720px) {
+
+    .my-living-section-analysis .my-living-analysis-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    .my-living-analysis-column-primary,
+    .my-living-analysis-column-deepen,
+    .my-living-analysis-column-world {
+        grid-column: auto !important;
+    }
+
+    .my-living-analysis-mosaic-column {
+        grid-template-columns: 1fr !important;
+    }
+
+    .my-living-analysis-column-primary
+    .my-living-analysis-primary {
+        min-height: 0 !important;
+    }
+
+}
+
+/* ============================================================
+   BLINKITA ANALYSIS™
+   FINAL 3-COLUMN DASHBOARD MOSAIC
+   ============================================================ */
+
+/*
+   DESKTOP STRUCTURE
+
+   COLUMN 01
+   └── MAIN ANALYSIS
+       tall
+
+   COLUMN 02
+   ├── GO DEEPER
+   ├── MOSAIC 01
+   └── MOSAIC 02
+
+   COLUMN 03
+   ├── ANALYZE A LIVING WORLD
+   ├── MOSAIC 03
+   └── MOSAIC 04
+*/
+
+
+/* ============================================================
+   OUTER ANALYSIS GRID
+   ============================================================ */
+
+.my-living-section-analysis
+.my-living-analysis-layout {
+
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(0, .82fr)
+        minmax(0, .82fr);
+
+    gap: 18px;
+
+    width: 100%;
+
+    align-items: start !important;
+
+}
+
+
+/* ============================================================
+   THREE COLUMNS
+   ============================================================ */
+
+.my-living-analysis-column {
+
+    min-width: 0;
+
+    width: 100%;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 18px !important;
+
+    align-self: start !important;
+
+}
+
+
+/* ============================================================
+   MAIN ANALYSIS
+   ============================================================ */
+
+.my-living-analysis-column-primary {
+
+    grid-column: 1;
+
+    grid-row: 1;
+
+}
+
+
+.my-living-analysis-column-primary
+.my-living-analysis-primary {
+
+    width: 100% !important;
+
+    min-height: 680px !important;
+
+    height: auto !important;
+
+    align-self: start !important;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ============================================================
+   GO DEEPER
+   ============================================================ */
+
+.my-living-analysis-column-deepen {
+
+    grid-column: 2;
+
+    grid-row: 1;
+
+}
+
+
+.my-living-analysis-column-deepen
+.my-living-analysis-secondary {
+
+    width: 100% !important;
+
+    min-height: 0 !important;
+
+    height: auto !important;
+
+    align-self: start !important;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ============================================================
+   ANALYZE A LIVING WORLD
+   ============================================================ */
+
+.my-living-analysis-column-world {
+
+    grid-column: 3;
+
+    grid-row: 1;
+
+}
+
+
+.my-living-analysis-column-world
+.my-living-analysis-world {
+
+    width: 100% !important;
+
+    min-height: 0 !important;
+
+    height: auto !important;
+
+    align-self: start !important;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ============================================================
+   IMPORTANT:
+   THE MOSAIC BELONGS INSIDE ITS OWN COLUMN
+   ============================================================ */
+
+.my-living-analysis-column-deepen
+.my-living-analysis-mosaic-column,
+
+.my-living-analysis-column-world
+.my-living-analysis-mosaic-column {
+
+    display: grid !important;
+
+    grid-template-columns: 1fr !important;
+
+    grid-template-rows: auto auto !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+
+    align-items: stretch !important;
+
+}
+
+
+/* ============================================================
+   FOUR MOSAIC CARDS
+   TWO UNDER GO DEEPER
+   TWO UNDER ANALYZE WORLD
+   ============================================================ */
+
+.my-living-analysis-column-deepen
+.my-living-mosaic-card,
+
+.my-living-analysis-column-world
+.my-living-mosaic-card {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    min-height: 190px !important;
+
+    height: auto !important;
+
+    box-sizing: border-box;
+
+    align-self: stretch !important;
+
+}
+
+
+/* ============================================================
+   REMOVE OLD GLOBAL STRETCHING
+   ============================================================ */
+
+.my-living-analysis-layout {
+
+    align-items: start !important;
+
+}
+
+
+.my-living-analysis-layout
+.my-living-premium-card {
+
+    align-self: start !important;
+
+}
+
+
+/* ============================================================
+   KILL OLD 3-CARD GRID RULES
+   ============================================================ */
+
+.my-living-analysis-grid {
+
+    display: block !important;
+
+    width: 100% !important;
+
+}
+
+
+.my-living-analysis-grid
+.my-living-premium-card {
+
+    min-height: 0 !important;
+
+}
+
+
+/* ============================================================
+   MOSAIC CARDS — PREMIUM VISUAL
+   ============================================================ */
+
+.my-living-analysis-mosaic-column
+.my-living-mosaic-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 20px;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(255,255,255,.10),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.12),
+        inset 0 1px 0 rgba(255,255,255,.07);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.my-living-analysis-mosaic-column
+.my-living-mosaic-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 24px 55px rgba(0,0,0,.17),
+        inset 0 1px 0 rgba(255,255,255,.10);
+
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1050px) {
+
+    .my-living-section-analysis
+    .my-living-analysis-layout {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+    }
+
+    .my-living-analysis-column-primary {
+
+        grid-column: 1 / -1;
+
+    }
+
+    .my-living-analysis-column-deepen {
+
+        grid-column: 1;
+
+    }
+
+    .my-living-analysis-column-world {
+
+        grid-column: 2;
+
+    }
+
+}
+
+
+@media (max-width: 720px) {
+
+    .my-living-section-analysis
+    .my-living-analysis-layout {
+
+        grid-template-columns: 1fr !important;
+
+    }
+
+    .my-living-analysis-column-primary,
+    .my-living-analysis-column-deepen,
+    .my-living-analysis-column-world {
+
+        grid-column: auto !important;
+
+        grid-row: auto !important;
+
+    }
+
+}
+

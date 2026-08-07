@@ -10,144 +10,46 @@ Universal container
 for Living Portals™
 
 Connected with:
+
 - Portal Navigation™
 - Identity Layer™
 - Living UI System™
 - Portal Experience Engine™
 
-Version 3.2
+Version 3.3
 
 ==========================================
 */
-
-
-import PortalNavigation 
-from "../components/navigation/PortalNavigation";
-
 
 import IdentityWidget
 from "../components/auth/IdentityWidget";
 
 
-
-
-
 export default function PortalShell({
 
-
-    title,
-
-    subtitle,
-
     children,
-
 
 }) {
 
 
+return (
 
-    return (
+    <section className="living-page portal-layout">
 
 
+        <IdentityWidget />
 
-        <section className="living-page portal-layout">
 
+        <main className="portal-content">
 
+            {children}
 
+        </main>
 
 
+    </section>
 
-
-            <PortalNavigation />
-
-
-
-
-
-
-
-
-
-            <section className="living-card identity-card">
-
-
-
-                <IdentityWidget />
-
-
-
-            </section>
-
-
-
-
-
-
-
-
-
-            <header className="living-header portal-header">
-
-
-
-                <h1>
-
-                    {title}
-
-                </h1>
-
-
-
-
-
-
-                {
-
-                    subtitle && (
-
-
-                        <p>
-
-                            {subtitle}
-
-                        </p>
-
-
-                    )
-
-                }
-
-
-
-            </header>
-
-
-
-
-
-
-
-
-
-            <main className="portal-content">
-
-
-                {children}
-
-
-            </main>
-
-
-
-
-
-
-
-
-        </section>
-
-
-    );
+);
 
 
 }

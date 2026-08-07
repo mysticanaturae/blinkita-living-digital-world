@@ -1,0 +1,98 @@
+.blinkita-genesis {
+
+    width: 100vw;
+    height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.08),
+            rgba(0,0,0,1) 65%
+        );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+
+.genesis-light {
+
+    animation: genesisAppear 5s ease forwards;
+
+}
+
+
+.ecosystem-genesis-icon {
+
+    width:260px;
+    height:260px;
+
+    object-fit:contain;
+
+    opacity:0;
+
+    animation: ecosystemReveal 5s ease forwards;
+
+}
+
+
+
+@keyframes ecosystemReveal {
+
+    0% {
+
+        opacity:0;
+        transform:scale(0.2);
+
+        filter:
+            brightness(0)
+            blur(20px);
+
+    }
+
+
+    40% {
+
+        opacity:1;
+
+        transform:scale(1);
+
+        filter:
+            brightness(1.4)
+            blur(0);
+
+    }
+
+
+    100% {
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+@keyframes genesisAppear {
+
+    0% {
+
+        transform:scale(0.9);
+
+    }
+
+
+    100% {
+
+        transform:scale(1);
+
+    }
+
+}

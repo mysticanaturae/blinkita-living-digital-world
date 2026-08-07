@@ -55,9 +55,8 @@ console.log(
     return (
 
         <PortalShell
-            title={portal.title}
-            subtitle={portal.subtitle}
-        >
+    title={portal.title}
+>
 
             <PortalTemplate
                 portal={portal}

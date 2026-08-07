@@ -7,10 +7,7 @@ MY LIVING ANALYSIS™
 
 Creator Intelligence Analysis
 
-The Creator's first living synthesis
-after completing the 9 Living Portals.
-
-Version 1.0
+Version 2.1
 ==========================================
 */
 
@@ -35,10 +32,9 @@ const STOP_WORDS = new Set([
     "some","also","because","through","only","like","want","need",
     "something","my","me","i","a","an","to","of","in","on","is",
     "it","as","at","be","or","if","do","so","but","not","we","our",
-
-    "in","je","in","ki","to","ta","tvoj","tvoja","tvoje","svoj",
+    "je","ki","to","ta","tvoj","tvoja","tvoje","svoj",
     "svoja","svoje","sem","si","so","se","da","ne","za","na","od",
-    "do","z","iz","kot","kar","ko","kako","kaj","kjer","in","ali",
+    "do","z","iz","kot","kar","ko","kako","kaj","kjer","ali",
     "bi","bo","bom","bila","bilo","bil","biti","me","mi","moj",
     "moja","moje","te","ti","tudi","že","še","lahko","samo"
 
@@ -283,6 +279,7 @@ function buildAnalysis(
 
         `Do not rush into creating another thing simply because you have completed the questions. First use this moment to recognize the pattern. Choose the one idea, desire, tension or possibility from this analysis that feels most alive. Bring that into your Creator Dashboard, your Living Intelligence and eventually into a Living World.`;
 
+
     message += `\n\n`;
 
     message +=
@@ -323,6 +320,10 @@ export default function CreatorAnalysisCard() {
         useState("");
 
 
+    const [showFullReading, setShowFullReading] =
+        useState(false);
+
+
     const analysis =
         useMemo(
             () =>
@@ -343,235 +344,266 @@ export default function CreatorAnalysisCard() {
             additionalContext.trim()
         );
 
+        setShowFullReading(true);
+
     }
+
+
+    const previewMessage =
+        analysis.message
+            .split("\n\n")
+            .slice(0, 2)
+            .join("\n\n");
+
+
+    const fullAnalysisParagraphs =
+        analysis.message
+            .split("\n\n")
+            .filter(
+                paragraph =>
+                    paragraph.trim()
+            );
+
+
+    const firstResponse =
+        memories[0]?.answer || "";
+
+    const latestResponse =
+        memories[memories.length - 1]?.answer || "";
 
 
     return (
 
         <section className="creator-analysis-card">
 
-            <div className="creator-analysis-header">
-
-                <div className="creator-analysis-header-meta">
-
-                    <span className="creator-analysis-eyebrow">
-
-                        MY LIVING ANALYSIS™
-
-                    </span>
-
-                    <span className="creator-analysis-mark">
-
-                        ✦
-
-                    </span>
-
-                </div>
 
 
-                <h2>
-
-                    Your Living Analysis
-
-                </h2>
+                {/* =================================================
+                   01 · FIRST COLUMN
+                ================================================== */}
 
 
-                <p>
 
-                    The first living synthesis of what
-                    your 9 Living Portals have revealed
-                    about the Creator behind your creation.
+                    <div className="creator-analysis-header">
 
-                </p>
+                        <div className="creator-analysis-header-meta">
 
-            </div>
-
-
-            <div className="creator-analysis-progress">
-
-                <div>
-
-                    <span>
-
-                        LIVING PORTALS
-
-                    </span>
-
-                    <strong>
-
-                        {memories.length} / 9
-
-                    </strong>
-
-                </div>
-
-
-                <div className="creator-analysis-progress-track">
-
-                    <div
-                        style={{
-                            width:
-                                `${Math.min(
-                                    memories.length / 9 * 100,
-                                    100
-                                )}%`
-                        }}
-                    />
-
-                </div>
-
-            </div>
-
-
-            <div className="creator-analysis-body">
-
-                <span className="creator-analysis-label">
-
-                    {analysis.complete
-                        ? "YOUR FIRST LIVING PATTERN"
-                        : "THE ANALYSIS IS STILL UNFOLDING"
-                    }
-
-                </span>
-
-
-                <h3>
-
-                    {analysis.title}
-
-                </h3>
-
-
-                <p className="creator-analysis-lead">
-
-                    {analysis.message}
-
-                </p>
-
-
-                {
-                    analysis.complete &&
-                    analysis.themes.length > 0 && (
-
-                        <div className="creator-analysis-themes">
-
-                            {
-                                analysis.themes.map(
-                                    theme => (
-
-                                        <span key={theme}>
-
-                                            {theme}
-
-                                        </span>
-
-                                    )
-                                )
-                            }
-
-                        </div>
-
-                    )
-                }
-
-            </div>
-
-
-            {
-                analysis.complete && (
-
-                    <div className="creator-analysis-addition">
-
-                        <div>
-
-                            <span className="creator-analysis-label">
-
-                                DID SOMETHING ELSE COME TO YOU?
-
+                            <span className="creator-analysis-eyebrow">
+                                MY LIVING ANALYSIS™
                             </span>
 
-                            <p>
-
-                                Your first answers do not have to contain
-                                everything. Add anything you remembered,
-                                understood or suddenly saw after completing
-                                the 9 portals.
-
-                            </p>
-
-                        </div>
-
-
-                        <textarea
-
-                            value={
-                                additionalContext
-                            }
-
-                            onChange={(event) =>
-                                setAdditionalContext(
-                                    event.target.value
-                                )
-                            }
-
-                            rows="7"
-
-                            placeholder="Write what came to you afterwards..."
-
-                        />
-
-
-                        <button
-
-                            type="button"
-
-                            className="creator-analysis-button"
-
-                            onClick={
-                                updateAnalysis
-                            }
-
-                            disabled={
-                                !additionalContext.trim()
-                            }
-
-                        >
-
-                            Update My Living Analysis
-
-                            <span>
-
+                            <span className="creator-analysis-mark">
                                 ✦
-
                             </span>
 
-                        </button>
+                        </div>
+
+
+                        <h2>
+                            Your Living Analysis
+                        </h2>
+
+
+                        <p>
+                            The first living synthesis of what
+                            your 9 Living Portals have revealed
+                            about the Creator behind your creation.
+                        </p>
 
                     </div>
 
-                )
 
-            }
+                    <div className="creator-analysis-progress">
+
+                        <div className="creator-analysis-progress-label">
+
+                            <span>
+                                LIVING PORTALS
+                            </span>
+
+                            <strong>
+                                {memories.length} / 9
+                            </strong>
+
+                        </div>
+
+
+                        <div className="creator-analysis-progress-track">
+
+                            <div
+                                style={{
+                                    width:
+                                        `${Math.min(
+                                            memories.length / 9 * 100,
+                                            100
+                                        )}%`
+                                }}
+                            />
+
+                        </div>
+
+                    </div>
+
+
+                    <div className="creator-analysis-body">
+
+                        <span className="creator-analysis-label">
+
+                            {analysis.complete
+                                ? "YOUR FIRST LIVING PATTERN"
+                                : "THE ANALYSIS IS STILL UNFOLDING"
+                            }
+
+                        </span>
+
+
+                        <h3>
+                            {analysis.title}
+                        </h3>
+
+
+                        {
+                            analysis.complete ? (
+
+                                !showFullReading ? (
+
+                                    <>
+
+                                        <p className="creator-analysis-lead">
+                                            {previewMessage}
+                                        </p>
+
+
+                                        <button
+                                            type="button"
+                                            className="creator-analysis-button"
+                                            onClick={() =>
+                                                setShowFullReading(true)
+                                            }
+                                        >
+                                            GET FULL READING
+                                            <span>→</span>
+                                        </button>
+
+                                    </>
+
+                                ) : (
+
+                                    <div className="creator-analysis-full">
+
+                                        {
+                                            fullAnalysisParagraphs.map(
+                                                (
+                                                    paragraph,
+                                                    index
+                                                ) => (
+
+                                                    <p
+                                                        key={index}
+                                                        className={
+                                                            index === 0
+                                                                ? "creator-analysis-lead"
+                                                                : ""
+                                                        }
+                                                    >
+                                                        {paragraph}
+                                                    </p>
+
+                                                )
+                                            )
+                                        }
+
+
+                                        <button
+                                            type="button"
+                                            className="creator-analysis-button"
+                                            onClick={() =>
+                                                setShowFullReading(false)
+                                            }
+                                        >
+                                            CLOSE FULL READING
+                                            <span>↑</span>
+                                        </button>
+
+                                    </div>
+
+                                )
+
+                            ) : (
+
+                                <p className="creator-analysis-lead">
+                                    {analysis.message}
+                                </p>
+
+                            )
+                        }
+
+                    </div>
+
+
+                    {
+                        analysis.complete && (
+
+                            <div className="creator-analysis-addition">
+
+                                <div>
+
+                                    <span className="creator-analysis-label">
+                                        DID SOMETHING ELSE COME TO YOU?
+                                    </span>
+
+                                    <p>
+                                        Keep the reflection alive.
+                                        Add anything you remembered,
+                                        understood or suddenly saw
+                                        after completing the 9 portals.
+                                    </p>
+
+                                </div>
+
+
+                                <textarea
+                                    value={additionalContext}
+                                    onChange={(event) =>
+                                        setAdditionalContext(
+                                            event.target.value
+                                        )
+                                    }
+                                    rows="5"
+                                    placeholder="Write what came to you afterwards..."
+                                />
+
+
+                                <button
+                                    type="button"
+                                    className="creator-analysis-button"
+                                    onClick={updateAnalysis}
+                                    disabled={
+                                        !additionalContext.trim()
+                                    }
+                                >
+                                    Update My Living Analysis
+                                    <span>✦</span>
+                                </button>
+
+                            </div>
+
+                        )
+                    }
 
 
             <div className="creator-analysis-footer">
 
                 <span>
-
                     MY LIVING ANALYSIS™
-
                 </span>
 
                 <span>
-
                     9 portals · living pattern · next layer
-
                 </span>
 
                 <span>
-
                     ✦
-
                 </span>
 
             </div>
@@ -581,3 +613,5 @@ export default function CreatorAnalysisCard() {
     );
 
 }
+
+
