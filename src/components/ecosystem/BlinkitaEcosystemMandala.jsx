@@ -1,4 +1,4 @@
-import { useState } from "react";
+ï»¿import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./BlinkitaEcosystemMandala.css";
@@ -20,73 +20,73 @@ export default function BlinkitaEcosystemMandala() {
 
         {
             id:"method",
-            name:"BLINKITA METHOD™",
+            name:"BLINKITA METHODâ„¢",
             icon:"blinkita_method_the_way.png"
         },
 
         {
             id:"os",
-            name:"BLINKITA OS™",
+            name:"BLINKITA OSâ„¢",
             icon:"blinkita_os_the_system.png"
         },
 
         {
             id:"world-builder",
-            name:"WORLD BUILDER™",
+            name:"WORLD BUILDERâ„¢",
             icon:"blinkita_the_world_builder.png"
         },
 
         {
             id:"academy",
-            name:"BLINKITA ACADEMY™",
+            name:"BLINKITA ACADEMYâ„¢",
             icon:"blinkita_academy_learn.png"
         },
 
         {
             id:"ai",
-            name:"BLINKITA AI™",
+            name:"BLINKITA AIâ„¢",
             icon:"blinkita_ai_your_companion.png"
         },
 
         {
             id:"studio",
-            name:"BLINKITA STUDIO™",
+            name:"BLINKITA STUDIOâ„¢",
             icon:"blinkita_studio_create.png"
         },
 
         {
             id:"living-worlds",
-            name:"LIVING WORLDS™",
+            name:"LIVING WORLDSâ„¢",
             icon:"blinkita_living_worlds_the_living_result.png"
         },
 
         {
             id:"living-memory",
-            name:"LIVING MEMORY™",
+            name:"LIVING MEMORYâ„¢",
             icon:"blinkita_living_memory_remember_integrate.png"
         },
 
         {
             id:"market",
-            name:"MARKET™",
+            name:"MARKETâ„¢",
             icon:"blinkita_market_exchange_grow.png"
         },
 
         {
             id:"timeline",
-            name:"TIMELINE™",
+            name:"TIMELINEâ„¢",
             icon:"blinkita_timeline_journey_in_time.png"
         },
 
         {
             id:"library",
-            name:"LIBRARY™",
+            name:"LIBRARYâ„¢",
             icon:"blinkita_library.png"
         },
 
         {
             id:"community",
-            name:"COMMUNITY™",
+            name:"COMMUNITYâ„¢",
             icon:"blinkita_community_connect_belong.png"
         }
 
@@ -98,7 +98,7 @@ export default function BlinkitaEcosystemMandala() {
 
         id:"ecosystem",
 
-        name:"BLINKITA ECOSYSTEM™",
+        name:"BLINKITA ECOSYSTEMâ„¢",
 
     };
 

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./BlinkitaGenesis.css";
@@ -28,7 +28,7 @@ export default function BlinkitaGenesis() {
 
                 <img
                     src="/portal/icons/master_brand_icons/blinkita-ecosystem-clean.png"
-                    alt="BLINKITA ECOSYSTEM�"
+                    alt="BLINKITA ECOSYSTEM™"
                     className="ecosystem-genesis-icon"
                 />
 
