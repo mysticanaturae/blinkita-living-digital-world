@@ -242,3 +242,127 @@ SELECTED WORLD - ENTER THE CENTER
     }
 
 }
+
+/* =========================================
+MOBILE — FINAL MANDALA PROPORTIONS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .ecosystem-mandala {
+        width: 100vw;
+        height: 100dvh;
+        min-height: 100dvh;
+        overflow: hidden;
+    }
+
+/* =====================================
+   12 OUTER WORLD CARDS
+   ===================================== */
+
+.ecosystem-world {
+    width: 60px !important;
+    height: 60px !important;
+
+   transform:
+    translate(
+        calc(var(--x) * 0.38),
+        calc(var(--y) * 0.38)
+    );
+
+    z-index: 20;
+}
+
+
+/* =====================================
+   SELECTED WORLD — ABOVE THE CENTER
+   ===================================== */
+
+.ecosystem-world.selected {
+    z-index: 10000 !important;
+
+    animation:
+        worldArriveMobile
+        1.2s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
+}
+
+
+/* =====================================
+   CENTRAL BLINKITA ECOSYSTEM
+   ===================================== */
+
+.ecosystem-core {
+    position: absolute !important;
+
+    width: 240px !important;
+    height: 240px !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    z-index: 100 !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.ecosystem-core img {
+    display: block !important;
+
+    width: 130px !important;
+    height: 130px !important;
+
+    object-fit: contain !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+
+/* =====================================
+   SELECTED CARD GLOW
+   ===================================== */
+
+.ecosystem-world.selected img {
+    filter:
+        drop-shadow(
+            0 0 28px rgba(255,255,255,0.55)
+        );
+}
+
+
+/* =====================================
+   MOBILE WORLD ARRIVAL
+   ===================================== */
+
+@keyframes worldArriveMobile {
+
+    0% {
+        transform:
+            translate(
+                calc(var(--x) * 0.38),
+                calc(var(--y) * 0.38)
+            )
+            scale(1);
+    }
+
+    60% {
+        transform:
+            translate(0, 0)
+            scale(2.2);
+    }
+
+    100% {
+        transform:
+            translate(0, 0)
+            scale(2.8);
+    }
+}
