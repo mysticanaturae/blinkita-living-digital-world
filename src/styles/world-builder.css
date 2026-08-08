@@ -728,48 +728,174 @@ the mosaic. They are NOT a horizontal row.
     margin-bottom: 16px;
 }
 
-.living-card-mini-grid {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 8px;
+
+/* ============================================================
+   LIVING CARD ORACLE — DECK
+   A living stack of cards
+============================================================ */
+
+.living-card-stack {
+    position: relative;
+    width: 230px;
+    height: 300px;
+    margin: 20px auto 24px;
+    perspective: 900px;
 }
 
-.living-card-mini {
+.living-card-stack-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 190px;
+    height: 260px;
+
+    transform:
+        translate(-50%, -50%)
+        translate(
+            calc(var(--card-index) * 3px),
+            calc(var(--card-index) * -2px)
+        )
+        rotate(
+            calc((var(--card-index) - 3) * 0.8deg)
+        );
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #161b32,
+            #090c18
+        );
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.45);
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease;
+
+    overflow: hidden;
+}
+
+.living-card-stack-card:nth-child(1) {
+    z-index: 1;
+}
+
+.living-card-stack-card:nth-child(2) {
+    z-index: 2;
+}
+
+.living-card-stack-card:nth-child(3) {
+    z-index: 3;
+}
+
+.living-card-stack-card:nth-child(4) {
+    z-index: 4;
+}
+
+.living-card-stack-card:nth-child(5) {
+    z-index: 5;
+}
+
+.living-card-stack-card:nth-child(6) {
+    z-index: 6;
+}
+
+.living-card-stack-card:nth-child(7) {
+    z-index: 7;
+}
+
+.living-card-stack-card:hover {
+    transform:
+        translate(-50%, -50%)
+        translateY(-8px)
+        rotate(0deg);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.55);
+}
+
+
+/* ============================================================
+   CARD BACK
+============================================================ */
+
+.living-card-back {
     width: 100%;
     height: 100%;
-    min-height: 180px;
-    padding: 0;
-    border: 0;
-    border-radius: 18px;
-    overflow: hidden;
-    cursor: pointer;
-    background: rgba(255,255,255,.035);
+
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.055),
+            transparent 55%
+        );
+
+    color: rgba(255,255,255,.72);
 }
 
-.living-card-mini img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.living-card-back-symbol {
+    font-size: 42px;
+    margin-bottom: 18px;
+    opacity: .75;
 }
 
-.living-card-mini:hover,
-.living-card-mini.selected {
-    background: rgba(255,255,255,.10);
-    border-color: rgba(255,255,255,.22);
+.living-card-back span {
+    font-size: 11px;
+    letter-spacing: .18em;
+    opacity: .65;
 }
 
-.living-card-mini span {
-    font-size: 22px;
-}
-
-.living-card-mini small {
+.living-card-back small {
+    margin-top: 7px;
     font-size: 7px;
-    letter-spacing: .04em;
-    opacity: .5;
+    letter-spacing: .14em;
+    opacity: .35;
+}
+
+
+/* ============================================================
+   DECK DRAW BUTTON
+============================================================ */
+
+.living-card-deck {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.living-card-deck .oracle-section-label {
+    align-self: flex-start;
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .living-card-stack {
+        width: 210px;
+        height: 280px;
+    }
+
+    .living-card-stack-card {
+        width: 175px;
+        height: 240px;
+    }
+
 }
 
 .oracle-deck-note {

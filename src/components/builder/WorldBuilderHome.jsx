@@ -1818,60 +1818,63 @@ export default function WorldBuilderHome() {
                         DECK
                     ========================================= */}
 
-                    <div className="living-card-deck">
+                 <div className="living-card-deck">
 
-                        <div className="oracle-section-label">
-                            YOUR DECK
-                        </div>
+    <div className="oracle-section-label">
+        YOUR DECK
+    </div>
 
-                        <div className="living-card-mini-grid">
+    <div className="living-card-stack">
 
-                            {livingCards
-    .map(
-        card => (
-                                        <button
-                                            key={card.id}
-                                            type="button"
-                                            className={
-                                                selectedCard?.id === card.id
-                                                    ? "living-card-mini selected"
-                                                    : "living-card-mini"
-                                            }
-                                            onClick={() =>
-                                                setSelectedCard(
-                                                    card
-                                                )
-                                            }
-                                        >
+        {livingCards.slice(0, 7).map((card, index) => (
 
-                                            <span>
-                                                {card.symbol}
-                                            </span>
+            <div
+                key={card.id}
+                className={
+                    selectedCard?.id === card.id
+                        ? "living-card-stack-card selected"
+                        : "living-card-stack-card"
+                }
+                style={{
+                    "--card-index": index
+                }}
+            >
 
-                                            <small>
-                                                {card.title}
-                                            </small>
+                <div className="living-card-back">
 
-                                        </button>
-
-                                    )
-                                )}
-
-                        </div>
-
-                        <p className="oracle-deck-note">
-                            50+ Living Cards will live here.
-                        </p>
-
-                        <button
-                            type="button"
-                            className="world-builder-button"
-                            onClick={drawCard}
-                        >
-                            DRAW A CARD
-                        </button>
-
+                    <div className="living-card-back-symbol">
+                        ✦
                     </div>
+
+                    <span>
+                        BLINKITA
+                    </span>
+
+                    <small>
+                        LIVING CARD ORACLE™
+                    </small>
+
+                </div>
+
+            </div>
+
+        ))}
+
+    </div>
+
+    <p className="oracle-deck-note">
+        50+ Living Cards will live here.
+    </p>
+
+    <button
+        type="button"
+        className="world-builder-button"
+        onClick={drawCard}
+    >
+        DRAW A CARD
+    </button>
+
+</div>
 
 
 

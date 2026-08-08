@@ -12,25 +12,12 @@
 
     text-align: center;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,255,255,0.08),
-            transparent 45%
-        ),
-        linear-gradient(
-            135deg,
-            #0b0b18,
-            #15152b,
-            #050509
-        );
+    background: #03050F;
 
     overflow: hidden;
 
     position: relative;
-
 }
-
 
 
 
