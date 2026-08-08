@@ -196,15 +196,14 @@ export default function AppRouter() {
 
 
                 <Route
+    path="/builder"
+    element={<WorldBuilderHome />}
+/>
 
-
-                    path="/builder"
-
-
-                    element={<WorldBuilderHome />}
-
-
-                />
+<Route
+    path="/world/world-builder"
+    element={<WorldBuilderHome />}
+/>
 
 
 
