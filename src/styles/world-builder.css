@@ -1,1352 +1,1603 @@
-/* ============================================================
+/* =========================================================
    BLINKITA WORLD BUILDER™
-   Living Creator Grid
-   ============================================================ */
+   Premium living dashboard — complete visual layer
+   ========================================================= */
 
 .world-builder-page {
-    position: relative;
+    --wb-bg: #071018;
+    --wb-panel: rgba(17, 27, 38, .92);
+    --wb-panel-soft: rgba(22, 34, 47, .86);
+    --wb-line: rgba(255,255,255,.11);
+    --wb-line-strong: rgba(255,255,255,.18);
+    --wb-text: #f5f7f8;
+    --wb-muted: #aeb9c4;
+    --wb-accent: #8ee7c4;
+    --wb-accent-2: #9db7ff;
+    --wb-gold: #f2cf83;
+    --wb-radius: 26px;
+    --wb-shadow: 0 22px 55px rgba(0,0,0,.28);
     width: 100%;
-    overflow: hidden;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 44px clamp(18px, 3vw, 48px) 72px;
+    color: var(--wb-text);
+    background:
+        radial-gradient(circle at 8% 5%, rgba(92, 204, 164, .13), transparent 28%),
+        radial-gradient(circle at 92% 10%, rgba(126, 145, 255, .12), transparent 30%),
+        radial-gradient(circle at 50% 70%, rgba(220, 174, 93, .06), transparent 35%),
+        linear-gradient(145deg, #071018 0%, #0a121c 48%, #081019 100%);
+    overflow-x: hidden;
 }
 
+.world-builder-page *,
+.world-builder-page *::before,
+.world-builder-page *::after {
+    box-sizing: border-box;
+}
 
-/* ============================================================
-   HEADER
-   ============================================================ */
+.world-builder-page button,
+.world-builder-page input,
+.world-builder-page textarea {
+    font: inherit;
+}
+
+.world-builder-page button {
+    color: inherit;
+}
+
+/* ---------- Header ---------- */
 
 .world-builder-header {
+    width: min(1440px, 100%);
+    margin: 0 auto 28px;
     display: flex;
     align-items: center;
     gap: 18px;
-    margin-bottom: 24px;
 }
 
 .world-builder-title-mark {
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
+    width: 66px;
+    height: 66px;
     display: grid;
     place-items: center;
-    font-size: 28px;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(76,160,126,.28), rgba(38,52,69,.5));
+    box-shadow: inset 0 1px rgba(255,255,255,.12), 0 15px 40px rgba(0,0,0,.24);
+    font-size: 31px;
 }
 
+.world-builder-header h1 {
+    margin: 0;
+    font-size: clamp(24px, 2.4vw, 34px);
+    letter-spacing: .12em;
+    font-weight: 700;
+}
 
-/* ============================================================
-   DAY ENERGY
-   ============================================================ */
+.world-builder-header p {
+    margin: 5px 0 0;
+    color: var(--wb-muted);
+    font-size: 14px;
+    letter-spacing: .08em;
+}
+
+/* ---------- Today's living time ---------- */
 
 .world-builder-day-energy {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 18px;
-    margin-bottom: 24px;
-    border-radius: 18px;
-    background: rgba(255,255,255,.045);
-    border: 1px solid rgba(255,255,255,.10);
-}
-
-.world-builder-day-symbol {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    width: min(1440px, 100%);
+    margin: 0 auto 22px;
+    min-height: 116px;
     display: grid;
-    place-items: center;
-    font-size: 25px;
-    background: rgba(255,255,255,.08);
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: center;
+    gap: 28px;
+    padding: 22px 28px;
+    border: 1px solid var(--wb-line);
+    border-radius: 24px;
+    background: linear-gradient(110deg, rgba(29,54,57,.75), rgba(18,28,40,.88) 50%, rgba(37,35,55,.72));
+    box-shadow: var(--wb-shadow), inset 0 1px rgba(255,255,255,.08);
+    backdrop-filter: blur(18px);
 }
-
-.world-builder-day-energy span {
-    display: block;
-    font-size: 10px;
-    letter-spacing: .16em;
-    opacity: .55;
-}
-
-.world-builder-day-energy strong {
-    display: block;
-    margin-top: 2px;
-}
-
-.world-builder-day-energy small {
-    display: block;
-    margin-top: 3px;
-    opacity: .55;
-}
-
 
 .world-builder-time-panel {
     display: flex;
     align-items: center;
-    gap: 14px;
-    flex: 1;
+    gap: 18px;
     min-width: 0;
+}
+
+.world-builder-time-panel > div:last-child {
+    display: grid;
+    gap: 4px;
+}
+
+.world-builder-time-panel span {
+    font-size: 10px;
+    letter-spacing: .16em;
+    color: var(--wb-muted);
+    font-weight: 700;
+}
+
+.world-builder-time-panel strong {
+    font-size: 22px;
+    letter-spacing: .03em;
+}
+
+.world-builder-time-panel small {
+    color: #93a1ae;
+    font-size: 12px;
+}
+
+.world-builder-gregorian-date {
+    margin-bottom: 1px;
+}
+
+.world-builder-day-symbol {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.16);
+    background: radial-gradient(circle, rgba(255,255,255,.12), rgba(255,255,255,.025));
+    font-size: 27px;
+    box-shadow: inset 0 0 20px rgba(255,255,255,.04);
 }
 
 .world-builder-time-divider {
     width: 1px;
-    align-self: stretch;
-    background: rgba(255,255,255,.10);
+    height: 56px;
+    background: linear-gradient(transparent, rgba(255,255,255,.2), transparent);
 }
 
-.world-builder-gregorian-date {
-    display: block;
-    margin-top: 4px;
-    font-size: 9px;
-    letter-spacing: .08em;
-    opacity: .38;
+/* ---------- Master layout ---------- */
+
+.world-builder-row,
+.world-builder-living-cards-section,
+.living-card-oracle,
+.living-card-result-section {
+    width: min(1440px, 100%);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* ============================================================
-   CREATOR MOSAIC GRID
-   ============================================================ */
-
-.world-builder-creator-grid {
-    position: relative;
+.world-builder-row-three {
     display: grid;
-    grid-template-columns:
-        repeat(12, minmax(0, 1fr));
-    grid-auto-rows: minmax(105px, auto);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
+    align-items: stretch;
+    margin-bottom: 18px;
 }
 
+.world-builder-row-secondary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-/* ============================================================
-   BASE CARD
-   ============================================================ */
+.world-builder-row-two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
+/* ---------- Premium cards ---------- */
+
+.world-builder-card,
+.world-builder-living-cards-section,
+.living-card-oracle,
+.living-card-result-section {
+    position: relative;
+    border: 1px solid var(--wb-line);
+    border-radius: var(--wb-radius);
+    background: linear-gradient(145deg, rgba(20,31,43,.95), rgba(10,18,27,.96));
+    box-shadow: var(--wb-shadow), inset 0 1px rgba(255,255,255,.075);
+    overflow: hidden;
+}
+
+.world-builder-card::before,
+.world-builder-living-cards-section::before,
+.living-card-oracle::before,
+.living-card-result-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 88% 0%, rgba(255,255,255,.055), transparent 30%);
+}
 
 .world-builder-card {
-    position: relative;
     min-width: 0;
-    padding: 22px;
-    border-radius: 22px;
-    background: rgba(255,255,255,.045);
-    border: 1px solid rgba(255,255,255,.10);
-    overflow: hidden;
-    transition:
-        transform .25s ease,
-        border-color .25s ease,
-        background .25s ease;
+    padding: 24px;
 }
 
-.world-builder-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255,255,255,.20);
-    background: rgba(255,255,255,.065);
-}
-
-.world-builder-card-label {
+.world-builder-card-label,
+.oracle-section-label {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #b7c3ce;
     font-size: 10px;
-    letter-spacing: .15em;
-    opacity: .52;
-    margin-bottom: 16px;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
 }
 
+.world-builder-card-label::before,
+.oracle-section-label::before {
+    content: "";
+    width: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--wb-accent), transparent);
+}
 
-/* ============================================================
-   GRID POSITIONS
-   ============================================================ */
+/* subtle color identity without making the dashboard noisy */
+.world-builder-portrait { background: linear-gradient(145deg, rgba(28,47,48,.96), rgba(11,20,28,.98)); }
+.world-builder-birth { background: linear-gradient(145deg, rgba(39,35,51,.96), rgba(13,20,30,.98)); }
+.world-builder-intelligence { background: linear-gradient(145deg, rgba(28,39,58,.96), rgba(11,20,29,.98)); }
+.world-builder-achievements { background: linear-gradient(145deg, rgba(51,42,34,.96), rgba(16,22,28,.98)); }
+.world-builder-essence { background: linear-gradient(145deg, rgba(39,49,38,.96), rgba(12,21,27,.98)); }
+.world-builder-creation { background: linear-gradient(145deg, rgba(40,34,52,.96), rgba(12,20,28,.98)); }
+.world-builder-daily-question { background: linear-gradient(145deg, rgba(26,48,54,.96), rgba(11,21,29,.98)); }
+.world-builder-creator-memory { background: linear-gradient(145deg, rgba(49,42,37,.96), rgba(14,21,28,.98)); }
+
+/* ---------- Portrait ---------- */
 
 .world-builder-portrait {
-    grid-column: span 4;
-    grid-row: span 3;
+    min-height: 650px;
 }
 
-.world-builder-identity {
-    grid-column: span 4;
-    grid-row: span 2;
-}
-
-.world-builder-essence {
-    grid-column: span 4;
-    grid-row: span 2;
-}
-
-.world-builder-achievements {
-    grid-column: span 4;
-    grid-row: span 2;
-}
-
-.world-builder-birth {
-    grid-column: span 4;
-    grid-row: span 2;
-}
-
-.world-builder-intelligence {
-    grid-column: span 4;
-    grid-row: span 2;
-}
-
-.world-builder-creation {
-    grid-column: span 4;
-    grid-row: span 2;
-}
-
-.world-builder-daily-question {
-    grid-column: span 8;
-    grid-row: span 2;
-}
-
-
-/* ============================================================
-   PORTRAIT
-   ============================================================ */
-
-.world-builder-portrait-visual {
+.world-builder-portrait-main {
     display: flex;
-    justify-content: center;
-    margin: 6px 0 12px;
+    align-items: center;
+    gap: 17px;
+    margin-top: 22px;
 }
 
 .world-builder-avatar {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
+    width: 104px;
+    height: 104px;
+    flex: 0 0 104px;
     display: grid;
     place-items: center;
-    font-size: 52px;
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.13);
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.2);
+    background: radial-gradient(circle at 35% 25%, rgba(142,231,196,.24), rgba(26,37,48,.9) 62%);
+    box-shadow: 0 0 0 7px rgba(255,255,255,.025), 0 18px 35px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.12);
+    font-size: 44px;
+}
+
+.world-builder-avatar.has-selfie {
+    background: #18232e;
+}
+
+.world-builder-selfie {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .world-builder-portrait-info {
-    text-align: center;
-}
-
-.world-builder-portrait-info strong,
-.world-builder-portrait-info span {
-    display: block;
+    min-width: 0;
+    display: grid;
+    gap: 5px;
 }
 
 .world-builder-portrait-info strong {
-    font-size: 17px;
+    font-size: 23px;
 }
 
 .world-builder-portrait-info span {
-    margin-top: 4px;
-    font-size: 12px;
-    opacity: .55;
+    color: var(--wb-accent);
+    font-size: 13px;
+    letter-spacing: .06em;
 }
 
-
-/* ============================================================
-   AVATARS
-   ============================================================ */
-
-.world-builder-avatar-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 42px);
-    gap: 8px;
-    justify-content: center;
-}
-
-.avatar-choice {
-    width: 42px;
-    aspect-ratio: 1;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    font-size: 24px;
-    cursor: pointer;
-    opacity: .65;
-    display: flex;
+.world-builder-selfie-upload {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-}
-
-.avatar-choice:hover,
-.avatar-choice.active {
-    opacity: 1;
-    border: none;
-    background: transparent;
-}
-
-.world-builder-avatar-explanation {
-    margin-top: 14px;
-    padding: 12px;
-    border-radius: 13px;
-    background: rgba(255,255,255,.035);
-}
-
-.world-builder-avatar-explanation strong,
-.world-builder-avatar-explanation span {
-    display: block;
-}
-
-.world-builder-avatar-explanation strong {
-    font-size: 12px;
-}
-
-.world-builder-avatar-explanation span {
-    margin-top: 2px;
+    margin: 16px 0 14px;
+    min-height: 38px;
+    padding: 0 16px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 12px;
+    background: rgba(255,255,255,.045);
+    color: #cbd5dd;
     font-size: 10px;
-    opacity: .55;
-}
-
-.world-builder-avatar-explanation p {
-    margin: 8px 0 0;
-    font-size: 11px;
-    line-height: 1.5;
-    opacity: .68;
-}
-
-
-/* ============================================================
-   IDENTITY
-   ============================================================ */
-
-.world-builder-field {
-    margin-bottom: 12px;
-}
-
-.world-builder-field label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 10px;
-    letter-spacing: .08em;
-    opacity: .5;
-}
-
-.world-builder-field input,
-.world-builder-description textarea,
-.world-builder-daily-question textarea,
-.living-card-reading textarea {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 11px;
-    background: rgba(0,0,0,.12);
-    color: inherit;
-    padding: 10px 12px;
-    outline: none;
-    resize: vertical;
-}
-
-.world-builder-field input:focus,
-.world-builder-description textarea:focus,
-.world-builder-daily-question textarea:focus,
-.living-card-reading textarea:focus {
-    border-color: rgba(255,255,255,.25);
-}
-
-.world-builder-evolution {
-    display: flex;
-    align-items: baseline;
-    gap: 9px;
-    margin: 10px 0 14px;
-}
-
-.world-builder-evolution span {
-    font-size: 9px;
+    font-weight: 800;
     letter-spacing: .12em;
-    opacity: .45;
-}
-
-.world-builder-evolution strong {
-    font-size: 13px;
-}
-
-.world-builder-evolution small {
-    opacity: .45;
-}
-
-
-/* ============================================================
-   BUTTONS
-   ============================================================ */
-
-.world-builder-button,
-.world-builder-oracle-button,
-.dynamic-portal-card button,
-.living-card-result button {
-    border: 1px solid rgba(255,255,255,.15);
-    background: rgba(255,255,255,.08);
-    color: inherit;
-    border-radius: 10px;
-    padding: 10px 15px;
-    font-size: 10px;
-    letter-spacing: .09em;
     cursor: pointer;
     transition: .2s ease;
 }
 
-.world-builder-button:hover,
-.world-builder-oracle-button:hover,
-.dynamic-portal-card button:hover,
-.living-card-result button:hover {
-    background: rgba(255,255,255,.14);
+.world-builder-selfie-upload:hover {
+    border-color: rgba(142,231,196,.42);
+    background: rgba(142,231,196,.08);
     transform: translateY(-1px);
 }
 
-.world-builder-button.secondary {
-    margin-top: 10px;
+.world-builder-selfie-upload input {
+    display: none;
 }
 
-
-/* ============================================================
-   ESSENCE
-   ============================================================ */
-
-.world-builder-essence h2,
-.world-builder-achievements h2,
-.world-builder-intelligence h2,
-.world-builder-creation h2,
-.world-builder-daily-question h2 {
-    font-size: 18px;
-    margin: 0 0 8px;
+.world-builder-avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 6px;
+    max-height: 94px;
+    overflow: auto;
+    padding: 2px;
+    scrollbar-width: thin;
 }
 
-.world-builder-essence p,
-.world-builder-achievements p,
-.world-builder-intelligence p,
-.world-builder-creation p {
-    font-size: 12px;
-    line-height: 1.55;
-    opacity: .62;
-}
-
-.world-builder-essence-line {
-    margin-top: 15px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255,255,255,.08);
-    font-size: 12px;
-    opacity: .7;
-}
-
-
-/* ============================================================
-   LIVING MEMORY VISUAL
-   ============================================================ */
-
-.world-builder-memory-visual {
-    position: relative;
-    height: 38px;
-    margin: -4px 0 10px;
-    overflow: hidden;
-}
-
-.world-builder-memory-visual span {
-    position: absolute;
-    width: 150%;
-    height: 12px;
-    left: -25%;
-    border-top: 1px solid rgba(255,255,255,.24);
-    border-radius: 50%;
-    animation: memoryFlow 7s ease-in-out infinite alternate;
-}
-
-.world-builder-memory-visual span:nth-child(1) {
-    top: 3px;
-}
-
-.world-builder-memory-visual span:nth-child(2) {
-    top: 10px;
-    transform: rotate(2deg);
-}
-
-.world-builder-memory-visual span:nth-child(3) {
-    top: 17px;
-    transform: rotate(-2deg);
-}
-
-.world-builder-memory-visual span:nth-child(4) {
-    top: 24px;
-    transform: rotate(1deg);
-}
-
-.world-builder-memory-visual span:nth-child(5) {
-    top: 31px;
-    transform: rotate(-1deg);
-}
-
-@keyframes memoryFlow {
-
-    from {
-        transform: translateX(-4%) scaleY(.8);
-    }
-
-    to {
-        transform: translateX(4%) scaleY(1.3);
-    }
-
-}
-
-
-/* ============================================================
-   ACHIEVEMENTS
-   ============================================================ */
-
-.world-builder-achievement-symbol,
-.world-builder-intelligence-symbol,
-.world-builder-path-symbol {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.world-builder-achievement-count {
-    font-size: 34px;
-    margin-top: 10px;
-    opacity: .5;
-}
-
-
-/* ============================================================
-   BIRTH MATRIX
-   ============================================================ */
-
-.world-builder-birth-content {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.world-builder-birth-symbol {
-    width: 62px;
-    height: 62px;
-    flex: 0 0 62px;
-    border-radius: 50%;
+.avatar-choice {
+    aspect-ratio: 1;
+    min-width: 0;
     display: grid;
     place-items: center;
-    font-size: 28px;
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.13);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: rgba(255,255,255,.035);
+    cursor: pointer;
+    font-size: 18px;
+    transition: .18s ease;
 }
 
-.world-builder-birth-content h2 {
-    margin: 0;
-    font-size: 16px;
+.avatar-choice:hover {
+    background: rgba(255,255,255,.08);
+    transform: translateY(-1px);
 }
 
-.world-builder-birth-content p {
-    margin: 5px 0 0;
+.avatar-choice.active {
+    border-color: rgba(142,231,196,.55);
+    background: rgba(142,231,196,.12);
+    box-shadow: inset 0 0 0 1px rgba(142,231,196,.1);
+}
+
+.world-builder-avatar-explanation {
+    margin-top: 13px;
+    padding: 13px 15px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 15px;
+    background: rgba(255,255,255,.035);
+}
+
+.world-builder-avatar-explanation strong {
+    display: block;
+    color: #f5df9d;
+    font-size: 14px;
+}
+
+.world-builder-avatar-explanation span {
+    display: block;
+    margin-top: 3px;
+    color: #b7c2cb;
     font-size: 11px;
-    opacity: .55;
 }
 
-.world-builder-birth-status {
-    margin-top: 16px;
-    padding-top: 12px;
+.world-builder-avatar-explanation p {
+    margin: 7px 0 0;
+    color: #8f9ca7;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.world-builder-identity-inline {
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid rgba(255,255,255,.08);
 }
 
-.world-builder-birth-status span {
-    display: block;
+.world-builder-inline-heading {
+    margin-bottom: 10px;
+    color: #b7c3ce;
     font-size: 9px;
-    letter-spacing: .12em;
-    opacity: .45;
+    font-weight: 800;
+    letter-spacing: .15em;
 }
 
-.world-builder-birth-status strong {
-    display: block;
-    margin-top: 5px;
-}
-
-
-/* ============================================================
-   DYNAMIC PORTAL CARDS
-   ============================================================ */
-
-.dynamic-portal-card {
-    min-height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.dynamic-portal-card span {
-    font-size: 9px;
-    letter-spacing: .13em;
-    opacity: .45;
-}
-
-.dynamic-portal-card h2 {
-    margin: 5px 0;
-    font-size: 17px;
-}
-
-.dynamic-portal-card p {
-    max-width: 260px;
-    margin: 0 0 12px;
-    font-size: 11px;
-    line-height: 1.45;
-    opacity: .62;
-}
-
-.dynamic-card-symbol {
-    font-size: 27px;
+.world-builder-field {
+    display: grid;
+    gap: 5px;
     margin-bottom: 8px;
 }
 
+.world-builder-field label,
+.world-builder-birth-form label {
+    color: #8795a2;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .12em;
+}
 
-/*
-IMPORTANT:
-These positions are intentionally separated through
-the mosaic. They are NOT a horizontal row.
-*/
+/* ---------- Shared premium inputs ---------- */
 
-.portal-card-top-right {
-    grid-column: 9 / span 4;
-    grid-row: 1 / span 2;
+.world-builder-page input[type="text"],
+.world-builder-page input[type="date"],
+.world-builder-page textarea {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 15px;
+    outline: none;
+    color: #eef4f7;
+    background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+    box-shadow: inset 0 1px rgba(255,255,255,.04), 0 8px 25px rgba(0,0,0,.08);
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.world-builder-page input[type="text"],
+.world-builder-page input[type="date"] {
+    min-height: 43px;
+    padding: 0 13px;
+}
+
+.world-builder-page textarea {
+    min-height: 116px;
+    padding: 13px 14px;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.world-builder-page input::placeholder,
+.world-builder-page textarea::placeholder {
+    color: #74818d;
+}
+
+.world-builder-page input:focus,
+.world-builder-page textarea:focus {
+    border-color: rgba(142,231,196,.5);
+    background: rgba(255,255,255,.065);
+    box-shadow: 0 0 0 3px rgba(142,231,196,.07), inset 0 1px rgba(255,255,255,.06);
+}
+
+.world-builder-button,
+.world-builder-oracle-button {
+    border: 1px solid rgba(142,231,196,.28);
+    border-radius: 13px;
+    min-height: 42px;
+    padding: 0 17px;
+    background: linear-gradient(135deg, rgba(142,231,196,.16), rgba(157,183,255,.1));
+    color: #e9fff6;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    cursor: pointer;
+    box-shadow: inset 0 1px rgba(255,255,255,.08), 0 10px 24px rgba(0,0,0,.16);
+    transition: .2s ease;
+}
+
+.world-builder-button:hover,
+.world-builder-oracle-button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(142,231,196,.55);
+    background: linear-gradient(135deg, rgba(142,231,196,.23), rgba(157,183,255,.16));
+}
+
+.world-builder-identity-inline .world-builder-button {
+    width: 100%;
+    margin-top: 2px;
+}
+
+/* ---------- Birth matrix ---------- */
+
+.world-builder-birth {
+    min-height: 650px;
+}
+
+.world-builder-birth-inner {
+    height: calc(100% - 28px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 28px;
+}
+
+.world-builder-birth-intro,
+.world-builder-birth-result {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.world-builder-birth-symbol {
+    width: 72px;
+    height: 72px;
+    flex: 0 0 72px;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.13);
+    background: radial-gradient(circle, rgba(242,207,131,.13), rgba(255,255,255,.025));
+    font-size: 32px;
+}
+
+.world-builder-birth-intro h2,
+.world-builder-birth-result h2 {
+    margin: 0 0 6px;
+    font-size: 21px;
+}
+
+.world-builder-birth-intro p,
+.world-builder-birth-result p,
+.world-builder-birth-reading p {
+    margin: 0;
+    color: var(--wb-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.world-builder-birth-form {
+    display: grid;
+    gap: 10px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 19px;
+    background: rgba(0,0,0,.13);
+}
+
+.world-builder-birth-error {
+    color: #f0a3a3;
+    font-size: 11px;
+}
+
+.world-builder-birth-result span {
+    color: #8f9da8;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .14em;
+}
+
+.world-builder-birth-result h2 {
+    color: #f2cf83;
+    font-size: 27px;
+}
+
+.world-builder-birth-reading {
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+}
+
+.world-builder-birth-reading strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #d7e2e9;
+    font-size: 12px;
+}
+
+.world-builder-birth-form-result {
+    margin-top: auto;
+}
+
+/* ---------- Living intelligence ---------- */
+
+.world-builder-intelligence {
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+.world-builder-intelligence-symbol {
+    width: 54px;
+    height: 54px;
+    margin: 24px auto 12px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(157,183,255,.24);
+    background: rgba(157,183,255,.08);
+    color: #cbd7ff;
+    font-size: 25px;
+}
+
+.world-builder-intelligence h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 22px;
+}
+
+.world-builder-intelligence > p {
+    max-width: 360px;
+    margin: 8px auto 18px;
+    text-align: center;
+    color: var(--wb-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.world-builder-intelligence-input {
+    flex: 1;
+    min-height: 205px !important;
+    margin-top: auto;
+    border-radius: 18px !important;
+}
+
+.world-builder-intelligence .world-builder-button {
+    width: 100%;
+    margin-top: 12px;
+}
+
+/* ---------- Secondary row ---------- */
+
+.world-builder-row-secondary .world-builder-card {
+    min-height: 210px;
+}
+
+.world-builder-secondary-content,
+.world-builder-essence-content,
+.world-builder-creation-content {
+    height: calc(100% - 24px);
+    min-height: 145px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 18px;
+}
+
+.world-builder-achievement-symbol,
+.world-builder-path-symbol {
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 19px;
+    border: 1px solid rgba(242,207,131,.2);
+    background: rgba(242,207,131,.07);
+    color: #f2cf83;
+    font-size: 27px;
+}
+
+.world-builder-secondary-content h2,
+.world-builder-essence-content h2,
+.world-builder-creation-content h2 {
+    margin: 0 0 6px;
+    font-size: 17px;
+}
+
+.world-builder-secondary-content p,
+.world-builder-essence-content p,
+.world-builder-creation-content p {
+    margin: 0;
+    color: var(--wb-muted);
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.world-builder-achievement-count {
+    margin-left: auto;
+    font-size: 34px;
+    font-weight: 700;
+    color: #f2cf83;
+}
+
+.world-builder-memory-visual {
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: end;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 17px;
+    background: rgba(142,231,196,.055);
+    border: 1px solid rgba(142,231,196,.12);
+}
+
+.world-builder-memory-visual span {
+    display: block;
+    height: 30%;
+    border-radius: 99px;
+    background: linear-gradient(to top, rgba(142,231,196,.25), rgba(242,207,131,.75));
+}
+
+.world-builder-memory-visual span:nth-child(2) { height: 55%; }
+.world-builder-memory-visual span:nth-child(3) { height: 78%; }
+.world-builder-memory-visual span:nth-child(4) { height: 48%; }
+.world-builder-memory-visual span:nth-child(5) { height: 92%; }
+
+.world-builder-essence-line,
+.world-builder-path-stage {
+    margin-left: auto;
+    align-self: flex-end;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(255,255,255,.04);
+    color: var(--wb-accent);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    white-space: nowrap;
+}
+
+.world-builder-path-stage {
+    display: grid;
+    gap: 3px;
+    color: #f2cf83;
+}
+
+.world-builder-path-stage span {
+    color: #8795a2;
+    font-size: 8px;
+    letter-spacing: .12em;
+}
+
+/* ---------- Five living worlds ---------- */
+
+.world-builder-living-cards-section {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding: 24px;
+    background: linear-gradient(145deg, rgba(22,34,46,.94), rgba(9,17,25,.98));
+}
+
+.world-builder-section-heading {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 18px;
+    padding: 17px 20px;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 18px;
+    background: linear-gradient(100deg, rgba(142,231,196,.07), rgba(157,183,255,.055), rgba(242,207,131,.045));
+    box-shadow: inset 0 1px rgba(255,255,255,.06);
+}
+
+.world-builder-section-heading-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.world-builder-section-heading span {
+    color: #f4f7f8;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .18em;
+}
+
+.world-builder-section-heading small {
+    color: #9eabb5;
+    font-size: 12px;
+    letter-spacing: .02em;
+}
+
+.world-builder-living-cards {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.world-builder-living-card {
+    min-width: 0;
+    min-height: 172px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,.11);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+    cursor: pointer;
+    box-shadow: inset 0 1px rgba(255,255,255,.07), 0 14px 28px rgba(0,0,0,.18);
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.world-builder-living-card:nth-child(1) { background: linear-gradient(145deg, rgba(82,120,150,.25), rgba(255,255,255,.025)); }
+.world-builder-living-card:nth-child(2) { background: linear-gradient(145deg, rgba(95,135,109,.25), rgba(255,255,255,.025)); }
+.world-builder-living-card:nth-child(3) { background: linear-gradient(145deg, rgba(112,91,145,.24), rgba(255,255,255,.025)); }
+.world-builder-living-card:nth-child(4) { background: linear-gradient(145deg, rgba(150,105,76,.24), rgba(255,255,255,.025)); }
+.world-builder-living-card:nth-child(5) { background: linear-gradient(145deg, rgba(67,125,119,.24), rgba(255,255,255,.025)); }
+
+.world-builder-living-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,255,255,.28);
+    box-shadow: inset 0 1px rgba(255,255,255,.12), 0 22px 38px rgba(0,0,0,.28);
+}
+
+.world-builder-living-card-art {
+    width: 88px;
+    height: 88px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(0,0,0,.18);
+    box-shadow: 0 12px 25px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.1);
+}
+
+.world-builder-living-card-art img {
+    width: 100%;
     height: 100%;
-    box-sizing: border-box;
+    object-fit: cover;
 }
 
-.portal-card-center {
-    grid-column: 5 / span 4;
-    grid-row: 6 / span 2;
+.world-builder-living-card-art span {
+    font-size: 35px;
 }
 
-.portal-card-bottom-left {
-    grid-column: 1 / span 4;
-    grid-row: 9 / span 2;
+.world-builder-living-card strong {
+    font-size: 10px;
+    letter-spacing: .13em;
 }
 
+.world-builder-living-card small {
+    color: #8f9ca7;
+    font-size: 8px;
+    letter-spacing: .12em;
+}
 
-/* ============================================================
-   DAILY QUESTION
-   ============================================================ */
+/* ---------- Daily + memory ---------- */
+
+.world-builder-reflection-row {
+    margin-bottom: 18px;
+}
+
+.world-builder-daily-question,
+.world-builder-creator-memory {
+    min-height: 330px;
+    display: flex;
+    flex-direction: column;
+}
 
 .daily-question-energy {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.daily-question-energy span {
+    gap: 9px;
+    width: fit-content;
+    margin: 22px 0 10px;
+    padding: 7px 10px;
+    border: 1px solid rgba(142,231,196,.15);
+    border-radius: 11px;
+    background: rgba(142,231,196,.06);
+    color: #c8f5e4;
     font-size: 11px;
-    opacity: .5;
+    font-weight: 700;
 }
 
-
-/* ============================================================
-   CREATOR MEMORY
-   ============================================================ */
-
-.world-builder-description {
-    margin-top: 22px;
-    padding: 22px;
-    border-radius: 22px;
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(255,255,255,.10);
+.daily-question-symbol {
+    font-size: 17px;
 }
 
-.world-builder-description-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 12px;
+.world-builder-daily-question h2 {
+    max-width: 700px;
+    margin: 0 0 16px;
+    font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.35;
 }
 
-.world-builder-description-header span {
-    font-size: 10px;
-    letter-spacing: .15em;
-    opacity: .55;
+.world-builder-daily-question textarea,
+.world-builder-creator-memory textarea {
+    min-height: 130px;
+    margin-top: auto;
 }
 
-.world-builder-description-header small {
-    font-size: 10px;
-    opacity: .4;
+.world-builder-daily-question .world-builder-button,
+.world-builder-creator-memory .world-builder-button {
+    margin-top: 11px;
 }
 
-.world-builder-description textarea {
-    min-height: 110px;
-    margin-bottom: 12px;
+.world-builder-memory-intro {
+    margin: 22px 0 12px;
+    color: #a9b5be;
+    font-size: 12px;
 }
 
-
-/* ============================================================
-   LIVING CARD ORACLE
-   ============================================================ */
+/* ---------- Oracle ---------- */
 
 .living-card-oracle {
-    margin-top: 24px;
-    border-radius: 26px;
-    border: 1px solid rgba(255,255,255,.11);
-    background: rgba(255,255,255,.035);
-    overflow: hidden;
+    margin-top: 0;
+    padding: 28px;
+    background:
+        radial-gradient(circle at 20% 15%, rgba(242,207,131,.07), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(142,231,196,.08), transparent 30%),
+        linear-gradient(145deg, rgba(21,31,41,.98), rgba(9,16,24,.99));
 }
 
 .living-card-oracle-header {
+    position: relative;
+    z-index: 1;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 24px;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 22px;
     border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .living-card-oracle-header > div:first-child span {
+    color: #b8c3cc;
     font-size: 10px;
-    letter-spacing: .16em;
-    opacity: .5;
+    font-weight: 800;
+    letter-spacing: .17em;
 }
 
 .living-card-oracle-header h2 {
     margin: 7px 0 0;
-    font-size: 22px;
+    font-size: 25px;
 }
 
 .living-card-oracle-energy {
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
+    width: 68px;
+    height: 68px;
     display: grid;
     place-items: center;
-    background: rgba(255,255,255,.07);
-    font-size: 22px;
+    align-content: center;
+    gap: 1px;
+    border: 1px solid rgba(242,207,131,.22);
+    border-radius: 20px;
+    background: rgba(242,207,131,.06);
+    color: #f2cf83;
+    font-size: 25px;
 }
 
 .living-card-oracle-energy small {
-    display: block;
     font-size: 8px;
-    opacity: .55;
+    color: #c7b98f;
+    letter-spacing: .05em;
 }
 
-
 .living-card-oracle-grid {
+    position: relative;
+    z-index: 1;
     display: grid;
-    grid-template-columns: 1.15fr .85fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding-top: 24px;
 }
 
 .living-card-deck,
 .living-card-reading {
-    padding: 24px;
+    min-height: 380px;
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 22px;
+    background: rgba(0,0,0,.14);
 }
 
 .living-card-deck {
-    border-right: 1px solid rgba(255,255,255,.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-.oracle-section-label {
-    font-size: 10px;
-    letter-spacing: .15em;
-    opacity: .5;
-    margin-bottom: 16px;
-}
-
-
-/* ============================================================
-   LIVING CARD ORACLE — DECK
-   A living stack of cards
-============================================================ */
 
 .living-card-stack {
     position: relative;
-    width: 230px;
-    height: 300px;
-    margin: 20px auto 24px;
-    perspective: 900px;
+    width: 190px;
+    height: 180px;
+    margin: 18px auto 8px;
 }
 
 .living-card-stack-card {
     position: absolute;
     left: 50%;
     top: 50%;
+    width: 120px;
+    height: 156px;
+    transform: translate(-50%, -50%) rotate(calc((var(--card-index) - 3) * 3deg)) translateY(calc((var(--card-index) - 3) * -3px));
+    transform-origin: center bottom;
+}
 
-    width: 190px;
-    height: 260px;
+.living-card-back {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 17px;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(142,231,196,.18), transparent 34%),
+        linear-gradient(145deg, #182d34, #111b28);
+    box-shadow: 0 14px 25px rgba(0,0,0,.26), inset 0 1px rgba(255,255,255,.1);
+}
 
-    transform:
-        translate(-50%, -50%)
-        translate(
-            calc(var(--card-index) * 3px),
-            calc(var(--card-index) * -2px)
-        )
-        rotate(
-            calc((var(--card-index) - 3) * 0.8deg)
-        );
+.living-card-back-symbol {
+    font-size: 25px;
+    color: #f2cf83;
+}
+
+.living-card-back span {
+    font-size: 9px;
+    letter-spacing: .16em;
+}
+
+.living-card-back small {
+    max-width: 75px;
+    text-align: center;
+    color: #8997a2;
+    font-size: 6px;
+    letter-spacing: .1em;
+}
+
+.oracle-deck-note {
+    margin: 4px 0 14px;
+    color: #82909b;
+    font-size: 10px;
+}
+
+.living-card-reading {
+    display: flex;
+    flex-direction: column;
+}
+
+.living-card-reading h3 {
+    margin: 25px 0 14px;
+    font-size: 18px;
+}
+
+.oracle-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.oracle-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 10px;
+    background: rgba(255,255,255,.035);
+    color: #aab5bd;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.oracle-options input {
+    accent-color: #8ee7c4;
+}
+
+.living-card-reading textarea {
+    min-height: 125px;
+    margin-bottom: 12px;
+}
+
+.world-builder-oracle-button {
+    align-self: center;
+    min-width: 170px;
+}
+
+/* ---------- Oracle result: actual premium window, not a loose text block ---------- */
+
+.living-card-result-section {
+    margin-top: 18px;
+    padding: 18px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(242,207,131,.09), transparent 35%),
+        linear-gradient(145deg, rgba(27,39,47,.98), rgba(10,18,25,.99));
+}
+
+.living-card-result-inner {
+    position: relative;
+    z-index: 1;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px clamp(20px, 5vw, 70px);
+    border: 1px solid rgba(255,255,255,.11);
+    border-radius: 23px;
+    background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(0,0,0,.16));
+    box-shadow: inset 0 1px rgba(255,255,255,.07);
+}
+
+.living-card-result-heading {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #9ba8b2;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .15em;
+}
+
+.living-card-result-heading small {
+    color: #b9aa80;
+}
+
+.living-card-result-card {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 22px;
+}
+
+.living-card-result-symbol {
+    width: 78px;
+    height: 78px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 13px;
+    border-radius: 24px;
+    border: 1px solid rgba(242,207,131,.24);
+    background: radial-gradient(circle, rgba(242,207,131,.14), rgba(255,255,255,.025));
+    color: #f2cf83;
+    font-size: 34px;
+    box-shadow: 0 18px 35px rgba(0,0,0,.22), inset 0 1px rgba(255,255,255,.1);
+}
+
+.living-card-result-kicker {
+    color: #8f9ca6;
+    font-size: 8px;
+    letter-spacing: .18em;
+}
+
+.living-card-result-card h2 {
+    margin: 7px 0 7px;
+    font-size: clamp(24px, 3vw, 34px);
+    letter-spacing: .12em;
+}
+
+.living-card-result-card strong {
+    max-width: 640px;
+    color: #f2cf83;
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.living-card-result-card p {
+    max-width: 650px;
+    margin: 12px 0 22px;
+    color: #aeb9c1;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.living-card-result-card .world-builder-oracle-button {
+    margin: 0 auto;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1100px) {
+    .world-builder-row-three {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .world-builder-intelligence {
+        grid-column: 1 / -1;
+        min-height: 480px;
+    }
+
+    .world-builder-living-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .world-builder-page {
+        padding: 26px 14px 50px;
+    }
+
+    .world-builder-day-energy,
+    .world-builder-row-three,
+    .world-builder-row-two,
+    .living-card-oracle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .world-builder-time-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .world-builder-day-energy {
+        gap: 18px;
+        padding: 18px;
+    }
+
+    .world-builder-portrait,
+    .world-builder-birth,
+    .world-builder-intelligence {
+        min-height: auto;
+    }
+
+    .world-builder-living-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .world-builder-section-heading-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .living-card-oracle {
+        padding: 18px;
+    }
+
+    .living-card-oracle-header {
+        align-items: flex-start;
+    }
+
+    .living-card-stack {
+        transform: scale(.9);
+        margin-top: 8px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .world-builder-header {
+        margin-bottom: 20px;
+    }
+
+    .world-builder-title-mark {
+        width: 54px;
+        height: 54px;
+    }
+
+    .world-builder-avatar-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .world-builder-living-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .world-builder-card,
+    .world-builder-living-cards-section {
+        padding: 18px;
+    }
+
+    .world-builder-portrait-main,
+    .world-builder-birth-intro,
+    .world-builder-birth-result {
+        align-items: flex-start;
+    }
+
+    .world-builder-secondary-content,
+    .world-builder-essence-content,
+    .world-builder-creation-content {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .world-builder-essence-line,
+    .world-builder-path-stage {
+        margin-left: 0;
+    }
+}
+
+/* =========================================================
+   WORLD BUILDER — AVATAR PALETTE
+   ========================================================= */
+
+.world-builder-avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 7px 5px;
+    width: 100%;
+    margin: 16px 0 12px;
+    overflow: visible;
+}
+
+.world-builder-avatar-grid .avatar-choice {
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+
+    width: 100%;
+    min-width: 0;
+    height: 30px;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform 160ms ease,
+        opacity 160ms ease;
+}
+
+.world-builder-avatar-grid .avatar-choice:hover {
+    transform: scale(1.18);
+}
+
+.world-builder-avatar-grid .avatar-choice.active {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transform: scale(1.2);
+}
+
+.world-builder-avatar-grid .avatar-choice:focus-visible {
+    outline: none;
+}
+
+.world-builder-avatar-grid .avatar-choice::-moz-focus-inner {
+    border: 0;
+}
+
+
+/* =========================================================
+   CALCULATED TZOLK'IN SYMBOLS
+   ========================================================= */
+
+.calculated-tzolkin-symbol {
+    width: 44px;
+    height: 44px;
+
+    min-width: 44px;
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.calculated-tzolkin-symbol img {
+    display: block;
+
+    width: 30px;
+    height: 30px;
+
+    max-width: 30px;
+    max-height: 30px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   CREATOR ARCHETYPE — SYSTEM DISPLAY
+   ========================================================= */
+
+.world-builder-archetype-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.world-builder-archetype-display .archetype-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    flex: 0 0 32px;
+
+    font-size: 20px;
+    line-height: 1;
+}
+
+.world-builder-archetype-display > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.world-builder-archetype-display strong {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.world-builder-archetype-display small {
+    font-size: 10px;
+    line-height: 1.3;
+    opacity: 0.58;
+}
+
+
+/* =========================================================
+   AVATAR EXPLANATION
+   ========================================================= */
+
+.avatar-explanation-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.avatar-explanation-title span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   CREATOR EVOLUTION — PREMIUM INSET
+   ========================================================= */
+
+.premium-evolution {
+    width: 100%;
+    margin-top: 14px;
+    padding: 16px 18px;
 
     border-radius: 18px;
 
     background:
         linear-gradient(
             145deg,
-            #161b32,
-            #090c18
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.025)
         );
 
-    border: 1px solid rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,0.12);
 
     box-shadow:
-        0 12px 30px rgba(0,0,0,.45);
-
-    transition:
-        transform .45s ease,
-        box-shadow .45s ease;
-
-    overflow: hidden;
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 10px 30px rgba(0,0,0,0.08);
 }
 
-.living-card-stack-card:nth-child(1) {
-    z-index: 1;
-}
-
-.living-card-stack-card:nth-child(2) {
-    z-index: 2;
-}
-
-.living-card-stack-card:nth-child(3) {
-    z-index: 3;
-}
-
-.living-card-stack-card:nth-child(4) {
-    z-index: 4;
-}
-
-.living-card-stack-card:nth-child(5) {
-    z-index: 5;
-}
-
-.living-card-stack-card:nth-child(6) {
-    z-index: 6;
-}
-
-.living-card-stack-card:nth-child(7) {
-    z-index: 7;
-}
-
-.living-card-stack-card:hover {
-    transform:
-        translate(-50%, -50%)
-        translateY(-8px)
-        rotate(0deg);
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.55);
-}
-
-
-/* ============================================================
-   CARD BACK
-============================================================ */
-
-.living-card-back {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,255,255,.055),
-            transparent 55%
-        );
-
-    color: rgba(255,255,255,.72);
-}
-
-.living-card-back-symbol {
-    font-size: 42px;
-    margin-bottom: 18px;
-    opacity: .75;
-}
-
-.living-card-back span {
-    font-size: 11px;
-    letter-spacing: .18em;
-    opacity: .65;
-}
-
-.living-card-back small {
-    margin-top: 7px;
-    font-size: 7px;
-    letter-spacing: .14em;
-    opacity: .35;
-}
-
-
-/* ============================================================
-   DECK DRAW BUTTON
-============================================================ */
-
-.living-card-deck {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.living-card-deck .oracle-section-label {
-    align-self: flex-start;
-}
-
-
-/* ============================================================
-   MOBILE
-============================================================ */
-
-@media (max-width: 700px) {
-
-    .living-card-stack {
-        width: 210px;
-        height: 280px;
-    }
-
-    .living-card-stack-card {
-        width: 175px;
-        height: 240px;
-    }
-
-}
-
-.oracle-deck-note {
+.premium-evolution .evolution-label {
     font-size: 10px;
-    opacity: .4;
-    margin: 12px 0;
+    letter-spacing: 0.16em;
+    opacity: 0.58;
+    margin-bottom: 11px;
 }
 
-.living-card-reading h3 {
-    margin: 0 0 15px;
-    font-size: 18px;
+.premium-evolution .evolution-state {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: end;
 }
 
-.oracle-options {
+.premium-evolution .evolution-state div {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 14px;
+    gap: 4px;
 }
 
-.oracle-options label {
-    font-size: 12px;
-    opacity: .7;
-}
-
-.oracle-options input {
-    margin-right: 8px;
-}
-
-.living-card-reading textarea {
-    margin-bottom: 12px;
-}
-
-
-/* ============================================================
-   ORACLE RESULT
-   ============================================================ */
-
-.living-card-result {
-    margin: 0 24px 24px;
-    padding: 32px;
-    text-align: center;
-    border-radius: 22px;
-    background: rgba(255,255,255,.055);
-    border: 1px solid rgba(255,255,255,.11);
-}
-
-.living-card-result-symbol {
-    width: 78px;
-    height: 78px;
-    margin: 0 auto 12px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 35px;
-    background: rgba(255,255,255,.07);
-}
-
-.living-card-result > span {
+.premium-evolution .evolution-state span {
     font-size: 9px;
-    letter-spacing: .15em;
-    opacity: .45;
+    letter-spacing: 0.14em;
+    opacity: 0.48;
 }
 
-.living-card-result h2 {
-    margin: 7px 0;
-    font-size: 25px;
-}
-
-.living-card-result strong {
-    display: block;
-    font-size: 12px;
-    opacity: .65;
-}
-
-.living-card-result p {
-    max-width: 520px;
-    margin: 12px auto 18px;
-    font-size: 12px;
-    line-height: 1.6;
-    opacity: .65;
+.premium-evolution .evolution-state strong {
+    font-size: 18px;
+    font-weight: 600;
 }
 
 
-/* ============================================================
-   TABLET
-   ============================================================ */
+/* =========================================================
+   BIRTH MATRIX — PREMIUM INNER PANEL
+   ========================================================= */
 
-@media (max-width: 900px) {
-
-    .world-builder-creator-grid {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-
-    .world-builder-portrait,
-    .world-builder-identity,
-    .world-builder-essence,
-    .world-builder-achievements,
-    .world-builder-birth,
-    .world-builder-intelligence,
-    .world-builder-creation {
-        grid-column: span 3;
-    }
-
-    .world-builder-daily-question {
-        grid-column: span 6;
-    }
-
-    .portal-card-top-right {
-        grid-column: 4 / span 3;
-        grid-row: auto;
-    }
-
-    .portal-card-center {
-        grid-column: 2 / span 3;
-        grid-row: auto;
-    }
-
-    .portal-card-bottom-left {
-        grid-column: 1 / span 3;
-        grid-row: auto;
-    }
-
-    .world-builder-avatar {
-        width: 82px;
-        height: 82px;
-        font-size: 40px;
-    }
-
-    .world-builder-avatar-grid {
-        grid-template-columns: repeat(8, 1fr);
-    }
-
-    .living-card-oracle-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .living-card-deck {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
+.premium-birth-result {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-
-/* ============================================================
-   MOBILE
-   ============================================================ */
-
-@media (max-width: 600px) {
-
-    .world-builder-creator-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .world-builder-card,
-    .world-builder-daily-question {
-        grid-column: 1 !important;
-        grid-row: auto !important;
-    }
-
-    .world-builder-card {
-        padding: 16px;
-        border-radius: 17px;
-    }
-
-    .world-builder-portrait {
-        min-height: auto;
-    }
-
-    .world-builder-avatar {
-        width: 72px;
-        height: 72px;
-        font-size: 34px;
-    }
-
-    .world-builder-avatar-grid {
-        grid-template-columns: repeat(8, 1fr);
-        gap: 4px;
-    }
-
-    .avatar-choice {
-        font-size: 15px;
-        border-radius: 7px;
-    }
-
-    .world-builder-avatar-explanation {
-        padding: 9px;
-    }
-
-    .world-builder-avatar-explanation p {
-        font-size: 10px;
-    }
-
-    .world-builder-day-energy {
-        padding: 11px;
-    }
-
-.world-builder-day-energy {
+.premium-birth-result .birth-result-identity {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
+    gap: 4px;
 }
 
-.world-builder-time-divider {
-    width: 100%;
-    height: 1px;
+.premium-birth-result .birth-result-identity > span {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    opacity: 0.55;
 }
 
-    .living-card-oracle-header {
-        padding: 18px;
-    }
-
-    .living-card-oracle-header h2 {
-        font-size: 18px;
-    }
-
-    .living-card-deck,
-    .living-card-reading {
-        padding: 18px;
-    }
-
-    .living-card-mini-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .living-card-result {
-        margin: 0 14px 14px;
-        padding: 22px;
-    }
-
-    .world-builder-description {
-        padding: 16px;
-        border-radius: 17px;
-    }
-
-    .world-builder-description-header {
-        flex-direction: column;
-        gap: 5px;
-    }
-
+.premium-birth-result .birth-result-identity h2 {
+    margin: 0;
 }
 
-.dynamic-card-icon {
-    width: 54px;
-    height: 54px;
+.premium-birth-result .birth-result-identity p {
+    margin: 0;
+}
+
+.premium-birth-result .birth-result-identity strong {
+    font-size: 12px;
+    opacity: 0.72;
+}
+
+.premium-birth-reading {
+    margin-top: 14px;
+}
+
+.premium-birth-reading .birth-reading-main {
     margin-bottom: 10px;
 }
 
-.dynamic-card-icon img {
+.premium-birth-reading .birth-reading-description {
+    opacity: 0.72;
+}
+
+.birth-energy-daily-message {
+    margin-top: 16px;
+    padding: 14px 16px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.birth-energy-daily-message > span {
+    display: block;
+
+    font-size: 9px;
+    letter-spacing: 0.14em;
+
+    opacity: 0.52;
+
+    margin-bottom: 8px;
+}
+
+.birth-energy-daily-message p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   CALCULATED SIGN VISUAL — KEEP FALLBACK CONTROLLED
+   ========================================================= */
+
+.calculated-tzolkin-symbol .tzolkin-sign-visual {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    display: block;
-}
 
-@media (max-width: 900px) {
-
-    .world-builder-avatar-grid {
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-        gap: 4px;
-    }
-
-    .avatar-choice {
-        font-size: 15px;
-    }
-
-    .dynamic-card-icon {
-        width: 46px;
-        height: 46px;
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    .world-builder-avatar-grid {
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-        gap: 3px;
-    }
-
-    .avatar-choice {
-        font-size: 13px;
-        border-radius: 6px;
-    }
-
-    .dynamic-card-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-}
-
-.dynamic-portal-card {
-    min-height: 0;
-    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 
-.world-builder-portal-card-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    max-width: 190px;
-    max-height: 190px;
+.calculated-tzolkin-symbol .tzolkin-sign-visual img {
+    width: 30px;
+    height: 30px;
+
+    max-width: 30px;
+    max-height: 30px;
+
     object-fit: contain;
-    transition: transform .25s ease;
 }
 
-.dynamic-portal-card:hover
-.world-builder-portal-card-image {
-    transform: scale(1.04);
-}
-
-@media (min-width: 900px) {
-
-    .world-builder-creator-grid {
-        align-items: start;
-    }
-
-    .world-builder-identity,
-    .dynamic-portal-card {
-        min-height: 0;
-        height: fit-content;
-        align-self: start;
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    .living-card-mini-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 8px;
-        width: 100%;
-        height: auto;
-        max-height: none;
-        overflow: visible;
-    }
-
-    .living-card-mini {
-        width: 100%;
-        min-width: 0;
-        min-height: 0;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        padding: 0;
-        overflow: hidden;
-    }
-
-    .living-card-mini span {
-        font-size: 24px;
-    }
-
-    .living-card-mini small {
-        font-size: 8px;
-        line-height: 1.1;
-    }
-
-    .living-card-deck {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        overflow: visible;
-    }
-}
-
-/* ============================================================
-   LIVING CARD ORACLE — MOBILE OVERRIDE
-   ============================================================ */
-
-@media (max-width: 700px) {
-
-    .living-card-oracle {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        max-height: none;
-        overflow: visible;
-    }
-
-    .living-card-oracle-grid {
-        display: block;
-        width: 100%;
-        height: auto;
-        overflow: visible;
-    }
-
-    .living-card-deck {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        max-height: none;
-        overflow: visible;
-    }
-
-    .living-card-mini-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 8px;
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        max-height: none;
-        overflow: visible;
-    }
-
-    .living-card-mini {
-        width: 100%;
-        height: auto;
-        min-width: 0;
-        min-height: 0;
-        aspect-ratio: 1 / 1;
-        overflow: hidden;
-    }
-
-    .living-card-mini img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .living-card-reading {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        overflow: visible;
-    }
-
-}
-
-@media (max-width: 700px) {
-
-    .world-builder-page {
-        height: auto;
-        min-height: 100vh;
-        max-height: none;
-        overflow: visible;
-    }
-
-    .world-builder-creator-grid {
-        height: auto;
-        min-height: 0;
-        max-height: none;
-        overflow: visible;
-    }
-
+.calculated-tzolkin-symbol .tzolkin-sign-fallback {
+    font-size: 18px;
 }
