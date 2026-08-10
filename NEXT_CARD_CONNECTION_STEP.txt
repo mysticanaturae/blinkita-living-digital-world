@@ -1,0 +1,75 @@
+﻿BLINKITA LIVING CARD SYSTEM™
+
+NASLEDNJI KORAK
+================
+
+Potrjeno:
+
+- WorldBuilderHome.jsx obstaja
+- vsebuje starih 5 ročnih Living Cards
+- 196 slik obstaja v public/cards/
+- kategorije so trenutno organizirane 01–20
+- LivingCardRegistry.js je trenutno PRAZEN
+- LivingCardEngine.js že podpira kartice in kategorije
+- WorldBuilderLivingCards.js že podpira adapter
+- sistem mora ostati pripravljen za 100 kategorij × 10 kart = 1000 kart
+
+ZDAJ NE BOMO:
+- preverjali manjkajočih slik
+- iskali novih slik
+- ročno popravljali WorldBuilderHome.jsx
+- spreminjali layouta
+
+ZDAJ BOMO:
+1. napolnili LivingCardRegistry z dejanskimi obstoječimi kartami
+2. vsaki karti določili category
+3. vsaki karti določili image path iz /cards/
+4. povezali World Builder na Registry
+5. nato preverili, ali se slike dejansko prikažejo
+
+POMEMBNO:
+WorldBuilderHome.jsx ima 93 KB.
+Zato ga NE bomo ročno prepisovali.
+Naslednji poseg bo narejen kot natančen PowerShell patch.
+
+ARCHITECTURE TARGET:
+
+100 categories
+×
+10 cards
+=
+1000 Living Cards
+
+Trenutnih 20 kategorij predstavlja samo začetni del sistema.
+
+CURRENT IMAGE STRUCTURE:
+
+public/cards/
+  01-foundations/
+  02-inner-experience/
+  03-meaning-and-possibility/
+  04-recognition-and-self/
+  05-purpose/
+  06-creation-process/
+  07-world-and-consequence/
+  08-change/
+  09-creator-experience/
+  10-world-creation/
+  11-creator-agency/
+  12-structure/
+  13-living-system/
+  14-time/
+  15-perception/
+  16-memory/
+  17-evolution/
+  18-events/
+  19-possibility/
+  20-integration/
+
+NEXT FILE TO MODIFY:
+
+src/core/living-cards/LivingCardRegistry.js
+
+NOT WorldBuilderHome.jsx yet.
+
+END

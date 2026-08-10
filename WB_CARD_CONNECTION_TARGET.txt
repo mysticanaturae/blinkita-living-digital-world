@@ -1,0 +1,109 @@
+﻿=== IMPORT SECTION ===
+/*
+BLINKITA METHODâ„˘
+BLINKITA OSâ„˘
+
+WORLD BUILDERâ„˘
+Who You Are as Creator
+
+WORLD BUILDER HOME
+*/
+
+import { useMemo, useState } from "react";
+
+import {
+    getWorldState,
+    updateWorldState
+} from "../../core/state/WorldState";
+
+import {
+    getSignImage
+} from "../../core/tzolkin/TzolkinImages";
+
+import "../../styles/world-builder.css";
+
+/*
+====================================================
+TZOLK'IN
+====================================================
+*/
+
+const TZOLKIN_CORRELATION = 584283;
+
+const TZOLKIN_SIGNS = [
+    {
+        index: 0,
+        classic: "Imix",
+        local: "Imox",
+        symbol: "đ“†",
+        element: "Water"
+    },
+    {
+        index: 1,
+        classic: "Ik'",
+        local: "Iq'",
+        symbol: "đ“‚€",
+        element: "Wind"
+    },
+
+=== WORLD BUILDER LIVING CARDS ===
+const worldBuilderLivingCards = [
+    {
+        id: "creation",
+        title: "CREATION",
+        symbol: "âś¦",
+        destination: "/studio",
+        icon:
+            "/portal/icons/master/_brand_icons/blinkita_creation.png"
+    },
+    {
+        id: "exploration",
+        title: "EXPLORATION",
+        symbol: "đź§­",
+        destination: "/exploration",
+        icon:
+            "/portal/icons/master/_brand_icons/blinkita_exploration.png"
+    },
+    {
+        id: "vision",
+        title: "VISION",
+        symbol: "âś¨",
+        destination: "/builder",
+        icon:
+            "/portal/icons/master/_brand_icons/blinkita_vision.png"
+    },
+    {
+        id: "possibility",
+        title: "POSSIBILITY",
+        symbol: "â—‡",
+        destination: "/possibility",
+        icon:
+            "/portal/icons/master/_brand_icons/blinkita_possibility.png"
+    },
+    {
+        id: "discovery",
+        title: "DISCOVERY",
+        symbol: "âś§",
+        destination: "/discovery",
+        icon:
+            "/portal/icons/master/_brand_icons/blinkita_discovery.png"
+    }
+];
+
+=== CARD IMAGE RENDER ===
+{card.icon ? (
+
+                                        <img
+                                            src={card.icon}
+                                            alt={card.title}
+                                        />
+
+                                    ) : (
+
+                                        <span>
+                                            {card.symbol}
+                                        </span>
+
+                                    )}
+
+                                

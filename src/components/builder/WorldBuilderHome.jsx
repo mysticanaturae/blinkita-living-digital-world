@@ -19,6 +19,10 @@ import {
     getSignImage
 } from "../../core/tzolkin/TzolkinImages";
 
+import {
+    getWorldBuilderDeck
+} from "../../core/living-cards/WorldBuilderLivingCards";
+
 import "../../styles/world-builder.css";
 
 /*
@@ -350,10 +354,11 @@ function calculateLivingTime(
         ) + 1;
 
     const signIndex =
-        (
-            birthSignIndex +
-            todayTzolkin.signIndex
-        ) % 20;
+    (
+        birthSignIndex +
+        todayTzolkin.signIndex +
+        1
+    ) % 20;
 
     const sign =
         TZOLKIN_SIGNS[signIndex];
@@ -696,46 +701,8 @@ FIVE WORLD BUILDER LIVING CARDS
 ====================================================
 */
 
-const worldBuilderLivingCards = [
-    {
-        id: "consciousness",
-        title: "CONSCIOUSNESS",
-        symbol: "◇",
-        destination: "/ai",
-        icon:
-            "/portal/icons/master/_brand_icons/blinkita_consciousness.png"
-    },
-    {
-        id: "evolution",
-        title: "EVOLUTION",
-        symbol: "🌀",
-        destination: "/lifecycle",
-        icon:
-            "/portal/icons/master/_brand_icons/blinkita_evolution_transform_evolve.png"
-    },
-    {
-        id: "guidance",
-        title: "GUIDANCE",
-        symbol: "🧭",
-        destination: "/ai",
-        icon:
-            "/portal/icons/master/_brand_icons/blinkita_guidance_wisdom_insight.png"
-    },
-    {
-        id: "creation",
-        title: "CREATION",
-        symbol: "✦",
-        destination: "/studio",
-        icon: null
-    },
-    {
-        id: "memory",
-        title: "MEMORY",
-        symbol: "◈",
-        destination: "/memory",
-        icon: null
-    }
-];
+const worldBuilderLivingCards =
+    getWorldBuilderDeck();
 
 /*
 ====================================================
@@ -1719,8 +1686,10 @@ export default function WorldBuilderHome() {
                         </strong>
 
                         <small>
-                            Birth energy · Today's energy
-                        </small>
+                         Kin {livingTimeToday.kin}
+                           {" · "}
+                            {livingTimeToday.sign.element}
+                            </small>
 
                     </div>
 
@@ -2698,10 +2667,10 @@ export default function WorldBuilderHome() {
                                     "
                                 >
 
-                                    {card.icon ? (
+                                    {card.image ? (
 
                                         <img
-                                            src={card.icon}
+                                            src={card.image}
                                             alt={card.title}
                                         />
 

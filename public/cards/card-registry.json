@@ -1,0 +1,1202 @@
+﻿[
+    {
+        "CardID":  "001",
+        "CardName":  "ABUNDANCE",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "002",
+        "CardName":  "ACTION",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "003",
+        "CardName":  "ADVENTURE",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "004",
+        "CardName":  "AUTHENTICITY",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "005",
+        "CardName":  "BELONGING",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "006",
+        "CardName":  "BOUNDARIES",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "007",
+        "CardName":  "CALM",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "008",
+        "CardName":  "CAPACITY",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "009",
+        "CardName":  "CHOICE",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "010",
+        "CardName":  "CLARITY",
+        "CategoryID":  "01",
+        "Category":  "FOUNDATIONS"
+    },
+    {
+        "CardID":  "011",
+        "CardName":  "COMPASSION",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "012",
+        "CardName":  "CURIOSITY",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "013",
+        "CardName":  "DESIRE",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "014",
+        "CardName":  "DISCOVERY",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "015",
+        "CardName":  "DREAM",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "016",
+        "CardName":  "EMBODIMENT",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "017",
+        "CardName":  "EXPRESSION",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "018",
+        "CardName":  "FAITH",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "019",
+        "CardName":  "FORGIVENESS",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "020",
+        "CardName":  "FREEDOM",
+        "CategoryID":  "02",
+        "Category":  "INNER EXPERIENCE"
+    },
+    {
+        "CardID":  "021",
+        "CardName":  "HARMONY",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "022",
+        "CardName":  "HOPE",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "023",
+        "CardName":  "IDENTITY",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "024",
+        "CardName":  "INDEPENDENCE",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "025",
+        "CardName":  "INTENTION",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "026",
+        "CardName":  "JOY",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "027",
+        "CardName":  "LOVE",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "028",
+        "CardName":  "MEANING",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "029",
+        "CardName":  "POSSIBILITY",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "030",
+        "CardName":  "PRESENCE",
+        "CategoryID":  "03",
+        "Category":  "MEANING \u0026 POSSIBILITY"
+    },
+    {
+        "CardID":  "031",
+        "CardName":  "RECOGNITION",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "032",
+        "CardName":  "SACREDNESS",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "033",
+        "CardName":  "SELF-TRUST",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "034",
+        "CardName":  "SURRENDER",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "035",
+        "CardName":  "TRUST",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "036",
+        "CardName":  "UNITY",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "037",
+        "CardName":  "VISIBILITY",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "038",
+        "CardName":  "WONDER",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "039",
+        "CardName":  "WORTH",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "040",
+        "CardName":  "YEARNING",
+        "CategoryID":  "04",
+        "Category":  "RECOGNITION \u0026 SELF"
+    },
+    {
+        "CardID":  "041",
+        "CardName":  "PURPOSE",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "042",
+        "CardName":  "AWARENESS",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "043",
+        "CardName":  "GUIDANCE",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "044",
+        "CardName":  "GROWTH",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "045",
+        "CardName":  "RENEWAL",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "046",
+        "CardName":  "PATIENCE",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "047",
+        "CardName":  "COURAGE",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "048",
+        "CardName":  "SELF-LOVE",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "049",
+        "CardName":  "CREATIVITY",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "050",
+        "CardName":  "SERVICE",
+        "CategoryID":  "05",
+        "Category":  "PURPOSE"
+    },
+    {
+        "CardID":  "051",
+        "CardName":  "IDEATION",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "052",
+        "CardName":  "FOCUS",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "053",
+        "CardName":  "PLANNING",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "054",
+        "CardName":  "EXECUTION",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "055",
+        "CardName":  "MOTIVATION",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "056",
+        "CardName":  "FRUSTRATION",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "057",
+        "CardName":  "CONFLICT",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "058",
+        "CardName":  "LIMITATION",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "059",
+        "CardName":  "ADAPTATION",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "060",
+        "CardName":  "MASTERY",
+        "CategoryID":  "06",
+        "Category":  "CREATION PROCESS"
+    },
+    {
+        "CardID":  "061",
+        "CardName":  "TIME",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "062",
+        "CardName":  "ENERGY",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "063",
+        "CardName":  "RESOURCES",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "064",
+        "CardName":  "ALLIANCE",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "065",
+        "CardName":  "OPPORTUNITY",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "066",
+        "CardName":  "RISK",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "067",
+        "CardName":  "BREAKTHROUGH",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "068",
+        "CardName":  "REFLECTION",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "069",
+        "CardName":  "GRATITUDE",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "070",
+        "CardName":  "LEGACY",
+        "CategoryID":  "07",
+        "Category":  "WORLD \u0026 CONSEQUENCE"
+    },
+    {
+        "CardID":  "071",
+        "CardName":  "VISION",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "072",
+        "CardName":  "DOUBT",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "073",
+        "CardName":  "CHANGE",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "074",
+        "CardName":  "NURTURE",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "075",
+        "CardName":  "LOSS",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "076",
+        "CardName":  "EXPLORATION",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "077",
+        "CardName":  "CHALLENGE",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "078",
+        "CardName":  "DECISION",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "079",
+        "CardName":  "TRANSFORMATION",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "080",
+        "CardName":  "ALIGNMENT",
+        "CategoryID":  "08",
+        "Category":  "CHANGE"
+    },
+    {
+        "CardID":  "081",
+        "CardName":  "INSPIRATION",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "082",
+        "CardName":  "EXPERIMENT",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "083",
+        "CardName":  "FAILURE",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "084",
+        "CardName":  "RESILIENCE",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "085",
+        "CardName":  "COMPROMISE",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "086",
+        "CardName":  "CONSEQUENCE",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "087",
+        "CardName":  "REPAIR",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "088",
+        "CardName":  "SERENDIPITY",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "089",
+        "CardName":  "OWNERSHIP",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "090",
+        "CardName":  "IMPACT",
+        "CategoryID":  "09",
+        "Category":  "CREATOR EXPERIENCE"
+    },
+    {
+        "CardID":  "091",
+        "CardName":  "INFLUENCE",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "092",
+        "CardName":  "COLLABORATION",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "093",
+        "CardName":  "SCARCITY",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "094",
+        "CardName":  "RESOURCEFULNESS",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "095",
+        "CardName":  "UNCERTAINTY",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "096",
+        "CardName":  "REVELATION",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "097",
+        "CardName":  "DESTRUCTION",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "098",
+        "CardName":  "INTEGRATION",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "099",
+        "CardName":  "SOVEREIGNTY",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "100",
+        "CardName":  "CREATION",
+        "CategoryID":  "10",
+        "Category":  "WORLD CREATION"
+    },
+    {
+        "CardID":  "101",
+        "CardName":  "AGENCY",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "102",
+        "CardName":  "AUTHORSHIP",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "103",
+        "CardName":  "INTEGRITY",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "104",
+        "CardName":  "COMMITMENT",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "105",
+        "CardName":  "DEVOTION",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "106",
+        "CardName":  "DISCERNMENT",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "107",
+        "CardName":  "INTUITION",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "108",
+        "CardName":  "WISDOM",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "109",
+        "CardName":  "RESPONSIBILITY",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "110",
+        "CardName":  "ACCOUNTABILITY",
+        "CategoryID":  "11",
+        "Category":  "CREATOR AGENCY"
+    },
+    {
+        "CardID":  "111",
+        "CardName":  "STRUCTURE",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "112",
+        "CardName":  "ARCHITECTURE",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "113",
+        "CardName":  "SYSTEM",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "114",
+        "CardName":  "PATTERN",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "115",
+        "CardName":  "ORDER",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "116",
+        "CardName":  "FRAMEWORK",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "117",
+        "CardName":  "DESIGN",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "118",
+        "CardName":  "ORGANIZATION",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "119",
+        "CardName":  "RELATIONSHIP",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "120",
+        "CardName":  "CONNECTION",
+        "CategoryID":  "12",
+        "Category":  "STRUCTURE"
+    },
+    {
+        "CardID":  "121",
+        "CardName":  "ECOSYSTEM",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "122",
+        "CardName":  "NETWORK",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "123",
+        "CardName":  "ENVIRONMENT",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "124",
+        "CardName":  "CONTEXT",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "125",
+        "CardName":  "FIELD",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "126",
+        "CardName":  "LAYER",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "127",
+        "CardName":  "NODE",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "128",
+        "CardName":  "FLOW",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "129",
+        "CardName":  "RHYTHM",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "130",
+        "CardName":  "CYCLE",
+        "CategoryID":  "13",
+        "Category":  "LIVING SYSTEM"
+    },
+    {
+        "CardID":  "131",
+        "CardName":  "TIMING",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "132",
+        "CardName":  "MOMENT",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "133",
+        "CardName":  "SEASON",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "134",
+        "CardName":  "THRESHOLD",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "135",
+        "CardName":  "WAITING",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "136",
+        "CardName":  "RIPENING",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "137",
+        "CardName":  "SYNCHRONICITY",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "138",
+        "CardName":  "SEQUENCE",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "139",
+        "CardName":  "MOMENTUM",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "140",
+        "CardName":  "KAIROS",
+        "CategoryID":  "14",
+        "Category":  "TIME"
+    },
+    {
+        "CardID":  "141",
+        "CardName":  "OBSERVATION",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "142",
+        "CardName":  "PERSPECTIVE",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "143",
+        "CardName":  "INSIGHT",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "144",
+        "CardName":  "SIGNAL",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "145",
+        "CardName":  "TRUTH",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "146",
+        "CardName":  "UNDERSTANDING",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "147",
+        "CardName":  "KNOWLEDGE",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "148",
+        "CardName":  "INTERPRETATION",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "149",
+        "CardName":  "PERCEPTION",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "150",
+        "CardName":  "ATTENTION",
+        "CategoryID":  "15",
+        "Category":  "PERCEPTION"
+    },
+    {
+        "CardID":  "151",
+        "CardName":  "MEMORY",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "152",
+        "CardName":  "TRACE",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "153",
+        "CardName":  "RECORD",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "154",
+        "CardName":  "STORY",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "155",
+        "CardName":  "NARRATIVE",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "156",
+        "CardName":  "ARCHIVE",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "157",
+        "CardName":  "REMEMBERING",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "158",
+        "CardName":  "IMPRINT",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "159",
+        "CardName":  "HISTORY",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "160",
+        "CardName":  "CONTINUITY",
+        "CategoryID":  "16",
+        "Category":  "MEMORY"
+    },
+    {
+        "CardID":  "161",
+        "CardName":  "EVOLUTION",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "162",
+        "CardName":  "EMERGENCE",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "163",
+        "CardName":  "REFINEMENT",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "164",
+        "CardName":  "INNOVATION",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "165",
+        "CardName":  "REINVENTION",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "166",
+        "CardName":  "REORGANIZATION",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "167",
+        "CardName":  "EXPANSION",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "168",
+        "CardName":  "MATURATION",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "169",
+        "CardName":  "DEVELOPMENT",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "170",
+        "CardName":  "BECOMING",
+        "CategoryID":  "17",
+        "Category":  "EVOLUTION"
+    },
+    {
+        "CardID":  "171",
+        "CardName":  "EVENT",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "172",
+        "CardName":  "TRIGGER",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "173",
+        "CardName":  "SHIFT",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "174",
+        "CardName":  "INTERRUPTION",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "175",
+        "CardName":  "ACTIVATION",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "176",
+        "CardName":  "INVITATION",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "177",
+        "CardName":  "ENCOUNTER",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "178",
+        "CardName":  "ARRIVAL",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "179",
+        "CardName":  "DEPARTURE",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "180",
+        "CardName":  "RETURN",
+        "CategoryID":  "18",
+        "Category":  "EVENTS"
+    },
+    {
+        "CardID":  "181",
+        "CardName":  "POTENTIAL",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "182",
+        "CardName":  "OPENING",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "183",
+        "CardName":  "HORIZON",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "184",
+        "CardName":  "ALTERNATIVE",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "185",
+        "CardName":  "DIRECTION",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "186",
+        "CardName":  "CHANCE",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "187",
+        "CardName":  "LATENCY",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "188",
+        "CardName":  "UNFOLDING",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "189",
+        "CardName":  "FORESIGHT",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "190",
+        "CardName":  "CONTINGENCY",
+        "CategoryID":  "19",
+        "Category":  "POSSIBILITY"
+    },
+    {
+        "CardID":  "191",
+        "CardName":  "SYNTHESIS",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    },
+    {
+        "CardID":  "192",
+        "CardName":  "WHOLENESS",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    },
+    {
+        "CardID":  "193",
+        "CardName":  "BALANCE",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    },
+    {
+        "CardID":  "194",
+        "CardName":  "RECIPROCITY",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    },
+    {
+        "CardID":  "195",
+        "CardName":  "COHERENCE",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    },
+    {
+        "CardID":  "196",
+        "CardName":  "RESOLUTION",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    },
+    {
+        "CardID":  "197",
+        "CardName":  "ACCEPTANCE",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    },
+    {
+        "CardID":  "198",
+        "CardName":  "TRANSCENDENCE",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    },
+    {
+        "CardID":  "199",
+        "CardName":  "COMPLETION",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    },
+    {
+        "CardID":  "200",
+        "CardName":  "GENERATIVITY",
+        "CategoryID":  "20",
+        "Category":  "INTEGRATION"
+    }
+]
