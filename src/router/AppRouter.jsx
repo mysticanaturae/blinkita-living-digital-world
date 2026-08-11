@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+﻿import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { PortalRoutes } from "../core/routes/PortalRoutes";
 import DynamicPortalPage from "../pages/DynamicPortalPage";
@@ -21,6 +21,7 @@ import WorldLifecycleDashboard from "../components/lifecycle/WorldLifecycleDashb
 import WorldTimeline from "../components/timeline/WorldTimeline";
 import WorldDashboard from "../components/world/WorldDashboard";
 import WorldBuilderHome from "../components/builder/WorldBuilderHome";
+import WorldUnderConstruction from "../components/world/WorldUnderConstruction";
 import BlinkitaEcosystemMandala from "../components/ecosystem/BlinkitaEcosystemMandala";
 
 
@@ -205,6 +206,11 @@ export default function AppRouter() {
     element={<WorldBuilderHome />}
 />
 
+<Route
+    path="/world/:worldId"
+    element={<WorldUnderConstruction />}
+/>
+
 
 
 
@@ -271,6 +277,7 @@ export default function AppRouter() {
 
 
 }
+
 
 
 
