@@ -18,6 +18,11 @@ import { LivingWorldRuntime }
 
 from "./LivingWorldRuntime";
 
+import {
+    WorldRegistry
+}
+from "../registry/WorldRegistry";
+
 
 
 
@@ -45,6 +50,10 @@ export function initializeRuntime(){
         existingState?.livingWorld
     ) {
 
+        WorldRegistry.registerWorld(
+            existingState.livingWorld
+        );
+
         console.log(
             "🌱 Living World Runtime Resumed",
             existingState.livingWorld.id
@@ -71,4 +80,5 @@ export function initializeRuntime(){
     return result;
 
 }
+
 

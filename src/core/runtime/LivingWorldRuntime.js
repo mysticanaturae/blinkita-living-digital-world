@@ -62,6 +62,11 @@ import {
 
 from "../events/EventTypes";
 
+import {
+    WorldRegistry
+}
+from "../registry/WorldRegistry";
+
 
 
 
@@ -99,6 +104,13 @@ export const LivingWorldRuntime = {
 
 
 
+
+
+        WorldRegistry.registerWorld(
+
+            world
+
+        );
 
         const state =
 
@@ -426,6 +438,8 @@ savePortalResponse(
 
 
 };
+
+
 
 
 
