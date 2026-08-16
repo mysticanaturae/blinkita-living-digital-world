@@ -1601,3 +1601,605 @@
 .calculated-tzolkin-symbol .tzolkin-sign-fallback {
     font-size: 18px;
 }
+/* =========================================================
+   MY LIVING WORLDS™
+   PREMIUM STATUS CARDS
+   ========================================================= */
+
+.world-builder-world-status-cards {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: stretch;
+}
+
+.world-builder-world-status-card {
+    position: relative;
+    min-width: 0;
+    min-height: 188px !important;
+    height: 188px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    gap: 0 !important;
+    padding: 20px 16px 17px !important;
+
+    border: 1px solid rgba(255,255,255,.10) !important;
+    border-radius: 22px !important;
+
+    color: #f4f7f8 !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        ) !important;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        inset 0 0 0 1px rgba(255,255,255,.025),
+        0 16px 35px rgba(0,0,0,.20) !important;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease !important;
+}
+
+/* subtle atmospheric glow */
+
+.world-builder-world-status-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,255,255,.10),
+            transparent 55%
+        );
+
+    opacity: .7;
+    pointer-events: none;
+}
+
+/* individual world atmospheres */
+
+.world-builder-world-status-seed {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(82,120,150,.28),
+            rgba(15,24,34,.96)
+        ) !important;
+}
+
+.world-builder-world-status-growing {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(95,135,109,.28),
+            rgba(15,25,21,.96)
+        ) !important;
+}
+
+.world-builder-world-status-living {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(67,125,119,.30),
+            rgba(13,27,27,.96)
+        ) !important;
+}
+
+.world-builder-world-status-completed {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(150,105,76,.28),
+            rgba(29,22,18,.96)
+        ) !important;
+}
+
+.world-builder-world-status-all {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(112,91,145,.28),
+            rgba(23,18,31,.96)
+        ) !important;
+}
+
+/* icon */
+
+.world-builder-world-status-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 62px;
+    height: 62px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 13px;
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    box-shadow:
+        0 10px 22px rgba(0,0,0,.18),
+        inset 0 1px rgba(255,255,255,.10);
+
+    font-size: 29px;
+    line-height: 1;
+}
+
+/* text area */
+
+.world-builder-world-status-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    min-height: 61px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.world-builder-world-status-content strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #f5f7f8 !important;
+
+    font-size: 10px !important;
+    font-weight: 900 !important;
+
+    letter-spacing: .18em;
+
+    line-height: 1.2;
+}
+
+.world-builder-world-status-content small {
+    display: block;
+
+    max-width: 165px;
+
+    color: #aeb9c1 !important;
+
+    font-size: 9px !important;
+    font-weight: 500;
+
+    line-height: 1.45;
+
+    letter-spacing: .02em;
+}
+
+/* count */
+
+.world-builder-world-status-count {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+
+    margin-top: auto;
+
+    color: #ffffff !important;
+
+    font-size: 22px !important;
+    font-weight: 700 !important;
+
+    line-height: 1;
+}
+
+/* active state */
+
+.world-builder-world-status-card.is-active {
+    border-color: rgba(255,255,255,.28) !important;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.12),
+        0 18px 38px rgba(0,0,0,.28),
+        0 0 0 1px rgba(255,255,255,.035) !important;
+}
+
+/* hover */
+
+.world-builder-world-status-card:hover {
+    transform: translateY(-5px) !important;
+
+    border-color: rgba(255,255,255,.30) !important;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.13),
+        0 24px 45px rgba(0,0,0,.32) !important;
+}
+
+.world-builder-world-status-card:hover
+.world-builder-world-status-icon {
+    border-color: rgba(255,255,255,.22);
+    transform: translateY(-1px);
+}
+
+.world-builder-world-status-icon {
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .world-builder-world-status-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+    .world-builder-world-status-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+    }
+
+    .world-builder-world-status-card {
+        height: 180px !important;
+        min-height: 180px !important;
+    }
+
+}
+
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .world-builder-world-status-cards {
+        grid-template-columns: 1fr !important;
+    }
+
+}
+
+/* ============================================================
+   BLINKITA — MY LIVING WORLDS
+   PREMIUM VISUAL OVERRIDE
+   ============================================================ */
+
+.world-builder-living-worlds-section {
+    margin-top: 28px;
+    margin-bottom: 28px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+    background: linear-gradient(
+        145deg,
+        rgba(20,31,43,.96),
+        rgba(8,15,23,.98)
+    );
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        0 20px 50px rgba(0,0,0,.22);
+}
+
+
+/* ============================================================
+   PREMIUM SEARCH
+   ============================================================ */
+
+.world-builder-premium-search {
+    margin-top: 28px;
+    margin-bottom: 30px;
+    padding: 22px 24px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.065),
+        rgba(255,255,255,.025)
+    );
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.07),
+        0 14px 32px rgba(0,0,0,.20);
+}
+
+.world-builder-search-label {
+    margin-bottom: 13px;
+    color: #f4f7f8;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .18em;
+}
+
+.world-builder-search-field {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 15px;
+    background: rgba(0,0,0,.20);
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.04);
+}
+
+.world-builder-search-icon {
+    flex: 0 0 auto;
+    color: #aebbc4;
+    font-size: 18px;
+}
+
+.world-builder-search-field input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #f4f7f8;
+    font-size: 13px;
+    letter-spacing: .02em;
+}
+
+.world-builder-search-field input::placeholder {
+    color: #74818c;
+}
+
+
+/* ============================================================
+   STATUS CARDS
+   ============================================================ */
+
+.world-builder-world-status-cards {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    align-items: stretch;
+}
+
+.world-builder-world-status-card {
+    min-width: 0;
+    min-height: 148px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.065),
+        rgba(255,255,255,.025)
+    );
+    color: #f4f7f8;
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.07),
+        0 14px 30px rgba(0,0,0,.18);
+    cursor: pointer;
+    transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+}
+
+.world-builder-world-status-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,.24);
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.11),
+        0 20px 38px rgba(0,0,0,.27);
+}
+
+.world-builder-world-status-icon {
+    flex: 0 0 auto;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.world-builder-world-status-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    text-align: left;
+}
+
+.world-builder-world-status-content strong {
+    color: #f4f7f8;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .14em;
+    white-space: nowrap;
+}
+
+.world-builder-world-status-content small {
+    color: #8f9ca7;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: .03em;
+}
+
+.world-builder-world-status-count {
+    align-self: flex-start;
+    color: #dce5ea;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+
+/* Individual premium tones */
+
+.world-builder-world-status-seed {
+    background: linear-gradient(
+        145deg,
+        rgba(82,120,150,.22),
+        rgba(255,255,255,.025)
+    );
+}
+
+.world-builder-world-status-growing {
+    background: linear-gradient(
+        145deg,
+        rgba(95,135,109,.22),
+        rgba(255,255,255,.025)
+    );
+}
+
+.world-builder-world-status-living {
+    background: linear-gradient(
+        145deg,
+        rgba(67,125,119,.22),
+        rgba(255,255,255,.025)
+    );
+}
+
+.world-builder-world-status-completed {
+    background: linear-gradient(
+        145deg,
+        rgba(150,105,76,.22),
+        rgba(255,255,255,.025)
+    );
+}
+
+.world-builder-world-status-all {
+    background: linear-gradient(
+        145deg,
+        rgba(112,91,145,.22),
+        rgba(255,255,255,.025)
+    );
+}
+
+
+/* ============================================================
+   EMPTY WORLD — ITS OWN PREMIUM CARD
+   ============================================================ */
+
+.world-builder-world-empty {
+    margin-top: 32px;
+    padding: 42px 30px;
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.045),
+        rgba(255,255,255,.018)
+    );
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        0 16px 35px rgba(0,0,0,.18);
+}
+
+.world-builder-world-empty-symbol {
+    margin-bottom: 16px;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.world-builder-world-empty h2 {
+    margin: 0 0 9px;
+    color: #f4f7f8;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+
+.world-builder-world-empty p {
+    max-width: 520px;
+    margin: 0;
+    color: #8997a2;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+    .world-builder-world-status-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+
+    .world-builder-living-worlds-section {
+        padding: 16px;
+    }
+
+    .world-builder-premium-search {
+        padding: 18px;
+        margin-top: 22px;
+        margin-bottom: 24px;
+    }
+
+    .world-builder-world-status-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 24px;
+        margin-bottom: 26px;
+    }
+
+    .world-builder-world-status-card {
+        min-height: 118px;
+    }
+
+    .world-builder-world-empty {
+        margin-top: 26px;
+        padding: 34px 20px;
+    }
+
+}

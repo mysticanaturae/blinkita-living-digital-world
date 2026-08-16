@@ -1,4 +1,4 @@
-/*
+﻿/*
 BLINKITA METHOD™
 BLINKITA OS™
 
@@ -1569,7 +1569,7 @@ export default function WorldBuilderHome() {
                     </h1>
 
                     <p>
-                        Who You Are as Creator
+                        Build What Wants to Become Alive
                     </p>
 
                 </div>
@@ -2609,16 +2609,20 @@ export default function WorldBuilderHome() {
 
 
             {/* =================================================
-                FIVE LIVING CARDS
+                MY LIVING WORLDS
             ================================================= */}
 
             <section
                 className="
-                    world-builder-living-cards-section
+                    world-builder-living-worlds-section
                 "
             >
 
-                <div className="world-builder-section-heading">
+                <div
+                    className="
+                        world-builder-section-heading
+                    "
+                >
 
                     <div
                         className="
@@ -2627,11 +2631,11 @@ export default function WorldBuilderHome() {
                     >
 
                         <span>
-                            LIVING WORLDS
+                            MY LIVING WORLDS
                         </span>
 
                         <small>
-                            Choose a doorway into your living ecosystem.
+                            Your Living Worlds — from first seed to living creation.
                         </small>
 
                     </div>
@@ -2639,63 +2643,215 @@ export default function WorldBuilderHome() {
                 </div>
 
 
+                {/* WORLD SEARCH */}
+
+
+                {/* WORLD SEARCH */}
+
                 <div
                     className="
-                        world-builder-living-cards
+                        world-builder-world-search
+                        world-builder-premium-search
                     "
                 >
 
-                    {worldBuilderLivingCards.map(
-                        card => (
+                    <div className="world-builder-search-label">
+                        SEARCH YOUR LIVING WORLDS
+                    </div>
 
-                            <button
-                                key={card.id}
-                                type="button"
-                                className="
-                                    world-builder-living-card
-                                "
-                                onClick={() =>
-                                    enterLivingCard(
-                                        card
-                                    )
-                                }
-                            >
+                    <div className="world-builder-search-field">
 
-                                <div
-                                    className="
-                                        world-builder-living-card-art
-                                    "
-                                >
+                        <span className="world-builder-search-icon">
+                            ◯
+                        </span>
 
-                                    {card.image ? (
+                        <input
+                            type="search"
+                            placeholder="Search by world name, seed or status..."
+                            aria-label="Search your Living Worlds"
+                        />
 
-                                        <img
-                                            src={card.image}
-                                            alt={card.title}
-                                        />
+                    </div>
 
-                                    ) : (
+                </div>
 
-                                        <span>
-                                            {card.symbol}
-                                        </span>
 
-                                    )}
+                {/* WORLD STATUS CARDS */}
 
-                                </div>
+                <div
+                    className="
+                        world-builder-world-filters
+                        world-builder-world-status-cards
+                    "
+                >
 
-                                <strong>
-                                    {card.title}
-                                </strong>
+                    <button
+                        type="button"
+                        className="
+                            world-builder-world-filter
+                            world-builder-world-status-card
+                            world-builder-world-status-seed
+                            is-active
+                        "
+                    >
+                        <span className="world-builder-world-status-icon">
+                            🌱
+                        </span>
 
-                                <small>
-                                    ENTER WORLD
-                                </small>
+                        <span className="world-builder-world-status-content">
+                            <strong>
+                                SEED
+                            </strong>
 
-                            </button>
+                            <small>
+                                A new Living World begins as a possibility.
+                            </small>
+                        </span>
 
-                        )
-                    )}
+                        <span className="world-builder-world-status-count">
+                            0
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        className="
+                            world-builder-world-filter
+                            world-builder-world-status-card
+                            world-builder-world-status-growing
+                        "
+                    >
+                        <span className="world-builder-world-status-icon">
+                            🌿
+                        </span>
+
+                        <span className="world-builder-world-status-content">
+                            <strong>
+                                GROWING
+                            </strong>
+
+                            <small>
+                                Your Living World is actively taking shape.
+                            </small>
+                        </span>
+
+                        <span className="world-builder-world-status-count">
+                            0
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        className="
+                            world-builder-world-filter
+                            world-builder-world-status-card
+                            world-builder-world-status-living
+                        "
+                    >
+                        <span className="world-builder-world-status-icon">
+                            🌎
+                        </span>
+
+                        <span className="world-builder-world-status-content">
+                            <strong>
+                                LIVING
+                            </strong>
+
+                            <small>
+                                Your Living World is alive and in use.
+                            </small>
+                        </span>
+
+                        <span className="world-builder-world-status-count">
+                            0
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        className="
+                            world-builder-world-filter
+                            world-builder-world-status-card
+                            world-builder-world-status-completed
+                        "
+                    >
+                        <span className="world-builder-world-status-icon">
+                            ✨
+                        </span>
+
+                        <span className="world-builder-world-status-content">
+                            <strong>
+                                COMPLETED
+                            </strong>
+
+                            <small>
+                                A defined stage of your world is complete.
+                            </small>
+                        </span>
+
+                        <span className="world-builder-world-status-count">
+                            0
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        className="
+                            world-builder-world-filter
+                            world-builder-world-status-card
+                            world-builder-world-status-all
+                        "
+                    >
+                        <span className="world-builder-world-status-icon">
+                            🌀
+                        </span>
+
+                        <span className="world-builder-world-status-content">
+                            <strong>
+                                ALL WORLDS
+                            </strong>
+
+                            <small>
+                                Explore all of your Living Worlds.
+                            </small>
+                        </span>
+
+                        <span className="world-builder-world-status-count">
+                            0
+                        </span>
+                    </button>
+
+                </div>
+
+
+                {/* EMPTY WORLD STATE */}
+
+                <div
+                    className="
+                        world-builder-world-empty
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-world-empty-symbol
+                        "
+                    >
+                        🌱
+                    </div>
+
+                    <h2>
+                        No Living Worlds yet.
+                    </h2>
+
+                    <p>
+                        Your first Living World will appear here
+                        when you begin creating.
+                    </p>
 
                 </div>
 
