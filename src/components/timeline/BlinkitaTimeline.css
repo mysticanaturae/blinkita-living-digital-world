@@ -1,0 +1,263 @@
+﻿.blinkita-timeline {
+    min-height: 100vh;
+    padding: 72px 32px;
+    box-sizing: border-box;
+    background: #091119;
+    color: #f4f7f8;
+}
+
+.timeline-header {
+    width: min(900px, 100%);
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.timeline-kicker {
+    font-size: .78rem;
+    letter-spacing: .28em;
+    opacity: .62;
+    margin-bottom: 16px;
+}
+
+.timeline-header h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 7vw, 5.8rem);
+    line-height: .95;
+    letter-spacing: .06em;
+}
+
+.timeline-header p {
+    width: min(680px, 100%);
+    margin: 24px auto 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #9eabb5;
+}
+
+
+.timeline-tabs {
+    width: min(760px, 100%);
+    margin: 0 auto 54px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.timeline-tab {
+    padding: 13px 22px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 999px;
+    background: rgba(255,255,255,.035);
+    color: inherit;
+    font: inherit;
+    font-size: .78rem;
+    letter-spacing: .12em;
+    cursor: pointer;
+}
+
+.timeline-tab.active {
+    background: rgba(255,255,255,.11);
+    border-color: rgba(255,255,255,.3);
+}
+
+
+.timeline-content,
+.public-timeline {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+}
+
+.section-kicker {
+    margin-bottom: 18px;
+    font-size: .72rem;
+    letter-spacing: .22em;
+    opacity: .5;
+}
+
+
+.tzolkin-section {
+    margin-bottom: 64px;
+}
+
+.tzolkin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.tzolkin-card {
+    min-height: 210px;
+    padding: 28px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 24px;
+    background: rgba(255,255,255,.035);
+}
+
+.tzolkin-card.combined {
+    background: rgba(255,255,255,.06);
+}
+
+.tzolkin-label {
+    margin-bottom: 36px;
+    font-size: .68rem;
+    letter-spacing: .18em;
+    opacity: .52;
+}
+
+.tzolkin-card h2 {
+    margin: 0 0 12px;
+    font-size: 1.05rem;
+    letter-spacing: .06em;
+}
+
+.tzolkin-card p {
+    margin: 0;
+    font-size: .9rem;
+    line-height: 1.6;
+    color: #9eabb5;
+}
+
+
+.journey-section {
+    margin-bottom: 64px;
+}
+
+.timeline-empty,
+.public-empty {
+    padding: 58px 32px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 26px;
+    background: rgba(255,255,255,.025);
+    text-align: center;
+}
+
+.timeline-empty-symbol,
+.public-empty-symbol {
+    margin-bottom: 22px;
+    font-size: 2.4rem;
+    opacity: .65;
+}
+
+.timeline-empty h2,
+.public-empty h2 {
+    margin: 0 0 14px;
+    font-size: 1.1rem;
+    letter-spacing: .08em;
+}
+
+.timeline-empty p,
+.public-empty p {
+    width: min(560px, 100%);
+    margin: 0 auto;
+    color: #9eabb5;
+    line-height: 1.7;
+}
+
+
+.timeline-feed {
+    position: relative;
+}
+
+.timeline-event {
+    position: relative;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+
+.timeline-event-line {
+    width: 1px;
+    min-height: 100%;
+    margin-left: 9px;
+    background: rgba(255,255,255,.14);
+}
+
+.timeline-event-body {
+    padding: 22px 24px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    background: rgba(255,255,255,.035);
+}
+
+.timeline-event-type {
+    margin-bottom: 10px;
+    font-size: .65rem;
+    letter-spacing: .18em;
+    opacity: .48;
+}
+
+.timeline-event h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+}
+
+.timeline-event p {
+    margin: 0 0 12px;
+    color: #9eabb5;
+    line-height: 1.6;
+}
+
+.timeline-event time {
+    font-size: .72rem;
+    opacity: .42;
+}
+
+
+.public-timeline {
+    margin-bottom: 64px;
+}
+
+
+.timeline-principle {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,.1);
+    text-align: center;
+}
+
+.timeline-principle-label {
+    margin-bottom: 14px;
+    font-size: .7rem;
+    letter-spacing: .22em;
+    opacity: .48;
+}
+
+.timeline-principle p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #9eabb5;
+}
+
+
+@media (max-width: 850px) {
+
+    .tzolkin-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .blinkita-timeline {
+        padding: 48px 20px;
+    }
+
+    .timeline-tabs {
+        flex-direction: column;
+    }
+
+    .timeline-tab {
+        width: 100%;
+    }
+
+    .timeline-empty,
+    .public-empty {
+        padding: 44px 22px;
+    }
+
+}

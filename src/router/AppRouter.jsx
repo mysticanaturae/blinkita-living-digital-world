@@ -19,10 +19,20 @@ import CreatorHouse from "../components/dashboard/CreatorHouse";
 import WorldResume from "../components/resume/WorldResume";
 import WorldLifecycleDashboard from "../components/lifecycle/WorldLifecycleDashboard";
 import WorldTimeline from "../components/timeline/WorldTimeline";
+import BlinkitaTimeline from "../components/timeline/BlinkitaTimeline";
 import WorldDashboard from "../components/world/WorldDashboard";
 import WorldBuilderHome from "../components/builder/WorldBuilderHome";
 import WorldUnderConstruction from "../components/world/WorldUnderConstruction";
 import BlinkitaEcosystemMandala from "../components/ecosystem/BlinkitaEcosystemMandala";
+import BlinkitaStudio from "../components/studio/BlinkitaStudio";
+import BlinkitaAcademy from "../components/academy/BlinkitaAcademy";
+import BlinkitaLivingWorlds from "../components/living-worlds/BlinkitaLivingWorlds";
+import BlinkitaLibrary from "../components/library/BlinkitaLibrary";
+import BlinkitaCommunity from "../components/community/BlinkitaCommunity";
+import BlinkitaMethod from "../components/method/BlinkitaMethod";
+import BlinkitaLivingMemory from "../components/living-memory/BlinkitaLivingMemory";
+import BlinkitaAI from "../components/ai/BlinkitaAI";
+import BlinkitaMarket from "../components/market/BlinkitaMarket";
 
 
 
@@ -151,6 +161,12 @@ export default function AppRouter() {
 
                 />
 
+                <Route
+
+                    path="/world/creator"
+                    element={<CreatorHouse />}
+                />
+
 
 
 
@@ -207,6 +223,49 @@ export default function AppRouter() {
 />
 
 <Route
+    path="/world/studio"
+    element={<BlinkitaStudio />}
+/>
+
+<Route
+    path="/world/academy"
+    element={<BlinkitaAcademy />}
+/>
+
+<Route
+    path="/world/ai"
+    element={<BlinkitaAI />}
+/>
+<Route
+    path="/world/market"
+    element={<BlinkitaMarket />}
+/>
+<Route
+    path="/world/living-memory"
+    element={<BlinkitaLivingMemory />}
+/>
+<Route
+    path="/world/living-worlds"
+    element={<BlinkitaLivingWorlds />}
+/>
+<Route
+    path="/world/timeline"
+    element={<BlinkitaTimeline />}
+/>
+<Route
+    path="/world/library"
+    element={<BlinkitaLibrary />}
+/>
+<Route
+    path="/world/community"
+    element={<BlinkitaCommunity />}
+/>
+<Route
+    path="/world/method"
+    element={<BlinkitaMethod />}
+/>
+
+<Route
     path="/world/:worldId"
     element={<WorldUnderConstruction />}
 />
@@ -238,9 +297,7 @@ export default function AppRouter() {
 
 
                     path="/timeline"
-
-
-                    element={<WorldTimeline />}
+                    element={<BlinkitaTimeline />}
 
 
                 />
@@ -277,6 +334,36 @@ export default function AppRouter() {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

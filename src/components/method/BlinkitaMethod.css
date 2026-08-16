@@ -1,0 +1,162 @@
+﻿.blinkita-method {
+    min-height: 100vh;
+    padding: 72px 32px;
+    box-sizing: border-box;
+    background: #091119;
+    color: #f4f7f8;
+}
+
+.method-hero {
+    width: min(960px, 100%);
+    margin: 0 auto 72px;
+    text-align: center;
+}
+
+.method-kicker {
+    margin-bottom: 18px;
+    font-size: .78rem;
+    letter-spacing: .3em;
+    opacity: .6;
+}
+
+.method-hero h1 {
+    margin: 0;
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    line-height: .94;
+    letter-spacing: .055em;
+}
+
+.method-hero p {
+    width: min(700px, 100%);
+    margin: 28px auto 0;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: #9eabb5;
+}
+
+.method-introduction {
+    width: min(820px, 100%);
+    margin: 0 auto 64px;
+    padding: 28px 0;
+    border-top: 1px solid rgba(255,255,255,.12);
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    text-align: center;
+}
+
+.method-introduction-label,
+.method-principle-label {
+    margin-bottom: 16px;
+    font-size: .7rem;
+    letter-spacing: .24em;
+    opacity: .5;
+}
+
+.method-introduction p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #b0bbc3;
+}
+
+.method-domains {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.method-domain-card {
+    position: relative;
+    min-height: 220px;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 22px;
+    background: rgba(255,255,255,.035);
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        transform 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease;
+}
+
+.method-domain-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,.075);
+    border-color: rgba(255,255,255,.28);
+}
+
+.method-domain-number {
+    display: block;
+    margin-bottom: 28px;
+    font-size: .72rem;
+    letter-spacing: .2em;
+    opacity: .42;
+}
+
+.method-domain-title {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 1.05rem;
+    letter-spacing: .12em;
+}
+
+.method-domain-description {
+    display: block;
+    max-width: 500px;
+    padding-right: 32px;
+    font-size: .92rem;
+    line-height: 1.65;
+    color: #9eabb5;
+}
+
+.method-domain-arrow {
+    position: absolute;
+    right: 26px;
+    bottom: 24px;
+    font-size: 1.2rem;
+    opacity: .45;
+    transition:
+        transform 180ms ease,
+        opacity 180ms ease;
+}
+
+.method-domain-card:hover .method-domain-arrow {
+    transform: translateX(5px);
+    opacity: .9;
+}
+
+.method-principle {
+    width: min(820px, 100%);
+    margin: 76px auto 0;
+    padding: 34px 20px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    text-align: center;
+}
+
+.method-principle p {
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: #9eabb5;
+}
+
+@media (max-width: 720px) {
+
+    .blinkita-method {
+        padding: 48px 20px;
+    }
+
+    .method-domains {
+        grid-template-columns: 1fr;
+    }
+
+    .method-domain-card {
+        min-height: 190px;
+    }
+
+}

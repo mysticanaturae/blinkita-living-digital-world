@@ -1,100 +1,39 @@
-﻿import MyLivingNavigation from "./MyLivingNavigation";
-
-import CreatorLivingWorlds from "./CreatorLivingWorlds";
-
-import CreatorBirthMatrix from "./CreatorBirthMatrix";
-
-import CreatorIdentityCard from "./CreatorIdentityCard";
-/*
-==========================================
+﻿/*
 BLINKITA METHOD™
 BLINKITA OS™
 
-CREATOR DASHBOARD™
+CREATOR
+Who You Are as Creator
 
-Creator identity and evolution space
-
-Version 5.0
-
-Birth Matrix™
-Living Time™ foundation
-==========================================
+CREATOR DASHBOARD
 */
 
-import {
-    useRef,
-    useState
-} from "react";
-
-
-import {
-    useLanguage
-} from "../../core/i18n/LanguageState";
-
-
-import {
-    t
-} from "../../core/i18n/LanguageSystem";
-
-
-import {
-    getCreatorState
-} from "../../core/creator/CreatorState";
-
+import { useMemo, useState } from "react";
 
 import {
     getWorldState,
     updateWorldState
 } from "../../core/state/WorldState";
 
-
-import WorldBuilderEvolutionCard
-from "../evolution/WorldBuilderEvolutionCard";
-
-
-import WorldBuilderDomainCard
-from "../worldbuilder/WorldBuilderDomainCard";
-
-
-import CreatorJourneyCard
-from "./CreatorJourneyCard";
-
-
-import LivingMemoryStatus
-from "./LivingMemoryStatus";
-
-
-import CreatorIntelligenceCard
-from "./CreatorIntelligenceCard";
-
-import CreatorAnalysisCard from "./CreatorAnalysisCard";
-
-import CreatorEssenceCard
-from "./CreatorEssenceCard";
-
-
-import CreatorEvolutionTimeline
-from "./CreatorEvolutionTimeline";
-
-
 import {
-    getToneImage,
     getSignImage
 } from "../../core/tzolkin/TzolkinImages";
 
+import {
+    getWorldBuilderDeck
+} from "../../core/living-cards/WorldBuilderLivingCards";
 
+import "../../styles/world-builder.css";
 
 /*
-==========================================
-TZOLK'IN CONFIGURATION
-==========================================
+====================================================
+TZOLK'IN
+====================================================
 */
 
 const TZOLKIN_CORRELATION = 584283;
 
-
 const TZOLKIN_SIGNS = [
-
     {
         index: 0,
         classic: "Imix",
@@ -102,7 +41,6 @@ const TZOLKIN_SIGNS = [
         symbol: "𓆈",
         element: "Water"
     },
-
     {
         index: 1,
         classic: "Ik'",
@@ -110,7 +48,6 @@ const TZOLKIN_SIGNS = [
         symbol: "𓂀",
         element: "Wind"
     },
-
     {
         index: 2,
         classic: "Ak'b'al",
@@ -118,7 +55,6 @@ const TZOLKIN_SIGNS = [
         symbol: "☽",
         element: "Dawn"
     },
-
     {
         index: 3,
         classic: "K'an",
@@ -126,7 +62,6 @@ const TZOLKIN_SIGNS = [
         symbol: "✦",
         element: "Seed"
     },
-
     {
         index: 4,
         classic: "Chikchan",
@@ -134,7 +69,6 @@ const TZOLKIN_SIGNS = [
         symbol: "𓆗",
         element: "Serpent"
     },
-
     {
         index: 5,
         classic: "Kimi",
@@ -142,7 +76,6 @@ const TZOLKIN_SIGNS = [
         symbol: "☠",
         element: "Transformation"
     },
-
     {
         index: 6,
         classic: "Manik'",
@@ -150,7 +83,6 @@ const TZOLKIN_SIGNS = [
         symbol: "🖐",
         element: "Hand"
     },
-
     {
         index: 7,
         classic: "Lamat",
@@ -158,7 +90,6 @@ const TZOLKIN_SIGNS = [
         symbol: "✺",
         element: "Seed of Life"
     },
-
     {
         index: 8,
         classic: "Muluk",
@@ -166,7 +97,6 @@ const TZOLKIN_SIGNS = [
         symbol: "💧",
         element: "Offering"
     },
-
     {
         index: 9,
         classic: "Ok",
@@ -174,7 +104,6 @@ const TZOLKIN_SIGNS = [
         symbol: "🐕",
         element: "Path"
     },
-
     {
         index: 10,
         classic: "Chuwen",
@@ -182,7 +111,6 @@ const TZOLKIN_SIGNS = [
         symbol: "🌀",
         element: "Thread"
     },
-
     {
         index: 11,
         classic: "Eb'",
@@ -190,7 +118,6 @@ const TZOLKIN_SIGNS = [
         symbol: "🛤",
         element: "Road"
     },
-
     {
         index: 12,
         classic: "B'en",
@@ -198,7 +125,6 @@ const TZOLKIN_SIGNS = [
         symbol: "🌱",
         element: "Growth"
     },
-
     {
         index: 13,
         classic: "Ix",
@@ -206,7 +132,6 @@ const TZOLKIN_SIGNS = [
         symbol: "🐆",
         element: "Jaguar"
     },
-
     {
         index: 14,
         classic: "Men",
@@ -214,7 +139,6 @@ const TZOLKIN_SIGNS = [
         symbol: "🦅",
         element: "Eagle"
     },
-
     {
         index: 15,
         classic: "K'ib'",
@@ -222,7 +146,6 @@ const TZOLKIN_SIGNS = [
         symbol: "🕯",
         element: "Wisdom"
     },
-
     {
         index: 16,
         classic: "Kab'an",
@@ -230,7 +153,6 @@ const TZOLKIN_SIGNS = [
         symbol: "🌎",
         element: "Earth"
     },
-
     {
         index: 17,
         classic: "Etz'nab'",
@@ -238,7 +160,6 @@ const TZOLKIN_SIGNS = [
         symbol: "◈",
         element: "Flint"
     },
-
     {
         index: 18,
         classic: "Kawak",
@@ -246,7 +167,6 @@ const TZOLKIN_SIGNS = [
         symbol: "⚡",
         element: "Storm"
     },
-
     {
         index: 19,
         classic: "Ajaw",
@@ -254,180 +174,106 @@ const TZOLKIN_SIGNS = [
         symbol: "☀",
         element: "Sun"
     }
-
 ];
-
-
 
 /*
-==========================================
-BIRTH MATRIX™ DAILY MESSAGES
-==========================================
+====================================================
+TZOLK'IN VISUALS
+====================================================
 */
 
-const BIRTH_MESSAGES_EN = [
+function TzolkinSignVisual({ sign, className = "" }) {
+    if (!sign) return null;
 
-    "Your birth energy reminds you that becoming is not a destination. Something in you is always becoming more fully itself.",
+    return (
+        <span className={`tzolkin-sign-visual ${className}`}>
+            <img
+                src={getSignImage(sign.classic)}
+                alt={`${sign.classic} Tzolk'in sign`}
+                onError={(event) => {
+                    event.currentTarget.style.display = "none";
 
-    "Today your Living Time invites you to notice what feels quietly alive within you.",
+                    const fallback =
+                        event.currentTarget.nextElementSibling;
 
-    "Your birth energy carries a particular way of seeing. Trust the perspective that only you can bring.",
+                    if (fallback) {
+                        fallback.style.opacity = "1";
+                    }
+                }}
+            />
 
-    "There is wisdom in the rhythm of your own becoming. You do not need to move at someone else's pace.",
+            <span className="tzolkin-sign-fallback">
+                {sign.symbol}
+            </span>
+        </span>
+    );
+}
 
-    "Something you once considered a weakness may hold an overlooked part of your creative power.",
-
-    "Your Living Time is not asking you to become someone else. It is inviting you to become more completely yourself.",
-
-    "Notice what repeatedly calls your attention today. Repetition can be a doorway into meaning.",
-
-    "Your birth energy is a beginning, not a limitation. What you create with it is yours to discover.",
-
-    "There may be more possibility in your present moment than your mind is currently able to see.",
-
-    "Today is an invitation to listen before deciding. Sometimes the deeper answer arrives quietly.",
-
-    "Your creative path becomes clearer when you stop measuring it against someone else's journey.",
-
-    "Something inside you already knows the direction. Give it enough silence to be heard.",
-
-    "Your Living Time carries memory, movement and possibility. Notice which one is asking for you today.",
-
-    "A small decision made consciously can become the beginning of a much larger transformation.",
-
-    "Your birth energy does not define your future. It gives you another lens through which to discover it.",
-
-    "What feels natural to you may be precisely what makes your creation different.",
-
-    "Today, protect one moment in which you can simply be present with yourself.",
-
-    "Your story is still unfolding. Do not mistake an unfinished chapter for an unfinished self.",
-
-    "The world you create begins with the way you meet the world within you.",
-
-    "Your Living Time is alive. What will you notice today that you did not notice yesterday?"
-
+const birthEnergyMessages = [
+    "Your birth energy carries a living pattern that can reveal how you naturally begin, move and respond.",
+    "Your birth energy is a way of meeting the world. Notice what becomes easier when you create from it.",
+    "Your birth energy carries a quality of perception. Today, notice what this quality helps you see.",
+    "Your birth energy is not a label. It is a living pattern you can learn to recognize through experience.",
+    "Today offers another way to experience your birth energy. Notice where it feels naturally expressed.",
+    "Your birth energy can become a compass when you pay attention to what feels aligned rather than forced.",
+    "There is a particular intelligence in your birth energy. Give it space to speak through today's experience.",
+    "Your birth energy accompanies your creator journey. Notice what it brings forward when you make something real.",
+    "The more consciously you meet your birth energy, the more clearly you may recognize your own creative rhythm.",
+    "Your birth energy is part of your starting pattern. Today, notice how it meets what is happening around you.",
+    "A living energy changes through experience without losing its essence. Observe what your birth energy is teaching you.",
+    "Your birth energy can illuminate a quality you already carry. Today, look for it in your choices and creations.",
+    "Your original energy is still present beneath everything you have become. Notice what remains unmistakably yours.",
+    "Birth energy becomes meaningful through lived experience. Let today's encounters show you another facet of it.",
+    "Your birth energy offers a particular doorway into creation. Notice what happens when you trust that doorway.",
+    "Today can reveal a new layer of an energy you have carried since the beginning. Stay curious.",
+    "Your birth energy is a foundation, not a limitation. Let it inform you without defining the whole of you.",
+    "Something in today's rhythm may echo your original energy. Notice the resonance rather than searching for an answer.",
+    "Your birth energy and today's energy meet as a living dialogue. Pay attention to what emerges between them.",
+    "Your birth energy is part of the intelligence of your creator path. Today, let it become something you experience, not merely know."
 ];
-
-
-const BIRTH_MESSAGES_SL = [
-
-    "Tvoja rojstna energija te spominja, da postajanje ni cilj. Nekaj v tebi se vedno razkriva bolj popolno.",
-
-    "Danes te tvoj Živ Čas vabi, da opaziš, kaj v tebi tiho živi.",
-
-    "Tvoja rojstna energija nosi poseben način gledanja. Zaupaj pogledu, ki ga lahko prineseš samo ti.",
-
-    "V ritmu tvojega lastnega razvoja je modrost. Ni ti treba hoditi v ritmu nekoga drugega.",
-
-    "Nekaj, kar si nekoč videl kot šibkost, morda skriva del tvoje ustvarjalne moči.",
-
-    "Tvoj Živ Čas od tebe ne zahteva, da postaneš nekdo drug. Vabi te, da postaneš bolj popolnoma ti.",
-
-    "Opazi, kaj danes znova in znova pritegne tvojo pozornost. Ponavljanje je lahko vrata v pomen.",
-
-    "Tvoja rojstna energija je začetek, ne omejitev. Kaj boš z njo ustvaril, moraš odkriti sam.",
-
-    "V sedanjem trenutku je morda več možnosti, kot jih tvoj um trenutno lahko vidi.",
-
-    "Danes si vzemi čas za poslušanje, preden se odločiš. Včasih globlji odgovor pride tiho.",
-
-    "Tvoja ustvarjalna pot postane jasnejša, ko je nehaš primerjati s potjo nekoga drugega.",
-
-    "Nekaj v tebi že pozna smer. Daj temu dovolj tišine, da lahko spregovori.",
-
-    "Tvoj Živ Čas nosi spomin, gibanje in možnost. Opazi, kateri od njih te danes kliče.",
-
-    "Majhna zavestna odločitev lahko postane začetek veliko večje preobrazbe.",
-
-    "Tvoja rojstna energija ne določa tvoje prihodnosti. Daje ti le še en pogled, skozi katerega jo lahko odkriješ.",
-
-    "Kar je tebi naravno, je morda prav tisto, zaradi česar je tvoja stvaritev drugačna.",
-
-    "Danes zaščiti en trenutek, v katerem lahko samo obstajaš in si prisoten s seboj.",
-
-    "Tvoja zgodba se še vedno piše. Ne zamenjaj nedokončanega poglavja za nedokončanega sebe.",
-
-    "Svet, ki ga ustvarjaš, se začne z načinom, kako srečaš svet v sebi.",
-
-    "Tvoj Živ Čas je živ. Kaj boš danes opazil, česar včeraj nisi?"
-
-];
-
-
 
 /*
-==========================================
-JULIAN DAY NUMBER
-==========================================
+====================================================
+JULIAN DAY
+====================================================
 */
 
-function getJulianDayNumber(
-    year,
-    month,
-    day
-) {
-
-    let a =
+function getJulianDayNumber(year, month, day) {
+    const a =
         Math.floor(
             (14 - month) / 12
         );
 
-
-    let y =
+    const y =
         year +
         4800 -
         a;
 
-
-    let m =
+    const m =
         month +
         (12 * a) -
         3;
 
-
     return (
-
         day +
-
         Math.floor(
             (153 * m + 2) / 5
         ) +
-
         (365 * y) +
-
-        Math.floor(
-            y / 4
-        ) -
-
-        Math.floor(
-            y / 100
-        ) +
-
-        Math.floor(
-            y / 400
-        ) -
-
+        Math.floor(y / 4) -
+        Math.floor(y / 100) +
+        Math.floor(y / 400) -
         32045
-
     );
-
 }
 
-
-
 /*
-==========================================
+====================================================
 TZOLK'IN CALCULATION
-==========================================
+====================================================
 */
 
-function calculateTzolkin(
-    year,
-    month,
-    day
-) {
-
+function calculateTzolkin(year, month, day) {
     const jdn =
         getJulianDayNumber(
             year,
@@ -435,579 +281,729 @@ function calculateTzolkin(
             day
         );
 
-
     const daysFromBase =
         jdn -
         TZOLKIN_CORRELATION;
-
 
     const tone =
         (
             (
                 daysFromBase + 3
-            ) % 13
-            + 13
+            ) % 13 +
+            13
         ) % 13 + 1;
-
 
     const signIndex =
         (
             (
                 daysFromBase + 19
-            ) % 20
-            + 20
+            ) % 20 +
+            20
         ) % 20;
-
 
     const kin =
         (
             (
                 daysFromBase + 159
-            ) % 260
-            + 260
+            ) % 260 +
+            260
         ) % 260 + 1;
 
-
-    const sign =
-        TZOLKIN_SIGNS[
-            signIndex
-        ];
-
-
     return {
-
         tone,
-
         signIndex,
-
-        sign,
-
-        kin,
-
-        jdn,
-
-        daysFromBase
-
+        sign: TZOLKIN_SIGNS[signIndex],
+        kin
     };
-
 }
 
-
-
 /*
-==========================================
-CREATOR DASHBOARD
-==========================================
+====================================================
+LIVING TIME CALCULATION
+====================================================
 */
 
-export default function CreatorDashboard() {
+function calculateLivingTime(
+    birthMatrix,
+    todayTzolkin
+) {
+    if (!birthMatrix || !todayTzolkin) {
+        return null;
+    }
 
-    const language =
-        useLanguage();
+    const birthSignIndex =
+        birthMatrix.signIndex != null
+            ? birthMatrix.signIndex
+            : TZOLKIN_SIGNS.findIndex(
+                item =>
+                    item.classic ===
+                    birthMatrix.sign
+            );
 
+    if (birthSignIndex < 0) {
+        return null;
+    }
 
-    const creatorState =
-        getCreatorState() || {};
+    const tone =
+        (
+            (
+                birthMatrix.tone +
+                todayTzolkin.tone -
+                1
+            ) % 13
+        ) + 1;
 
+    const signIndex =
+    (
+        birthSignIndex +
+        todayTzolkin.signIndex +
+        1
+    ) % 20;
+
+    const sign =
+        TZOLKIN_SIGNS[signIndex];
+
+    return {
+        tone,
+        signIndex,
+        sign,
+        kin:
+            ((tone - 1) * 20) +
+            signIndex +
+            1
+    };
+}
+
+/*
+====================================================
+CREATOR AVATARS
+====================================================
+*/
+
+const creatorSymbols = [
+    {
+        symbol: "🌱",
+        name: "Seed Creator",
+        meaning: "Creator of beginnings",
+        message:
+            "You plant the first seeds. Your ideas may still be small, but every Living World begins with intention."
+    },
+    {
+        symbol: "🌿",
+        name: "Nature Creator",
+        meaning: "Creator connected with life",
+        message:
+            "You create through connection, harmony and natural rhythms."
+    },
+    {
+        symbol: "🦋",
+        name: "Explorer Creator",
+        meaning: "Discoverer of possibilities",
+        message:
+            "Your gift is curiosity. You discover new paths by exploring possibilities."
+    },
+    {
+        symbol: "🌙",
+        name: "Dreamer Creator",
+        meaning: "Creator of visions",
+        message:
+            "Your creations begin in imagination. Protect your visions and give them room to grow."
+    },
+    {
+        symbol: "✨",
+        name: "Vision Creator",
+        meaning: "Creator of future possibilities",
+        message:
+            "You naturally see what could become. Every vision becomes real through a small act of creation."
+    },
+    {
+        symbol: "☀️",
+        name: "Light Creator",
+        meaning: "Creator who brings clarity",
+        message:
+            "You bring clarity and new perspectives into the world."
+    },
+    {
+        symbol: "🔥",
+        name: "Fire Creator",
+        meaning: "Creator of transformation",
+        message:
+            "You create through passion, courage and change."
+    },
+    {
+        symbol: "🌊",
+        name: "Flow Creator",
+        meaning: "Creator who follows living rhythms",
+        message:
+            "Your strength comes from listening, adapting and moving with inspiration."
+    },
+    {
+        symbol: "🌎",
+        name: "World Creator",
+        meaning: "Creator of Living Worlds",
+        message:
+            "You create spaces where ideas, experiences and people can meet."
+    },
+    {
+        symbol: "🪶",
+        name: "Wisdom Creator",
+        meaning: "Creator carrying knowledge",
+        message:
+            "You transform experience, memory and wisdom into something meaningful."
+    },
+    {
+        symbol: "🌀",
+        name: "Spiral Creator",
+        meaning: "Creator of evolution and cycles",
+        message:
+            "You understand that every creation continues to evolve."
+    },
+    {
+        symbol: "🌺",
+        name: "Beauty Creator",
+        meaning: "Creator of harmony and expression",
+        message:
+            "You bring beauty, emotion and harmony into your creations."
+    },
+    {
+        symbol: "🐚",
+        name: "Ocean Creator",
+        meaning: "Creator connected with depth and memory",
+        message:
+            "You create from deep inner places, where hidden possibilities wait."
+    },
+    {
+        symbol: "⭐",
+        name: "Star Creator",
+        meaning: "Creator guided by inspiration",
+        message:
+            "You follow sparks of inspiration and moments of wonder."
+    },
+    {
+        symbol: "🌈",
+        name: "Rainbow Creator",
+        meaning: "Creator of connection and diversity",
+        message:
+            "You bring different ideas and perspectives together."
+    },
+    {
+        symbol: "🦅",
+        name: "Freedom Creator",
+        meaning: "Creator expanding beyond limits",
+        message:
+            "Your creations grow when you allow yourself to imagine without limits."
+    },
+    {
+        symbol: "🐉",
+        name: "Transformation Creator",
+        meaning: "Creator of deep change",
+        message:
+            "Your creations can transform perspectives and experiences."
+    },
+    {
+        symbol: "💎",
+        name: "Crystal Creator",
+        meaning: "Creator of clarity and value",
+        message:
+            "You see the essence hidden inside ideas and bring clarity to them."
+    },
+    {
+        symbol: "🌳",
+        name: "Guardian Creator",
+        meaning: "Creator protecting wisdom",
+        message:
+            "You create with care, responsibility and patience."
+    },
+    {
+        symbol: "🧭",
+        name: "Navigator Creator",
+        meaning: "Creator finding the path",
+        message:
+            "Your creations help reveal paths where others may see uncertainty."
+    },
+    {
+        symbol: "🌌",
+        name: "Cosmic Creator",
+        meaning: "Creator connected with universal patterns",
+        message:
+            "You naturally see connections between ideas, moments and possibilities."
+    },
+    {
+        symbol: "🌸",
+        name: "Heart Creator",
+        meaning: "Creator of beauty and connection",
+        message:
+            "You create through emotion, authenticity and connection."
+    },
+    {
+        symbol: "🪨",
+        name: "Foundation Creator",
+        meaning: "Creator building strong roots",
+        message:
+            "You build patiently, creating strong foundations for what comes next."
+    },
+    {
+        symbol: "🌬️",
+        name: "Spirit Creator",
+        meaning: "Creator guided by intuition and flow",
+        message:
+            "You listen to subtle inspiration and bring invisible ideas into visible form."
+    }
+];
+
+/*
+====================================================
+LIVING CARD ORACLE
+====================================================
+*/
+
+const livingCards = [
+    {
+        id: "vision",
+        title: "VISION",
+        symbol: "✨",
+        essence: "See what is asking to emerge.",
+        reading:
+            "Look beyond what already exists. A new possibility may be waiting for your attention.",
+        destination: "/builder"
+    },
+    {
+        id: "evolution",
+        title: "EVOLUTION",
+        symbol: "🌀",
+        essence: "Notice what is becoming.",
+        reading:
+            "Your creation does not need to be finished. Something within it may already be changing.",
+        destination: "/lifecycle"
+    },
+    {
+        id: "consciousness",
+        title: "CONSCIOUSNESS",
+        symbol: "◇",
+        essence: "Become aware of what is moving within.",
+        reading:
+            "Pause before acting. Something important may become visible when you simply notice.",
+        destination: "/ai"
+    },
+    {
+        id: "guidance",
+        title: "GUIDANCE",
+        symbol: "🧭",
+        essence: "Listen for the next direction.",
+        reading:
+            "You may not need the whole path. Sometimes the next step is enough.",
+        destination: "/ai"
+    },
+    {
+        id: "healing",
+        title: "HEALING",
+        symbol: "🌿",
+        essence: "Give something space to restore.",
+        reading:
+            "Not everything needs to be solved today. Some things need attention, patience and space.",
+        destination: "/ai"
+    },
+    {
+        id: "protection",
+        title: "PROTECTION",
+        symbol: "🛡️",
+        essence: "Protect what is becoming.",
+        reading:
+            "Something valuable may need stronger boundaries before it can grow.",
+        destination: "/protection"
+    },
+    {
+        id: "community",
+        title: "COMMUNITY",
+        symbol: "◎",
+        essence: "Creation becomes richer through connection.",
+        reading:
+            "Look for the person, relationship or community that could help your creation breathe.",
+        destination: "/community"
+    },
+    {
+        id: "navigation",
+        title: "NAVIGATION",
+        symbol: "🧭",
+        essence: "Find your next true direction.",
+        reading:
+            "You do not need certainty. Choose the direction that feels most alive.",
+        destination: "/navigation"
+    },
+    {
+        id: "growth",
+        title: "GROWTH",
+        symbol: "🌱",
+        essence: "Something is taking root.",
+        reading:
+            "Small consistent movement may matter more than a dramatic leap right now.",
+        destination: "/evolution"
+    },
+    {
+        id: "alchemy",
+        title: "ALCHEMY",
+        symbol: "⚗️",
+        essence: "Transform what you already have.",
+        reading:
+            "An old experience may contain a new possibility when seen from another angle.",
+        destination: "/ai"
+    },
+    {
+        id: "learning",
+        title: "LEARNING",
+        symbol: "◈",
+        essence: "Let experience become intelligence.",
+        reading:
+            "Something you recently experienced may be teaching you more than you realize.",
+        destination: "/academy"
+    },
+    {
+        id: "creation",
+        title: "CREATION",
+        symbol: "✦",
+        essence: "Bring one possibility into form.",
+        reading:
+            "Do not wait for the perfect moment. Give one small part of your idea a form today.",
+        destination: "/studio"
+    },
+    {
+        id: "time",
+        title: "TIME",
+        symbol: "◷",
+        essence: "Notice the rhythm of becoming.",
+        reading:
+            "What you are creating has its own timing. Listen before forcing the next movement.",
+        destination: "/living-time"
+    },
+    {
+        id: "portal",
+        title: "PORTAL",
+        symbol: "◉",
+        essence: "A doorway is opening.",
+        reading:
+            "You may be closer to a new experience than you think. Notice what invites you forward.",
+        destination: "/portal"
+    },
+    {
+        id: "energy",
+        title: "ENERGY",
+        symbol: "⚡",
+        essence: "Notice where your energy wants to move.",
+        reading:
+            "Your attention is energy. Give more of it to what you want to become alive.",
+        destination: "/ai"
+    }
+];
+
+/*
+====================================================
+FIVE WORLD BUILDER LIVING CARDS
+====================================================
+*/
+
+const worldBuilderLivingCards =
+    getWorldBuilderDeck();
+
+/*
+====================================================
+DAILY CREATOR QUESTIONS
+====================================================
+*/
+
+const creatorQuestions = [
+    "What wants to become more alive in you today?",
+    "What are you noticing about yourself today?",
+    "What part of your creation feels most alive right now?",
+    "What are you ready to see differently?",
+    "What is asking for your attention today?",
+    "What have you learned about yourself recently?",
+    "What would you create if you trusted yourself more?",
+    "What is changing inside your way of creating?",
+    "What do you want your Living World to remember about today?",
+    "What possibility keeps returning to you?"
+];
+
+/*
+====================================================
+WORLD BUILDER HOME
+====================================================
+*/
+
+export default function WorldBuilderHome() {
+
+    /*
+    ====================================================
+    WORLD STATE
+    ====================================================
+    */
 
     const worldState =
         getWorldState() || {};
 
-
     const creator =
-        creatorState.creator || {
+        worldState.creator || {};
 
-            id: null,
-
-            identity: {
-
-                name: "",
-                archetype: "Explorer",
-                description: "",
-                photo: "",
-                avatar: "🌱"
-
-            },
-
-            evolution: {
-
-                level: 1,
-                experience: 0,
-                stage: "Beginning"
-
-            }
-
-        };
-
-
-    const worlds =
-        creatorState.worlds || [];
-
+    const identity =
+        creator.identity || {};
 
     const evolution =
-        creatorState.evolution ||
-        creator.evolution;
-
-
-    const worldEvolution =
-        worldState.evolution || {};
-
-
-    const worldGovernance =
-        worldState.governance || {};
-
-
-    const worldDecision =
-        worldState.decision || {};
-
-
-    const worldAction =
-        worldState.action || {};
-
-
-const creatorArchetype =
-    evolution?.archetype ||
-    creator.identity?.archetype ||
-    "Seed Creator";
-
-
-const normalizedArchetype =
-    creatorArchetype.toLowerCase();
-
-
-    const translatedArchetype =
-
-        normalizedArchetype === "explorer"
-
-            ?
-
-        t(
-            "archetypes.explorer"
-        )
-
-            :
-
-        creatorArchetype;
-
-
-    const creatorStage =
-        evolution?.stage || "";
-
-
-    const translatedCreatorStage =
-
-        creatorStage.toLowerCase() === "beginning"
-
-            ?
-
-        t(
-            "creatorStages.beginning"
-        )
-
-            :
-
-        creatorStage.toLowerCase() === "creation"
-
-            ?
-
-        t(
-            "creatorStages.creation"
-        )
-
-            :
-
-        creatorStage;
-
+        creator.evolution || {};
 
 
     /*
-    ==========================================
-    CREATOR IDENTITY STATE
-    ==========================================
+    ====================================================
+    BASIC CREATOR STATE
+    ====================================================
     */
 
     const [name, setName] =
-    useState(
-        creator.identity?.name || ""
-    );
-
-
-    const [archetype, setArchetype] =
-    useState(
-        creator.identity?.archetype ||
-        evolution?.archetype ||
-        "Seed Creator"
-    );
-
-
-        const [description, setDescription] =
         useState(
-            creator.identity?.description ||
+            identity.name || ""
+        );
+
+    const archetype =
+        identity.archetype ||
+        "Explorer Creator";
+
+    const [description, setDescription] =
+        useState(
+            identity.description || ""
+        );
+
+    const [selectedAvatar, setSelectedAvatar] =
+        useState(
+            identity.avatar ||
+            "🦋"
+        );
+
+
+    /*
+    ====================================================
+    CREATOR MEMORY / PORTRAIT
+    ====================================================
+    */
+
+    const [whoAmI, setWhoAmI] =
+        useState(
+            identity.whoAmI || ""
+        );
+
+    const [whoAmISaved, setWhoAmISaved] =
+        useState(false);
+
+    const [selfie, setSelfie] =
+        useState(
+            identity.selfie || ""
+        );
+
+
+    /*
+    ====================================================
+    CREATOR MEMORY
+    ====================================================
+    */
+
+    const [creatorMemory, setCreatorMemory] =
+        useState(
+            identity.creatorMemory ||
             ""
         );
 
+    const [memorySaved, setMemorySaved] =
+        useState(false);
 
-    const [photo, setPhoto] =
+
+    /*
+    ====================================================
+    LIVING INTELLIGENCE
+    ====================================================
+    */
+
+    const [livingIntelligence, setLivingIntelligence] =
         useState(
-            creator.identity?.photo ||
+            identity.livingIntelligence ||
             ""
         );
 
+    const [intelligenceSaved, setIntelligenceSaved] =
+        useState(false);
 
-    const [avatar, setAvatar] =
-        useState(
-            creator.identity?.avatar ||
-            "🌱"
-        );
 
+    /*
+    ====================================================
+    DAILY QUESTION
+    ====================================================
+    */
+
+    const [dailyAnswer, setDailyAnswer] =
+        useState("");
+
+
+    /*
+    ====================================================
+    IDENTITY SAVE
+    ====================================================
+    */
 
     const [saved, setSaved] =
         useState(false);
 
 
-    const fileInputRef =
-        useRef(null);
-
-
-
     /*
-    ==========================================
-    BIRTH MATRIX STATE
-    ==========================================
+    ====================================================
+    BIRTH MATRIX
+    ====================================================
     */
 
     const existingBirthMatrix =
-        creator.identity?.birthMatrix || null;
-
+        identity.birthMatrix || null;
 
     const [birthDate, setBirthDate] =
         useState(
-            existingBirthMatrix?.birthDate ||
+            existingBirthMatrix?.date ||
             ""
         );
-
 
     const [birthMatrix, setBirthMatrix] =
         useState(
-            existingBirthMatrix || null
+            existingBirthMatrix
         );
 
-
-    const [birthReflection, setBirthReflection] =
-        useState(
-            existingBirthMatrix?.reflection ||
-            ""
-        );
-
-
-    const [reflectionSaved, setReflectionSaved] =
-        useState(false);
-
-
-    const isSlovenian =
-        language === "sl";
-
-
-    const identityLabels = {
-
-        portrait:
-            isSlovenian
-                ? "Tvoj portret"
-                : "Your Portrait",
-
-        upload:
-            isSlovenian
-                ? "Naloži fotografijo"
-                : "Upload Photo",
-
-        change:
-            isSlovenian
-                ? "Spremeni fotografijo"
-                : "Change Photo",
-
-        avatar:
-            isSlovenian
-                ? "Izberi svoj avatar"
-                : "Choose Your Avatar",
-
-        identityNote:
-            isSlovenian
-                ? "Tvoja vizualna identiteta v Living World™."
-                : "Your visual identity inside your Living World™",
-
-        remove:
-            isSlovenian
-                ? "Odstrani fotografijo"
-                : "Remove Photo"
-
-    };
-
-
-const creatorSymbols = [
-
-{
-    symbol: "🌱",
-    name: "Seed Creator",
-    meaning: "Creator of beginnings",
-    message:
-    "You are planting the first seeds of creation. Your ideas may still be small, but every Living World begins with a single intention. Give them time, space and care. Blinkita sees the first roots of something meaningful growing within you."
-},
-
-{
-    symbol: "🌿",
-    name: "Nature Creator",
-    meaning: "Creator connected with life",
-    message:
-    "You create through connection, harmony and natural rhythms. Your ideas need room to grow in their own way. Trust the seasons within yourself and allow your creations to unfold naturally."
-},
-
-{
-    symbol: "🦋",
-    name: "Explorer Creator",
-    meaning: "Discoverer of possibilities",
-    message:
-    "Your gift is curiosity. You discover new paths by asking questions and exploring possibilities. Blinkita sees a creator who turns discovery into new worlds."
-},
-
-{
-    symbol: "🌙",
-    name: "Dreamer Creator",
-    meaning: "Creator of visions",
-    message:
-    "Your creations begin in the world of imagination. Your dreams carry messages from possibilities that are waiting to become real. Protect your visions and give them a place to grow."
-},
-
-{
-    symbol: "✨",
-    name: "Vision Creator",
-    meaning: "Creator of future possibilities",
-    message:
-    "You naturally see what could become. Your imagination reaches beyond the present moment. Blinkita reminds you that every vision becomes real through one small step of creation."
-},
-
-{
-    symbol: "☀️",
-    name: "Light Creator",
-    meaning: "Creator who brings clarity",
-    message:
-    "You bring light, understanding and new perspectives into the world. Your creations help others see things differently and discover new possibilities."
-},
-
-{
-    symbol: "🔥",
-    name: "Fire Creator",
-    meaning: "Creator of transformation",
-    message:
-    "You create through passion, courage and change. Your energy transforms ideas into movement and inspires new beginnings."
-},
-
-{
-    symbol: "🌊",
-    name: "Flow Creator",
-    meaning: "Creator who follows living rhythms",
-    message:
-    "You understand that creation has its own rhythm. Your strength comes from listening, adapting and moving with inspiration as it arrives."
-},
-
-{
-    symbol: "🌎",
-    name: "World Creator",
-    meaning: "Creator of Living Worlds",
-    message:
-    "You are drawn to creating places where ideas, experiences and people can meet. Your creations have the potential to become living spaces for connection."
-},
-
-{
-    symbol: "🪶",
-    name: "Wisdom Creator",
-    meaning: "Creator carrying knowledge",
-    message:
-    "You create by collecting experiences, memories and wisdom. Your gift is transforming what you learn into something that can guide others."
-},
-
-{
-    symbol: "🌀",
-    name: "Spiral Creator",
-    meaning: "Creator of evolution and cycles",
-    message:
-    "You understand that every creation continues to evolve. Your journey is not about reaching an ending, but discovering new layers of possibility."
-},
-
-{
-    symbol: "🌺",
-    name: "Beauty Creator",
-    meaning: "Creator of harmony and expression",
-    message:
-    "You bring beauty, emotion and harmony into your creations. Your work reminds others that beauty can also be a way of connecting."
-},
-
-{
-    symbol: "🐚",
-    name: "Ocean Creator",
-    meaning: "Creator connected with depth and memory",
-    message:
-    "You create from deep inner places. Like the ocean, your imagination carries hidden treasures and memories waiting to be discovered."
-},
-
-{
-    symbol: "⭐",
-    name: "Star Creator",
-    meaning: "Creator guided by inspiration",
-    message:
-    "You follow sparks of inspiration and moments of wonder. Your creations become points of light that can inspire others."
-},
-
-{
-    symbol: "🌈",
-    name: "Rainbow Creator",
-    meaning: "Creator of connection and diversity",
-    message:
-    "You bring different colors, ideas and perspectives together. Your gift is creating harmony through diversity."
-},
-
-{
-    symbol: "🦅",
-    name: "Freedom Creator",
-    meaning: "Creator expanding beyond limits",
-    message:
-    "You are here to explore beyond familiar boundaries. Your creations grow when you allow yourself to imagine without limits."
-},
-
-{
-    symbol: "🐉",
-    name: "Transformation Creator",
-    meaning: "Creator of deep change",
-    message:
-    "You carry the energy of transformation. Your creations help change perspectives, experiences and the way people see possibilities."
-},
-
-{
-    symbol: "💎",
-    name: "Crystal Creator",
-    meaning: "Creator of clarity and value",
-    message:
-    "You see the essence hidden inside ideas. Your gift is bringing clarity, structure and value into what you create."
-},
-
-{
-    symbol: "🌳",
-    name: "Guardian Creator",
-    meaning: "Creator protecting wisdom",
-    message:
-    "You create with care and responsibility. Your role is to protect what matters and nurture what continues to grow."
-},
-
-{
-    symbol: "🧭",
-    name: "Navigator Creator",
-    meaning: "Creator finding the path",
-    message:
-    "You are guided by exploration and direction. Your creations help reveal paths where others may see uncertainty."
-},
-
-{
-    symbol: "🌌",
-    name: "Cosmic Creator",
-    meaning: "Creator connected with universal patterns",
-    message:
-    "You see connections between ideas, moments and possibilities. Your creations are inspired by a bigger picture."
-},
-
-{
-    symbol: "🌸",
-    name: "Heart Creator",
-    meaning: "Creator of beauty and connection",
-    message:
-    "You create through emotion, authenticity and connection. Your creations remind people that they are seen and valued."
-},
-
-{
-    symbol: "🪨",
-    name: "Foundation Creator",
-    meaning: "Creator building strong roots",
-    message:
-    "You build with patience and intention. Your creations are designed to grow from strong foundations and support the future."
-},
-
-{
-    symbol: "🌬️",
-    name: "Spirit Creator",
-    meaning: "Creator guided by intuition and flow",
-    message:
-    "You listen to subtle inspiration and inner guidance. Your creations bring invisible ideas into visible form."
-}
-
-];
-
-
-const avatarOptions = creatorSymbols;
-
-
-/*
-    ==========================================
-    PHOTO
-    ==========================================
-    */
-
-    function handlePhotoChange(
-        event
-    ) {
-
-        const file =
-            event.target.files?.[0];
-
-
-        if (!file) {
-
-            return;
-
-        }
-
-
-        if (
-            !file.type.startsWith(
-                "image/"
-            )
-        ) {
-
-            return;
-
-        }
-
-
-        const reader =
-            new FileReader();
-
-
-        reader.onload = () => {
-
-            setPhoto(
-                reader.result
-            );
-
-        };
-
-
-        reader.readAsDataURL(
-            file
-        );
-
-    }
-
-
-
-    function handleRemovePhoto() {
-
-        setPhoto("");
-
-    }
-
+    const [birthError, setBirthError] =
+        useState("");
 
 
     /*
-    ==========================================
-    SAVE CREATOR IDENTITY
-    ==========================================
+    ====================================================
+    ORACLE
+    ====================================================
+    */
+
+    const [selectedCard, setSelectedCard] =
+        useState(null);
+
+    const [readingPurpose, setReadingPurpose] =
+        useState("today");
+
+    const [question, setQuestion] =
+        useState("");
+
+
+    /*
+    ====================================================
+    TODAY
+    ====================================================
+    */
+
+    const today =
+        new Date();
+
+    const todayTzolkin =
+        useMemo(
+            () =>
+                calculateTzolkin(
+                    today.getUTCFullYear(),
+                    today.getUTCMonth() + 1,
+                    today.getUTCDate()
+                ),
+            [
+                today.getUTCFullYear(),
+                today.getUTCMonth(),
+                today.getUTCDate()
+            ]
+        );
+
+
+    /*
+    ====================================================
+    MY LIVING TIME TODAY
+    ====================================================
+    */
+
+    const livingTimeToday =
+        useMemo(
+            () =>
+                calculateLivingTime(
+                    birthMatrix,
+                    todayTzolkin
+                ),
+            [
+                birthMatrix,
+                todayTzolkin
+            ]
+        );
+
+
+    const birthEnergyMessage =
+        useMemo(() => {
+
+            if (!birthMatrix) {
+                return "";
+            }
+
+            const birthSignIndex =
+                birthMatrix.signIndex != null
+                    ? birthMatrix.signIndex
+                    : TZOLKIN_SIGNS.findIndex(
+                        item =>
+                            item.classic ===
+                            birthMatrix.sign
+                    );
+
+            const messageIndex =
+                (
+                    todayTzolkin.signIndex +
+                    todayTzolkin.tone +
+                    birthSignIndex +
+                    birthMatrix.tone
+                ) %
+                birthEnergyMessages.length;
+
+            return birthEnergyMessages[
+                messageIndex
+            ];
+
+        }, [
+            birthMatrix,
+            todayTzolkin
+        ]);
+
+
+    /*
+    ====================================================
+    DAILY CREATOR QUESTION
+    ====================================================
+    */
+
+    const dailyQuestion =
+        creatorQuestions[
+            (
+                todayTzolkin.signIndex +
+                todayTzolkin.tone
+            ) %
+            creatorQuestions.length
+        ];
+
+
+    /*
+    ====================================================
+    SELECTED AVATAR DATA
+    ====================================================
+    */
+
+    const selectedAvatarData =
+        creatorSymbols.find(
+            item =>
+                item.symbol ===
+                selectedAvatar
+        ) ||
+        creatorSymbols[0];
+
+
+    /*
+    ====================================================
+    SAVE IDENTITY
+    ====================================================
     */
 
     function handleSaveIdentity() {
@@ -1018,105 +1014,329 @@ const avatarOptions = creatorSymbols;
 
             identity: {
 
-                ...creator.identity,
+                ...identity,
 
                 name:
-                    name.trim() ||
-                    t(
-                        "dashboard.anonymousCreator"
-                    ),
+                    name.trim(),
 
-               archetype:
-    archetype.trim() ||
-    "Seed Creator",
+                archetype:
+                    selectedAvatarData.name ||
+                    archetype ||
+                    "Explorer Creator",
 
                 description:
                     description.trim(),
 
-                photo:
-                    photo || "",
-
                 avatar:
-                    avatar || "🌱",
-
-                birthMatrix:
-                    birthMatrix || existingBirthMatrix || null
+                    selectedAvatar
 
             }
 
         };
 
-
         updateWorldState({
-
             creator:
                 updatedCreator
-
         });
-
 
         setSaved(true);
 
-
-        console.log(
-
-            "🌱 Creator Identity Saved:",
-
-            updatedCreator.identity
-
-        );
-
-
         setTimeout(
-            () => {
-
-                setSaved(false);
-
-            },
-            2500
+            () =>
+                setSaved(false),
+            2000
         );
-
     }
 
 
+    /*
+    ====================================================
+    SAVE WHO AM I
+    ====================================================
+    */
+
+    function handleSaveWhoAmI() {
+
+        const updatedCreator = {
+
+            ...creator,
+
+            identity: {
+
+                ...identity,
+
+                whoAmI:
+                    whoAmI.trim(),
+
+                whoAmIUpdatedAt:
+                    new Date().toISOString()
+
+            }
+
+        };
+
+        updateWorldState({
+            creator:
+                updatedCreator
+        });
+
+        setWhoAmISaved(true);
+
+        setTimeout(
+            () =>
+                setWhoAmISaved(false),
+            2000
+        );
+    }
+
 
     /*
-    ==========================================
-    BIRTH MATRIX CALCULATION
-    ==========================================
+    ====================================================
+    SAVE CREATOR MEMORY
+    ====================================================
+    */
+
+    function handleSaveCreatorMemory() {
+
+        const updatedCreator = {
+
+            ...creator,
+
+            identity: {
+
+                ...identity,
+
+                creatorMemory:
+                    creatorMemory.trim(),
+
+                creatorMemoryUpdatedAt:
+                    new Date().toISOString()
+
+            }
+
+        };
+
+        updateWorldState({
+            creator:
+                updatedCreator
+        });
+
+        setMemorySaved(true);
+
+        setTimeout(
+            () =>
+                setMemorySaved(false),
+            2000
+        );
+    }
+
+
+    /*
+    ====================================================
+    SAVE LIVING INTELLIGENCE
+    ====================================================
+    */
+
+    function handleSaveLivingIntelligence() {
+
+        const updatedCreator = {
+
+            ...creator,
+
+            identity: {
+
+                ...identity,
+
+                livingIntelligence:
+                    livingIntelligence.trim(),
+
+                livingIntelligenceUpdatedAt:
+                    new Date().toISOString()
+
+            }
+
+        };
+
+        updateWorldState({
+            creator:
+                updatedCreator
+        });
+
+        setIntelligenceSaved(true);
+
+        setTimeout(
+            () =>
+                setIntelligenceSaved(false),
+            2000
+        );
+    }
+
+
+    /*
+    ====================================================
+    SAVE DAILY QUESTION
+    ====================================================
+    */
+
+    function handleSaveDailyAnswer() {
+
+        if (!dailyAnswer.trim()) {
+            return;
+        }
+
+        const history =
+            identity.creatorQuestionHistory ||
+            [];
+
+        const entry = {
+
+            date:
+                new Date().toISOString(),
+
+            question:
+                dailyQuestion,
+
+            answer:
+                dailyAnswer.trim(),
+
+            tone:
+                todayTzolkin.tone,
+
+            sign:
+                todayTzolkin.sign.classic,
+
+            kin:
+                todayTzolkin.kin
+
+        };
+
+        const updatedCreator = {
+
+            ...creator,
+
+            identity: {
+
+                ...identity,
+
+                creatorQuestionHistory: [
+                    ...history,
+                    entry
+                ]
+
+            }
+
+        };
+
+        updateWorldState({
+            creator:
+                updatedCreator
+        });
+
+        setDailyAnswer("");
+    }
+
+
+    /*
+    ====================================================
+    SELFIE
+    ====================================================
+    */
+
+    function handleSelfieUpload(event) {
+
+        const file =
+            event.target.files?.[0];
+
+        if (!file) return;
+
+        const reader =
+            new FileReader();
+
+        reader.onload = () => {
+
+            const dataUrl =
+                String(
+                    reader.result || ""
+                );
+
+            setSelfie(dataUrl);
+
+            updateWorldState({
+
+                creator: {
+
+                    ...creator,
+
+                    identity: {
+
+                        ...identity,
+
+                        selfie:
+                            dataUrl
+
+                    }
+
+                }
+
+            });
+
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+
+    /*
+    ====================================================
+    AVATAR
+    ====================================================
+    */
+
+    function handleAvatarSelect(avatar) {
+
+        setSelectedAvatar(
+            avatar.symbol
+        );
+    }
+
+
+    /*
+    ====================================================
+    BIRTH MATRIX
+    ====================================================
     */
 
     function handleCalculateBirthMatrix() {
 
         if (!birthDate) {
 
+            setBirthError(
+                "Please enter your birth date."
+            );
+
             return;
-
         }
-
 
         const parts =
             birthDate.split("-");
 
-
         if (parts.length !== 3) {
 
+            setBirthError(
+                "Please enter a valid birth date."
+            );
+
             return;
-
         }
-
 
         const year =
             Number(parts[0]);
 
-
         const month =
             Number(parts[1]);
 
-
         const day =
             Number(parts[2]);
-
 
         if (
             !year ||
@@ -1124,10 +1344,12 @@ const avatarOptions = creatorSymbols;
             !day
         ) {
 
+            setBirthError(
+                "Please enter a valid birth date."
+            );
+
             return;
-
         }
-
 
         const result =
             calculateTzolkin(
@@ -1136,67 +1358,25 @@ const avatarOptions = creatorSymbols;
                 day
             );
 
+        const calculatedBirthMatrix = {
 
-        const today =
-            new Date();
+            date:
+                birthDate,
 
+            year,
 
-        const dayOfYear =
-            Math.floor(
+            month,
 
-                (
-                    Date.UTC(
-                        today.getUTCFullYear(),
-                        today.getUTCMonth(),
-                        today.getUTCDate()
-                    )
-
-                    -
-
-                    Date.UTC(
-                        today.getUTCFullYear(),
-                        0,
-                        0
-                    )
-
-                )
-
-                /
-
-                86400000
-
-            );
-
-
-        const messageIndex =
-            (
-                result.signIndex +
-                result.tone +
-                dayOfYear
-            ) % 20;
-
-
-        const messages =
-            isSlovenian
-                ? BIRTH_MESSAGES_SL
-                : BIRTH_MESSAGES_EN;
-
-
-        const message =
-            messages[
-                messageIndex
-            ];
-
-
-        const newBirthMatrix = {
-
-            birthDate,
+            day,
 
             tone:
                 result.tone,
 
             sign:
                 result.sign.classic,
+
+            signIndex:
+                result.signIndex,
 
             localSign:
                 result.sign.local,
@@ -1210,25 +1390,16 @@ const avatarOptions = creatorSymbols;
             kin:
                 result.kin,
 
-            signIndex:
-                result.signIndex,
-
-            dailyMessage:
-                message,
-
-            reflection:
-                birthReflection || "",
-
             calculatedAt:
                 new Date().toISOString()
 
         };
 
-
         setBirthMatrix(
-            newBirthMatrix
+            calculatedBirthMatrix
         );
 
+        setBirthError("");
 
         const updatedCreator = {
 
@@ -1236,943 +1407,1820 @@ const avatarOptions = creatorSymbols;
 
             identity: {
 
-                ...creator.identity,
+                ...identity,
 
                 birthMatrix:
-                    newBirthMatrix
+                    calculatedBirthMatrix
 
             }
 
         };
 
-
         updateWorldState({
-
             creator:
                 updatedCreator
-
         });
-
-
-        console.log(
-
-            "🌀 Birth Matrix™ Calculated:",
-
-            newBirthMatrix
-
-        );
-
     }
 
 
-
     /*
-    ==========================================
-    SAVE REFLECTION
-    ==========================================
+    ====================================================
+    ORACLE — DRAW CARD
+    ====================================================
     */
 
-    function handleSaveReflection() {
+    function drawCard() {
 
-        if (!birthMatrix) {
-
-            return;
-
-        }
-
-
-        const updatedBirthMatrix = {
-
-            ...birthMatrix,
-
-            reflection:
-                birthReflection,
-
-            reflectionSavedAt:
-                new Date().toISOString()
-
-        };
-
-
-        const updatedCreator = {
-
-            ...creator,
-
-            identity: {
-
-                ...creator.identity,
-
-                birthMatrix:
-                    updatedBirthMatrix
-
-            }
-
-        };
-
-
-        updateWorldState({
-
-            creator:
-                updatedCreator
-
-        });
-
-
-        setBirthMatrix(
-            updatedBirthMatrix
-        );
-
-
-        setReflectionSaved(
-            true
-        );
-
-
-        setTimeout(
-            () => {
-
-                setReflectionSaved(
-                    false
-                );
-
-            },
-            2500
-        );
-
-    }
-
-
-
-    /*
-    ==========================================
-    BIRTH MATRIX DAILY MESSAGE
-    ==========================================
-    */
-
-    function getDailyBirthMessage() {
-
-        if (!birthMatrix) {
-
-            return "";
-
-        }
-
-
-        const today =
-            new Date();
-
-
-        const dayOfYear =
-            Math.floor(
-
-                (
-                    Date.UTC(
-                        today.getUTCFullYear(),
-                        today.getUTCMonth(),
-                        today.getUTCDate()
-                    )
-
-                    -
-
-                    Date.UTC(
-                        today.getUTCFullYear(),
-                        0,
-                        0
-                    )
-
-                )
-
-                /
-
-                86400000
-
-            );
-
-
-        const messages =
-            isSlovenian
-                ? BIRTH_MESSAGES_SL
-                : BIRTH_MESSAGES_EN;
-
+        const seed =
+            todayTzolkin.kin +
+            todayTzolkin.signIndex +
+            Date.now();
 
         const index =
-            (
-                birthMatrix.signIndex +
-                birthMatrix.tone +
-                dayOfYear
-            ) % messages.length;
+            Math.abs(seed) %
+            livingCards.length;
+
+        const card =
+            livingCards[index];
+
+        setSelectedCard(card);
+
+        const oracleHistory =
+            identity.oracleHistory ||
+            [];
+
+        const updatedCreator = {
+
+            ...creator,
+
+            identity: {
+
+                ...identity,
+
+                oracleHistory: [
+
+                    ...oracleHistory,
+
+                    {
+
+                        cardId:
+                            card.id,
+
+                        title:
+                            card.title,
+
+                        date:
+                            new Date().toISOString(),
+
+                        purpose:
+                            readingPurpose,
+
+                        question:
+                            question.trim(),
+
+                        tone:
+                            todayTzolkin.tone,
+
+                        sign:
+                            todayTzolkin.sign.classic,
+
+                        kin:
+                            todayTzolkin.kin
+
+                    }
+
+                ]
+
+            }
+
+        };
+
+        updateWorldState({
+            creator:
+                updatedCreator
+        });
+    }
 
 
-        return messages[index];
+    /*
+    ====================================================
+    CLOSE ORACLE
+    ====================================================
+    */
+
+    function closeOracle() {
+
+        setSelectedCard(null);
 
     }
 
 
+    /*
+    ====================================================
+    ENTER LIVING CARD WORLD
+    ====================================================
+    */
 
-    const currentBirthMessage =
-        getDailyBirthMessage();
+    function enterLivingCard(card) {
 
+        window.location.href =
+            card.destination;
+    }
 
 
     /*
-    ==========================================
+    ====================================================
     RENDER
-    ==========================================
+    ====================================================
     */
 
     return (
 
-        <section className="living-page creator-dashboard">
+        <section
+            className="
+                living-page
+                world-builder-page
+            "
+        >
 
-            <header className="living-header">
+            {/* =================================================
+                HEADER
+            ================================================= */}
 
-                <h1>
+            <header
+                className="
+                    living-header
+                    world-builder-header
+                "
+            >
 
-                    🌱{" "}
-
-                    {
-                        t(
-                            "dashboard.creatorWelcome"
-                        )
-                    }
-
-                </h1>
-
-
-                <p>
-
-                    {
-                        t(
-                            "dashboard.creatorIntroduction"
-                        )
-                    }
-
-                </p>
-
-            </header>
-
-{/* ==========================================
-                MY LIVING NAVIGATION™
-            ========================================== */}
-
-            <MyLivingNavigation />
-
-
-{/* ==========================================
-    MY LIVING SPACES™
-
-    01 ANALYSIS
-    02 IDENTITY
-    03 TIME
-    04 INTELLIGENCE
-    05 CREATION PATH
-    06 WORLDS
-========================================== */}
-
-
-
-<div className="my-living-layout">
-
-    {/* ==================================================
-        01 · MY LIVING ANALYSIS
-    ================================================== */}
-
-    <section
-        id="living-analysis"
-        className="my-living-section my-living-section-analysis"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ✦
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    01
-                </span>
-
-                <span className="my-living-section-label">
-                    MY LIVING ANALYSIS
-                </span>
-
-                <p>
-                    See what your creation is revealing.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ✧
-            </div>
-
-        </div>
-
-
-        <div className="my-living-premium-grid my-living-analysis-grid">
-
-            {/* BLINKITA ANALYSIS™ */}
-
-            <article className="my-living-premium-card my-living-analysis-primary">
-
-                <div className="my-living-card-symbol">
-                    ✦
-                </div>
-
-                <div className="my-living-card-header">
-                    <span>BLINKITA ANALYSIS™</span>
-                    <small>01</small>
-                </div>
-
-                <h3>
-                    Your Living Analysis
-                </h3>
-
-                <p>
-                    A living synthesis of what your 9 Living Portals reveal about the Creator behind your creation.
-                </p>
-
-                <div className="my-living-analysis-body">
-
-                    <CreatorAnalysisCard />
-
-                </div>
-
-            </article>
-
-
-            {/* DEEPENING ANALYSIS */}
-
-            <article className="my-living-premium-card my-living-analysis-secondary">
-
-                <div className="my-living-card-symbol">
-                    ◇
-                </div>
-
-                <div className="my-living-card-header">
-                    <span>DEEPENING ANALYSIS</span>
-                    <small>02</small>
-                </div>
-
-                <h3>
-                    Go Deeper
-                </h3>
-
-                <p>
-                    Add anything that has emerged since
-                    your first Living Portal reflection.
-                </p>
-
-                <textarea
-                    className="my-living-reflection-input"
-                    placeholder="What else would you like to reveal, add or explore?"
-                    rows="8"
-                />
-
-                <button
-                    type="button"
-                    className="my-living-premium-button"
+                <div
+                    className="
+                        world-builder-title-mark
+                    "
                 >
-                    DEEPEN MY ANALYSIS
-                </button>
-
-            </article>
-
-
-            {/* WORLD ANALYSIS */}
-
-            <article className="my-living-premium-card my-living-analysis-world">
-
-                <div className="my-living-card-symbol">
-                    ◈
+                    🌱
                 </div>
 
-                <div className="my-living-card-header">
-                    <span>WORLD ANALYSIS</span>
-                    <small>03</small>
-                </div>
+                <div>
 
-                <h3>
-                    Analyze a Living World
-                </h3>
-
-                <p>
-                    Choose one of your Living Worlds
-                    and explore what is alive within it.
-                </p>
-
-                <div className="my-living-world-selector">
-
-                    <div className="my-living-placeholder-visual">
-                        <span>◉</span>
-                        <small>
-                            YOUR LIVING WORLD
-                        </small>
-                    </div>
-
-                    <select
-                        className="my-living-premium-select"
-                        defaultValue=""
-                    >
-                        <option value="" disabled>
-                            Choose a Living World
-                        </option>
-
-                        {worlds?.map((world, index) => (
-                            <option
-                                key={world?.id || index}
-                                value={world?.id || index}
-                            >
-                                {
-                                    world?.name ||
-                                    world?.title ||
-                                    `Living World ${index + 1}`
-                                }
-                            </option>
-                        ))}
-
-                    </select>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-
-    {/* ==================================================
-        02 · MY LIVING IDENTITY
-    ================================================== */}
-
-    <section
-        id="living-identity"
-        className="my-living-section my-living-section-identity"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ◎
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    02
-                </span>
-
-                <span className="my-living-section-label">
-                    MY LIVING IDENTITY
-                </span>
-
-                <p>
-                    Meet the Creator behind the creation.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ✧
-            </div>
-
-        </div>
-
-
-        <div className="my-living-premium-grid my-living-identity-grid">
-
-            {/* YOUR PORTRAIT */}
-
-            <article className="my-living-premium-card my-living-portrait-card">
-
-                <div className="my-living-card-header">
-                    <span>YOUR PORTRAIT</span>
-                    <small>01</small>
-                </div>
-
-                <div className="my-living-portrait-inner">
-
-                    <CreatorIdentityCard
-                        creator={creator}
-                        t={t}
-                        identityLabels={identityLabels}
-                        photo={photo}
-                        avatar={avatar}
-                        setAvatar={setAvatar}
-                        avatarOptions={avatarOptions}
-                        creatorSymbols={creatorSymbols}
-                        fileInputRef={fileInputRef}
-                        handlePhotoChange={handlePhotoChange}
-                        handleRemovePhoto={handleRemovePhoto}
-                        name={name}
-                        setName={setName}
-                        archetype={archetype}
-                        setArchetype={setArchetype}
-                        description={description}
-                        setDescription={setDescription}
-                        saved={saved}
-                        handleSaveIdentity={handleSaveIdentity}
-                    />
-
-                </div>
-
-            </article>
-
-
-            {/* IDENTITY EVOLUTION + ESSENCE */}
-
-            <article className="my-living-premium-card my-living-evolution-card">
-
-                <div className="my-living-card-header">
-                    <span>MY IDENTITY EVOLUTION</span>
-                    <small>02</small>
-                </div>
-
-                <div className="my-living-inner-module">
-
-                    <div className="my-living-inner-module-title">
-                        <span>✦</span>
-                        My Identity Evolution
-                    </div>
-
-                    <CreatorEvolutionTimeline
-                        creator={creator}
-                        evolution={evolution}
-                    />
-
-                </div>
-
-
-                <div className="my-living-inner-module my-living-essence-module">
-
-                    <div className="my-living-inner-module-title">
-                        <span>◇</span>
-                        My Living Essence
-                    </div>
-
-                    <CreatorEssenceCard
-                        creator={creator}
-                    />
-
-                </div>
-
-            </article>
-
-
-            {/* ACHIEVEMENTS */}
-
-            <article className="my-living-premium-card my-living-achievements-card">
-
-                <div className="my-living-card-header">
-                    <span>MY ACHIEVEMENTS</span>
-                    <small>03</small>
-                </div>
-
-                <div className="my-living-achievements-visual">
-                    <div className="my-living-achievement-orbit">
-                        ✦
-                    </div>
-
-                    <span>
-                        YOUR CREATION IS BECOMING REAL
-                    </span>
-                </div>
-
-                <div className="my-living-achievements-content">
-
-                    <h3>
-                        {
-                            t(
-                                "dashboard.achievements"
-                            )
-                        }
-                    </h3>
+                    <h1>
+                        CREATOR
+                    </h1>
 
                     <p>
-                        {
-                            t(
-                                "dashboard.achievementsDescription"
-                            )
-                        }
+                        Who You Are as Creator
                     </p>
 
                 </div>
 
-            </article>
-
-        </div>
-
-    </section>
+            </header>
 
 
+            {/* =================================================
+                TODAY'S LIVING TIME
+            ================================================= */}
 
-    {/* ==================================================
-        03 · MY LIVING TIME
-    ================================================== */}
+            <section
+                className="
+                    world-builder-day-energy
+                "
+            >
 
-    <section
-        id="living-time"
-        className="my-living-section my-living-section-time"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ◌
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    03
-                </span>
-
-                <span className="my-living-section-label">
-                    MY LIVING TIME
-                </span>
-
-                <p>
-                    Your personal journey through Living Time.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ∞
-            </div>
-
-        </div>
-
-
-        <div className="my-living-premium-grid my-living-time-grid">
-
-            {/* BIRTH MATRIX */}
-
-            <article className="my-living-premium-card my-living-birth-card">
-
-                <div className="my-living-card-header">
-                    <span>YOUR BIRTH MATRIX™</span>
-                    <small>01</small>
-                </div>
-
-                <div className="my-living-time-modules">
-
-                    <div className="my-living-time-module">
-                        <span className="my-living-module-symbol">
-                            ☼
-                        </span>
-
-                        <strong>
-                            Birth Tzolk’in
-                        </strong>
-
-                        <small>
-                            Your birth energy
-                        </small>
-                    </div>
-
-                    <div className="my-living-time-module">
-                        <span className="my-living-module-symbol">
-                            ◌
-                        </span>
-
-                        <strong>
-                            Daily Tzolk’in
-                        </strong>
-
-                        <small>
-                            Today’s energy
-                        </small>
-                    </div>
-
-                    <div className="my-living-time-module">
-                        <span className="my-living-module-symbol">
-                            ✧
-                        </span>
-
-                        <strong>
-                            Personal Daily Energy
-                        </strong>
-
-                        <small>
-                            Birth + today
-                        </small>
-                    </div>
-
-                </div>
-
-                <CreatorBirthMatrix
-                    birthMatrix={birthMatrix}
-                    birthDate={birthDate}
-                    setBirthDate={setBirthDate}
-                    handleCalculateBirthMatrix={
-                        handleCalculateBirthMatrix
-                    }
-                    isSlovenian={isSlovenian}
-                    getSignImage={getSignImage}
-                />
-
-            </article>
-
-
-            {/* ORAKELJ AI */}
-
-            <article className="my-living-premium-card my-living-orakelj-card">
-
-                <div className="my-living-card-header">
-                    <span>BLINKITA ORAKELJ AI</span>
-                    <small>02</small>
-                </div>
-
-                <div className="my-living-orakelj-visual">
-                    <div className="my-living-orakelj-symbol">
-                        ◉
-                    </div>
-
-                    <span>
-                        LIVING GUIDANCE
-                    </span>
-
-                    <small>
-                        Your personal portal of reflection.
-                    </small>
-                </div>
-
-                <div className="my-living-orakelj-space">
-                    <span>
-                        Your Orakelj AI space
-                    </span>
-                </div>
-
-            </article>
-
-
-            {/* TIME TRAVEL HISTORY */}
-
-            <article className="my-living-premium-card my-living-history-card">
-
-                <div className="my-living-card-header">
-                    <span>YOUR TIME TRAVEL HISTORY™</span>
-                    <small>03</small>
-                </div>
-
-                <p className="my-living-card-intro">
-                    Your living record of what you created,
-                    discovered, reflected upon and moved
-                    through — together with the Tzolk’in energy
-                    that accompanied it.
-                </p>
-
-                <div className="my-living-history-space">
-
-                    <div className="my-living-history-empty">
-                        <span>◌</span>
-                        <strong>
-                            Your journey will appear here.
-                        </strong>
-                        <small>
-                            Creation · Reflection · Movement · Time
-                        </small>
-                    </div>
-
-                </div>
-
-                <textarea
-                    className="my-living-history-input"
-                    placeholder="Add something from your journey through time..."
-                    rows="4"
-                />
-
-                <button
-                    type="button"
-                    className="my-living-premium-button"
+                <div
+                    className="
+                        world-builder-time-panel
+                    "
                 >
-                    ADD TO MY HISTORY
-                </button>
 
-            </article>
+                    <div
+                        className="
+                            world-builder-day-symbol
+                            calculated-tzolkin-symbol
+                        "
+                    >
+                        <TzolkinSignVisual
+                            sign={todayTzolkin.sign}
+                        />
+                    </div>
 
-        </div>
+                    <div>
 
-    </section>
+                        <span>
+                            TODAY'S LIVING TIME
+                        </span>
 
+                        <small
+                            className="
+                                world-builder-gregorian-date
+                            "
+                        >
+                            {today.toLocaleDateString(
+                                "en-US",
+                                {
+                                    day: "2-digit",
+                                    month: "long",
+                                    year: "numeric"
+                                }
+                            )}
+                        </small>
 
+                        <strong>
+                            {todayTzolkin.tone}{" "}
+                            {todayTzolkin.sign.classic}
+                        </strong>
 
-    {/* ==================================================
-        04 · LIVING INTELLIGENCE
-    ================================================== */}
+                        <small>
+                            Kin {todayTzolkin.kin}
+                            {" · "}
+                            {todayTzolkin.sign.element}
+                        </small>
 
-    <section
-        id="living-intelligence"
-        className="my-living-section my-living-section-intelligence"
-    >
+                    </div>
 
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ✧
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    04
-                </span>
-
-                <span className="my-living-section-label">
-                    LIVING INTELLIGENCE
-                </span>
-
-                <p>
-                    Think, reflect and evolve with your living intelligence.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ◇
-            </div>
-
-        </div>
-
-        <div className="my-living-single-module">
-
-            <CreatorIntelligenceCard
-                creator={creator}
-            />
-
-        </div>
-
-    </section>
+                </div>
 
 
-
-    {/* ==================================================
-        05 · MY LIVING CREATION PATH
-    ================================================== */}
-
-    <section
-        id="living-creation-path"
-        className="my-living-section my-living-section-creation"
-    >
-
-        <div className="my-living-section-header">
-
-            <div className="my-living-section-mark">
-                ➜
-            </div>
-
-            <div>
-                <span className="my-living-section-number">
-                    05
-                </span>
-
-                <span className="my-living-section-label">
-                    MY LIVING CREATION PATH
-                </span>
-
-                <p>
-                    See where your creation is moving now.
-                </p>
-            </div>
-
-            <div className="my-living-section-logo">
-                ✦
-            </div>
-
-        </div>
-
-        <div className="my-living-premium-grid my-living-creation-grid">
-
-            <div className="my-living-single-module">
-
-                <CreatorJourneyCard
-                    creator={creator}
-                    evolution={evolution}
-                    creatorStage={translatedCreatorStage}
-                    worldState={worldState}
+                <div
+                    className="
+                        world-builder-time-divider
+                    "
                 />
 
+
+                <div
+                    className="
+                        world-builder-time-panel
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-day-symbol
+                            calculated-tzolkin-symbol
+                        "
+                    >
+                        {livingTimeToday ? (
+                            <TzolkinSignVisual
+                                sign={
+                                    livingTimeToday.sign
+                                }
+                            />
+                        ) : (
+                            "☼"
+                        )}
+                    </div>
+
+                    <div>
+
+                        <span>
+                            MY LIVING TIME TODAY
+                        </span>
+
+                        <strong>
+                            {
+                                livingTimeToday
+                                    ? `${livingTimeToday.tone} ${livingTimeToday.sign.classic}`
+                                    : "Not calculated yet"
+                            }
+                        </strong>
+
+                        <small>
+                         Kin {livingTimeToday.kin}
+                           {" · "}
+                            {livingTimeToday.sign.element}
+                            </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            {/* =================================================
+                ROW 1
+                MY PORTRAIT
+                MY BIRTH MATRIX
+                MY LIVING INTELLIGENCE
+            ================================================= */}
+
+            <div
+                className="
+                    world-builder-row
+                    world-builder-row-three
+                "
+            >
+
+                {/* =================================================
+                    MY PORTRAIT
+                ================================================= */}
+
+                <article
+                    className="
+                        world-builder-card
+                        world-builder-portrait
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-card-label
+                        "
+                    >
+                        MY PORTRAIT
+                    </div>
+
+
+                    <div
+                        className="
+                            world-builder-portrait-main
+                        "
+                    >
+
+                        <div
+                            className={`world-builder-avatar ${selfie ? "has-selfie" : ""}`}
+                        >
+                            {selfie ? (
+                                <img
+                                    src={selfie}
+                                    alt="Creator selfie"
+                                    className="world-builder-selfie"
+                                />
+                            ) : (
+                                <span>
+                                    {selectedAvatar}
+                                </span>
+                            )}
+                        </div>
+
+                        <div
+                            className="
+                                world-builder-portrait-info
+                            "
+                        >
+
+                            <strong>
+                                {name || "Your Name"}
+                            </strong>
+
+                            <span>
+                                {selectedAvatarData.name}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <label className="world-builder-selfie-upload">
+                        <span>
+                            {
+                                selfie
+                                    ? "CHANGE SELFIE"
+                                    : "UPLOAD SELFIE"
+                            }
+                        </span>
+
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={
+                                handleSelfieUpload
+                            }
+                        />
+                    </label>
+
+
+                    {/* AVATAR CHOICES */}
+
+                    <div
+                        className="
+                            world-builder-avatar-grid
+                        "
+                    >
+
+                        {creatorSymbols.map(
+                            avatar => (
+
+                                <button
+                                    key={avatar.name}
+                                    type="button"
+                                    className={
+                                        selectedAvatar ===
+                                        avatar.symbol
+                                            ? "avatar-choice active"
+                                            : "avatar-choice"
+                                    }
+                                    onClick={() =>
+                                        handleAvatarSelect(
+                                            avatar
+                                        )
+                                    }
+                                    title={avatar.name}
+                                    aria-label={avatar.name}
+                                >
+                                    {avatar.symbol}
+                                </button>
+
+                            )
+                        )}
+
+                    </div>
+
+
+                    {/* AVATAR EXPLANATION */}
+
+                    <div
+                        className="
+                            world-builder-avatar-explanation
+                        "
+                    >
+
+                        <strong
+                            className="
+                                avatar-explanation-title
+                            "
+                        >
+
+                            <span>
+                                {selectedAvatarData.symbol}
+                            </span>
+
+                            {selectedAvatarData.name}
+
+                        </strong>
+
+                        <span>
+                            {selectedAvatarData.meaning}
+                        </span>
+
+                        <p>
+                            {selectedAvatarData.message}
+                        </p>
+
+                    </div>
+
+
+                    {/* IDENTITY · EVOLUTION
+                        LIVES INSIDE PORTRAIT */}
+
+                    <div
+                        className="
+                            world-builder-identity-inline
+                        "
+                    >
+
+                        <div
+                            className="
+                                world-builder-inline-heading
+                            "
+                        >
+                            MY IDENTITY · EVOLUTION
+                        </div>
+
+
+                        <div
+                            className="
+                                world-builder-field
+                            "
+                        >
+
+                            <label>
+                                NAME
+                            </label>
+
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={event =>
+                                    setName(
+                                        event.target.value
+                                    )
+                                }
+                                placeholder="Your name"
+                            />
+
+                        </div>
+
+
+                        <div
+                            className="
+                                world-builder-field
+                                world-builder-system-field
+                            "
+                        >
+
+                            <label>
+                                CREATOR ARCHETYPE · SYSTEM DETERMINED
+                            </label>
+
+                            <div
+                                className="
+                                    world-builder-archetype-display
+                                "
+                            >
+
+                                <span
+                                    className="
+                                        archetype-symbol
+                                    "
+                                >
+                                    {selectedAvatarData.symbol}
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        {
+                                            selectedAvatarData.name ||
+                                            archetype ||
+                                            "Explorer Creator"
+                                        }
+                                    </strong>
+
+                                    <small>
+                                        {
+                                            selectedAvatarData.meaning
+                                        }
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            className="
+                                world-builder-field
+                            "
+                        >
+
+                            <label>
+                                SHORT DESCRIPTION
+                            </label>
+
+                            <textarea
+                                value={description}
+                                onChange={event =>
+                                    setDescription(
+                                        event.target.value
+                                    )
+                                }
+                                placeholder="How do you describe yourself as a creator?"
+                                rows="2"
+                            />
+
+                        </div>
+
+
+                        <div
+                            className="
+                                world-builder-evolution
+                                premium-evolution
+                            "
+                        >
+
+                            <div
+                                className="
+                                    evolution-label
+                                "
+                            >
+                                CREATOR EVOLUTION
+                            </div>
+
+                            <div
+                                className="
+                                    evolution-state
+                                "
+                            >
+
+                                <div>
+
+                                    <span>
+                                        CURRENT STAGE
+                                    </span>
+
+                                    <strong>
+                                        {
+                                            evolution.stage ||
+                                            "Beginning"
+                                        }
+                                    </strong>
+
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        LEVEL
+                                    </span>
+
+                                    <strong>
+                                        {
+                                            evolution.level ||
+                                            1
+                                        }
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            className="
+                                world-builder-button
+                            "
+                            onClick={
+                                handleSaveIdentity
+                            }
+                        >
+                            {
+                                saved
+                                    ? "SAVED ✓"
+                                    : "SAVE IDENTITY"
+                            }
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                {/* =================================================
+                    MY BIRTH MATRIX
+                ================================================= */}
+
+                <article
+                    className="
+                        world-builder-card
+                        world-builder-birth
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-card-label
+                        "
+                    >
+                        MY BIRTH MATRIX™
+                    </div>
+
+
+                    <div
+                        className="
+                            world-builder-birth-inner
+                        "
+                    >
+
+                        {!birthMatrix ? (
+
+                            <>
+
+                                <div
+                                    className="
+                                        world-builder-birth-intro
+                                    "
+                                >
+
+                                    <div
+                                        className="
+                                            world-builder-birth-symbol
+                                        "
+                                    >
+                                        <TzolkinSignVisual
+                                            sign={
+                                                TZOLKIN_SIGNS[0]
+                                            }
+                                        />
+                                    </div>
+
+                                    <div>
+
+                                        <h2>
+                                            Your Living Starting Point
+                                        </h2>
+
+                                        <p>
+                                            Your Birth Matrix reveals
+                                            the Tzolk’in energy you
+                                            entered this life with.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div
+                                    className="
+                                        world-builder-birth-form
+                                    "
+                                >
+
+                                    <label>
+                                        YOUR DATE OF BIRTH
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        value={birthDate}
+                                        onChange={event =>
+                                            setBirthDate(
+                                                event.target.value
+                                            )
+                                        }
+                                    />
+
+                                    {birthError && (
+
+                                        <small
+                                            className="
+                                                world-builder-birth-error
+                                            "
+                                        >
+                                            {birthError}
+                                        </small>
+
+                                    )}
+
+                                    <button
+                                        type="button"
+                                        className="
+                                            world-builder-button
+                                        "
+                                        onClick={
+                                            handleCalculateBirthMatrix
+                                        }
+                                    >
+                                        CALCULATE MY BIRTH MATRIX
+                                    </button>
+
+                                </div>
+
+                            </>
+
+                        ) : (
+
+                            <>
+
+                                <div
+                                    className="
+                                        world-builder-birth-result
+                                        premium-birth-result
+                                    "
+                                >
+
+                                    <div
+                                        className="
+                                            world-builder-birth-symbol
+                                            calculated-tzolkin-symbol
+                                        "
+                                    >
+
+                                        <TzolkinSignVisual
+                                            sign={
+                                                TZOLKIN_SIGNS[
+                                                    birthMatrix.signIndex != null
+                                                        ? birthMatrix.signIndex
+                                                        : TZOLKIN_SIGNS.findIndex(
+                                                            item =>
+                                                                item.classic ===
+                                                                birthMatrix.sign
+                                                        )
+                                                ]
+                                            }
+                                        />
+
+                                    </div>
+
+
+                                    <div
+                                        className="
+                                            birth-result-identity
+                                        "
+                                    >
+
+                                        <span>
+                                            YOUR BIRTH ENERGY
+                                        </span>
+
+                                        <h2>
+                                            {birthMatrix.tone}{" "}
+                                            {birthMatrix.sign}
+                                        </h2>
+
+                                        <p>
+                                            {birthMatrix.localSign}
+                                            {" · "}
+                                            {birthMatrix.element}
+                                        </p>
+
+                                        <strong>
+                                            Kin {birthMatrix.kin}
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div
+                                    className="
+                                        world-builder-birth-reading
+                                        premium-birth-reading
+                                    "
+                                >
+
+                                    <p
+                                        className="
+                                            birth-reading-main
+                                        "
+                                    >
+                                        Your birth energy is{" "}
+                                        <strong>
+                                            {birthMatrix.tone}{" "}
+                                            {birthMatrix.sign}
+                                        </strong>
+                                        {" — "}
+                                        {birthMatrix.localSign},{" "}
+                                        {birthMatrix.element}.
+                                    </p>
+
+                                    <p
+                                        className="
+                                            birth-reading-description
+                                        "
+                                    >
+                                        It is the living pattern you
+                                        entered this life with and a
+                                        foundational reference for
+                                        the way Blinkita understands
+                                        your creator journey.
+                                    </p>
+
+
+                                    <div
+                                        className="
+                                            birth-energy-daily-message
+                                            world-builder-birth-daily-message
+                                        "
+                                    >
+
+                                        <span>
+                                            TODAY'S MESSAGE FOR YOUR BIRTH ENERGY
+                                        </span>
+
+                                        <p>
+                                            {birthEnergyMessage}
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div
+                                    className="
+                                        world-builder-birth-form
+                                        world-builder-birth-form-result
+                                    "
+                                >
+
+                                    <label>
+                                        CHANGE BIRTH DATE
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        value={birthDate}
+                                        onChange={event =>
+                                            setBirthDate(
+                                                event.target.value
+                                            )
+                                        }
+                                    />
+
+                                    <button
+                                        type="button"
+                                        className="
+                                            world-builder-button
+                                        "
+                                        onClick={
+                                            handleCalculateBirthMatrix
+                                        }
+                                    >
+                                        RECALCULATE
+                                    </button>
+
+                                </div>
+
+                            </>
+
+                        )}
+
+                    </div>
+
+                </article>
+
+
+                {/* =================================================
+                    MY LIVING INTELLIGENCE
+                ================================================= */}
+
+                <article
+                    className="
+                        world-builder-card
+                        world-builder-intelligence
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-card-label
+                        "
+                    >
+                        MY LIVING INTELLIGENCE
+                    </div>
+
+
+                    <div
+                        className="
+                            world-builder-intelligence-symbol
+                        "
+                    >
+                        ◇
+                    </div>
+
+
+                    <h2>
+                        Your Living Intelligence
+                    </h2>
+
+                    <p>
+                        This is where you can begin telling
+                        Blinkita how you think, notice,
+                        understand and make meaning.
+                    </p>
+
+
+                    <textarea
+                        className="
+                            world-builder-intelligence-input
+                        "
+                        value={livingIntelligence}
+                        onChange={event =>
+                            setLivingIntelligence(
+                                event.target.value
+                            )
+                        }
+                        placeholder="Tell Blinkita how you think, what you notice, what matters to you, or how you want to be understood..."
+                        rows="6"
+                    />
+
+
+                    <button
+                        type="button"
+                        className="
+                            world-builder-button
+                        "
+                        onClick={
+                            handleSaveLivingIntelligence
+                        }
+                    >
+                        {
+                            intelligenceSaved
+                                ? "INTELLIGENCE SAVED ✓"
+                                : "SAVE TO LIVING INTELLIGENCE"
+                        }
+                    </button>
+
+                </article>
+
             </div>
 
-            <div className="my-living-single-module">
 
-                <WorldBuilderDomainCard />
+            {/* =================================================
+                ROW 2
+                MY ACHIEVEMENTS
+                MY CREATOR ESSENCE
+                WHERE ARE YOU CREATING FROM?
+            ================================================= */}
+
+            <div
+                className="
+                    world-builder-row
+                    world-builder-row-three
+                    world-builder-row-secondary
+                "
+            >
+
+                {/* MY ACHIEVEMENTS */}
+
+                <article
+                    className="
+                        world-builder-card
+                        world-builder-achievements
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-card-label
+                        "
+                    >
+                        MY ACHIEVEMENTS
+                    </div>
+
+                    <div
+                        className="
+                            world-builder-secondary-content
+                        "
+                    >
+
+                        <div
+                            className="
+                                world-builder-achievement-symbol
+                            "
+                        >
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Your creation is becoming real.
+                            </h2>
+
+                            <p>
+                                Your achievements will appear
+                                here as your Living World evolves.
+                            </p>
+
+                        </div>
+
+                        <div
+                            className="
+                                world-builder-achievement-count
+                            "
+                        >
+                            0
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                {/* MY CREATOR ESSENCE */}
+
+                <article
+                    className="
+                        world-builder-card
+                        world-builder-essence
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-card-label
+                        "
+                    >
+                        MY CREATOR ESSENCE
+                    </div>
+
+                    <div
+                        className="
+                            world-builder-essence-content
+                        "
+                    >
+
+                        <div
+                            className="
+                                world-builder-memory-visual
+                            "
+                        >
+                            <span />
+                            <span />
+                            <span />
+                            <span />
+                            <span />
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                The essence of your creation.
+                            </h2>
+
+                            <p>
+                                Your Living World begins with
+                                the creator who brings it into being.
+                            </p>
+
+                        </div>
+
+                        <div
+                            className="
+                                world-builder-essence-line
+                            "
+                        >
+                            {selectedAvatarData.name}
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                {/* WHERE ARE YOU CREATING FROM? */}
+
+                <article
+                    className="
+                        world-builder-card
+                        world-builder-creation
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-card-label
+                        "
+                    >
+                        WHERE ARE YOU CREATING FROM?
+                    </div>
+
+                    <div
+                        className="
+                            world-builder-creation-content
+                        "
+                    >
+
+                        <div
+                            className="
+                                world-builder-path-symbol
+                            "
+                        >
+                            ➜
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Your Creation Path
+                            </h2>
+
+                            <p>
+                                Your creation path will evolve
+                                as your ideas become Living Worlds.
+                            </p>
+
+                        </div>
+
+                        <div
+                            className="
+                                world-builder-path-stage
+                            "
+                        >
+
+                            <span>
+                                CURRENT STAGE
+                            </span>
+
+                            <strong>
+                                {
+                                    evolution.stage ||
+                                    "Beginning"
+                                }
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
 
             </div>
 
-        </div>
 
-    </section>
+            {/* =================================================
+                FIVE LIVING CARDS
+            ================================================= */}
+
+            <section
+                className="
+                    world-builder-living-cards-section
+                "
+            >
+
+                <div className="world-builder-section-heading">
+
+                    <div
+                        className="
+                            world-builder-section-heading-inner
+                        "
+                    >
+
+                        <span>
+                            LIVING PORTALS
+                        </span>
+
+                        <small>
+                            Choose a doorway into your living ecosystem.
+                        </small>
+
+                    </div>
+
+                </div>
 
 
+                <div
+                    className="
+                        world-builder-living-cards
+                    "
+                >
 
-    {/* ==================================================
-        06 · CHOOSE YOUR LIVING PATH
-    ================================================== */}
+                    {worldBuilderLivingCards.map(
+                        card => (
 
-    <section
-        id="living-path"
-        className="my-living-section my-living-section-path"
-    >
+                            <button
+                                key={card.id}
+                                type="button"
+                                className="
+                                    world-builder-living-card
+                                "
+                                onClick={() =>
+                                    enterLivingCard(
+                                        card
+                                    )
+                                }
+                            >
 
-        <div className="my-living-section-header">
+                                <div
+                                    className="
+                                        world-builder-living-card-art
+                                    "
+                                >
 
-            <div className="my-living-section-mark">
-                ⟡
+                                    {card.image ? (
+
+                                        <img
+                                            src={card.image}
+                                            alt={card.title}
+                                        />
+
+                                    ) : (
+
+                                        <span>
+                                            {card.symbol}
+                                        </span>
+
+                                    )}
+
+                                </div>
+
+                                <strong>
+                                    {card.title}
+                                </strong>
+
+                                <small>
+                                    ENTER WORLD
+                                </small>
+
+                            </button>
+
+                        )
+                    )}
+
+                </div>
+
+            </section>
+
+
+            {/* =================================================
+                TODAY + CREATOR MEMORY
+            ================================================= */}
+
+            <div
+                className="
+                    world-builder-row
+                    world-builder-row-two
+                    world-builder-reflection-row
+                "
+            >
+
+                {/* TODAY'S CREATOR QUESTION */}
+
+                <article
+                    className="
+                        world-builder-card
+                        world-builder-daily-question
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-card-label
+                        "
+                    >
+                        TODAY'S CREATOR QUESTION
+                    </div>
+
+
+                    <div
+                        className="
+                            daily-question-energy
+                        "
+                    >
+
+                        <span
+                            className="
+                                daily-question-symbol
+                            "
+                        >
+                            {todayTzolkin.sign.symbol}
+                        </span>
+
+                        <span>
+                            {todayTzolkin.tone}{" "}
+                            {todayTzolkin.sign.classic}
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        {dailyQuestion}
+                    </h2>
+
+
+                    <textarea
+                        value={dailyAnswer}
+                        onChange={event =>
+                            setDailyAnswer(
+                                event.target.value
+                            )
+                        }
+                        placeholder="Write a few words..."
+                        rows="4"
+                    />
+
+
+                    <button
+                        type="button"
+                        className="
+                            world-builder-button
+                        "
+                        onClick={
+                            handleSaveDailyAnswer
+                        }
+                    >
+                        SAVE TODAY'S REFLECTION
+                    </button>
+
+                </article>
+
+
+                {/* MY CREATOR MEMORY */}
+
+                <article
+                    className="
+                        world-builder-card
+                        world-builder-creator-memory
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-card-label
+                        "
+                    >
+                        MY CREATOR MEMORY
+                    </div>
+
+                    <p
+                        className="
+                            world-builder-memory-intro
+                        "
+                    >
+                        Tell Blinkita something you want remembered.
+                    </p>
+
+
+                    <textarea
+                        value={creatorMemory}
+                        onChange={event =>
+                            setCreatorMemory(
+                                event.target.value
+                            )
+                        }
+                        placeholder="Add something you want your Living World — and Blinkita AI — to remember about you..."
+                        rows="6"
+                    />
+
+
+                    <button
+                        type="button"
+                        className="
+                            world-builder-button
+                        "
+                        onClick={
+                            handleSaveCreatorMemory
+                        }
+                    >
+                        {
+                            memorySaved
+                                ? "MEMORY SAVED ✓"
+                                : "SAVE TO CREATOR MEMORY"
+                        }
+                    </button>
+
+                </article>
+
             </div>
 
-            <div>
-                <span className="my-living-section-number">
-                    06
-                </span>
 
-                <span className="my-living-section-label">
-                    CHOOSE YOUR LIVING PATH
-                </span>
+            {/* =================================================
+                LIVING CARD ORACLE
+            ================================================= */}
 
-                <p>
-                    Choose where your creation wants to go next.
-                </p>
-            </div>
+            <section
+                className="
+                    living-card-oracle
+                "
+            >
 
-            <div className="my-living-section-logo">
-                ∞
-            </div>
+                <header
+                    className="
+                        living-card-oracle-header
+                    "
+                >
 
-        </div>
+                    <div>
 
-    </section>
+                        <span>
+                            BLINKITA LIVING CARD ORACLE™
+                        </span>
 
-</div>
+                        <h2>
+                            Listen. Choose. Receive.
+                        </h2>
 
+                    </div>
+
+
+                    <div
+                        className="
+                            living-card-oracle-energy
+                        "
+                    >
+
+                        {todayTzolkin.sign.symbol}
+
+                        <small>
+                            {todayTzolkin.tone}{" "}
+                            {todayTzolkin.sign.classic}
+                        </small>
+
+                    </div>
+
+                </header>
+
+
+                <div
+                    className="
+                        living-card-oracle-grid
+                    "
+                >
+
+                    {/* =================================================
+                        DECK
+                    ================================================= */}
+
+                    <div
+                        className="
+                            living-card-deck
+                        "
+                    >
+
+                        <div
+                            className="
+                                oracle-section-label
+                            "
+                        >
+                            YOUR DECK
+                        </div>
+
+
+                        <div
+                            className="
+                                living-card-stack
+                            "
+                        >
+
+                            {livingCards
+                                .slice(0, 7)
+                                .map(
+                                    (
+                                        card,
+                                        index
+                                    ) => (
+
+                                        <div
+                                            key={card.id}
+                                            className="
+                                                living-card-stack-card
+                                            "
+                                            style={{
+                                                "--card-index":
+                                                    index
+                                            }}
+                                        >
+
+                                            <div
+                                                className="
+                                                    living-card-back
+                                                "
+                                            >
+
+                                                <div
+                                                    className="
+                                                        living-card-back-symbol
+                                                    "
+                                                >
+                                                    ✦
+                                                </div>
+
+                                                <span>
+                                                    BLINKITA
+                                                </span>
+
+                                                <small>
+                                                    LIVING CARD ORACLE™
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    )
+                                )}
+
+                        </div>
+
+
+                        <p
+                            className="
+                                oracle-deck-note
+                            "
+                        >
+                            50+ Living Cards will live here.
+                        </p>
+
+
+                        <button
+                            type="button"
+                            className="
+                                world-builder-oracle-button
+                            "
+                            onClick={drawCard}
+                        >
+                            DRAW A CARD
+                        </button>
+
+                    </div>
+
+
+                    {/* =================================================
+                        READING
+                    ================================================= */}
+
+                    <div
+                        className="
+                            living-card-reading
+                        "
+                    >
+
+                        <div
+                            className="
+                                oracle-section-label
+                            "
+                        >
+                            YOUR READING
+                        </div>
+
+
+                        <h3>
+                            What would you like guidance for?
+                        </h3>
+
+
+                        <div
+                            className="
+                                oracle-options
+                            "
+                        >
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="oracle-purpose"
+                                    value="today"
+                                    checked={
+                                        readingPurpose ===
+                                        "today"
+                                    }
+                                    onChange={event =>
+                                        setReadingPurpose(
+                                            event.target.value
+                                        )
+                                    }
+                                />
+
+                                Today
+
+                            </label>
+
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="oracle-purpose"
+                                    value="creation"
+                                    checked={
+                                        readingPurpose ===
+                                        "creation"
+                                    }
+                                    onChange={event =>
+                                        setReadingPurpose(
+                                            event.target.value
+                                        )
+                                    }
+                                />
+
+                                My Creation
+
+                            </label>
+
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="oracle-purpose"
+                                    value="question"
+                                    checked={
+                                        readingPurpose ===
+                                        "question"
+                                    }
+                                    onChange={event =>
+                                        setReadingPurpose(
+                                            event.target.value
+                                        )
+                                    }
+                                />
+
+                                My Question
+
+                            </label>
+
+                        </div>
+
+
+                        <textarea
+                            value={question}
+                            onChange={event =>
+                                setQuestion(
+                                    event.target.value
+                                )
+                            }
+                            placeholder="Ask your question..."
+                            rows="5"
+                        />
+
+
+                        <button
+                            type="button"
+                            className="
+                                world-builder-oracle-button
+                            "
+                            onClick={drawCard}
+                        >
+                            REVEAL MY CARD
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            {/* =================================================
+                ORACLE RESULT
+                PREMIUM INNER PANEL — NO CLOSE BUTTON
+            ================================================= */}
+
+            {selectedCard && (
+
+                <section
+                    className="
+                        living-card-result-section
+                    "
+                >
+
+                    <div
+                        className="
+                            living-card-result-inner
+                        "
+                    >
+
+                        <div
+                            className="
+                                living-card-result-heading
+                            "
+                        >
+
+                            <span>
+                                YOUR LIVING CARD
+                            </span>
+
+                            <small>
+                                {todayTzolkin.tone}{" "}
+                                {todayTzolkin.sign.classic}
+                            </small>
+
+                        </div>
+
+
+                        <div
+                            className="
+                                living-card-result-card
+                            "
+                        >
+
+                            <div
+                                className="
+                                    living-card-result-symbol
+                                "
+                            >
+                                {selectedCard.symbol}
+                            </div>
+
+
+                            <span
+                                className="
+                                    living-card-result-kicker
+                                "
+                            >
+                                BLINKITA LIVING CARD ORACLE™
+                            </span>
+
+
+                            <h2>
+                                {selectedCard.title}
+                            </h2>
+
+
+                            <strong>
+                                {selectedCard.essence}
+                            </strong>
+
+
+                            <p>
+                                {selectedCard.reading}
+                            </p>
+
+
+                            <button
+                                type="button"
+                                className="
+                                    world-builder-oracle-button
+                                "
+                                onClick={() =>
+                                    window.location.href =
+                                        selectedCard.destination
+                                }
+                            >
+                                ENTER THIS WORLD
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            )}
 
         </section>
-
     );
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

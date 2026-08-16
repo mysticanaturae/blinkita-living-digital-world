@@ -29,6 +29,11 @@ export default function BlinkitaEcosystemMandala() {
             name:"BLINKITA OS™",
             icon:"blinkita_os_the_system.png"
         },
+        {
+            id:"creator",
+            name:"CREATOR SPACE™",
+            icon:"creator.png"
+        },
 
         {
             id:"world-builder",
@@ -180,10 +185,10 @@ export default function BlinkitaEcosystemMandala() {
                         style={{
 
                             "--x":
-                            `${Math.sin(index * Math.PI / 6) * 380}px`,
+                            `${Math.sin(index * (2 * Math.PI) / 13) * 380}px`,
 
                             "--y":
-                            `${Math.cos(index * Math.PI / 6) * -380}px`
+                            `${Math.cos(index * (2 * Math.PI) / 13) * -380}px`
 
                         }}
 
@@ -279,3 +284,5 @@ export default function BlinkitaEcosystemMandala() {
 
 
 }
+
+

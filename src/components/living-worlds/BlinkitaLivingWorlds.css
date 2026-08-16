@@ -1,0 +1,663 @@
+﻿.blinkita-living-worlds {
+  min-height: 100vh;
+  padding: 72px 32px 96px;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.living-worlds-header {
+  width: min(900px, 100%);
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.living-worlds-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  opacity: 0.58;
+  margin-bottom: 16px;
+}
+
+.living-worlds-header h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 7vw, 5.8rem);
+  line-height: 0.92;
+  letter-spacing: 0.07em;
+}
+
+.living-worlds-header p {
+  width: min(680px, 100%);
+  margin: 24px auto 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  opacity: 0.68;
+}
+
+/* =========================================================
+   QUICK ENTRY
+========================================================= */
+
+.living-worlds-quick-entry {
+  width: min(1100px, 100%);
+  margin: 0 auto 72px;
+}
+
+.living-world-quick-card {
+  width: 100%;
+  min-height: 230px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 26px;
+
+  background: rgba(255, 255, 255, 0.035);
+  color: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.living-world-quick-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.065);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.quick-world-visual {
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.09),
+      rgba(255,255,255,0.015) 65%
+    );
+
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.quick-world-visual span {
+  font-size: 4rem;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.25));
+}
+
+.quick-world-content {
+  padding: 34px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quick-world-label {
+  margin-bottom: 12px;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  opacity: 0.48;
+}
+
+.quick-world-title {
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+}
+
+.quick-world-description {
+  margin-bottom: 18px;
+  max-width: 620px;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  opacity: 0.62;
+}
+
+/* =========================================================
+   WORLD LIBRARY
+========================================================= */
+
+.living-worlds-library {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.living-worlds-library-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.living-worlds-section-label {
+  margin-bottom: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  opacity: 0.48;
+}
+
+.living-worlds-library-header h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 0.06em;
+}
+
+.living-worlds-new-button {
+  flex-shrink: 0;
+  padding: 12px 18px;
+
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.055);
+  color: inherit;
+  font: inherit;
+
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.living-worlds-new-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* =========================================================
+   FILTER PANEL
+========================================================= */
+
+.living-worlds-controls {
+  margin-bottom: 30px;
+  padding: 16px;
+
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.025);
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.living-worlds-view-tabs,
+.living-worlds-stage-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.living-worlds-view-tabs button,
+.living-worlds-stage-filters button {
+  padding: 9px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  background: transparent;
+  color: inherit;
+  font: inherit;
+
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+
+  opacity: 0.52;
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    opacity 160ms ease;
+}
+
+.living-worlds-view-tabs button:hover,
+.living-worlds-stage-filters button:hover,
+.living-worlds-view-tabs button.active,
+.living-worlds-stage-filters button.active {
+  opacity: 1;
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* =========================================================
+   GALLERY MOSAIC
+========================================================= */
+
+.living-world-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* =========================================================
+   WORLD CARD
+========================================================= */
+
+.living-world-gallery-card {
+  min-width: 0;
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 22px;
+
+  background: rgba(255,255,255,0.035);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.living-world-gallery-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.24);
+  background: rgba(255,255,255,0.055);
+}
+
+/* =========================================================
+   COVER
+========================================================= */
+
+.living-world-cover {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  padding: 0;
+  display: block;
+
+  overflow: hidden;
+
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  background: rgba(255,255,255,0.025);
+  color: inherit;
+
+  cursor: pointer;
+}
+
+.living-world-cover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 300ms ease;
+}
+
+.living-world-gallery-card:hover .living-world-cover img {
+  transform: scale(1.035);
+}
+
+.living-world-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.075),
+      rgba(255,255,255,0.012) 68%
+    );
+}
+
+.living-world-placeholder span {
+  font-size: 3rem;
+}
+
+.living-world-placeholder small {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  opacity: 0.42;
+}
+
+/* =========================================================
+   STAGE BADGE
+========================================================= */
+
+.living-world-stage-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+
+  padding: 7px 10px;
+
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 999px;
+
+  background: rgba(0,0,0,0.34);
+  backdrop-filter: blur(10px);
+
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+
+  opacity: 0.9;
+}
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.living-world-card-body {
+  padding: 20px;
+}
+
+.living-world-card-body h3 {
+  margin: 0 0 9px;
+
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.living-world-card-body p {
+  min-height: 48px;
+  margin: 0;
+
+  font-size: 0.82rem;
+  line-height: 1.55;
+
+  opacity: 0.57;
+}
+
+/* =========================================================
+   META
+========================================================= */
+
+.living-world-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-top: 18px;
+  padding-top: 15px;
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.living-world-meta span {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+
+  opacity: 0.42;
+}
+
+.living-world-meta strong {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+}
+
+/* =========================================================
+   ENTER BUTTON
+========================================================= */
+
+.living-world-card-enter {
+  width: 100%;
+  margin-top: 18px;
+  padding: 11px 0;
+
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.035);
+  color: inherit;
+  font: inherit;
+
+  font-size: 0.65rem;
+  letter-spacing: 0.13em;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.living-worlds-empty {
+  min-height: 260px;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border: 1px dashed rgba(255,255,255,0.14);
+  border-radius: 24px;
+
+  background: rgba(255,255,255,0.018);
+}
+
+.living-worlds-empty-icon {
+  margin-bottom: 14px;
+  font-size: 2.5rem;
+}
+
+.living-worlds-empty-title {
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+}
+
+.living-worlds-empty-text {
+  margin-bottom: 20px;
+  font-size: 0.84rem;
+  opacity: 0.52;
+}
+
+.living-worlds-empty button {
+  padding: 11px 17px;
+
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+  color: inherit;
+  font: inherit;
+
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   CREATE NEW WORLD
+========================================================= */
+
+.living-worlds-create {
+  width: min(850px, 100%);
+  margin: 72px auto 0;
+  padding: 42px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 28px;
+
+  background: rgba(255,255,255,0.025);
+}
+
+.living-worlds-create-label {
+  margin-bottom: 14px;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+
+  opacity: 0.48;
+}
+
+.living-worlds-create h2 {
+  margin: 0;
+
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+}
+
+.living-worlds-create p {
+  width: min(600px, 100%);
+  margin: 20px auto 0;
+
+  line-height: 1.7;
+  opacity: 0.62;
+}
+
+.living-worlds-create-button {
+  margin-top: 26px;
+  padding: 14px 22px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.08);
+  color: inherit;
+  font: inherit;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   PRINCIPLE
+========================================================= */
+
+.living-worlds-principle {
+  width: min(760px, 100%);
+  margin: 64px auto 0;
+  padding-top: 28px;
+
+  border-top: 1px solid rgba(255,255,255,0.12);
+
+  text-align: center;
+}
+
+.living-worlds-principle-label {
+  margin-bottom: 14px;
+
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+
+  opacity: 0.5;
+}
+
+.living-worlds-principle p {
+  margin: 0;
+
+  font-size: 1rem;
+  line-height: 1.8;
+
+  opacity: 0.68;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 920px) {
+
+  .living-world-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .living-world-quick-card {
+    grid-template-columns: 170px 1fr;
+  }
+
+}
+
+@media (max-width: 680px) {
+
+  .blinkita-living-worlds {
+    padding: 48px 18px 72px;
+  }
+
+  .living-worlds-library-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .living-worlds-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .living-worlds-view-tabs,
+  .living-worlds-stage-filters {
+    width: 100%;
+  }
+
+  .living-world-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .living-world-quick-card {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-world-visual {
+    min-height: 150px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .quick-world-content {
+    padding: 26px;
+  }
+
+  .living-worlds-create {
+    padding: 30px 22px;
+  }
+
+}
+
+
+.living-world-quick-card .living-world-enter {
+  margin-top: 24px;
+  padding-top: 0;
+}
+

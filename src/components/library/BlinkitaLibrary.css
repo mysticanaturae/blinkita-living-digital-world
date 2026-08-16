@@ -1,0 +1,126 @@
+﻿.blinkita-library {
+    min-height: 100vh;
+    padding: 72px 32px;
+    box-sizing: border-box;
+    background: #091119;
+    color: #f4f7f8;
+}
+
+.library-header {
+    width: min(920px, 100%);
+    margin: 0 auto 56px;
+    text-align: center;
+}
+
+.library-kicker {
+    font-size: .78rem;
+    letter-spacing: .28em;
+    opacity: .62;
+    margin-bottom: 16px;
+}
+
+.library-header h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 7vw, 5.8rem);
+    line-height: .95;
+    letter-spacing: .06em;
+}
+
+.library-header p {
+    width: min(700px, 100%);
+    margin: 24px auto 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #9eabb5;
+}
+
+.library-paths {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.library-path-card {
+    min-height: 210px;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 24px;
+    background: rgba(255,255,255,.035);
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        transform 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease;
+}
+
+.library-path-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.3);
+}
+
+.library-path-icon {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 24px;
+    opacity: .82;
+}
+
+.library-path-title {
+    display: block;
+    font-size: 1.02rem;
+    letter-spacing: .1em;
+    margin-bottom: 12px;
+}
+
+.library-path-description {
+    display: block;
+    max-width: 450px;
+    font-size: .94rem;
+    line-height: 1.6;
+    color: #9eabb5;
+}
+
+.library-principle {
+    width: min(760px, 100%);
+    margin: 72px auto 0;
+    padding: 32px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,.12);
+    text-align: center;
+}
+
+.library-principle-label {
+    margin-bottom: 16px;
+    font-size: .72rem;
+    letter-spacing: .22em;
+    opacity: .5;
+}
+
+.library-principle p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #9eabb5;
+}
+
+@media (max-width: 720px) {
+
+    .blinkita-library {
+        padding: 48px 20px;
+    }
+
+    .library-paths {
+        grid-template-columns: 1fr;
+    }
+
+    .library-path-card {
+        min-height: 180px;
+    }
+
+}
