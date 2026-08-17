@@ -14,3 +14,18 @@
 .premium-world-shell *::after {
     box-sizing: border-box;
 }
+
+.premium-world-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.premium-world-shell > .world-builder-day-energy {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
