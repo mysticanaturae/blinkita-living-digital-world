@@ -1,4 +1,8 @@
 ﻿.blinkita-academy {
+  background: #091119;
+  color: #f4f7f8;
+  background: #091119;
+  color: #f4f7f8;
   min-height: 100vh;
   padding: 72px 32px;
   box-sizing: border-box;
@@ -106,6 +110,10 @@
 
 @media (max-width: 720px) {
   .blinkita-academy {
+  background: #091119;
+  color: #f4f7f8;
+  background: #091119;
+  color: #f4f7f8;
     padding: 48px 20px;
   }
 
@@ -117,3 +125,5 @@
     min-height: 180px;
   }
 }
+
+
