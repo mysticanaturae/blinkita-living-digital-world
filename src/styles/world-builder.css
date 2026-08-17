@@ -1,6 +1,6 @@
-/* =========================================================
-   BLINKITA WORLD BUILDER™
-   Premium living dashboard — complete visual layer
+﻿/* =========================================================
+   BLINKITA WORLD BUILDERâ„˘
+   Premium living dashboard â€” complete visual layer
    ========================================================= */
 
 .world-builder-page {
@@ -1285,7 +1285,7 @@
 }
 
 /* =========================================================
-   WORLD BUILDER — AVATAR PALETTE
+   WORLD BUILDER â€” AVATAR PALETTE
    ========================================================= */
 
 .world-builder-avatar-grid {
@@ -1379,7 +1379,7 @@
 
 
 /* =========================================================
-   CREATOR ARCHETYPE — SYSTEM DISPLAY
+   CREATOR ARCHETYPE â€” SYSTEM DISPLAY
    ========================================================= */
 
 .world-builder-archetype-display {
@@ -1437,7 +1437,7 @@
 
 
 /* =========================================================
-   CREATOR EVOLUTION — PREMIUM INSET
+   CREATOR EVOLUTION â€” PREMIUM INSET
    ========================================================= */
 
 .premium-evolution {
@@ -1494,7 +1494,7 @@
 
 
 /* =========================================================
-   BIRTH MATRIX — PREMIUM INNER PANEL
+   BIRTH MATRIX â€” PREMIUM INNER PANEL
    ========================================================= */
 
 .premium-birth-result {
@@ -1576,7 +1576,7 @@
 
 
 /* =========================================================
-   CALCULATED SIGN VISUAL — KEEP FALLBACK CONTROLLED
+   CALCULATED SIGN VISUAL â€” KEEP FALLBACK CONTROLLED
    ========================================================= */
 
 .calculated-tzolkin-symbol .tzolkin-sign-visual {
@@ -1602,7 +1602,7 @@
     font-size: 18px;
 }
 /* =========================================================
-   MY LIVING WORLDS™
+   MY LIVING WORLDSâ„˘
    PREMIUM STATUS CARDS
    ========================================================= */
 
@@ -1896,7 +1896,7 @@
 }
 
 /* ============================================================
-   BLINKITA — MY LIVING WORLDS
+   BLINKITA â€” MY LIVING WORLDS
    PREMIUM VISUAL OVERRIDE
    ============================================================ */
 
@@ -2109,7 +2109,7 @@
 
 
 /* ============================================================
-   EMPTY WORLD — ITS OWN PREMIUM CARD
+   EMPTY WORLD â€” ITS OWN PREMIUM CARD
    ============================================================ */
 
 .world-builder-world-empty {
@@ -2203,3 +2203,70 @@
     }
 
 }
+
+
+/* ---------- Living Time premium CTA ---------- */
+
+.living-time-calculate-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    min-width: 190px;
+    max-width: max-content;
+
+    margin: 4px 0 0;
+    padding: 9px 16px;
+
+    border: 1px solid rgba(242, 207, 131, .38);
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(242, 207, 131, .12),
+            rgba(157, 183, 255, .08)
+        );
+
+    color: #f2cf83;
+
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 18px rgba(0, 0, 0, .18),
+        inset 0 1px 0 rgba(255,255,255,.06);
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.living-time-calculate-link:hover {
+    transform: translateY(-1px);
+
+    border-color: rgba(242, 207, 131, .72);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(242, 207, 131, .20),
+            rgba(157, 183, 255, .12)
+        );
+
+    color: #fff4d2;
+
+    box-shadow:
+        0 7px 24px rgba(0, 0, 0, .25),
+        0 0 18px rgba(242, 207, 131, .08);
+}
+

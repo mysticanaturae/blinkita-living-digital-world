@@ -9,7 +9,7 @@ import {
     getSignImage
 } from "../../core/tzolkin/TzolkinImages";
 
-import "../../styles/world-builder.css";
+import "./LivingTimeHeader.css";
 
 
 const TZOLKIN_CORRELATION = 584283;
@@ -541,6 +541,7 @@ export default function LivingTimeHeader() {
     );
 
 }
+
 
 
 
