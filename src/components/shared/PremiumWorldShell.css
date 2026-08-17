@@ -1,12 +1,16 @@
 .premium-world-shell {
     width: 100%;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     background: #091119;
     color: #f4f7f8;
 }
 
 .premium-world-shell,
-.premium-world-shell * {
+.premium-world-shell *,
+.premium-world-shell *::before,
+.premium-world-shell *::after {
     box-sizing: border-box;
 }
