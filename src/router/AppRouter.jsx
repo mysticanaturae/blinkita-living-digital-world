@@ -1,4 +1,4 @@
-﻿import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { PortalRoutes } from "../core/routes/PortalRoutes";
 import DynamicPortalPage from "../pages/DynamicPortalPage";
@@ -34,7 +34,7 @@ import BlinkitaMethod from "../components/method/BlinkitaMethod";
 import BlinkitaLivingMemory from "../components/living-memory/BlinkitaLivingMemory";
 import BlinkitaAI from "../components/ai/BlinkitaAI";
 import BlinkitaMarket from "../components/market/BlinkitaMarket";
-import LivingWorldShell from "../components/shared/LivingWorldShell";
+import PremiumWorldShell from "../components/shared/PremiumWorldShell";
 import BlinkitaOS from "../components/os/BlinkitaOS";
 
 
@@ -59,9 +59,9 @@ export default function AppRouter() {
     <Route
     path="/world/ecosystem"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaLivingEcosystem />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 
@@ -231,9 +231,9 @@ export default function AppRouter() {
 <Route
     path="/world/os"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaOS />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 <Route
@@ -244,83 +244,83 @@ export default function AppRouter() {
 <Route
     path="/world/studio"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaStudio />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 
 <Route
     path="/world/academy"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaAcademy />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 
 <Route
     path="/world/ai"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaAI />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 <Route
     path="/world/market"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaMarket />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 <Route
     path="/world/living-memory"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaLivingMemory />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 <Route
     path="/world/living-worlds"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaLivingWorlds />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 <Route
     path="/world/timeline"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaTimeline />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 <Route
     path="/world/library"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaLibrary />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 <Route
     path="/world/community"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaCommunity />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 <Route
     path="/world/method"
     element={
-        <LivingWorldShell>
+        <PremiumWorldShell>
             <BlinkitaMethod />
-        </LivingWorldShell>
+        </PremiumWorldShell>
     }
 />
 
@@ -393,6 +393,7 @@ export default function AppRouter() {
 
 
 }
+
 
 
 

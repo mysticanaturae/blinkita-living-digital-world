@@ -1,0 +1,12 @@
+.premium-world-shell {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: #091119;
+    color: #f4f7f8;
+}
+
+.premium-world-shell,
+.premium-world-shell * {
+    box-sizing: border-box;
+}

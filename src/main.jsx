@@ -7,6 +7,7 @@ import "./styles/typography.css";
 import "./styles/spacing.css";
 import "./styles/living-ui.css";
 import "./styles/world-builder.css";
+import "./components/shared/PremiumWorldShell.css";
 
 import App from './App.jsx'
 
