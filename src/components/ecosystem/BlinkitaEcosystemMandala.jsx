@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom";
 
 import "./BlinkitaEcosystemMandala.css";
+import LivingTimeHeader from "../shared/LivingTimeHeader";
 
 
 export default function BlinkitaEcosystemMandala() {
@@ -284,5 +285,6 @@ export default function BlinkitaEcosystemMandala() {
 
 
 }
+
 
 

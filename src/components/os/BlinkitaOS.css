@@ -1,0 +1,271 @@
+﻿.blinkita-os {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 0 80px;
+}
+
+.blinkita-os section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.os-hero {
+  padding: 90px 20px 70px;
+  text-align: center;
+}
+
+.os-kicker,
+.os-section-label {
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.os-hero h1 {
+  max-width: 900px;
+  margin: 18px auto 24px;
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  line-height: 0.98;
+}
+
+.os-lead {
+  max-width: 780px;
+  margin: 0 auto 20px;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.6;
+}
+
+.os-sublead {
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.7;
+  opacity: 0.72;
+}
+
+.os-creation-flow {
+  padding: 50px 0 90px;
+  text-align: center;
+}
+
+.os-flow {
+  max-width: 760px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.os-flow span {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.os-flow b {
+  opacity: 0.4;
+}
+
+.os-flow-statement {
+  font-size: 1.15rem;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.os-dimension-grid,
+.os-layer-grid,
+.os-system-grid,
+.os-portal-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.os-dimension-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 30px;
+}
+
+.os-layer-grid {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 30px;
+}
+
+.os-system-grid {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 30px;
+}
+
+.os-portal-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 30px;
+}
+
+.os-dimension-card,
+.os-layer-card,
+.os-system-card,
+.os-portal-card {
+  border: 1px solid currentColor;
+  border-radius: 18px;
+  padding: 26px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.os-dimension-card:hover,
+.os-layer-card:hover,
+.os-system-card:hover,
+.os-portal-card:hover {
+  transform: translateY(-3px);
+  opacity: 0.82;
+}
+
+.os-card-number {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  opacity: 0.45;
+  margin-bottom: 18px;
+}
+
+.os-dimension-card h2,
+.os-layer-card h2,
+.os-system-card h2 {
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+
+.os-dimension-card h3,
+.os-layer-card h3 {
+  margin: 0 0 16px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.os-dimension-card p,
+.os-layer-card p,
+.os-system-card p {
+  line-height: 1.6;
+  opacity: 0.72;
+}
+
+.os-dimension-card a,
+.os-layer-card a,
+.os-system-card span {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.os-layers,
+.os-systems,
+.os-philosophy,
+.os-principles,
+.os-portals {
+  padding: 80px 0 0;
+}
+
+.os-system-card {
+  display: block;
+}
+
+.os-system-card span {
+  margin-top: 4px;
+}
+
+.os-philosophy {
+  text-align: center;
+}
+
+.os-philosophy-flow {
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.os-philosophy-flow span {
+  opacity: 0.35;
+}
+
+.os-philosophy p {
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.8;
+  opacity: 0.72;
+}
+
+.os-principles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.os-principles article {
+  border-top: 1px solid currentColor;
+  padding-top: 24px;
+}
+
+.os-principles p {
+  line-height: 1.7;
+}
+
+.os-portals-intro {
+  max-width: 680px;
+  line-height: 1.7;
+  opacity: 0.72;
+}
+
+.os-portal-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.os-portal-card span {
+  opacity: 0.5;
+}
+
+.os-sovereignty {
+  padding: 120px 20px 40px;
+  text-align: center;
+}
+
+.os-sovereignty-mark {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.os-sovereignty h2 {
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  margin-bottom: 18px;
+}
+
+.os-sovereignty p {
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .os-dimension-grid,
+  .os-system-grid,
+  .os-portal-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .os-dimension-grid,
+  .os-layer-grid,
+  .os-system-grid,
+  .os-portal-grid,
+  .os-principles {
+    grid-template-columns: 1fr;
+  }
+
+  .os-hero {
+    padding-top: 60px;
+  }
+}

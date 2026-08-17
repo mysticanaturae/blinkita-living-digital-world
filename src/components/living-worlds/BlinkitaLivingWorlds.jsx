@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./BlinkitaLivingWorlds.css";
 
 import { WorldRegistry } from "../../core/registry/WorldRegistry";
+import { getWorldState } from "../../core/state/WorldState";
 
 
 function getWorldStage(world) {
@@ -130,6 +131,24 @@ export default function BlinkitaLivingWorlds() {
     WorldRegistry.getWorlds()
   );
 
+  const worldState = getWorldState();
+
+  const intelligence =
+    worldState?.intelligence || {};
+
+  const intelligenceLevel =
+    intelligence.level || 0;
+
+  const latestInsight =
+    intelligence.insights?.[
+      intelligence.insights.length - 1
+    ] || null;
+
+  const latestMemory =
+    intelligence.history?.[
+      intelligence.history.length - 1
+    ] || null;
+
 
   const filteredWorlds = useMemo(() => {
 
@@ -225,6 +244,90 @@ export default function BlinkitaLivingWorlds() {
           </div>
 
         </button>
+
+      </section>
+
+
+      {/* LIVING INTELLIGENCE */}
+
+      <section className="living-intelligence">
+
+        <div className="living-intelligence-header">
+
+          <div>
+
+            <div className="living-intelligence-label">
+              LIVING INTELLIGENCE™
+            </div>
+
+            <h2>
+              YOUR WORLD IS AWARE
+            </h2>
+
+          </div>
+
+          <div className="living-intelligence-level">
+
+            <span>
+              INTELLIGENCE
+            </span>
+
+            <strong>
+              {intelligenceLevel}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div className="living-intelligence-body">
+
+          <div className="living-intelligence-insight">
+
+            <div className="living-intelligence-card-label">
+              LATEST INSIGHT
+            </div>
+
+            <div className="living-intelligence-card-value">
+
+              {latestInsight?.meaning ||
+                "Your Living World is beginning to observe and understand its experiences."}
+
+            </div>
+
+          </div>
+
+
+          <div className="living-intelligence-memory">
+
+            <div className="living-intelligence-card-label">
+              LIVING MEMORY
+            </div>
+
+            <div className="living-intelligence-card-value">
+
+              {latestMemory?.message ||
+                "Your world has not yet formed its first memory."}
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div className="living-intelligence-footer">
+
+          <span>
+            A Living World™ can remember what happens within it.
+          </span>
+
+          <span>
+            INTELLIGENCE → MEMORY → EVOLUTION
+          </span>
+
+        </div>
 
       </section>
 
@@ -589,3 +692,4 @@ export default function BlinkitaLivingWorlds() {
   );
 
 }
+

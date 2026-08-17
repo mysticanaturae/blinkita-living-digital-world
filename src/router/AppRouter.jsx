@@ -24,6 +24,7 @@ import WorldDashboard from "../components/world/WorldDashboard";
 import WorldBuilderHome from "../components/builder/WorldBuilderHome";
 import WorldUnderConstruction from "../components/world/WorldUnderConstruction";
 import BlinkitaEcosystemMandala from "../components/ecosystem/BlinkitaEcosystemMandala";
+import BlinkitaLivingEcosystem from "../components/ecosystem/BlinkitaLivingEcosystem";
 import BlinkitaStudio from "../components/studio/BlinkitaStudio";
 import BlinkitaAcademy from "../components/academy/BlinkitaAcademy";
 import BlinkitaLivingWorlds from "../components/living-worlds/BlinkitaLivingWorlds";
@@ -33,6 +34,8 @@ import BlinkitaMethod from "../components/method/BlinkitaMethod";
 import BlinkitaLivingMemory from "../components/living-memory/BlinkitaLivingMemory";
 import BlinkitaAI from "../components/ai/BlinkitaAI";
 import BlinkitaMarket from "../components/market/BlinkitaMarket";
+import LivingWorldShell from "../components/shared/LivingWorldShell";
+import BlinkitaOS from "../components/os/BlinkitaOS";
 
 
 
@@ -53,6 +56,14 @@ export default function AppRouter() {
         path="/ecosystem"
         element={<BlinkitaEcosystemMandala />}
     />
+    <Route
+    path="/world/ecosystem"
+    element={
+        <LivingWorldShell>
+            <BlinkitaLivingEcosystem />
+        </LivingWorldShell>
+    }
+/>
 
 
     <Route
@@ -218,51 +229,99 @@ export default function AppRouter() {
 />
 
 <Route
+    path="/world/os"
+    element={
+        <LivingWorldShell>
+            <BlinkitaOS />
+        </LivingWorldShell>
+    }
+/>
+<Route
     path="/world/world-builder"
     element={<WorldBuilderHome />}
 />
 
 <Route
     path="/world/studio"
-    element={<BlinkitaStudio />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaStudio />
+        </LivingWorldShell>
+    }
 />
 
 <Route
     path="/world/academy"
-    element={<BlinkitaAcademy />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaAcademy />
+        </LivingWorldShell>
+    }
 />
 
 <Route
     path="/world/ai"
-    element={<BlinkitaAI />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaAI />
+        </LivingWorldShell>
+    }
 />
 <Route
     path="/world/market"
-    element={<BlinkitaMarket />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaMarket />
+        </LivingWorldShell>
+    }
 />
 <Route
     path="/world/living-memory"
-    element={<BlinkitaLivingMemory />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaLivingMemory />
+        </LivingWorldShell>
+    }
 />
 <Route
     path="/world/living-worlds"
-    element={<BlinkitaLivingWorlds />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaLivingWorlds />
+        </LivingWorldShell>
+    }
 />
 <Route
     path="/world/timeline"
-    element={<BlinkitaTimeline />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaTimeline />
+        </LivingWorldShell>
+    }
 />
 <Route
     path="/world/library"
-    element={<BlinkitaLibrary />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaLibrary />
+        </LivingWorldShell>
+    }
 />
 <Route
     path="/world/community"
-    element={<BlinkitaCommunity />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaCommunity />
+        </LivingWorldShell>
+    }
 />
 <Route
     path="/world/method"
-    element={<BlinkitaMethod />}
+    element={
+        <LivingWorldShell>
+            <BlinkitaMethod />
+        </LivingWorldShell>
+    }
 />
 
 <Route
@@ -334,6 +393,14 @@ export default function AppRouter() {
 
 
 }
+
+
+
+
+
+
+
+
 
 
 
