@@ -661,3 +661,257 @@
   padding-top: 0;
 }
 
+
+/* =========================================================
+   LIVING INTELLIGENCE
+   PREMIUM SYSTEM LAYER
+========================================================= */
+
+.living-intelligence {
+  width: min(1100px, 100%);
+  margin: 0 auto 88px;
+  padding: 42px 46px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 30px;
+
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(158, 215, 208, 0.07),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 88% 82%,
+      rgba(216, 192, 138, 0.045),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.055),
+      rgba(255,255,255,0.018)
+    );
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.035);
+
+  backdrop-filter: blur(18px);
+}
+
+.living-intelligence-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+
+  margin-bottom: 34px;
+}
+
+.living-intelligence-kicker {
+  margin-bottom: 9px;
+
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+
+  opacity: 0.46;
+}
+
+.living-intelligence-header h2 {
+  margin: 0;
+
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.055em;
+}
+
+.living-intelligence-level {
+  flex-shrink: 0;
+
+  min-width: 110px;
+  padding: 14px 18px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  border: 1px solid rgba(158,215,208,0.16);
+  border-radius: 16px;
+
+  background: rgba(158,215,208,0.045);
+}
+
+.living-intelligence-level small {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+
+  opacity: 0.42;
+}
+
+.living-intelligence-level strong {
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  color: rgba(238,246,251,0.92);
+}
+
+.living-intelligence-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(260px, 0.65fr);
+
+  gap: 20px;
+}
+
+.living-intelligence-card {
+  min-width: 0;
+  min-height: 190px;
+
+  padding: 28px 30px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 22px;
+
+  background: rgba(255,255,255,0.025);
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.living-intelligence-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(255,255,255,0.17);
+
+  background: rgba(255,255,255,0.038);
+}
+
+.living-intelligence-card-label {
+  margin-bottom: 15px;
+
+  font-size: 0.61rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  opacity: 0.42;
+}
+
+.living-intelligence-card h3 {
+  margin: 0 0 12px;
+
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.living-intelligence-card p {
+  margin: 0;
+
+  font-size: 0.86rem;
+  line-height: 1.7;
+
+  opacity: 0.58;
+}
+
+.living-intelligence-insight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.living-intelligence-memory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.living-intelligence-empty {
+  opacity: 0.42;
+}
+
+.living-intelligence-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 34px 0 0;
+
+  background: rgba(255,255,255,0.07);
+}
+
+
+/* =========================================================
+   WORLD GALLERY — PREMIUM SEPARATION
+========================================================= */
+
+.living-worlds-library {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.living-worlds-library-header {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.living-world-gallery {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   LIVING INTELLIGENCE RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .living-intelligence {
+    margin-bottom: 64px;
+    padding: 32px 24px;
+    border-radius: 24px;
+  }
+
+  .living-intelligence-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .living-intelligence-level {
+    min-width: 100px;
+  }
+
+  .living-intelligence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .living-intelligence-card {
+    min-height: 160px;
+    padding: 24px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .living-intelligence {
+    padding: 26px 20px;
+  }
+
+  .living-intelligence-header h2 {
+    font-size: 1.65rem;
+  }
+
+}

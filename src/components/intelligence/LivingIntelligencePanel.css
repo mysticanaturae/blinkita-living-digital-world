@@ -1,0 +1,278 @@
+.living-intelligence-panel {
+  width: min(1100px, 100%);
+  margin: 0 auto 72px;
+  padding: 34px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 28px;
+  background: rgba(255,255,255,0.025);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.18);
+}
+
+.living-intelligence-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.living-intelligence-panel-label {
+  margin-bottom: 10px;
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  opacity: 0.5;
+}
+
+.living-intelligence-panel h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+
+.living-intelligence-panel-header p {
+  max-width: 620px;
+  margin: 14px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  opacity: 0.58;
+}
+
+.living-intelligence-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  opacity: 0.65;
+}
+
+.living-intelligence-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.living-intelligence-conversation {
+  min-height: 180px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.018);
+}
+
+.living-intelligence-empty {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+}
+
+.living-intelligence-empty-icon {
+  margin-bottom: 12px;
+  font-size: 2rem;
+}
+
+.living-intelligence-empty-title {
+  margin-bottom: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  opacity: 0.7;
+}
+
+.living-intelligence-empty-text {
+  max-width: 500px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  opacity: 0.48;
+}
+
+.living-intelligence-message {
+  padding: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.living-intelligence-message:last-child {
+  border-bottom: 0;
+}
+
+.living-intelligence-question span,
+.living-intelligence-response span {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.57rem;
+  letter-spacing: 0.16em;
+  opacity: 0.4;
+}
+
+.living-intelligence-question p,
+.living-intelligence-response p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.living-intelligence-response {
+  margin-top: 20px;
+  padding-left: 18px;
+  border-left: 1px solid rgba(255,255,255,0.16);
+}
+
+.remember-button {
+  margin-top: 18px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.035);
+  color: inherit;
+  font: inherit;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.remember-button:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.remember-button.remembered {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.living-intelligence-history {
+  margin-bottom: 18px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.018);
+}
+
+.living-intelligence-history-label {
+  margin-bottom: 10px;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  opacity: 0.45;
+}
+
+.living-intelligence-history-item span {
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  opacity: 0.35;
+}
+
+.living-intelligence-history-item p {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  opacity: 0.65;
+}
+
+.living-intelligence-history-empty {
+  font-size: 0.78rem;
+  opacity: 0.4;
+}
+
+.living-intelligence-input-area {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.living-intelligence-input-area textarea {
+  flex: 1;
+  min-height: 64px;
+  padding: 16px;
+  box-sizing: border-box;
+  resize: vertical;
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 18px;
+  outline: none;
+  background: rgba(255,255,255,0.035);
+  color: inherit;
+  font: inherit;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.living-intelligence-input-area textarea:focus {
+  border-color: rgba(255,255,255,0.25);
+}
+
+.living-intelligence-ask {
+  align-self: stretch;
+  padding: 0 22px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.07);
+  color: inherit;
+  font: inherit;
+  font-size: 0.65rem;
+  letter-spacing: 0.13em;
+  cursor: pointer;
+}
+
+.living-intelligence-ask:hover {
+  background: rgba(255,255,255,0.11);
+}
+
+.living-intelligence-footer {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  opacity: 0.3;
+}
+
+@media (max-width: 680px) {
+  .living-intelligence-panel {
+    padding: 22px;
+  }
+
+  .living-intelligence-panel-header {
+    flex-direction: column;
+  }
+
+  .living-intelligence-input-area {
+    flex-direction: column;
+  }
+
+  .living-intelligence-ask {
+    min-height: 48px;
+  }
+}
+
+.living-intelligence-empty,
+.living-intelligence-message,
+.living-intelligence-history {
+  text-align: center;
+}
+
+.living-intelligence-response {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.living-intelligence-question p,
+.living-intelligence-response p,
+.living-intelligence-history-item p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.living-intelligence-input-area textarea {
+  text-align: center;
+}
+
+.living-intelligence-input-area textarea::placeholder {
+  text-align: center;
+}
