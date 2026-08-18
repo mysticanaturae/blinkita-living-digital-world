@@ -358,3 +358,66 @@ MOBILE — FINAL MANDALA PROPORTIONS
             scale(2.8);
     }
 }
+/* =========================================
+   ECOSYSTEM GENESIS PORTAL
+   ========================================= */
+
+.ecosystem-mandala::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(3,5,15,.38),
+            rgba(3,5,15,.38)
+        ),
+        url("/portal/images/Blinkita_OS_Intro.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    opacity: .42;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   ECOSYSTEM PORTAL ATMOSPHERE
+   ========================================= */
+
+.ecosystem-mandala::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 0%,
+            rgba(3,5,15,.12) 42%,
+            rgba(3,5,15,.72) 100%
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+
+}
+
+
+}
+

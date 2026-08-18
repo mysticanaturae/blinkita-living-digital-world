@@ -1,5 +1,4 @@
-﻿import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+﻿import { useNavigate } from "react-router-dom";
 
 import "./BlinkitaGenesis.css";
 
@@ -7,34 +6,52 @@ export default function BlinkitaGenesis() {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-
-        const timer = setTimeout(() => {
-
-            navigate("/ecosystem");
-
-        }, 5000);
-
-        return () => clearTimeout(timer);
-
-    }, [navigate]);
-
+    function enterEcosystem() {
+        navigate("/ecosystem");
+    }
 
     return (
 
-        <div className="blinkita-genesis">
+        <main className="blinkita-genesis">
 
-            <div className="genesis-light">
+            <div className="genesis-background" />
 
-                <img
-                    src="/portal/icons/master_brand_icons/blinkita-ecosystem-clean.png"
-                    alt="BLINKITA ECOSYSTEM™"
-                    className="ecosystem-genesis-icon"
-                />
+            <div className="genesis-overlay" />
 
-            </div>
+            <section className="genesis-content">
 
-        </div>
+                <div className="genesis-kicker">
+                    BLINKITA OS™
+                </div>
+
+                <h1>
+                    ONE VISION.<br />
+                    ONE ECOSYSTEM.<br />
+                    INFINITE WORLDS.
+                </h1>
+
+                <p className="genesis-lead">
+                    Imagine having everything you need to create,
+                    explore, remember and evolve in one living
+                    digital ecosystem.
+                </p>
+
+                <p className="genesis-memory">
+                    Remember what you create.<br />
+                    Discover what wants to become next.
+                </p>
+
+                <button
+                    type="button"
+                    className="genesis-enter"
+                    onClick={enterEcosystem}
+                >
+                    ENTER THE ECOSYSTEM
+                </button>
+
+            </section>
+
+        </main>
 
     );
 
