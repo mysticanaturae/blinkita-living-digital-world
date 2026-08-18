@@ -1780,54 +1780,6 @@ export default function WorldBuilderHome() {
                         <div
                             className="
                                 world-builder-field
-                                world-builder-system-field
-                            "
-                        >
-
-                            <label>
-                                CREATOR ARCHETYPE · SYSTEM DETERMINED
-                            </label>
-
-                            <div
-                                className="
-                                    world-builder-archetype-display
-                                "
-                            >
-
-                                <span
-                                    className="
-                                        archetype-symbol
-                                    "
-                                >
-                                    {selectedAvatarData.symbol}
-                                </span>
-
-                                <div>
-
-                                    <strong>
-                                        {
-                                            selectedAvatarData.name ||
-                                            archetype ||
-                                            "Explorer Creator"
-                                        }
-                                    </strong>
-
-                                    <small>
-                                        {
-                                            selectedAvatarData.meaning
-                                        }
-                                    </small>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div
-                            className="
-                                world-builder-field
                             "
                         >
 
@@ -3124,4 +3076,5 @@ export default function WorldBuilderHome() {
         </section>
     );
 }
+
 
