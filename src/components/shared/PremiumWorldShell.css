@@ -29,3 +29,41 @@
     min-width: 0;
 }
 
+
+@media (max-width: 768px) {
+    .premium-world-shell {
+        width: 100%;
+        max-width: 100vw;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    .premium-world-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    .premium-world-content > main,
+    .premium-world-content > section,
+    .premium-world-content > div {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .premium-world-content img,
+    .premium-world-content video,
+    .premium-world-content iframe {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .premium-world-content button,
+    .premium-world-content a {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
