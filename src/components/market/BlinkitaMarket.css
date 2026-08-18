@@ -35,13 +35,16 @@
 .market-paths {
   width: min(1100px, 100%);
   margin: 0 auto;
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
 .market-path-card {
+  display: block;
+  width: 100%;
   min-height: 210px;
+  margin-top: 0;
   padding: 30px;
   box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -50,6 +53,9 @@
   color: inherit;
   text-align: left;
   cursor: pointer;
+  font: inherit;
+  line-height: inherit;
+  appearance: none;
   transition:
     transform 180ms ease,
     background 180ms ease,
@@ -117,6 +123,27 @@
   }
 
   .market-path-card {
-    min-height: 180px;
-  }
+  display: block;
+  width: 100%;
+  min-height: 210px;
+  margin-top: 0;
+  padding: 30px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  line-height: inherit;
+  appearance: none;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
 }
+}
+
+
+
