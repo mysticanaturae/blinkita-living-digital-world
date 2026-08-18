@@ -23,7 +23,10 @@ import {
     getWorldBuilderDeck
 } from "../../core/living-cards/WorldBuilderLivingCards";
 
-import "../../styles/world-builder.css";
+import {
+    LIVING_CARD_REGISTRY
+} from "../../core/living-cards/LivingCardRegistry";
+import "./CreatorDashboard.css";
 
 /*
 ====================================================
@@ -557,143 +560,7 @@ LIVING CARD ORACLE
 ====================================================
 */
 
-const livingCards = [
-    {
-        id: "vision",
-        title: "VISION",
-        symbol: "✨",
-        essence: "See what is asking to emerge.",
-        reading:
-            "Look beyond what already exists. A new possibility may be waiting for your attention.",
-        destination: "/builder"
-    },
-    {
-        id: "evolution",
-        title: "EVOLUTION",
-        symbol: "🌀",
-        essence: "Notice what is becoming.",
-        reading:
-            "Your creation does not need to be finished. Something within it may already be changing.",
-        destination: "/lifecycle"
-    },
-    {
-        id: "consciousness",
-        title: "CONSCIOUSNESS",
-        symbol: "◇",
-        essence: "Become aware of what is moving within.",
-        reading:
-            "Pause before acting. Something important may become visible when you simply notice.",
-        destination: "/ai"
-    },
-    {
-        id: "guidance",
-        title: "GUIDANCE",
-        symbol: "🧭",
-        essence: "Listen for the next direction.",
-        reading:
-            "You may not need the whole path. Sometimes the next step is enough.",
-        destination: "/ai"
-    },
-    {
-        id: "healing",
-        title: "HEALING",
-        symbol: "🌿",
-        essence: "Give something space to restore.",
-        reading:
-            "Not everything needs to be solved today. Some things need attention, patience and space.",
-        destination: "/ai"
-    },
-    {
-        id: "protection",
-        title: "PROTECTION",
-        symbol: "🛡️",
-        essence: "Protect what is becoming.",
-        reading:
-            "Something valuable may need stronger boundaries before it can grow.",
-        destination: "/protection"
-    },
-    {
-        id: "community",
-        title: "COMMUNITY",
-        symbol: "◎",
-        essence: "Creation becomes richer through connection.",
-        reading:
-            "Look for the person, relationship or community that could help your creation breathe.",
-        destination: "/community"
-    },
-    {
-        id: "navigation",
-        title: "NAVIGATION",
-        symbol: "🧭",
-        essence: "Find your next true direction.",
-        reading:
-            "You do not need certainty. Choose the direction that feels most alive.",
-        destination: "/navigation"
-    },
-    {
-        id: "growth",
-        title: "GROWTH",
-        symbol: "🌱",
-        essence: "Something is taking root.",
-        reading:
-            "Small consistent movement may matter more than a dramatic leap right now.",
-        destination: "/evolution"
-    },
-    {
-        id: "alchemy",
-        title: "ALCHEMY",
-        symbol: "⚗️",
-        essence: "Transform what you already have.",
-        reading:
-            "An old experience may contain a new possibility when seen from another angle.",
-        destination: "/ai"
-    },
-    {
-        id: "learning",
-        title: "LEARNING",
-        symbol: "◈",
-        essence: "Let experience become intelligence.",
-        reading:
-            "Something you recently experienced may be teaching you more than you realize.",
-        destination: "/academy"
-    },
-    {
-        id: "creation",
-        title: "CREATION",
-        symbol: "✦",
-        essence: "Bring one possibility into form.",
-        reading:
-            "Do not wait for the perfect moment. Give one small part of your idea a form today.",
-        destination: "/studio"
-    },
-    {
-        id: "time",
-        title: "TIME",
-        symbol: "◷",
-        essence: "Notice the rhythm of becoming.",
-        reading:
-            "What you are creating has its own timing. Listen before forcing the next movement.",
-        destination: "/living-time"
-    },
-    {
-        id: "portal",
-        title: "PORTAL",
-        symbol: "◉",
-        essence: "A doorway is opening.",
-        reading:
-            "You may be closer to a new experience than you think. Notice what invites you forward.",
-        destination: "/portal"
-    },
-    {
-        id: "energy",
-        title: "ENERGY",
-        symbol: "⚡",
-        essence: "Notice where your energy wants to move.",
-        reading:
-            "Your attention is energy. Give more of it to what you want to become alive.",
-        destination: "/ai"
-    }
-];
+const livingCards = LIVING_CARD_REGISTRY;
 
 /*
 ====================================================
@@ -3166,6 +3033,30 @@ export default function WorldBuilderHome() {
                             "
                         >
 
+
+                            <div
+                                className="
+                                    living-card-result-image-wrap
+                                "
+                            >
+
+                                <img
+                                    src={selectedCard.image}
+                                    alt={selectedCard.title}
+                                    className="
+                                        living-card-result-image
+                                    "
+                                />
+
+                            </div>
+
+
+                            <div
+                                className="
+                                    living-card-result-content
+                                "
+                            >
+
                             <div
                                 className="
                                     living-card-result-symbol
@@ -3212,6 +3103,9 @@ export default function WorldBuilderHome() {
                                 ENTER THIS WORLD
                             </button>
 
+                            </div>
+
+
                         </div>
 
                     </div>
@@ -3223,4 +3117,7 @@ export default function WorldBuilderHome() {
         </section>
     );
 }
+
+
+
 
