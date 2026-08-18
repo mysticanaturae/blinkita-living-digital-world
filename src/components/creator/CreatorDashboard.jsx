@@ -1553,10 +1553,17 @@ export default function WorldBuilderHome() {
                         </strong>
 
                         <small>
-                         Kin {livingTimeToday.kin}
-                           {" · "}
-                            {livingTimeToday.sign.element}
-                            </small>
+    {livingTimeToday
+        ? (
+            <>
+                Kin {livingTimeToday.kin}
+                {" · "}
+                {livingTimeToday.sign.element}
+            </>
+        )
+        : "Living Time will appear after your Birth Matrix is calculated."
+    }
+</small>
 
                     </div>
 
@@ -3117,7 +3124,4 @@ export default function WorldBuilderHome() {
         </section>
     );
 }
-
-
-
 
