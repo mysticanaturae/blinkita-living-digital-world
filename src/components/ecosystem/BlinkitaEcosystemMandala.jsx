@@ -162,6 +162,10 @@ export default function BlinkitaEcosystemMandala() {
 
         <div className="ecosystem-mandala">
 
+    <div className="ecosystem-portal-background" />
+
+    <div className="ecosystem-portal-atmosphere" />
+
 
 
             <div className="ecosystem-orbit">
@@ -285,6 +289,7 @@ export default function BlinkitaEcosystemMandala() {
 
 
 }
+
 
 
 

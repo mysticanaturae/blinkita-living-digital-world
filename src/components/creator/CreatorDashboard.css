@@ -297,7 +297,7 @@
 .avatar-explanation-title {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 
     color: var(--creator-text);
     font-size: 13px;
@@ -305,6 +305,14 @@
 }
 
 .avatar-explanation-title span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 30px;
+    min-width: 30px;
+    margin-right: 6px;
+
     font-size: 21px;
 }
 
@@ -546,6 +554,9 @@
     }
 
 }
+
+
+
 
 
 
