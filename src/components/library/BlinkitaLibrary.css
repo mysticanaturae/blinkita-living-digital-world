@@ -124,3 +124,25 @@
     }
 
 }
+
+.premium-world-shell .blinkita-library .library-paths {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.premium-world-shell .blinkita-library .library-path-card {
+    display: block;
+    width: auto;
+    appearance: none;
+}
+
+@media (max-width: 720px) {
+    .premium-world-shell .blinkita-library .library-paths {
+        grid-template-columns: 1fr;
+    }
+
+    .premium-world-shell .blinkita-library .library-path-card {
+        width: auto;
+    }
+}
