@@ -1552,17 +1552,16 @@ export default function WorldBuilderHome() {
                             }
                         </strong>
 
-                        <small>
-    {livingTimeToday
-        ? (
-            <>
-                Kin {livingTimeToday.kin}
-                {" · "}
-                {livingTimeToday.sign.element}
-            </>
-        )
-        : "Living Time will appear after your Birth Matrix is calculated."
-    }
+                 <small>
+  {
+    livingTimeToday
+      ? <>
+          Kin {livingTimeToday.kin}
+          {" · "}
+          {livingTimeToday.sign.element}
+        </>
+      : "Living Time not calculated yet"
+  }
 </small>
 
                     </div>
@@ -1773,6 +1772,54 @@ export default function WorldBuilderHome() {
                                 }
                                 placeholder="Your name"
                             />
+
+                        </div>
+
+
+                        <div
+                            className="
+                                world-builder-field
+                                world-builder-system-field
+                            "
+                        >
+
+                            <label>
+                                CREATOR ARCHETYPE · SYSTEM DETERMINED
+                            </label>
+
+                            <div
+                                className="
+                                    world-builder-archetype-display
+                                "
+                            >
+
+                                <span
+                                    className="
+                                        archetype-symbol
+                                    "
+                                >
+                                    {selectedAvatarData.symbol}
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        {
+                                            selectedAvatarData.name ||
+                                            archetype ||
+                                            "Explorer Creator"
+                                        }
+                                    </strong>
+
+                                    <small>
+                                        {
+                                            selectedAvatarData.meaning
+                                        }
+                                    </small>
+
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -3009,13 +3056,6 @@ export default function WorldBuilderHome() {
 
                             </div>
 
-
-                            <div
-                                className="
-                                    living-card-result-content
-                                "
-                            >
-
                             <div
                                 className="
                                     living-card-result-symbol
@@ -3062,9 +3102,6 @@ export default function WorldBuilderHome() {
                                 ENTER THIS WORLD
                             </button>
 
-                            </div>
-
-
                         </div>
 
                     </div>
@@ -3076,5 +3113,7 @@ export default function WorldBuilderHome() {
         </section>
     );
 }
+
+
 
 

@@ -1,563 +1,1460 @@
 ﻿/* ============================================================
    BLINKITA CREATOR DASHBOARD™
-   PREMIUM CREATOR EXPERIENCE
-   ============================================================ */
+   PREMIUM CREATOR EXPERIENCE v2
 
-:root {
-    --creator-bg: #07131d;
-    --creator-surface: rgba(16, 30, 40, .82);
-    --creator-surface-soft: rgba(21, 39, 49, .62);
-    --creator-border: rgba(183, 214, 207, .18);
-    --creator-border-strong: rgba(183, 214, 207, .34);
-    --creator-text: #edf5f2;
-    --creator-muted: rgba(225, 239, 235, .62);
-    --creator-accent: #b9ddd5;
-    --creator-gold: #d7c18a;
-}
+   Golden reference:
+   /world/timeline
+
+   ============================================================ */
 
 
 /* ============================================================
-   CREATOR CARDS
+   ROOT
    ============================================================ */
 
-.world-builder-card {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--creator-border);
-    border-radius: 28px;
+
+.creator-dashboard-page,
+.world-builder-page {
+
+    --creator-bg:
+        #050b09;
+
+    --creator-bg-soft:
+        #091511;
+
+    --creator-panel:
+        rgba(17,29,24,.88);
+
+    --creator-panel-light:
+        rgba(27,42,34,.75);
+
+    --creator-border:
+        rgba(218,194,133,.22);
+
+    --creator-border-strong:
+        rgba(218,194,133,.45);
+
+    --creator-gold:
+        #d8c184;
+
+    --creator-gold-light:
+        #f0dfaa;
+
+    --creator-text:
+        #f5f1e7;
+
+    --creator-muted:
+        rgba(245,241,231,.65);
+
+
+    width:100%;
+
+    min-height:100vh;
+
+    color:var(--creator-text);
+
     background:
+
         radial-gradient(
             circle at 50% 0%,
-            rgba(174, 215, 207, .08),
-            transparent 42%
+            rgba(216,193,132,.12),
+            transparent 35%
         ),
-        linear-gradient(
-            145deg,
-            rgba(21, 39, 49, .92),
-            rgba(7, 17, 27, .96)
-        );
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.055);
-    color: var(--creator-text);
+
+        radial-gradient(
+            circle at 10% 40%,
+            rgba(55,110,80,.18),
+            transparent 35%
+        ),
+
+        var(--creator-bg);
+
+
+    overflow-x:hidden;
+
 }
+
 
 
 /* ============================================================
-   CARD LABEL
+   ALL CONTENT WIDTH
    ============================================================ */
 
-.world-builder-card-label {
-    margin-bottom: 26px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .24em;
-    text-transform: uppercase;
-    color: var(--creator-muted);
+
+.creator-dashboard-page > *,
+.world-builder-page > * {
+
+    width:min(
+        1400px,
+        calc(100% - 64px)
+    );
+
+    margin-left:auto;
+
+    margin-right:auto;
+
 }
+
 
 
 /* ============================================================
-   MY PORTRAIT
+   HEADER
    ============================================================ */
 
-.world-builder-portrait {
-    padding: 34px;
+
+.creator-dashboard-page .living-header,
+.creator-dashboard-page .world-builder-header {
+
+    padding-top:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
 }
 
-.world-builder-portrait-main {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 24px;
-}
 
 
-/* ============================================================
-   CREATOR AVATAR / SELFIE
-   ============================================================ */
+.creator-dashboard-page
+.world-builder-title-mark {
 
-.world-builder-avatar {
-    position: relative;
-    flex: 0 0 116px;
-    width: 116px;
-    height: 116px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width:82px;
 
-    border-radius: 50%;
-    border: 1px solid var(--creator-border-strong);
+    height:82px;
+
+    border-radius:50%;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
 
     background:
+
         radial-gradient(
             circle,
-            rgba(184, 220, 212, .14),
-            rgba(9, 21, 31, .92) 68%
+            rgba(216,193,132,.18),
+            rgba(5,11,9,.95)
         );
 
+
+    border:
+
+        1px solid var(--creator-border-strong);
+
+
+    font-size:38px;
+
+
     box-shadow:
-        0 0 0 7px rgba(185,221,213,.025),
-        0 0 0 8px rgba(185,221,213,.08),
-        0 18px 45px rgba(0,0,0,.35),
-        inset 0 1px 0 rgba(255,255,255,.08);
 
-    overflow: hidden;
-}
+        0 20px 60px rgba(0,0,0,.45);
 
-.world-builder-avatar::after {
-    content: "";
-    position: absolute;
-    inset: 7px;
-    border-radius: 50%;
-    border: 1px solid rgba(215,193,138,.20);
-    pointer-events: none;
-}
-
-.world-builder-avatar span {
-    position: relative;
-    z-index: 2;
-    font-size: 38px;
 }
 
 
-/* REAL SELFIE */
 
-.world-builder-avatar.has-selfie {
-    background: #0a141b;
+.creator-dashboard-page
+.living-header h1 {
+
+
+    margin:0;
+
+
+    font-size:
+
+        clamp(
+            2.8rem,
+            5vw,
+            5rem
+        );
+
+
+    font-weight:300;
+
+
+    letter-spacing:-.05em;
+
+
 }
 
-.world-builder-selfie {
-    display: block;
-    width: 100%;
-    height: 100%;
 
-    object-fit: cover;
-    object-position: center;
 
-    border-radius: 50%;
+.creator-dashboard-page
+.living-header p {
+
+
+    margin-top:12px;
+
+
+    color:var(--creator-muted);
+
+
+    text-transform:uppercase;
+
+
+    letter-spacing:.22em;
+
+
+    font-size:.7rem;
+
+
 }
+
 
 
 /* ============================================================
-   PORTRAIT INFO
+   ROW SYSTEM
    ============================================================ */
 
-.world-builder-portrait-info {
-    min-width: 0;
 
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
+.creator-dashboard-page
+.world-builder-row {
+
+
+    margin-top:70px;
+
 }
 
-.world-builder-portrait-info strong {
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: -.02em;
-    color: var(--creator-text);
+
+
+.creator-dashboard-page
+.world-builder-row-three {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+
+    gap:28px;
+
+
 }
 
-.world-builder-portrait-info span {
-    font-size: 12px;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--creator-muted);
+
+
+.creator-dashboard-page
+.world-builder-row-two {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+
+    gap:28px;
+
+
 }
+
 
 
 /* ============================================================
-   SELFIE UPLOAD
+   PREMIUM CARDS
    ============================================================ */
 
-.world-builder-selfie-upload {
-    position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.creator-dashboard-page
+.world-builder-card {
 
-    min-height: 46px;
-    margin-bottom: 30px;
 
-    border: 1px solid var(--creator-border);
-    border-radius: 14px;
+    position:relative;
+
+
+    padding:34px;
+
+
+    border-radius:30px;
+
+
+    border:
+
+        1px solid var(--creator-border);
+
 
     background:
+
+        linear-gradient(
+            145deg,
+            rgba(25,42,34,.92),
+            rgba(7,14,12,.96)
+        );
+
+
+    box-shadow:
+
+        0 40px 100px rgba(0,0,0,.45),
+
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+.creator-dashboard-page
+.world-builder-card::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            rgba(216,193,132,.10),
+            transparent 45%
+        );
+
+
+    pointer-events:none;
+
+
+}
+
+
+
+.creator-dashboard-page
+.world-builder-card > * {
+
+
+    position:relative;
+
+    z-index:1;
+
+}
+
+
+
+/* ============================================================
+   CARD TITLES
+   ============================================================ */
+
+
+.creator-dashboard-page
+.world-builder-card-label {
+
+
+    color:
+
+        var(--creator-gold);
+
+
+    font-size:.65rem;
+
+
+    font-weight:700;
+
+
+    letter-spacing:.28em;
+
+
+    text-transform:uppercase;
+
+
+    margin-bottom:28px;
+
+
+}
+
+
+/* ============================================================
+   CREATOR IDENTITY
+   PORTRAIT
+   ============================================================ */
+
+
+.creator-dashboard-page
+.world-builder-portrait-main {
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+
+}
+
+
+
+.creator-dashboard-page
+.world-builder-avatar {
+
+
+    width:130px;
+
+    height:130px;
+
+
+    flex-shrink:0;
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    overflow:hidden;
+
+
+    border:
+
+        1px solid var(--creator-border-strong);
+
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(216,193,132,.18),
+            rgba(5,11,9,.95)
+        );
+
+
+    box-shadow:
+
+
+        0 0 0 10px rgba(216,193,132,.04),
+
+
+        0 30px 80px rgba(0,0,0,.5);
+
+
+}
+
+
+
+.creator-dashboard-page
+.world-builder-avatar span {
+
+
+    font-size:46px;
+
+}
+
+
+
+.creator-dashboard-page
+.world-builder-selfie {
+
+
+    width:100%;
+
+    height:100%;
+
+
+    object-fit:cover;
+
+
+    border-radius:50%;
+
+
+}
+
+
+
+
+.creator-dashboard-page
+.world-builder-portrait-info strong {
+
+
+    display:block;
+
+
+    font-size:28px;
+
+
+    font-weight:400;
+
+
+    letter-spacing:-.03em;
+
+
+}
+
+
+
+
+.creator-dashboard-page
+.world-builder-portrait-info span {
+
+
+    display:block;
+
+
+    margin-top:10px;
+
+
+    color:var(--creator-muted);
+
+
+    font-size:.7rem;
+
+
+    text-transform:uppercase;
+
+
+    letter-spacing:.18em;
+
+
+}
+
+
+
+
+
+/* ============================================================
+   AVATAR SELECTOR
+   ============================================================ */
+
+
+.creator-dashboard-page
+.world-builder-avatar-grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+        repeat(
+            7,
+            1fr
+        );
+
+
+    gap:12px;
+
+
+    margin-top:32px;
+
+
+}
+
+
+
+.creator-dashboard-page
+.avatar-choice {
+
+
+    aspect-ratio:1;
+
+
+    border-radius:16px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    cursor:pointer;
+
+
+    font-size:24px;
+
+
+    color:var(--creator-text);
+
+
+    background:
+
+        rgba(5,11,9,.7);
+
+
+    border:
+
+        1px solid rgba(218,194,133,.18);
+
+
+    transition:.3s ease;
+
+
+}
+
+
+
+.creator-dashboard-page
+.avatar-choice:hover {
+
+
+    transform:translateY(-3px);
+
+
+    border-color:
+
+        var(--creator-gold);
+
+
+}
+
+
+
+.creator-dashboard-page
+.avatar-choice.active {
+
+
+    background:
+
+        rgba(216,193,132,.15);
+
+
+    border-color:
+
+        var(--creator-gold-light);
+
+
+    box-shadow:
+
+        0 0 30px rgba(216,193,132,.15);
+
+
+}
+
+
+
+
+
+/* ============================================================
+   BIRTH MATRIX
+   ============================================================ */
+
+
+.creator-dashboard-page
+.birth-matrix {
+
+
+    margin-top:32px;
+
+
+    padding:28px;
+
+
+    border-radius:24px;
+
+
+    border:
+
+        1px solid var(--creator-border);
+
+
+    background:
+
+        rgba(4,10,8,.55);
+
+
+}
+
+
+
+
+.creator-dashboard-page
+.birth-matrix-title {
+
+
+    color:
+
+        var(--creator-gold);
+
+
+    font-size:.65rem;
+
+
+    text-transform:uppercase;
+
+
+    letter-spacing:.28em;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.creator-dashboard-page
+.birth-matrix-grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+        repeat(
+            4,
+            1fr
+        );
+
+
+    gap:16px;
+
+
+}
+
+
+
+.creator-dashboard-page
+.birth-matrix-item {
+
+
+    padding:18px;
+
+
+    border-radius:18px;
+
+
+    background:
+
+        rgba(255,255,255,.03);
+
+
+    border:
+
+        1px solid rgba(218,194,133,.12);
+
+
+}
+
+
+
+
+
+.creator-dashboard-page
+.birth-matrix-item strong {
+
+
+    display:block;
+
+
+    color:
+
+        var(--creator-gold-light);
+
+
+    font-size:1.4rem;
+
+
+}
+
+
+
+.creator-dashboard-page
+.birth-matrix-item span {
+
+
+    display:block;
+
+
+    margin-top:8px;
+
+
+    color:
+
+        var(--creator-muted);
+
+
+    font-size:.65rem;
+
+
+    text-transform:uppercase;
+
+
+    letter-spacing:.15em;
+
+
+}
+
+
+
+
+
+
+/* ============================================================
+   INTELLIGENCE + MEMORY
+   ============================================================ */
+
+
+.creator-dashboard-page
+.creator-intelligence-card,
+.creator-memory-card,
+.living-memory-card {
+
+
+    padding:32px;
+
+
+    border-radius:28px;
+
+
+    border:
+
+        1px solid var(--creator-border);
+
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(19,35,29,.9),
+            rgba(5,11,9,.95)
+        );
+
+
+}
+
+
+
+
+.creator-dashboard-page
+.memory-entry {
+
+
+    padding:16px 0;
+
+
+    border-bottom:
+
+
+        1px solid rgba(218,194,133,.12);
+
+
+}
+
+
+
+.creator-dashboard-page
+.memory-entry:last-child {
+
+
+    border-bottom:none;
+
+
+}
+
+
+
+
+
+.creator-dashboard-page
+.memory-entry small {
+
+
+    color:
+
+        var(--creator-muted);
+
+
+    letter-spacing:.12em;
+
+
+    text-transform:uppercase;
+
+
+}
+
+
+
+
+
+/* ============================================================
+   PROGRESS / LEVEL
+   ============================================================ */
+
+
+.creator-dashboard-page
+.creator-progress {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+        repeat(
+            3,
+            1fr
+        );
+
+
+    gap:18px;
+
+
+}
+
+
+
+.creator-dashboard-page
+.progress-item {
+
+
+    padding:22px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+        rgba(255,255,255,.03);
+
+
+    border:
+
+        1px solid rgba(218,194,133,.15);
+
+
+}
+
+
+
+.creator-dashboard-page
+.progress-item strong {
+
+
+    display:block;
+
+
+    font-size:2rem;
+
+
+    font-weight:300;
+
+
+    color:
+
+        var(--creator-gold-light);
+
+
+}
+
+/* ============================================================
+   LIVING CARDS
+   ============================================================ */
+
+
+.creator-dashboard-page
+.living-card,
+.creator-card {
+
+
+    position:relative;
+
+
+    padding:28px;
+
+
+    border-radius:26px;
+
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(25,42,34,.9),
+            rgba(5,11,9,.96)
+        );
+
+
+    border:
+
+        1px solid var(--creator-border);
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+.creator-dashboard-page
+.living-card:hover,
+.creator-dashboard-page
+.creator-card:hover {
+
+
+    transform:translateY(-4px);
+
+
+    border-color:
+
+        var(--creator-border-strong);
+
+
+}
+
+
+
+
+.creator-dashboard-page
+.living-card-image {
+
+
+    width:100%;
+
+
+    aspect-ratio:1;
+
+
+    object-fit:cover;
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+
+.creator-dashboard-page
+.living-card-title {
+
+
+    margin-top:18px;
+
+
+    font-size:1.3rem;
+
+
+    font-weight:400;
+
+
+    color:
+
+        var(--creator-gold-light);
+
+
+}
+
+
+
+.creator-dashboard-page
+.living-card-description {
+
+
+    margin-top:10px;
+
+
+    color:
+
+        var(--creator-muted);
+
+
+    line-height:1.7;
+
+
+}
+
+
+
+
+
+/* ============================================================
+   ORACLE
+   ============================================================ */
+
+
+.creator-dashboard-page
+.oracle-card {
+
+
+    text-align:center;
+
+
+    padding:40px;
+
+
+    border-radius:32px;
+
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            rgba(216,193,132,.12),
+            rgba(5,11,9,.95)
+        );
+
+
+    border:
+
+        1px solid var(--creator-border);
+
+
+}
+
+
+
+
+.creator-dashboard-page
+.oracle-symbol {
+
+
+    width:100px;
+
+
+    height:100px;
+
+
+    margin:0 auto 24px;
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    font-size:40px;
+
+
+    border:
+
+        1px solid var(--creator-border-strong);
+
+
+    background:
+
+        rgba(216,193,132,.08);
+
+
+}
+
+
+
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+
+.creator-dashboard-page button,
+.creator-dashboard-page .button {
+
+
+    appearance:none;
+
+
+    border:none;
+
+
+    cursor:pointer;
+
+
+    padding:
+
+        14px 28px;
+
+
+    border-radius:999px;
+
+
+    background:
+
         linear-gradient(
             135deg,
-            rgba(185,221,213,.08),
-            rgba(185,221,213,.025)
+            #d8c184,
+            #9f8141
         );
 
-    color: var(--creator-accent);
 
-    cursor: pointer;
-    transition: .25s ease;
+    color:#17130a;
+
+
+    font-weight:600;
+
+
+    letter-spacing:.08em;
+
+
+    text-transform:uppercase;
+
+
+    font-size:.72rem;
+
+
+    transition:.3s ease;
+
+
 }
 
-.world-builder-selfie-upload:hover {
-    border-color: var(--creator-border-strong);
-    background: rgba(185,221,213,.11);
-    transform: translateY(-1px);
+
+
+.creator-dashboard-page button:hover,
+.creator-dashboard-page .button:hover {
+
+
+    transform:translateY(-2px);
+
+
+    box-shadow:
+
+        0 15px 40px rgba(216,193,132,.25);
+
+
 }
 
-.world-builder-selfie-upload span {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: .20em;
-}
 
-.world-builder-selfie-upload input {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-
-    opacity: 0;
-    cursor: pointer;
-}
 
 
 /* ============================================================
-   AVATAR CHOICES
+   INPUTS
    ============================================================ */
 
-.world-builder-avatar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 9px;
-    margin-bottom: 24px;
-}
 
-.avatar-choice {
-    width: 100%;
-    aspect-ratio: 1;
+.creator-dashboard-page input,
+.creator-dashboard-page textarea,
+.creator-dashboard-page select {
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    border: 1px solid rgba(183,214,207,.12);
-    border-radius: 13px;
+    width:100%;
 
-    background: rgba(8,20,29,.72);
 
-    color: var(--creator-text);
-    font-size: 20px;
+    padding:16px 18px;
 
-    cursor: pointer;
-    transition: .22s ease;
-}
 
-.avatar-choice:hover {
-    border-color: rgba(183,214,207,.35);
-    background: rgba(183,214,207,.07);
-    transform: translateY(-2px);
-}
+    border-radius:16px;
 
-.avatar-choice.active {
-    border-color: rgba(215,193,138,.55);
 
     background:
-        radial-gradient(
-            circle,
-            rgba(215,193,138,.14),
-            rgba(185,221,213,.045)
-        );
 
-    box-shadow:
-        0 0 0 1px rgba(215,193,138,.10),
-        0 8px 24px rgba(0,0,0,.22);
+        rgba(4,9,8,.8);
+
+
+    border:
+
+        1px solid rgba(218,194,133,.2);
+
+
+    color:
+
+        var(--creator-text);
+
+
+    outline:none;
+
+
 }
+
+
+
+.creator-dashboard-page input:focus,
+.creator-dashboard-page textarea:focus {
+
+
+    border-color:
+
+        var(--creator-gold);
+
+
+}
+
+
+
 
 
 /* ============================================================
-   AVATAR EXPLANATION
+   MOBILE
    ============================================================ */
 
-.world-builder-avatar-explanation {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
 
-    padding: 20px 22px;
-    margin-top: 72px !important;
-    margin-bottom: 28px;
-
-    border: 1px solid rgba(183,214,207,.11);
-    border-radius: 18px;
-
-    background: rgba(5,16,25,.42);
-
-    color: var(--creator-muted);
-}
-
-.avatar-explanation-title {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    color: var(--creator-text);
-    font-size: 13px;
-    letter-spacing: .08em;
-}
-
-.avatar-explanation-title span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-    width: 30px;
-    min-width: 30px;
-    margin-right: 6px;
-
-    font-size: 21px;
-}
-
-.world-builder-avatar-explanation > span {
-    font-size: 12px;
-    color: var(--creator-accent);
-}
-
-.world-builder-avatar-explanation p {
-    margin: 2px 0 0;
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--creator-muted);
-}
+@media(max-width:900px){
 
 
-/* ============================================================
-   IDENTITY · EVOLUTION
-   ============================================================ */
-
-.world-builder-identity-inline {
-    padding-top: 28px;
-    border-top: 1px solid rgba(183,214,207,.10);
-}
-
-.world-builder-inline-heading {
-    margin-bottom: 22px;
-
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-
-    color: var(--creator-gold);
-}
+    .creator-dashboard-page > *,
+    .world-builder-page > * {
 
 
-/* ============================================================
-   FIELDS
-   ============================================================ */
+        width:
 
-.world-builder-field {
-    margin-bottom: 18px;
-}
-
-.world-builder-field label {
-    display: block;
-    margin-bottom: 8px;
-
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-
-    color: var(--creator-muted);
-}
-
-.world-builder-field input,
-.world-builder-field textarea,
-.world-builder-field select {
-    box-sizing: border-box;
-    width: 100%;
-
-    border: 1px solid rgba(183,214,207,.14);
-    border-radius: 13px;
-
-    padding: 13px 15px;
-
-    background: rgba(4,14,22,.62);
-    color: var(--creator-text);
-
-    outline: none;
-
-    transition: .2s ease;
-}
-
-.world-builder-field input:focus,
-.world-builder-field textarea:focus,
-.world-builder-field select:focus {
-    border-color: rgba(183,214,207,.42);
-
-    box-shadow:
-        0 0 0 3px rgba(183,214,207,.055);
-}
-
-.world-builder-field input::placeholder,
-.world-builder-field textarea::placeholder {
-    color: rgba(225,239,235,.30);
-}
+            calc(100% - 32px);
 
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 700px) {
-
-    .world-builder-portrait {
-        padding: 24px;
     }
 
+
+
+    .creator-dashboard-page
+    .world-builder-row-three,
+    .creator-dashboard-page
+    .world-builder-row-two {
+
+
+        grid-template-columns:
+
+            1fr;
+
+
+        gap:20px;
+
+
+    }
+
+
+
+
+    .creator-dashboard-page
     .world-builder-portrait-main {
-        gap: 18px;
+
+
+        flex-direction:column;
+
+
+        text-align:center;
+
+
     }
 
-    .world-builder-avatar {
-        flex-basis: 92px;
-        width: 92px;
-        height: 92px;
-    }
 
-    .world-builder-portrait-info strong {
-        font-size: 20px;
-    }
 
+
+    .creator-dashboard-page
     .world-builder-avatar-grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
-/* ============================================================
-   LIVING CARD ORACLE — PREMIUM TWO COLUMN RESULT
-   ============================================================ */
 
-.living-card-result-card {
-    display: grid;
-    grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
-    gap: 54px;
-    align-items: center;
-    width: 100%;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 48px;
-    box-sizing: border-box;
-}
 
-/* LEFT — THE ACTUAL LIVING CARD */
+        grid-template-columns:
 
-.living-card-result-image-wrap {
-    position: relative;
-    width: 100%;
-    max-width: 360px;
-    aspect-ratio: 2 / 3;
-    margin: 0 auto;
-    padding: 14px;
-    box-sizing: border-box;
-    border-radius: 24px;
+            repeat(
+                4,
+                1fr
+            );
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.12),
-            rgba(255,255,255,.025)
-        );
 
-    border: 1px solid rgba(216,225,220,.24);
-
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.42),
-        0 0 0 1px rgba(255,255,255,.025) inset,
-        0 0 60px rgba(158,215,208,.06);
-}
-
-.living-card-result-image-wrap::before {
-    content: "";
-    position: absolute;
-    inset: 7px;
-    border: 1px solid rgba(216,225,220,.12);
-    border-radius: 18px;
-    pointer-events: none;
-}
-
-.living-card-result-image {
-    position: relative;
-    z-index: 2;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 16px;
-}
-
-/* RIGHT — ORACLE READING */
-
-.living-card-result-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    min-width: 0;
-    text-align: left;
-}
-
-.living-card-result-content .living-card-result-symbol {
-    margin-bottom: 18px;
-}
-
-.living-card-result-content .living-card-result-kicker {
-    margin-bottom: 18px;
-}
-
-.living-card-result-content h2 {
-    margin: 0 0 14px;
-    font-size: clamp(30px, 4vw, 48px);
-    line-height: 1;
-    letter-spacing: .08em;
-}
-
-.living-card-result-content strong {
-    display: block;
-    margin-bottom: 22px;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-.living-card-result-content p {
-    max-width: 540px;
-    margin: 0 0 30px;
-    font-size: 15px;
-    line-height: 1.85;
-}
-
-/* MOBILE */
-
-@media (max-width: 760px) {
-
-    .living-card-result-card {
-        grid-template-columns: 1fr;
-        gap: 34px;
-        padding: 28px;
     }
 
-    .living-card-result-image-wrap {
-        max-width: 300px;
+
+
+
+    .creator-dashboard-page
+    .birth-matrix-grid {
+
+
+        grid-template-columns:
+
+            repeat(
+                2,
+                1fr
+            );
+
+
     }
 
-    .living-card-result-content {
-        align-items: center;
-        text-align: center;
+
+
+
+    .creator-dashboard-page
+    .creator-progress {
+
+
+        grid-template-columns:
+
+            1fr;
+
+
     }
+
+
 
 }
 
 
 
+@media(max-width:480px){
+
+
+    .creator-dashboard-page
+    .living-header h1 {
+
+
+        font-size:2.4rem;
+
+
+    }
 
 
 
+    .creator-dashboard-page
+    .world-builder-card {
 
+
+        padding:22px;
+
+
+        border-radius:22px;
+
+
+    }
+
+
+
+    .creator-dashboard-page
+    .world-builder-avatar {
+
+
+        width:100px;
+
+        height:100px;
+
+
+    }
+
+
+}
