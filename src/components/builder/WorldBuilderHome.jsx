@@ -12,12 +12,13 @@ WORLD BUILDER HOME
 
 import { useMemo, useState } from "react";
 
-import LivingTimeHeader from "../shared/LivingTimeHeader";
-
 import {
     getWorldState,
     updateWorldState
 } from "../../core/state/WorldState";
+
+import LivingIntelligencePanel
+    from "../intelligence/LivingIntelligencePanel";
 
 import {
     getWorldBuilderDeck
@@ -640,13 +641,8 @@ export default function WorldBuilderHome() {
     return (
 
         <main
-            className="
-                world-builder
-                world-builder-home
-            "
+            className="living-page world-builder-page world-builder-home"
         >
-
-            <LivingTimeHeader />
 
 
             {/* =================================================
@@ -741,175 +737,6 @@ export default function WorldBuilderHome() {
                 </div>
 
             </section>
-
-
-            {/* =================================================
-                MY LIVING WORLDS
-            ================================================= */}
-
-            <section
-                className="
-                    world-builder-living-worlds
-                    world-builder-premium-section
-                "
-            >
-
-                <div
-                    className="
-                        world-builder-section-heading
-                    "
-                >
-
-                    <span
-                        className="
-                            world-builder-card-eyebrow
-                        "
-                    >
-                        MY LIVING WORLDS
-                    </span>
-
-                    <h2>
-                        Your Living Worlds
-                    </h2>
-
-                    <p>
-                        Your Living Worlds — from first seed
-                        to living creation.
-                    </p>
-
-                </div>
-
-
-                <div
-                    className="
-                        world-builder-world-search
-                    "
-                >
-
-                    <span>
-                        ◯
-                    </span>
-
-                    <input
-                        type="search"
-                        value={search}
-                        onChange={
-                            event =>
-                                setSearch(
-                                    event.target.value
-                                )
-                        }
-                        placeholder="Search your Living Worlds"
-                    />
-
-                </div>
-
-
-                <div
-                    className="
-                        world-builder-status-filters
-                    "
-                >
-
-                    {visibleStatusFilters.map(
-                        filter => (
-
-                            <button
-                                key={
-                                    filter.id
-                                }
-                                type="button"
-                                className={
-                                    statusFilter ===
-                                    filter.id
-                                        ? "is-active"
-                                        : ""
-                                }
-                                onClick={() =>
-                                    setStatusFilter(
-                                        filter.id
-                                    )
-                                }
-                            >
-
-                                <span>
-                                    {
-                                        filter.icon
-                                    }
-                                </span>
-
-                                <strong>
-                                    {
-                                        filter.label
-                                    }
-                                </strong>
-
-                                <small>
-                                    0
-                                </small>
-
-                            </button>
-
-                        )
-                    )}
-
-                </div>
-
-
-                <div
-                    className="
-                        world-builder-empty-worlds
-                    "
-                >
-
-                    <div
-                        className="
-                            world-builder-empty-worlds-symbol
-                        "
-                    >
-                        ◌
-                    </div>
-
-                    <h3>
-                        No Living Worlds yet.
-                    </h3>
-
-                    <p>
-                        Your first Living World will appear
-                        here when you begin creating.
-                    </p>
-
-
-                    <button
-                        type="button"
-                        className="
-                            world-builder-primary-button
-                        "
-                        onClick={
-                            () =>
-                                document
-                                    .getElementById(
-                                        "world-builder-experience"
-                                    )
-                                    ?.scrollIntoView({
-                                        behavior: "smooth"
-                                    })
-                        }
-                    >
-                        Begin Your World
-                        <span>
-                            →
-                        </span>
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            {/* =================================================
-                WORLD BUILDER EXPERIENCE
-            ================================================= */}
 
             <section
                 id="world-builder-experience"
@@ -1384,12 +1211,8 @@ export default function WorldBuilderHome() {
 
             </section>
 
-
-            {/* =================================================
-                BUILDING PATH
-            ================================================= */}
-
-            <section
+                        <LivingIntelligencePanel />
+<section
                 className="
                     world-builder-building-path
                     world-builder-premium-section
@@ -1523,11 +1346,6 @@ export default function WorldBuilderHome() {
 
             </section>
 
-
-            {/* =================================================
-                LIVING CARDS
-            ================================================= */}
-
             <section
                 className="
                     world-builder-cards-section
@@ -1589,20 +1407,36 @@ export default function WorldBuilderHome() {
                                     "
                                 >
 
-                                    <span>
-                                        {
-                                            card.icon ||
-                                            "✦"
-                                        }
-                                    </span>
+                                    <div
+                                        className="
+                                            world-builder-living-card-image
+                                        "
+                                    >
+                                        {card.image ? (
+                                            <img
+                                                src={card.image}
+                                                alt={card.title || "Living Card"}
+                                            />
+                                        ) : (
+                                            <span>
+                                                {card.symbol || "✦"}
+                                            </span>
+                                        )}
+                                    </div>
 
-                                    <strong>
-                                        {
-                                            card.title ||
-                                            card.name ||
-                                            "Living Card"
-                                        }
-                                    </strong>
+                                    <div
+                                        className="
+                                            world-builder-living-card-info
+                                        "
+                                    >
+                                        <small>
+                                            {String(card.number).padStart(3, "0")}
+                                        </small>
+
+                                        <strong>
+                                            {card.title || "Living Card"}
+                                        </strong>
+                                    </div>
 
                                 </div>
 
@@ -1613,10 +1447,164 @@ export default function WorldBuilderHome() {
 
             </section>
 
+            <section
+                className="
+                    world-builder-living-worlds
+                    world-builder-premium-section
+                "
+            >
 
-            {/* =================================================
-                FINAL CTA
-            ================================================= */}
+                <div
+                    className="
+                        world-builder-section-heading
+                    "
+                >
+
+                    <span
+                        className="
+                            world-builder-card-eyebrow
+                        "
+                    >
+                        MY LIVING WORLDS
+                    </span>
+
+                    <h2>
+                        Your Living Worlds
+                    </h2>
+
+                    <p>
+                        Your Living Worlds — from first seed
+                        to living creation.
+                    </p>
+
+                </div>
+
+
+                <div
+                    className="
+                        world-builder-world-search
+                    "
+                >
+
+                    <span>
+                        ◯
+                    </span>
+
+                    <input
+                        type="search"
+                        value={search}
+                        onChange={
+                            event =>
+                                setSearch(
+                                    event.target.value
+                                )
+                        }
+                        placeholder="Search your Living Worlds"
+                    />
+
+                </div>
+
+
+                <div
+                    className="
+                        world-builder-status-filters
+                    "
+                >
+
+                    {visibleStatusFilters.map(
+                        filter => (
+
+                            <button
+                                key={
+                                    filter.id
+                                }
+                                type="button"
+                                className={
+                                    statusFilter ===
+                                    filter.id
+                                        ? "is-active"
+                                        : ""
+                                }
+                                onClick={() =>
+                                    setStatusFilter(
+                                        filter.id
+                                    )
+                                }
+                            >
+
+                                <span>
+                                    {
+                                        filter.icon
+                                    }
+                                </span>
+
+                                <strong>
+                                    {
+                                        filter.label
+                                    }
+                                </strong>
+
+                                <small>
+                                    0
+                                </small>
+
+                            </button>
+
+                        )
+                    )}
+
+                </div>
+
+
+                <div
+                    className="
+                        world-builder-empty-worlds
+                    "
+                >
+
+                    <div
+                        className="
+                            world-builder-empty-worlds-symbol
+                        "
+                    >
+                        ◌
+                    </div>
+
+                    <h3>
+                        No Living Worlds yet.
+                    </h3>
+
+                    <p>
+                        Your first Living World will appear
+                        here when you begin creating.
+                    </p>
+
+
+                    <button
+                        type="button"
+                        className="
+                            world-builder-primary-button
+                        "
+                        onClick={
+                            () =>
+                                document
+                                    .getElementById(
+                                        "world-builder-experience"
+                                    )
+                                    ?.scrollIntoView({
+                                        behavior: "smooth"
+                                    })
+                        }
+                    >
+                        Begin Your World
+                        <span>
+                            →
+                        </span>
+                    </button>
+
+                </div>
+
+            </section>
 
             <section
                 className="
@@ -1683,5 +1671,13 @@ export default function WorldBuilderHome() {
     );
 
 }
+
+
+
+
+
+
+
+
 
 

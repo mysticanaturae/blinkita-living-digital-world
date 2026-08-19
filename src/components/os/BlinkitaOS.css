@@ -1,271 +1,846 @@
-﻿.blinkita-os {
-  width: 100%;
-  min-height: 100vh;
-  padding: 0 0 80px;
+﻿/* =========================================================
+   BLINKITA OS™
+   THE SYSTEM
+
+   PREMIUM / HIGH-TICKET LIVING WORLD EXPERIENCE
+   ========================================================= */
+
+
+/* =========================================================
+   01. ROOT
+   ========================================================= */
+
+.blinkita-os {
+    --os-bg: #0a0b24;
+    --os-bg-deep: #050618;
+    --os-bg-soft: #101332;
+
+    --os-panel: rgba(17, 20, 54, 0.72);
+    --os-panel-strong: rgba(20, 24, 62, 0.88);
+
+    --os-line: rgba(150, 157, 225, 0.14);
+    --os-line-strong: rgba(168, 174, 235, 0.28);
+
+    --os-indigo: #8d93d8;
+    --os-indigo-soft: #6f76bd;
+    --os-indigo-bright: #b8bce9;
+
+    --os-text: #f1f2f8;
+    --os-text-soft: rgba(241, 242, 248, 0.72);
+    --os-text-muted: rgba(241, 242, 248, 0.46);
+
+    min-height: 100vh;
+    padding: 0 0 110px;
+    box-sizing: border-box;
+
+    color: var(--os-text);
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(86, 92, 180, 0.22),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 12% 38%,
+            rgba(72, 79, 165, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 88% 68%,
+            rgba(126, 112, 204, 0.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #07081c 0%,
+            #050618 100%
+        );
+
+    overflow-x: hidden;
 }
+
+
+/* =========================================================
+   02. PREMIUM SECTION SYSTEM
+   ========================================================= */
 
 .blinkita-os section {
-  width: min(1180px, calc(100% - 40px));
-  margin: 0 auto;
+    position: relative;
+
+    width: min(1400px, calc(100% - 64px));
+    margin-inline: auto;
 }
+
+.blinkita-os section:not(.os-hero)::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: min(900px, 80%);
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--os-line-strong),
+            transparent
+        );
+
+    opacity: 0.6;
+}
+
+
+/* =========================================================
+   03. HERO
+   ========================================================= */
 
 .os-hero {
-  padding: 90px 20px 70px;
-  text-align: center;
+    position: relative;
+
+    min-height: 720px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: min(1500px, calc(100% - 48px)) !important;
+
+    margin: 24px auto 0 !important;
+    padding: 120px 80px;
+
+    text-align: center;
+
+    border: 1px solid var(--os-line);
+    border-radius: 32px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(102, 110, 215, 0.16),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 18% 80%,
+            rgba(78, 85, 177, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(20, 23, 62, 0.94),
+            rgba(5, 6, 24, 0.98)
+        );
+
+    box-shadow:
+        0 40px 120px rgba(0, 0, 0, 0.48),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    overflow: hidden;
 }
 
-.os-kicker,
-.os-section-label {
-  letter-spacing: 0.16em;
-  font-size: 0.75rem;
-  font-weight: 700;
+.os-hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(150, 157, 225, 0.035) 45%,
+            transparent 65%
+        );
+
+    pointer-events: none;
+}
+
+.os-hero::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 42px;
+    left: 50%;
+
+    width: 100px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--os-indigo),
+            transparent
+        );
+
+    opacity: 0.7;
+}
+
+.os-kicker {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 28px;
+
+    color: var(--os-indigo-bright);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
 }
 
 .os-hero h1 {
-  max-width: 900px;
-  margin: 18px auto 24px;
-  font-size: clamp(2.4rem, 6vw, 5.4rem);
-  line-height: 0.98;
+    position: relative;
+    z-index: 2;
+
+    max-width: 1100px;
+    margin: 0 auto;
+
+    color: var(--os-text);
+
+    font-size: clamp(3.4rem, 7vw, 7rem);
+    line-height: 0.94;
+    font-weight: 400;
+    letter-spacing: -0.055em;
+
+    text-wrap: balance;
 }
 
 .os-lead {
-  max-width: 780px;
-  margin: 0 auto 20px;
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
-  line-height: 1.6;
+    position: relative;
+    z-index: 2;
+
+    max-width: 780px;
+    margin: 40px auto 0;
+
+    color: var(--os-text-soft);
+
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    line-height: 1.8;
 }
 
 .os-sublead {
-  max-width: 680px;
-  margin: 0 auto;
-  line-height: 1.7;
-  opacity: 0.72;
+    position: relative;
+    z-index: 2;
+
+    max-width: 680px;
+    margin: 22px auto 0;
+
+    color: var(--os-text-muted);
+
+    line-height: 1.8;
 }
 
+
+/* =========================================================
+   04. SECTION LABELS
+   ========================================================= */
+
+.os-section-label {
+    color: var(--os-indigo-bright);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   05. CREATION FLOW
+   ========================================================= */
+
 .os-creation-flow {
-  padding: 50px 0 90px;
-  text-align: center;
+    padding: 110px 0;
+
+    text-align: center;
 }
 
 .os-flow {
-  max-width: 760px;
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+    max-width: 760px;
+
+    margin: 52px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 44px;
+
+    border: 1px solid var(--os-line);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 21, 57, 0.78),
+            rgba(5, 6, 24, 0.88)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025),
+        0 30px 80px rgba(0, 0, 0, 0.22);
 }
 
 .os-flow span {
-  font-weight: 700;
-  letter-spacing: 0.08em;
+    color: var(--os-text);
+
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
 }
 
 .os-flow b {
-  opacity: 0.4;
+    color: var(--os-indigo-soft);
+    opacity: 0.55;
 }
 
 .os-flow-statement {
-  font-size: 1.15rem;
-  font-style: italic;
-  opacity: 0.75;
+    max-width: 650px;
+    margin: 0 auto;
+
+    color: var(--os-text-muted);
+
+    font-size: 1.08rem;
+    font-style: italic;
+    line-height: 1.8;
 }
+
+
+/* =========================================================
+   06. PREMIUM CARD SYSTEM
+   ========================================================= */
 
 .os-dimension-grid,
 .os-layer-grid,
 .os-system-grid,
 .os-portal-grid {
-  display: grid;
-  gap: 18px;
+    display: grid;
+
+    gap: 20px;
+    margin-top: 38px;
 }
 
 .os-dimension-grid {
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 30px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .os-layer-grid {
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: 30px;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .os-system-grid {
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 30px;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .os-portal-grid {
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 30px;
+    grid-template-columns: repeat(3, 1fr);
 }
+
+
+/* =========================================================
+   07. CARDS
+   ========================================================= */
 
 .os-dimension-card,
 .os-layer-card,
 .os-system-card,
 .os-portal-card {
-  border: 1px solid currentColor;
-  border-radius: 18px;
-  padding: 26px;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 180ms ease, opacity 180ms ease;
+    position: relative;
+
+    padding: 32px;
+
+    border: 1px solid var(--os-line);
+    border-radius: 24px;
+
+    color: inherit;
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--os-panel-strong),
+            rgba(7, 8, 27, 0.92)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025),
+        0 24px 70px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease,
+        background 220ms ease;
+}
+
+.os-dimension-card::before,
+.os-layer-card::before,
+.os-system-card::before,
+.os-portal-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 28px;
+    right: 28px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--os-line-strong),
+            transparent
+        );
+
+    opacity: 0.6;
 }
 
 .os-dimension-card:hover,
 .os-layer-card:hover,
 .os-system-card:hover,
 .os-portal-card:hover {
-  transform: translateY(-3px);
-  opacity: 0.82;
+    transform: translateY(-5px);
+
+    border-color: var(--os-line-strong);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 29, 73, 0.92),
+            rgba(8, 9, 31, 0.96)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 35px 90px rgba(0, 0, 0, 0.32);
 }
 
+
+/* =========================================================
+   08. CARD TYPOGRAPHY
+   ========================================================= */
+
 .os-card-number {
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  opacity: 0.45;
-  margin-bottom: 18px;
+    margin-bottom: 22px;
+
+    color: var(--os-indigo-soft);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
 }
 
 .os-dimension-card h2,
 .os-layer-card h2,
 .os-system-card h2 {
-  margin: 0 0 12px;
-  line-height: 1.15;
+    margin: 0 0 14px;
+
+    color: var(--os-text);
+
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    line-height: 1.15;
+    font-weight: 400;
 }
 
 .os-dimension-card h3,
 .os-layer-card h3 {
-  margin: 0 0 16px;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+    margin: 0 0 18px;
+
+    color: var(--os-indigo-bright);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
 }
 
 .os-dimension-card p,
 .os-layer-card p,
 .os-system-card p {
-  line-height: 1.6;
-  opacity: 0.72;
+    margin: 0;
+
+    color: var(--os-text-soft);
+
+    line-height: 1.75;
 }
 
 .os-dimension-card a,
 .os-layer-card a,
 .os-system-card span {
-  display: inline-block;
-  margin-top: 12px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+    display: inline-block;
+
+    margin-top: 22px;
+
+    color: var(--os-indigo-bright);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
 }
+
+
+/* =========================================================
+   09. MAJOR SECTIONS
+   ========================================================= */
 
 .os-layers,
 .os-systems,
 .os-philosophy,
 .os-principles,
 .os-portals {
-  padding: 80px 0 0;
+    padding: 110px 0 0;
 }
 
+
+/* =========================================================
+   10. SYSTEM CARDS
+   ========================================================= */
+
 .os-system-card {
-  display: block;
+    display: block;
 }
 
 .os-system-card span {
-  margin-top: 4px;
+    margin-top: 20px;
 }
 
+
+/* =========================================================
+   11. PHILOSOPHY
+   ========================================================= */
+
 .os-philosophy {
-  text-align: center;
+    text-align: center;
 }
 
 .os-philosophy-flow {
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+    max-width: 720px;
+
+    margin: 52px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 14px;
+
+    color: var(--os-text);
+}
+
+.os-philosophy-flow strong {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
 }
 
 .os-philosophy-flow span {
-  opacity: 0.35;
+    color: var(--os-indigo);
+    opacity: 0.55;
 }
 
 .os-philosophy p {
-  max-width: 650px;
-  margin: 0 auto;
-  line-height: 1.8;
-  opacity: 0.72;
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    color: var(--os-text-soft);
+
+    line-height: 1.9;
 }
 
+
+/* =========================================================
+   12. PRINCIPLES
+   ========================================================= */
+
 .os-principles {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
 }
 
 .os-principles article {
-  border-top: 1px solid currentColor;
-  padding-top: 24px;
+    position: relative;
+
+    padding: 34px;
+
+    border: 1px solid var(--os-line);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 24, 62, 0.84),
+            rgba(5, 6, 24, 0.92)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025),
+        0 24px 70px rgba(0, 0, 0, 0.20);
+}
+
+.os-principles article::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 30px;
+    right: 30px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--os-line-strong),
+            transparent
+        );
 }
 
 .os-principles p {
-  line-height: 1.7;
+    margin: 18px 0 0;
+
+    color: var(--os-text-soft);
+
+    line-height: 1.8;
 }
 
+
+/* =========================================================
+   13. LIVING INTELLIGENCE
+   ========================================================= */
+
+/*
+   The Living Intelligence panel is intentionally allowed
+   to sit between the principles and the Living Worlds.
+
+   Its own component controls its internal layout.
+   These rules only give it the OS visual environment.
+*/
+
+.blinkita-os .living-intelligence-panel {
+    width: min(1180px, calc(100% - 64px));
+    margin: 110px auto 0;
+}
+
+
+/* =========================================================
+   14. LIVING WORLDS PORTALS
+   ========================================================= */
+
 .os-portals-intro {
-  max-width: 680px;
-  line-height: 1.7;
-  opacity: 0.72;
+    max-width: 720px;
+
+    margin: 22px 0 0;
+
+    color: var(--os-text-soft);
+
+    line-height: 1.8;
 }
 
 .os-portal-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 82px;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
 }
 
 .os-portal-card span {
-  opacity: 0.5;
+    color: var(--os-indigo-bright);
+
+    opacity: 0.75;
+
+    transition:
+        transform 180ms ease,
+        opacity 180ms ease;
 }
 
+.os-portal-card:hover span {
+    transform: translateX(5px);
+    opacity: 1;
+}
+
+
+/* =========================================================
+   15. SOVEREIGNTY
+   ========================================================= */
+
 .os-sovereignty {
-  padding: 120px 20px 40px;
-  text-align: center;
+    padding: 160px 20px 60px !important;
+
+    text-align: center;
 }
 
 .os-sovereignty-mark {
-  font-size: 2rem;
-  margin-bottom: 24px;
+    margin-bottom: 28px;
+
+    color: var(--os-indigo-bright);
+
+    font-size: 2rem;
+
+    text-shadow:
+        0 0 40px rgba(141, 147, 216, 0.22);
 }
 
 .os-sovereignty h2 {
-  font-size: clamp(1.5rem, 3vw, 2.6rem);
-  margin-bottom: 18px;
+    max-width: 900px;
+
+    margin: 0 auto 22px;
+
+    color: var(--os-text);
+
+    font-size: clamp(1.7rem, 4vw, 3rem);
+    line-height: 1.05;
+    font-weight: 400;
+    letter-spacing: -0.03em;
 }
 
 .os-sovereignty p {
-  opacity: 0.7;
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: var(--os-text-muted);
+
+    line-height: 1.8;
 }
 
-@media (max-width: 900px) {
-  .os-dimension-grid,
-  .os-system-grid,
-  .os-portal-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+
+/* =========================================================
+   16. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .os-system-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .os-hero {
+        padding: 100px 60px;
+    }
 }
+
+
+@media (max-width: 850px) {
+
+    .blinkita-os section {
+        width: min(100% - 36px, 700px);
+    }
+
+    .os-hero {
+        width: calc(100% - 32px) !important;
+
+        min-height: 620px;
+
+        padding: 80px 32px;
+    }
+
+    .os-dimension-grid,
+    .os-layer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .os-principles {
+        grid-template-columns: 1fr;
+    }
+
+    .blinkita-os .living-intelligence-panel {
+        width: min(100% - 36px, 700px);
+    }
+}
+
 
 @media (max-width: 650px) {
-  .os-dimension-grid,
-  .os-layer-grid,
-  .os-system-grid,
-  .os-portal-grid,
-  .os-principles {
-    grid-template-columns: 1fr;
-  }
 
-  .os-hero {
-    padding-top: 60px;
-  }
+    .blinkita-os {
+        padding-bottom: 60px;
+    }
+
+    .blinkita-os section {
+        width: calc(100% - 28px);
+    }
+
+    .os-hero {
+        width: calc(100% - 20px) !important;
+
+        min-height: 560px;
+
+        margin-top: 10px !important;
+        padding: 70px 22px;
+
+        border-radius: 24px;
+    }
+
+    .os-hero h1 {
+        font-size: clamp(2.6rem, 13vw, 4.2rem);
+    }
+
+    .os-lead {
+        margin-top: 30px;
+        font-size: 1rem;
+    }
+
+    .os-flow {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .os-dimension-grid,
+    .os-layer-grid,
+    .os-system-grid,
+    .os-portal-grid,
+    .os-principles {
+        grid-template-columns: 1fr;
+    }
+
+    .os-dimension-card,
+    .os-layer-card,
+    .os-system-card,
+    .os-portal-card,
+    .os-principles article {
+        padding: 26px;
+        border-radius: 20px;
+    }
+
+    .os-layers,
+    .os-systems,
+    .os-philosophy,
+    .os-principles,
+    .os-portals {
+        padding-top: 82px;
+    }
+
+    .blinkita-os .living-intelligence-panel {
+        width: calc(100% - 28px);
+        margin-top: 82px;
+    }
+
+    .os-sovereignty {
+        padding-top: 110px !important;
+    }
 }

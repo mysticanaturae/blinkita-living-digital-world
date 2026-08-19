@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import "./BlinkitaOS.css";
+import LivingIntelligencePanel from "../intelligence/LivingIntelligencePanel";
 
 const dimensions = [
   {
@@ -321,7 +322,9 @@ export default function BlinkitaOS() {
         </article>
       </section>
 
-      <section className="os-portals">
+            <LivingIntelligencePanel worldId="os" />
+
+<section className="os-portals">
         <div className="os-section-label">THE 14 LIVING WORLDS™</div>
 
         <p className="os-portals-intro">
@@ -357,3 +360,5 @@ export default function BlinkitaOS() {
     </main>
   );
 }
+
+

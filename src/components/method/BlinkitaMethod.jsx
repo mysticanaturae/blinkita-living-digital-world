@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import "./BlinkitaMethod.css";
+import LivingIntelligencePanel from "../intelligence/LivingIntelligencePanel";
 
 const methodDomains = [
     {
@@ -178,7 +179,7 @@ export default function BlinkitaMethod() {
             </section>
 
 
-            <section className="method-principle">
+            <LivingIntelligencePanel worldId="method" />            <section className="method-principle">
 
                 <div className="method-principle-label">
                     THE BLINKITA METHOD PRINCIPLE
@@ -194,3 +195,7 @@ export default function BlinkitaMethod() {
         </main>
     );
 }
+
+
+
+
